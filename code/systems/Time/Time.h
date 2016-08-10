@@ -11,16 +11,15 @@ namespace guar
 	{
 		friend class Engine;
 
-		//Data members
-		static double lastFrameTime;
+		Time() = delete; ~Time() = delete;
+
+		static void init(void);
+		static void update(void);
 
 	public:
 		static double getTime(void);
 		static double getDeltaTime(void);
 
-		static void init(void);
-		static void update(void);
-		
 	};
 
 }

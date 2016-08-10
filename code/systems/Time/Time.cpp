@@ -2,13 +2,13 @@
 
 //debug inc
 #include <Debug\Debug.h>
-
 //external inc
 #include <GLFW\glfw3.h>
 
 using namespace guar;
 
-double Time::lastFrameTime = 0;
+//static variables
+//etc
 
 double Time::getTime(void)
 {
@@ -18,7 +18,7 @@ double Time::getTime(void)
 
 double Time::getDeltaTime(void)
 {
-	return glfwGetTimerFrequency();  //getTime() - lastFrameTime;
+	return glfwGetTimerFrequency();
 
 }
 
@@ -31,7 +31,6 @@ void Time::init(void)
 
 void Time::update(void)
 {
-	lastFrameTime = getTime();
 
 	
 }

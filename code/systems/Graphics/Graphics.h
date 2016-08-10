@@ -21,14 +21,12 @@ namespace guar
 	namespace GFX { class Texture       ; }
 	namespace GFX { class RenderTexture ; }
 
-	class Engine;
-	
 	class Graphics final
 	{
-	    friend Engine;
-	    Graphics() = delete;
-	    Graphics(const Graphics&) = delete;
+	    friend class Engine;
+	    Graphics() = delete; Graphics(const Graphics&) = delete;
 		
+		//Engine interface
 	    static void init(GLFWwindow* aWindowHandle);
 		static void update(void);
 	

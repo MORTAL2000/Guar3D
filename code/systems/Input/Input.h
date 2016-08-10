@@ -14,12 +14,10 @@ namespace guar
 	{
 		friend class Engine;
 
-		Input()  = delete;
-		Input(const Input&) = delete;
-		~Input() = delete;
-		Input& operator=(const Input&) = delete;
-		
+		Input() = delete; ~Input() = delete;
+
 		static void init(GLFWwindow* aWindow);
+		static void update(void);
 
 	public: //public interface
 		static bool getKeyDown(const Key::KeyCode &aKeyCode);

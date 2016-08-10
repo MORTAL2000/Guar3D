@@ -7,11 +7,11 @@
 
 using namespace guar;
 
-static GLFWwindow* m_Window = 0;
+static GLFWwindow* s_Window = 0;
 
 bool Input::getKeyDown(const Key::KeyCode &aKeyCode)
 {
-	return glfwGetKey(m_Window, aKeyCode);
+	return glfwGetKey(s_Window, aKeyCode);
 
 }
 
@@ -19,6 +19,6 @@ void Input::init(GLFWwindow* aWindow)
 {
 	Debug::log("\n\n****\nEngine init: Input initializing...\n****\n");
 
-	m_Window = aWindow;
+	s_Window = aWindow;
 
 }

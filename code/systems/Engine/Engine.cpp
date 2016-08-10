@@ -55,15 +55,16 @@ void Engine::mainLoop()
 
 void Engine::mainInit(void)
 {
+	
 	Engine::init();
     Graphics::init(m_Window);
 	EntityComponentSystem::init();
 	Input::init(m_Window);
 	Time::init();
 
-	Debug::log("\n\n****\nEngine init: Sound initializing...\n****\n");
+	Debug::log(Debug::CYAN, "\n\n****\nEngine init: Sound initializing...\n****\n");
 
-	Debug::log("\n\n****\nEngine init: Network initializing...\n****\n");
+	Debug::log(Debug::GREEN, "\n\n****\nEngine init: Network initializing...\n****\n");
 
 	Debug::log("\n\n****\nEngine init complete\n****\n");
 

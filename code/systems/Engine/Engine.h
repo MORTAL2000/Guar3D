@@ -14,10 +14,7 @@ namespace guar
 
     class Engine final
     {
-		//class function rules
-        Engine() = delete;
-        Engine(const Engine&) = delete;
-        Engine& operator=(const Engine&) = delete;
+		Engine() = delete; ~Engine() = delete;
 
 		//Private methods
 		static void init(void);

@@ -12,11 +12,12 @@ namespace guar
 	{
 		friend class Engine;
 
-		static ECS::SceneGraph* createScene(const std::string &aName);
+		EntityComponentSystem() = delete; ~EntityComponentSystem() = delete;
 
-	public:
 		static void init(void);
 		static void update(void);
+		
+		static ECS::SceneGraph* createScene(const std::string &aName);
 
 	};
 
