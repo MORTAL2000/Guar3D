@@ -19,8 +19,8 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{2E960E73-572E-4089-8FC1-89D782FF1D55}</ProjectGuid>
-    <RootNamespace>Game</RootNamespace>
+    <ProjectGuid>{CF712083-DA16-42DF-9A57-B2286F975BC2}</ProjectGuid>
+    <RootNamespace>jsoncpp</RootNamespace>
     <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -31,10 +31,10 @@
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <PlatformToolset>v140</PlatformToolset>
-    <WholeProgramOptimization>false</WholeProgramOptimization>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
@@ -69,8 +69,8 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <OutDir>$(SolutionDir)..\..\build\bin\</OutDir>
-    <IntDir>$(SolutionDir)..\..\intermediate\$(ProjectName)</IntDir>
+    <OutDir>$(SolutionDir)..\..\libraries\dependencies\</OutDir>
+    <IntDir>$(SolutionDir)..\..\intermediate\jsoncpp</IntDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -78,6 +78,9 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
     </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -85,21 +88,23 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
     </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
-      <Optimization>Disabled</Optimization>
+      <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>C:\Users\Joe\Desktop\cpp11Engine\code\systems;C:\Users\Joe\Desktop\cpp11Engine\code\dependencies</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Joe\Desktop\cpp11Engine\code\dependencies\jsoncpp\includes;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalDependencies>Debug.lib;EntityComponentSystem.lib;Graphics.lib;Engine.lib;Input.lib;Interpreters.lib;Math.lib;Time.lib;LodePNG.lib;zlibstatic.lib;libassimp.lib;Lua.lib;jsoncpp.lib;glfw3.lib;glew32s.lib;glu32.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(SolutionDir)..\..\libraries\systems\;$(SolutionDir)..\..\libraries\dependencies\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -111,22 +116,34 @@
       <SDLCheck>true</SDLCheck>
     </ClCompile>
     <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\examples\Game\Components\PlayerController\PlayerController.cpp" />
-    <ClCompile Include="..\..\..\examples\Game\Components\Rotator\Rotator.cpp" />
-    <ClCompile Include="..\..\..\examples\Game\Components\Spinner\Spinner.cpp" />
-    <ClCompile Include="..\..\..\examples\Game\Game\Game.cpp" />
-    <ClCompile Include="..\..\..\examples\Game\main.cpp" />
+    <ClCompile Include="..\..\..\code\dependencies\jsoncpp\source\json_reader.cpp" />
+    <ClCompile Include="..\..\..\code\dependencies\jsoncpp\source\json_value.cpp" />
+    <ClCompile Include="..\..\..\code\dependencies\jsoncpp\source\json_writer.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\examples\Game\Components\PlayerController\PlayerController.h" />
-    <ClInclude Include="..\..\..\examples\Game\Components\Rotator\Rotator.h" />
-    <ClInclude Include="..\..\..\examples\Game\Components\Spinner\Spinner.h" />
-    <ClInclude Include="..\..\..\examples\Game\Game\Game.h" />
+    <ClInclude Include="..\..\..\code\dependencies\jsoncpp\includes\json\allocator.h" />
+    <ClInclude Include="..\..\..\code\dependencies\jsoncpp\includes\json\assertions.h" />
+    <ClInclude Include="..\..\..\code\dependencies\jsoncpp\includes\json\autolink.h" />
+    <ClInclude Include="..\..\..\code\dependencies\jsoncpp\includes\json\config.h" />
+    <ClInclude Include="..\..\..\code\dependencies\jsoncpp\includes\json\features.h" />
+    <ClInclude Include="..\..\..\code\dependencies\jsoncpp\includes\json\forwards.h" />
+    <ClInclude Include="..\..\..\code\dependencies\jsoncpp\includes\json\json.h" />
+    <ClInclude Include="..\..\..\code\dependencies\jsoncpp\includes\json\reader.h" />
+    <ClInclude Include="..\..\..\code\dependencies\jsoncpp\includes\json\value.h" />
+    <ClInclude Include="..\..\..\code\dependencies\jsoncpp\includes\json\version.h" />
+    <ClInclude Include="..\..\..\code\dependencies\jsoncpp\includes\json\writer.h" />
+    <ClInclude Include="..\..\..\code\dependencies\jsoncpp\source\json_tool.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\..\code\dependencies\jsoncpp\source\json_valueiterator.inl" />
+    <None Include="..\..\..\code\dependencies\jsoncpp\source\sconscript" />
+    <None Include="..\..\..\code\dependencies\jsoncpp\source\version.h.in" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

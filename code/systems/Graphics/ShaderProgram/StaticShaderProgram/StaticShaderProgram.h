@@ -28,6 +28,7 @@ namespace guar
             StaticShaderProgram(const std::string &aName, const std::string &aVertexSource, const std::string &aFragmentSource);
             
         protected:
+			//StaticShaderProgram() {}//msvc++ 2013. Find a fix for this
             virtual void glDrawCalls(void) = 0;
             virtual std::string vertexShaderGLSL(void) = 0;
             virtual std::string fragmentShaderGLSL(void) = 0;

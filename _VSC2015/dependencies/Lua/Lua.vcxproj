@@ -18,20 +18,14 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="..\..\..\code\dependencies\LodePNG\lodepng.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="..\..\..\code\dependencies\LodePNG\lodepng.h" />
-  </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{FF3C412B-CB7F-4E1B-9CAE-05F52E970C95}</ProjectGuid>
-    <RootNamespace>LodePNG</RootNamespace>
+    <ProjectGuid>{3165ED9F-4FF0-4962-B480-A0B0FE508D6D}</ProjectGuid>
+    <RootNamespace>Lua</RootNamespace>
     <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
-    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v140</PlatformToolset>
     <CharacterSet>MultiByte</CharacterSet>
@@ -76,7 +70,7 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <OutDir>$(SolutionDir)..\..\libraries\dependencies\</OutDir>
-    <IntDir>$(SolutionDir)..\..\intermediate\LodePNG</IntDir>
+    <IntDir>$(SolutionDir)..\..\intermediate\Lua</IntDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -84,6 +78,9 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
     </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -91,6 +88,9 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
     </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -100,9 +100,11 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <CallingConvention>Cdecl</CallingConvention>
+      <CompileAs>CompileAsC</CompileAs>
       <WholeProgramOptimization>false</WholeProgramOptimization>
     </ClCompile>
     <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
@@ -116,10 +118,79 @@
       <SDLCheck>true</SDLCheck>
     </ClCompile>
     <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
   </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\code\dependencies\Lua533\src\lapi.c" />
+    <ClCompile Include="..\..\..\code\dependencies\Lua533\src\lauxlib.c" />
+    <ClCompile Include="..\..\..\code\dependencies\Lua533\src\lbaselib.c" />
+    <ClCompile Include="..\..\..\code\dependencies\Lua533\src\lbitlib.c" />
+    <ClCompile Include="..\..\..\code\dependencies\Lua533\src\lcode.c" />
+    <ClCompile Include="..\..\..\code\dependencies\Lua533\src\lcorolib.c" />
+    <ClCompile Include="..\..\..\code\dependencies\Lua533\src\lctype.c" />
+    <ClCompile Include="..\..\..\code\dependencies\Lua533\src\ldblib.c" />
+    <ClCompile Include="..\..\..\code\dependencies\Lua533\src\ldebug.c" />
+    <ClCompile Include="..\..\..\code\dependencies\Lua533\src\ldo.c" />
+    <ClCompile Include="..\..\..\code\dependencies\Lua533\src\ldump.c" />
+    <ClCompile Include="..\..\..\code\dependencies\Lua533\src\lfunc.c" />
+    <ClCompile Include="..\..\..\code\dependencies\Lua533\src\lgc.c" />
+    <ClCompile Include="..\..\..\code\dependencies\Lua533\src\linit.c" />
+    <ClCompile Include="..\..\..\code\dependencies\Lua533\src\liolib.c" />
+    <ClCompile Include="..\..\..\code\dependencies\Lua533\src\llex.c" />
+    <ClCompile Include="..\..\..\code\dependencies\Lua533\src\lmathlib.c" />
+    <ClCompile Include="..\..\..\code\dependencies\Lua533\src\lmem.c" />
+    <ClCompile Include="..\..\..\code\dependencies\Lua533\src\loadlib.c" />
+    <ClCompile Include="..\..\..\code\dependencies\Lua533\src\lobject.c" />
+    <ClCompile Include="..\..\..\code\dependencies\Lua533\src\lopcodes.c" />
+    <ClCompile Include="..\..\..\code\dependencies\Lua533\src\loslib.c" />
+    <ClCompile Include="..\..\..\code\dependencies\Lua533\src\lparser.c" />
+    <ClCompile Include="..\..\..\code\dependencies\Lua533\src\lstate.c" />
+    <ClCompile Include="..\..\..\code\dependencies\Lua533\src\lstring.c" />
+    <ClCompile Include="..\..\..\code\dependencies\Lua533\src\lstrlib.c" />
+    <ClCompile Include="..\..\..\code\dependencies\Lua533\src\ltable.c" />
+    <ClCompile Include="..\..\..\code\dependencies\Lua533\src\ltablib.c" />
+    <ClCompile Include="..\..\..\code\dependencies\Lua533\src\ltm.c" />
+    <ClCompile Include="..\..\..\code\dependencies\Lua533\src\lua.c" />
+    <ClCompile Include="..\..\..\code\dependencies\Lua533\src\luac.c" />
+    <ClCompile Include="..\..\..\code\dependencies\Lua533\src\lundump.c" />
+    <ClCompile Include="..\..\..\code\dependencies\Lua533\src\lutf8lib.c" />
+    <ClCompile Include="..\..\..\code\dependencies\Lua533\src\lvm.c" />
+    <ClCompile Include="..\..\..\code\dependencies\Lua533\src\lzio.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\code\dependencies\Lua533\src\lapi.h" />
+    <ClInclude Include="..\..\..\code\dependencies\Lua533\src\lauxlib.h" />
+    <ClInclude Include="..\..\..\code\dependencies\Lua533\src\lcode.h" />
+    <ClInclude Include="..\..\..\code\dependencies\Lua533\src\lctype.h" />
+    <ClInclude Include="..\..\..\code\dependencies\Lua533\src\ldebug.h" />
+    <ClInclude Include="..\..\..\code\dependencies\Lua533\src\ldo.h" />
+    <ClInclude Include="..\..\..\code\dependencies\Lua533\src\lfunc.h" />
+    <ClInclude Include="..\..\..\code\dependencies\Lua533\src\lgc.h" />
+    <ClInclude Include="..\..\..\code\dependencies\Lua533\src\llex.h" />
+    <ClInclude Include="..\..\..\code\dependencies\Lua533\src\llimits.h" />
+    <ClInclude Include="..\..\..\code\dependencies\Lua533\src\lmem.h" />
+    <ClInclude Include="..\..\..\code\dependencies\Lua533\src\lobject.h" />
+    <ClInclude Include="..\..\..\code\dependencies\Lua533\src\lopcodes.h" />
+    <ClInclude Include="..\..\..\code\dependencies\Lua533\src\lparser.h" />
+    <ClInclude Include="..\..\..\code\dependencies\Lua533\src\lprefix.h" />
+    <ClInclude Include="..\..\..\code\dependencies\Lua533\src\lstate.h" />
+    <ClInclude Include="..\..\..\code\dependencies\Lua533\src\lstring.h" />
+    <ClInclude Include="..\..\..\code\dependencies\Lua533\src\ltable.h" />
+    <ClInclude Include="..\..\..\code\dependencies\Lua533\src\ltm.h" />
+    <ClInclude Include="..\..\..\code\dependencies\Lua533\src\lua.h" />
+    <ClInclude Include="..\..\..\code\dependencies\Lua533\src\lua.hpp" />
+    <ClInclude Include="..\..\..\code\dependencies\Lua533\src\luaconf.h" />
+    <ClInclude Include="..\..\..\code\dependencies\Lua533\src\lualib.h" />
+    <ClInclude Include="..\..\..\code\dependencies\Lua533\src\lundump.h" />
+    <ClInclude Include="..\..\..\code\dependencies\Lua533\src\lvm.h" />
+    <ClInclude Include="..\..\..\code\dependencies\Lua533\src\lzio.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\..\code\dependencies\Lua533\src\Makefile" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

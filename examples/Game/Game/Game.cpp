@@ -126,21 +126,15 @@ void Game::init()
 	{
 		std::weak_ptr<ECS::GameObject> gameObject = mainScene->createNewGameObject("The Light");
 
-		//gameObject._Get()->addComponent<guar::ECS::Renderer>();
 		gameObject._Get()->addComponent<guar::ECS::Transform>();
 		gameObject._Get()->addComponent<guar::ECS::Light>();
 		gameObject._Get()->addComponent<Rotator>();
 
-		//std::weak_ptr<guar::ECS::Renderer> renderer = gameObject._Get()->findComponent<guar::ECS::Renderer>();
-		//renderer._Get()->setModel("Cube");
-		//renderer._Get()->setShaderProgram("Opaque");
-		//renderer._Get()->setTexture("_Texture", "../Textures/Water.png");
-
+		
 		std::weak_ptr<guar::ECS::Transform> transform = gameObject._Get()->findComponent<guar::ECS::Transform>();
 		transform._Get()->setScale(Math::Vector3(1.0f, 1.0f, 1.0f));
 		transform._Get()->setPosition(Math::Vector3(0.0f, 5.0f, 30.0f));
-		//transform._Get()->setRotation(Vector3(10.0f, 0.0f, 0.0f));
-
+		
 	}
 	{
 		std::weak_ptr<ECS::GameObject> gameObject = mainScene->createNewGameObject("The Dragon");

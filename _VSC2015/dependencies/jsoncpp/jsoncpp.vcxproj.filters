@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="source">
+      <UniqueIdentifier>{699f3b00-3008-421a-9d98-6d7d6151ade0}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\code\dependencies\jsoncpp\source\json_reader.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\code\dependencies\jsoncpp\source\json_value.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\code\dependencies\jsoncpp\source\json_writer.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\code\dependencies\jsoncpp\source\json_tool.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\code\dependencies\jsoncpp\includes\json\allocator.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\code\dependencies\jsoncpp\includes\json\assertions.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\code\dependencies\jsoncpp\includes\json\autolink.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\code\dependencies\jsoncpp\includes\json\config.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\code\dependencies\jsoncpp\includes\json\features.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\code\dependencies\jsoncpp\includes\json\forwards.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\code\dependencies\jsoncpp\includes\json\json.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\code\dependencies\jsoncpp\includes\json\reader.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\code\dependencies\jsoncpp\includes\json\value.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\code\dependencies\jsoncpp\includes\json\version.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\code\dependencies\jsoncpp\includes\json\writer.h">
+      <Filter>source</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\..\code\dependencies\jsoncpp\source\json_valueiterator.inl">
+      <Filter>source</Filter>
+    </None>
+    <None Include="..\..\..\code\dependencies\jsoncpp\source\sconscript">
+      <Filter>source</Filter>
+    </None>
+    <None Include="..\..\..\code\dependencies\jsoncpp\source\version.h.in">
+      <Filter>source</Filter>
+    </None>
+  </ItemGroup>
+</Project>

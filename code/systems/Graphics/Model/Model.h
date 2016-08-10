@@ -21,7 +21,10 @@ namespace guar
     {
         class Model : public GraphicsObject
         {
+			
+
         protected:
+			//Model() {}//msvc2013 wants this?
             //std::string m_Name;
             GFXuint m_VertexBufferHandle;
             int m_VertexCount;

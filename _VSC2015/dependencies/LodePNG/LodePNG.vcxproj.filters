@@ -6,12 +6,12 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\dependencies\LodePNG\lodepng.cpp">
+    <ClCompile Include="..\..\..\code\dependencies\LodePNG\lodepng.cpp">
       <Filter>source</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\dependencies\LodePNG\lodepng.h">
+    <ClInclude Include="..\..\..\code\dependencies\LodePNG\lodepng.h">
       <Filter>source</Filter>
     </ClInclude>
   </ItemGroup>

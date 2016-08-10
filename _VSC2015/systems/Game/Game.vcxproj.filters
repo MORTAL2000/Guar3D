@@ -27,25 +27,25 @@
     <ClCompile Include="..\..\..\examples\Game\Game\Game.cpp">
       <Filter>src\Game</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\examples\Game\Components\Rotator\Rotator.cpp">
-      <Filter>src\Components\Rotator</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\..\examples\Game\Components\PlayerController\PlayerController.cpp">
       <Filter>src\Components\PlayerController</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\examples\Game\Components\Rotator\Rotator.cpp">
+      <Filter>src\Components\Rotator</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\examples\Game\Components\Spinner\Spinner.cpp">
       <Filter>src\Components\Spinner</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\..\examples\Game\Game\Game.h">
+      <Filter>src\Game</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\..\examples\Game\Components\PlayerController\PlayerController.h">
       <Filter>src\Components\PlayerController</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\examples\Game\Components\Rotator\Rotator.h">
       <Filter>src\Components\Rotator</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\examples\Game\Game\Game.h">
-      <Filter>src\Game</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\examples\Game\Components\Spinner\Spinner.h">
       <Filter>src\Components\Spinner</Filter>
