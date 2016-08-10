@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Input">
+      <UniqueIdentifier>{c441fb0d-df7c-408b-a28a-ea780cee6ee7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Input\Key">
+      <UniqueIdentifier>{419842ea-e584-4886-9029-1b11ceef4bd0}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\code\systems\Input\Input.cpp">
+      <Filter>Input</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\code\systems\Input\Key\Key.cpp">
+      <Filter>Input\Key</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\code\systems\Input\Input.h">
+      <Filter>Input</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\code\systems\Input\Key\Key.h">
+      <Filter>Input\Key</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

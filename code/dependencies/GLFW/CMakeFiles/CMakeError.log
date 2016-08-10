@@ -1,0 +1,73 @@
+Determining if the include file pthread.h exists failed with the following output:
+Change Dir: C:/Users/Joe/Desktop/GLFW/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/mingw/bin/mingw32-make.exe" "cmTC_78cef/fast"
+C:/mingw/bin/mingw32-make.exe -f CMakeFiles\cmTC_78cef.dir\build.make CMakeFiles/cmTC_78cef.dir/build
+mingw32-make.exe[1]: Entering directory `C:/Users/Joe/Desktop/GLFW/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_78cef.dir/CheckIncludeFile.c.obj
+C:\mingw\bin\gcc.exe     -o CMakeFiles\cmTC_78cef.dir\CheckIncludeFile.c.obj   -c C:\Users\Joe\Desktop\GLFW\CMakeFiles\CMakeTmp\CheckIncludeFile.c
+C:\Users\Joe\Desktop\GLFW\CMakeFiles\CMakeTmp\CheckIncludeFile.c:1:21: fatal error: pthread.h: No such file or directory
+ #include <pthread.h>
+                     ^
+compilation terminated.
+mingw32-make.exe[1]: *** [CMakeFiles/cmTC_78cef.dir/CheckIncludeFile.c.obj] Error 1
+mingw32-make.exe[1]: Leaving directory `C:/Users/Joe/Desktop/GLFW/CMakeFiles/CMakeTmp'
+mingw32-make.exe: *** [cmTC_78cef/fast] Error 2
+
+
+Determining if the include file dinput.h exists failed with the following output:
+Change Dir: C:/Users/Joe/Desktop/GLFW/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/mingw/bin/mingw32-make.exe" "cmTC_9d4e3/fast"
+C:/mingw/bin/mingw32-make.exe -f CMakeFiles\cmTC_9d4e3.dir\build.make CMakeFiles/cmTC_9d4e3.dir/build
+mingw32-make.exe[1]: Entering directory `C:/Users/Joe/Desktop/GLFW/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_9d4e3.dir/CheckIncludeFile.c.obj
+C:\mingw\bin\gcc.exe     -o CMakeFiles\cmTC_9d4e3.dir\CheckIncludeFile.c.obj   -c C:\Users\Joe\Desktop\GLFW\CMakeFiles\CMakeTmp\CheckIncludeFile.c
+C:\Users\Joe\Desktop\GLFW\CMakeFiles\CMakeTmp\CheckIncludeFile.c:1:20: fatal error: dinput.h: No such file or directory
+ #include <dinput.h>
+                    ^
+compilation terminated.
+mingw32-make.exe[1]: *** [CMakeFiles/cmTC_9d4e3.dir/CheckIncludeFile.c.obj] Error 1
+mingw32-make.exe[1]: Leaving directory `C:/Users/Joe/Desktop/GLFW/CMakeFiles/CMakeTmp'
+mingw32-make.exe: *** [cmTC_9d4e3/fast] Error 2
+
+
+Determining if the include file xinput.h exists failed with the following output:
+Change Dir: C:/Users/Joe/Desktop/GLFW/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/mingw/bin/mingw32-make.exe" "cmTC_facb3/fast"
+C:/mingw/bin/mingw32-make.exe -f CMakeFiles\cmTC_facb3.dir\build.make CMakeFiles/cmTC_facb3.dir/build
+mingw32-make.exe[1]: Entering directory `C:/Users/Joe/Desktop/GLFW/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_facb3.dir/CheckIncludeFile.c.obj
+C:\mingw\bin\gcc.exe     -o CMakeFiles\cmTC_facb3.dir\CheckIncludeFile.c.obj   -c C:\Users\Joe\Desktop\GLFW\CMakeFiles\CMakeTmp\CheckIncludeFile.c
+C:\Users\Joe\Desktop\GLFW\CMakeFiles\CMakeTmp\CheckIncludeFile.c:1:20: fatal error: xinput.h: No such file or directory
+ #include <xinput.h>
+                    ^
+compilation terminated.
+mingw32-make.exe[1]: *** [CMakeFiles/cmTC_facb3.dir/CheckIncludeFile.c.obj] Error 1
+mingw32-make.exe[1]: Leaving directory `C:/Users/Joe/Desktop/GLFW/CMakeFiles/CMakeTmp'
+mingw32-make.exe: *** [cmTC_facb3/fast] Error 2
+
+
+Performing C SOURCE FILE Test _GLFW_HAS_64ASLR failed with the following output:
+Change Dir: C:/Users/Joe/Desktop/GLFW/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/mingw/bin/mingw32-make.exe" "cmTC_10dfb/fast"
+C:/mingw/bin/mingw32-make.exe -f CMakeFiles\cmTC_10dfb.dir\build.make CMakeFiles/cmTC_10dfb.dir/build
+mingw32-make.exe[1]: Entering directory `C:/Users/Joe/Desktop/GLFW/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_10dfb.dir/src.c.obj
+C:\mingw\bin\gcc.exe    -D_GLFW_HAS_64ASLR -Wl,--high-entropy-va   -o CMakeFiles\cmTC_10dfb.dir\src.c.obj   -c C:\Users\Joe\Desktop\GLFW\CMakeFiles\CMakeTmp\src.c
+Linking C executable cmTC_10dfb.exe
+"C:\Program Files\cmake-3.6.0-win64-x64\bin\cmake.exe" -E cmake_link_script CMakeFiles\cmTC_10dfb.dir\link.txt --verbose=1
+"C:\Program Files\cmake-3.6.0-win64-x64\bin\cmake.exe" -E remove -f CMakeFiles\cmTC_10dfb.dir/objects.a
+C:\mingw\bin\ar.exe cr CMakeFiles\cmTC_10dfb.dir/objects.a @CMakeFiles\cmTC_10dfb.dir\objects1.rsp
+C:\mingw\bin\gcc.exe   -D_GLFW_HAS_64ASLR -Wl,--high-entropy-va    -Wl,--whole-archive CMakeFiles\cmTC_10dfb.dir/objects.a -Wl,--no-whole-archive  -o cmTC_10dfb.exe -Wl,--out-implib,libcmTC_10dfb.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\cmTC_10dfb.dir\linklibs.rsp
+c:/mingw/bin/../lib/gcc/mingw32/4.8.1/../../../../mingw32/bin/ld.exe: unrecognized option '--high-entropy-va'
+c:/mingw/bin/../lib/gcc/mingw32/4.8.1/../../../../mingw32/bin/ld.exe: use the --help option for usage information
+collect2.exe: error: ld returned 1 exit status
+mingw32-make.exe[1]: *** [cmTC_10dfb.exe] Error 1
+mingw32-make.exe[1]: Leaving directory `C:/Users/Joe/Desktop/GLFW/CMakeFiles/CMakeTmp'
+mingw32-make.exe: *** [cmTC_10dfb/fast] Error 2
+
+Source file was:
+int main(void) { return 0; }

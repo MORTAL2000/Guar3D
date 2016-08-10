@@ -1,0 +1,278 @@
+﻿C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppBuild.targets(368,5): warning MSB8004: Output Directory does not end with a trailing slash.  This build instance will add the slash as it is required to allow proper evaluation of the Output Directory.
+C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppBuild.targets(936,5): warning MSB8027: Two or more files with the name of ModelCollection.cpp will produce outputs to the same location. This can lead to an incorrect build result.  The files involved are ..\..\..\code\systems\Graphics\GraphicsObjectCollection\ModelCollection\ModelCollection.cpp, ..\..\..\code\systems\Graphics\ModelCollection\ModelCollection.cpp.
+C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppBuild.targets(936,5): warning MSB8027: Two or more files with the name of ShaderProgramCollection.cpp will produce outputs to the same location. This can lead to an incorrect build result.  The files involved are ..\..\..\code\systems\Graphics\GraphicsObjectCollection\ShaderProgramCollection\ShaderProgramCollection.cpp, ..\..\..\code\systems\Graphics\ShaderProgramCollection\ShaderProgramCollection.cpp.
+C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppBuild.targets(936,5): warning MSB8027: Two or more files with the name of TextureCollection.cpp will produce outputs to the same location. This can lead to an incorrect build result.  The files involved are ..\..\..\code\systems\Graphics\GraphicsObjectCollection\TextureCollection\TextureCollection.cpp, ..\..\..\code\systems\Graphics\TextureCollection\TextureCollection.cpp.
+  Graphics.cpp
+..\..\..\code\systems\Graphics\Graphics.cpp(46): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+..\..\..\code\systems\Graphics\Graphics.cpp(55): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+..\..\..\code\systems\Graphics\Graphics.cpp(56): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\joe\desktop\enginesolution\code\systems\graphics\graphicsobjectcollection\modelcollection\../GraphicsObjectCollection.h(42): warning C4018: '<': signed/unsigned mismatch
+  c:\users\joe\desktop\enginesolution\code\systems\graphics\graphicsobjectcollection\modelcollection\../GraphicsObjectCollection.h(41): note: while compiling class template member function 'guar::GFX::RenderTexture *guar::GFX::GraphicsObjectCollection<guar::GFX::RenderTexture,BaseType>::find(const std::string &)'
+          with
+          [
+              BaseType=guar::GFX::RenderTexture
+          ]
+  c:\users\joe\desktop\enginesolution\code\systems\graphics\Graphics.h(47): note: see reference to function template instantiation 'guar::GFX::RenderTexture *guar::GFX::GraphicsObjectCollection<guar::GFX::RenderTexture,BaseType>::find(const std::string &)' being compiled
+          with
+          [
+              BaseType=guar::GFX::RenderTexture
+          ]
+  c:\users\joe\desktop\enginesolution\code\systems\graphics\GraphicsObjectCollection/RenderTextureCollection/RenderTextureCollection.h(12): note: see reference to class template instantiation 'guar::GFX::GraphicsObjectCollection<guar::GFX::RenderTexture,BaseType>' being compiled
+          with
+          [
+              BaseType=guar::GFX::RenderTexture
+          ]
+c:\users\joe\desktop\enginesolution\code\systems\graphics\graphicsobjectcollection\modelcollection\../GraphicsObjectCollection.h(129): warning C4018: '<': signed/unsigned mismatch
+  c:\users\joe\desktop\enginesolution\code\systems\graphics\graphicsobjectcollection\modelcollection\../GraphicsObjectCollection.h(99): note: while compiling class template member function 'void guar::GFX::GraphicsObjectCollection<guar::GFX::Texture,BaseType>::loadDirectory(std::string)'
+          with
+          [
+              BaseType=guar::GFX::Texture
+          ]
+  ..\..\..\code\systems\Graphics\Graphics.cpp(41): note: see reference to function template instantiation 'void guar::GFX::GraphicsObjectCollection<guar::GFX::Texture,BaseType>::loadDirectory(std::string)' being compiled
+          with
+          [
+              BaseType=guar::GFX::Texture
+          ]
+  c:\users\joe\desktop\enginesolution\code\systems\graphics\GraphicsObjectCollection/TextureCollection/TextureCollection.h(14): note: see reference to class template instantiation 'guar::GFX::GraphicsObjectCollection<guar::GFX::Texture,BaseType>' being compiled
+          with
+          [
+              BaseType=guar::GFX::Texture
+          ]
+c:\users\joe\desktop\enginesolution\code\systems\graphics\graphicsobjectcollection\modelcollection\../GraphicsObjectCollection.h(88): warning C4018: '<': signed/unsigned mismatch
+  c:\users\joe\desktop\enginesolution\code\systems\graphics\graphicsobjectcollection\modelcollection\../GraphicsObjectCollection.h(82): note: while compiling class template member function 'bool guar::GFX::GraphicsObjectCollection<guar::GFX::Texture,BaseType>::fileNameHasFileType(char *)'
+          with
+          [
+              BaseType=guar::GFX::Texture
+          ]
+  c:\users\joe\desktop\enginesolution\code\systems\graphics\graphicsobjectcollection\modelcollection\../GraphicsObjectCollection.h(73): note: see reference to function template instantiation 'bool guar::GFX::GraphicsObjectCollection<guar::GFX::Texture,BaseType>::fileNameHasFileType(char *)' being compiled
+          with
+          [
+              BaseType=guar::GFX::Texture
+          ]
+  GraphicsObjectCollection.cpp
+  ModelCollection.cpp
+  RenderTextureCollection.cpp
+  ShaderProgramCollection.cpp
+  TextureCollection.cpp
+  GraphicsObject.cpp
+  ModelCollection.cpp
+  Cube.cpp
+..\..\..\code\systems\Graphics\Model\Cube\Cube.cpp(19): warning C4244: 'argument': conversion from 'double' to 'guar::GFX::GFXfloat', possible loss of data
+..\..\..\code\systems\Graphics\Model\Cube\Cube.cpp(20): warning C4244: 'argument': conversion from 'double' to 'guar::GFX::GFXfloat', possible loss of data
+..\..\..\code\systems\Graphics\Model\Cube\Cube.cpp(23): warning C4244: 'argument': conversion from 'double' to 'guar::GFX::GFXfloat', possible loss of data
+..\..\..\code\systems\Graphics\Model\Cube\Cube.cpp(24): warning C4244: 'argument': conversion from 'double' to 'guar::GFX::GFXfloat', possible loss of data
+..\..\..\code\systems\Graphics\Model\Cube\Cube.cpp(29): warning C4244: 'argument': conversion from 'double' to 'guar::GFX::GFXfloat', possible loss of data
+..\..\..\code\systems\Graphics\Model\Cube\Cube.cpp(30): warning C4244: 'argument': conversion from 'double' to 'guar::GFX::GFXfloat', possible loss of data
+..\..\..\code\systems\Graphics\Model\Cube\Cube.cpp(33): warning C4244: 'argument': conversion from 'double' to 'guar::GFX::GFXfloat', possible loss of data
+..\..\..\code\systems\Graphics\Model\Cube\Cube.cpp(34): warning C4244: 'argument': conversion from 'double' to 'guar::GFX::GFXfloat', possible loss of data
+..\..\..\code\systems\Graphics\Model\Cube\Cube.cpp(38): warning C4244: 'argument': conversion from 'double' to 'guar::GFX::GFXfloat', possible loss of data
+..\..\..\code\systems\Graphics\Model\Cube\Cube.cpp(39): warning C4244: 'argument': conversion from 'double' to 'guar::GFX::GFXfloat', possible loss of data
+..\..\..\code\systems\Graphics\Model\Cube\Cube.cpp(40): warning C4244: 'argument': conversion from 'double' to 'guar::GFX::GFXfloat', possible loss of data
+..\..\..\code\systems\Graphics\Model\Cube\Cube.cpp(42): warning C4244: 'argument': conversion from 'double' to 'guar::GFX::GFXfloat', possible loss of data
+..\..\..\code\systems\Graphics\Model\Cube\Cube.cpp(43): warning C4244: 'argument': conversion from 'double' to 'guar::GFX::GFXfloat', possible loss of data
+..\..\..\code\systems\Graphics\Model\Cube\Cube.cpp(44): warning C4244: 'argument': conversion from 'double' to 'guar::GFX::GFXfloat', possible loss of data
+..\..\..\code\systems\Graphics\Model\Cube\Cube.cpp(49): warning C4244: 'argument': conversion from 'double' to 'guar::GFX::GFXfloat', possible loss of data
+..\..\..\code\systems\Graphics\Model\Cube\Cube.cpp(53): warning C4244: 'argument': conversion from 'double' to 'guar::GFX::GFXfloat', possible loss of data
+..\..\..\code\systems\Graphics\Model\Cube\Cube.cpp(54): warning C4244: 'argument': conversion from 'double' to 'guar::GFX::GFXfloat', possible loss of data
+..\..\..\code\systems\Graphics\Model\Cube\Cube.cpp(58): warning C4244: 'argument': conversion from 'double' to 'guar::GFX::GFXfloat', possible loss of data
+..\..\..\code\systems\Graphics\Model\Cube\Cube.cpp(59): warning C4244: 'argument': conversion from 'double' to 'guar::GFX::GFXfloat', possible loss of data
+..\..\..\code\systems\Graphics\Model\Cube\Cube.cpp(60): warning C4244: 'argument': conversion from 'double' to 'guar::GFX::GFXfloat', possible loss of data
+..\..\..\code\systems\Graphics\Model\Cube\Cube.cpp(62): warning C4244: 'argument': conversion from 'double' to 'guar::GFX::GFXfloat', possible loss of data
+..\..\..\code\systems\Graphics\Model\Cube\Cube.cpp(63): warning C4244: 'argument': conversion from 'double' to 'guar::GFX::GFXfloat', possible loss of data
+..\..\..\code\systems\Graphics\Model\Cube\Cube.cpp(64): warning C4244: 'argument': conversion from 'double' to 'guar::GFX::GFXfloat', possible loss of data
+..\..\..\code\systems\Graphics\Model\Cube\Cube.cpp(68): warning C4244: 'argument': conversion from 'double' to 'guar::GFX::GFXfloat', possible loss of data
+..\..\..\code\systems\Graphics\Model\Cube\Cube.cpp(69): warning C4244: 'argument': conversion from 'double' to 'guar::GFX::GFXfloat', possible loss of data
+..\..\..\code\systems\Graphics\Model\Cube\Cube.cpp(70): warning C4244: 'argument': conversion from 'double' to 'guar::GFX::GFXfloat', possible loss of data
+..\..\..\code\systems\Graphics\Model\Cube\Cube.cpp(72): warning C4244: 'argument': conversion from 'double' to 'guar::GFX::GFXfloat', possible loss of data
+..\..\..\code\systems\Graphics\Model\Cube\Cube.cpp(73): warning C4244: 'argument': conversion from 'double' to 'guar::GFX::GFXfloat', possible loss of data
+..\..\..\code\systems\Graphics\Model\Cube\Cube.cpp(74): warning C4244: 'argument': conversion from 'double' to 'guar::GFX::GFXfloat', possible loss of data
+  Model.cpp
+..\..\..\code\systems\Graphics\Model\Model.cpp(78): warning C4018: '<': signed/unsigned mismatch
+..\..\..\code\systems\Graphics\Model\Model.cpp(95): warning C4018: '<': signed/unsigned mismatch
+  Quad.cpp
+..\..\..\code\systems\Graphics\Model\Quad\Quad.cpp(19): warning C4244: 'argument': conversion from 'double' to 'guar::GFX::GFXfloat', possible loss of data
+..\..\..\code\systems\Graphics\Model\Quad\Quad.cpp(20): warning C4244: 'argument': conversion from 'double' to 'guar::GFX::GFXfloat', possible loss of data
+..\..\..\code\systems\Graphics\Model\Quad\Quad.cpp(23): warning C4244: 'argument': conversion from 'double' to 'guar::GFX::GFXfloat', possible loss of data
+..\..\..\code\systems\Graphics\Model\Quad\Quad.cpp(24): warning C4244: 'argument': conversion from 'double' to 'guar::GFX::GFXfloat', possible loss of data
+  OpenGLCallInterpreter.cpp
+  OpenGLDiagnostics.cpp
+  OpenGLHelper.cpp
+C:\Program Files (x86)\Windows Kits\8.1\Include\shared\minwindef.h(130): warning C4005: 'APIENTRY': macro redefinition
+  C:\Users\Joe\Desktop\EngineSolution\code\dependencies\GLFW/glfw3.h(98): note: see previous definition of 'APIENTRY'
+c:\users\joe\desktop\enginesolution\code\systems\graphics\graphicsobjectcollection\modelcollection\../GraphicsObjectCollection.h(42): warning C4018: '<': signed/unsigned mismatch
+  c:\users\joe\desktop\enginesolution\code\systems\graphics\graphicsobjectcollection\modelcollection\../GraphicsObjectCollection.h(41): note: while compiling class template member function 'guar::GFX::RenderTexture *guar::GFX::GraphicsObjectCollection<guar::GFX::RenderTexture,BaseType>::find(const std::string &)'
+          with
+          [
+              BaseType=guar::GFX::RenderTexture
+          ]
+  c:\users\joe\desktop\enginesolution\code\systems\graphics\opengl\../Graphics.h(47): note: see reference to function template instantiation 'guar::GFX::RenderTexture *guar::GFX::GraphicsObjectCollection<guar::GFX::RenderTexture,BaseType>::find(const std::string &)' being compiled
+          with
+          [
+              BaseType=guar::GFX::RenderTexture
+          ]
+  c:\users\joe\desktop\enginesolution\code\systems\graphics\GraphicsObjectCollection/RenderTextureCollection/RenderTextureCollection.h(12): note: see reference to class template instantiation 'guar::GFX::GraphicsObjectCollection<guar::GFX::RenderTexture,BaseType>' being compiled
+          with
+          [
+              BaseType=guar::GFX::RenderTexture
+          ]
+  RenderCamera.cpp
+C:\Program Files (x86)\Windows Kits\8.1\Include\shared\minwindef.h(130): warning C4005: 'APIENTRY': macro redefinition
+  C:\Users\Joe\Desktop\EngineSolution\code\dependencies\GLFW/glfw3.h(98): note: see previous definition of 'APIENTRY'
+c:\users\joe\desktop\enginesolution\code\systems\graphics\graphicsobjectcollection\modelcollection\../GraphicsObjectCollection.h(42): warning C4018: '<': signed/unsigned mismatch
+  c:\users\joe\desktop\enginesolution\code\systems\graphics\graphicsobjectcollection\modelcollection\../GraphicsObjectCollection.h(41): note: while compiling class template member function 'guar::GFX::RenderTexture *guar::GFX::GraphicsObjectCollection<guar::GFX::RenderTexture,BaseType>::find(const std::string &)'
+          with
+          [
+              BaseType=guar::GFX::RenderTexture
+          ]
+  c:\users\joe\desktop\enginesolution\code\systems\graphics\rendercamera\../Graphics.h(47): note: see reference to function template instantiation 'guar::GFX::RenderTexture *guar::GFX::GraphicsObjectCollection<guar::GFX::RenderTexture,BaseType>::find(const std::string &)' being compiled
+          with
+          [
+              BaseType=guar::GFX::RenderTexture
+          ]
+  c:\users\joe\desktop\enginesolution\code\systems\graphics\GraphicsObjectCollection/RenderTextureCollection/RenderTextureCollection.h(12): note: see reference to class template instantiation 'guar::GFX::GraphicsObjectCollection<guar::GFX::RenderTexture,BaseType>' being compiled
+          with
+          [
+              BaseType=guar::GFX::RenderTexture
+          ]
+  RenderLight.cpp
+C:\Program Files (x86)\Windows Kits\8.1\Include\shared\minwindef.h(130): warning C4005: 'APIENTRY': macro redefinition
+  C:\Users\Joe\Desktop\EngineSolution\code\dependencies\GLFW/glfw3.h(98): note: see previous definition of 'APIENTRY'
+c:\users\joe\desktop\enginesolution\code\systems\graphics\graphicsobjectcollection\modelcollection\../GraphicsObjectCollection.h(42): warning C4018: '<': signed/unsigned mismatch
+  c:\users\joe\desktop\enginesolution\code\systems\graphics\graphicsobjectcollection\modelcollection\../GraphicsObjectCollection.h(41): note: while compiling class template member function 'guar::GFX::RenderTexture *guar::GFX::GraphicsObjectCollection<guar::GFX::RenderTexture,BaseType>::find(const std::string &)'
+          with
+          [
+              BaseType=guar::GFX::RenderTexture
+          ]
+  c:\users\joe\desktop\enginesolution\code\systems\graphics\renderlight\../Graphics.h(47): note: see reference to function template instantiation 'guar::GFX::RenderTexture *guar::GFX::GraphicsObjectCollection<guar::GFX::RenderTexture,BaseType>::find(const std::string &)' being compiled
+          with
+          [
+              BaseType=guar::GFX::RenderTexture
+          ]
+  c:\users\joe\desktop\enginesolution\code\systems\graphics\GraphicsObjectCollection/RenderTextureCollection/RenderTextureCollection.h(12): note: see reference to class template instantiation 'guar::GFX::GraphicsObjectCollection<guar::GFX::RenderTexture,BaseType>' being compiled
+          with
+          [
+              BaseType=guar::GFX::RenderTexture
+          ]
+  RenderObjectCollection.cpp
+  RenderObject.cpp
+C:\Program Files (x86)\Windows Kits\8.1\Include\shared\minwindef.h(130): warning C4005: 'APIENTRY': macro redefinition
+  C:\Users\Joe\Desktop\EngineSolution\code\dependencies\GLFW/glfw3.h(98): note: see previous definition of 'APIENTRY'
+c:\users\joe\desktop\enginesolution\code\systems\graphics\graphicsobjectcollection\modelcollection\../GraphicsObjectCollection.h(42): warning C4018: '<': signed/unsigned mismatch
+  c:\users\joe\desktop\enginesolution\code\systems\graphics\graphicsobjectcollection\modelcollection\../GraphicsObjectCollection.h(41): note: while compiling class template member function 'guar::GFX::RenderTexture *guar::GFX::GraphicsObjectCollection<guar::GFX::RenderTexture,BaseType>::find(const std::string &)'
+          with
+          [
+              BaseType=guar::GFX::RenderTexture
+          ]
+  c:\users\joe\desktop\enginesolution\code\systems\graphics\renderobject\../Graphics.h(47): note: see reference to function template instantiation 'guar::GFX::RenderTexture *guar::GFX::GraphicsObjectCollection<guar::GFX::RenderTexture,BaseType>::find(const std::string &)' being compiled
+          with
+          [
+              BaseType=guar::GFX::RenderTexture
+          ]
+  c:\users\joe\desktop\enginesolution\code\systems\graphics\GraphicsObjectCollection/RenderTextureCollection/RenderTextureCollection.h(12): note: see reference to class template instantiation 'guar::GFX::GraphicsObjectCollection<guar::GFX::RenderTexture,BaseType>' being compiled
+          with
+          [
+              BaseType=guar::GFX::RenderTexture
+          ]
+  RenderObserver.cpp
+C:\Program Files (x86)\Windows Kits\8.1\Include\shared\minwindef.h(130): warning C4005: 'APIENTRY': macro redefinition
+  C:\Users\Joe\Desktop\EngineSolution\code\dependencies\GLFW/glfw3.h(98): note: see previous definition of 'APIENTRY'
+..\..\..\code\systems\Graphics\RenderObserver\RenderObserver.cpp(44): warning C4244: 'argument': conversion from 'float' to 'GLsizei', possible loss of data
+c:\users\joe\desktop\enginesolution\code\systems\graphics\graphicsobjectcollection\modelcollection\../GraphicsObjectCollection.h(42): warning C4018: '<': signed/unsigned mismatch
+  c:\users\joe\desktop\enginesolution\code\systems\graphics\graphicsobjectcollection\modelcollection\../GraphicsObjectCollection.h(41): note: while compiling class template member function 'guar::GFX::RenderTexture *guar::GFX::GraphicsObjectCollection<guar::GFX::RenderTexture,BaseType>::find(const std::string &)'
+          with
+          [
+              BaseType=guar::GFX::RenderTexture
+          ]
+  c:\users\joe\desktop\enginesolution\code\systems\graphics\renderobserver\../Graphics.h(47): note: see reference to function template instantiation 'guar::GFX::RenderTexture *guar::GFX::GraphicsObjectCollection<guar::GFX::RenderTexture,BaseType>::find(const std::string &)' being compiled
+          with
+          [
+              BaseType=guar::GFX::RenderTexture
+          ]
+  c:\users\joe\desktop\enginesolution\code\systems\graphics\GraphicsObjectCollection/RenderTextureCollection/RenderTextureCollection.h(12): note: see reference to class template instantiation 'guar::GFX::GraphicsObjectCollection<guar::GFX::RenderTexture,BaseType>' being compiled
+          with
+          [
+              BaseType=guar::GFX::RenderTexture
+          ]
+  RenderTexture.cpp
+C:\Program Files (x86)\Windows Kits\8.1\Include\shared\minwindef.h(130): warning C4005: 'APIENTRY': macro redefinition
+  C:\Users\Joe\Desktop\EngineSolution\code\dependencies\GLFW/glfw3.h(98): note: see previous definition of 'APIENTRY'
+c:\users\joe\desktop\enginesolution\code\systems\graphics\graphicsobjectcollection\modelcollection\../GraphicsObjectCollection.h(42): warning C4018: '<': signed/unsigned mismatch
+  c:\users\joe\desktop\enginesolution\code\systems\graphics\graphicsobjectcollection\modelcollection\../GraphicsObjectCollection.h(41): note: while compiling class template member function 'guar::GFX::RenderTexture *guar::GFX::GraphicsObjectCollection<guar::GFX::RenderTexture,BaseType>::find(const std::string &)'
+          with
+          [
+              BaseType=guar::GFX::RenderTexture
+          ]
+  c:\users\joe\desktop\enginesolution\code\systems\graphics\rendertexture\../Graphics.h(47): note: see reference to function template instantiation 'guar::GFX::RenderTexture *guar::GFX::GraphicsObjectCollection<guar::GFX::RenderTexture,BaseType>::find(const std::string &)' being compiled
+          with
+          [
+              BaseType=guar::GFX::RenderTexture
+          ]
+  c:\users\joe\desktop\enginesolution\code\systems\graphics\GraphicsObjectCollection/RenderTextureCollection/RenderTextureCollection.h(12): note: see reference to class template instantiation 'guar::GFX::GraphicsObjectCollection<guar::GFX::RenderTexture,BaseType>' being compiled
+          with
+          [
+              BaseType=guar::GFX::RenderTexture
+          ]
+  Compiling...
+  ShaderDrawCallInterpreter.cpp
+..\..\..\code\systems\Graphics\ShaderDrawCallInterpreter\ShaderDrawCallInterpreter.cpp(61): warning C4244: 'initializing': conversion from 'lua_Number' to 'float', possible loss of data
+..\..\..\code\systems\Graphics\ShaderDrawCallInterpreter\ShaderDrawCallInterpreter.cpp(62): warning C4244: 'initializing': conversion from 'lua_Number' to 'float', possible loss of data
+..\..\..\code\systems\Graphics\ShaderDrawCallInterpreter\ShaderDrawCallInterpreter.cpp(63): warning C4244: 'initializing': conversion from 'lua_Number' to 'float', possible loss of data
+..\..\..\code\systems\Graphics\ShaderDrawCallInterpreter\ShaderDrawCallInterpreter.cpp(64): warning C4244: 'initializing': conversion from 'lua_Number' to 'float', possible loss of data
+  ShaderProgramCollection.cpp
+..\..\..\code\systems\Graphics\ShaderProgramCollection\ShaderProgramCollection.cpp(72): warning C4018: '<': signed/unsigned mismatch
+  DynamicShaderProgram.cpp
+  ShaderProgram.cpp
+C:\Program Files (x86)\Windows Kits\8.1\Include\shared\minwindef.h(130): warning C4005: 'APIENTRY': macro redefinition
+  C:\Users\Joe\Desktop\EngineSolution\code\dependencies\GLFW/glfw3.h(98): note: see previous definition of 'APIENTRY'
+c:\users\joe\desktop\enginesolution\code\systems\graphics\graphicsobjectcollection\modelcollection\../GraphicsObjectCollection.h(42): warning C4018: '<': signed/unsigned mismatch
+  c:\users\joe\desktop\enginesolution\code\systems\graphics\graphicsobjectcollection\modelcollection\../GraphicsObjectCollection.h(41): note: while compiling class template member function 'guar::GFX::RenderTexture *guar::GFX::GraphicsObjectCollection<guar::GFX::RenderTexture,BaseType>::find(const std::string &)'
+          with
+          [
+              BaseType=guar::GFX::RenderTexture
+          ]
+  c:\users\joe\desktop\enginesolution\code\systems\graphics\shaderprogram\../Graphics.h(47): note: see reference to function template instantiation 'guar::GFX::RenderTexture *guar::GFX::GraphicsObjectCollection<guar::GFX::RenderTexture,BaseType>::find(const std::string &)' being compiled
+          with
+          [
+              BaseType=guar::GFX::RenderTexture
+          ]
+  c:\users\joe\desktop\enginesolution\code\systems\graphics\GraphicsObjectCollection/RenderTextureCollection/RenderTextureCollection.h(12): note: see reference to class template instantiation 'guar::GFX::GraphicsObjectCollection<guar::GFX::RenderTexture,BaseType>' being compiled
+          with
+          [
+              BaseType=guar::GFX::RenderTexture
+          ]
+  AlphaCutOff.cpp
+  Opaque.cpp
+  PinkShaderOfDeath.cpp
+  RenderTextureColorDisplay.cpp
+  RenderTextureDepthDisplay.cpp
+  Skybox.cpp
+  StaticShaderProgram.cpp
+  StandardUniforms.cpp
+C:\Program Files (x86)\Windows Kits\8.1\Include\shared\minwindef.h(130): warning C4005: 'APIENTRY': macro redefinition
+  C:\Users\Joe\Desktop\EngineSolution\code\dependencies\GLFW/glfw3.h(98): note: see previous definition of 'APIENTRY'
+..\..\..\code\systems\Graphics\StandardUniforms\StandardUniforms.cpp(50): warning C4244: 'argument': conversion from 'double' to 'const float', possible loss of data
+..\..\..\code\systems\Graphics\StandardUniforms\StandardUniforms.cpp(126): warning C4018: '<': signed/unsigned mismatch
+c:\users\joe\desktop\enginesolution\code\systems\graphics\graphicsobjectcollection\modelcollection\../GraphicsObjectCollection.h(42): warning C4018: '<': signed/unsigned mismatch
+  c:\users\joe\desktop\enginesolution\code\systems\graphics\graphicsobjectcollection\modelcollection\../GraphicsObjectCollection.h(41): note: while compiling class template member function 'guar::GFX::RenderTexture *guar::GFX::GraphicsObjectCollection<guar::GFX::RenderTexture,BaseType>::find(const std::string &)'
+          with
+          [
+              BaseType=guar::GFX::RenderTexture
+          ]
+  c:\users\joe\desktop\enginesolution\code\systems\graphics\standarduniforms\../Graphics.h(47): note: see reference to function template instantiation 'guar::GFX::RenderTexture *guar::GFX::GraphicsObjectCollection<guar::GFX::RenderTexture,BaseType>::find(const std::string &)' being compiled
+          with
+          [
+              BaseType=guar::GFX::RenderTexture
+          ]
+  c:\users\joe\desktop\enginesolution\code\systems\graphics\GraphicsObjectCollection/RenderTextureCollection/RenderTextureCollection.h(12): note: see reference to class template instantiation 'guar::GFX::GraphicsObjectCollection<guar::GFX::RenderTexture,BaseType>' being compiled
+          with
+          [
+              BaseType=guar::GFX::RenderTexture
+          ]
+  TextureCollection.cpp
+  CheckeredTextureOfDeath.cpp
+  Texture.cpp
+  VertexFormat.cpp
+Release\ModelCollection.obj : warning LNK4042: object specified more than once; extras ignored
+Release\ShaderProgramCollection.obj : warning LNK4042: object specified more than once; extras ignored
+Release\TextureCollection.obj : warning LNK4042: object specified more than once; extras ignored
+  Graphics.vcxproj -> C:\Users\Joe\Desktop\EngineSolution\_VSC2015\systems\..\..\build\bin\Graphics.lib

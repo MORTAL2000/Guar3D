@@ -1,0 +1,61 @@
+July 4, 2016
+ - Deciding on software to use for development. Will try codelite. Getting cmake, cygwin. Should open a repo on github soon.
+ - have decided to keep dependencies portable: OpenGL for graphics api, GLFW for window, context, time, input management.
+
+July 5, 2016
+ - Planning out project structure.
+ - Linking for GLFW.
+ - Linking for "Glad_GLES3p0" lib, output of Glad set for GLES3.0.
+
+July 8, 2016
+ - Replaced Glad with Glew for extension loading.
+  
+July 11, 2016
+ - Shader loading, compiling etc.
+ - Basic drawing. I've run into a problem with attrib loc gets.
+  
+July 12, 2016
+ - fixed attrib issue. 
+ - cleaning dependencies: moving GLFW and GLEW libraries into static dependencies not dynamic.
+ - refactoring main.cpp into sensible objects.
+ 
+ July 13, 2016
+  - Graphics object far too big. Refactored into various has-a objects for Graphics to use.
+  - Read about JSON, Lisp and Lua libraries in preparation for coming work (JSON formatted file reading, embedded Lua and Lisp interpreters)
+
+July 14, 2016
+ - Shader source autoloading finished. ShaderProgram constructor throws on bad filename or file does not exist.
+ - JSON interpreter lib added to project. "JSONcpp."
+ - JSON interpreter evaluates structure of source file, throws and passes interp log on failure. 
+ On success: Passes GLSL over to OpenGL for compiling (implemented). Passes draw over to Lua for interpreting (unimplemented).
+
+July 15, 2016
+ - Started separate commandline Lua project in order to learn how to write the API between lua context and surrounding C/CPP program.
+ - wrote LuaInterpreter lib, provides an abstract object that takes care of a lua state and allows children to init the state as wanted.
+ 
+July 16 - 24, 2016
+ - Lua cpp object wraps a context, derivations specify an c-lua api to solve the problem. ShaderDrawCallInterpreter is a LuaInterpreter that defines a limited OpenGL api
+   which allows the runtime shader to specify some special gl calls (draw lines, clear depth buffer, invert winding etc.)
+ - Static models, 
+ - static and dynamic textures, png->header tool for embedding textures in source code.
+ - static and dynamic shaders, 
+ - hardcoded MVP, 
+ - PinkShaderOfDeath, used when the requested shader does not exist (failed to compile, didnt exist on disk etc.)
+ - static AlphaCutOff shader
+ - CheckeredTextureOfDeath, used when the requested texture does not exist (failed to initialize, did not exist on disk etc.)
+ - various libraries
+        glm for mat,quat,vec
+        assimp for model loading from disk
+
+July 25-26
+fbx loading. Moved from minGW to MSVC++ (much faster build times). Reorganized project to be
+IDE agnostic. found posix headers for transition etc.
+
+July 27 - 28
+small updates, refactoring, planning ECS
+
+July 28 - 3
+refactored Texture, Model, GraphicsProgram collection code st all derive from a base template type.
+wrote ECS, connected to graphics (in a non thread friendly way)
+skybox shader, Cameras, Lights (all forward render path only). Updated GLSL code to 
+1.3 (minimum version with in/out words). Basic Ambient-Diffuse-Specular-Shadow program written.

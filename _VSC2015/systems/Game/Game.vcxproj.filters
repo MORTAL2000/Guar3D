@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="src">
+      <UniqueIdentifier>{de71e3d6-859c-4dce-a9a0-de5abee8fe37}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Components">
+      <UniqueIdentifier>{ce1937b8-0540-4170-9790-6d34e34e62b5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Components\PlayerController">
+      <UniqueIdentifier>{0e63e791-4b5b-40c9-a708-02626e06c5f7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Components\Rotator">
+      <UniqueIdentifier>{2a00e457-4939-4795-b71a-dd4135d40887}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Game">
+      <UniqueIdentifier>{09a2f2e3-361a-454c-abf4-dfb3a70f0346}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Components\Spinner">
+      <UniqueIdentifier>{ecfd22ea-d6d0-4076-85fc-840eb322edfe}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\examples\Game\main.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\examples\Game\Game\Game.cpp">
+      <Filter>src\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\examples\Game\Components\Rotator\Rotator.cpp">
+      <Filter>src\Components\Rotator</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\examples\Game\Components\PlayerController\PlayerController.cpp">
+      <Filter>src\Components\PlayerController</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\examples\Game\Components\Spinner\Spinner.cpp">
+      <Filter>src\Components\Spinner</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\examples\Game\Components\PlayerController\PlayerController.h">
+      <Filter>src\Components\PlayerController</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\examples\Game\Components\Rotator\Rotator.h">
+      <Filter>src\Components\Rotator</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\examples\Game\Game\Game.h">
+      <Filter>src\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\examples\Game\Components\Spinner\Spinner.h">
+      <Filter>src\Components\Spinner</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

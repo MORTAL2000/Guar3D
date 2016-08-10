@@ -1,0 +1,12 @@
+Once forward render ADSS is implemented choice:
+ a) deferred path
+ b) learn about c++11 threads. Refactor ECS and Graphics to be threadsafe (tight binding atm).
+ c) fix include guard names, fix namespace names, fix forward decs and includes etc.
+
+fix interface between graphics and ecs.
+interface should be one way, it is 2 way.
+camera and light must be changed.
+refactor camera nad light stuff then encapsulate into ecs.
+look at relationship between ECS::Renderer and Graphics::RenderObject. This is correct.
+
+graphics <- ecs not grahpics <-> ecs

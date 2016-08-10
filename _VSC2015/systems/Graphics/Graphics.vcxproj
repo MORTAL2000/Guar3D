@@ -1,0 +1,196 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{BA25BED8-E2B9-4401-8CB6-54FBD56E23FB}</ProjectGuid>
+    <RootNamespace>Graphics</RootNamespace>
+    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>$(SolutionDir)..\..\libraries\systems\</OutDir>
+    <IntDir>$(SolutionDir)..\..\intermediate\$(ProjectName)</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>C:\Users\Joe\Desktop\EngineSolution\code\systems;C:\Users\Joe\Desktop\EngineSolution\code\dependencies;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+    <Lib>
+      <AdditionalLibraryDirectories>C:\Users\Joe\Desktop\EngineSolution\intermediate;C:\Users\Joe\Desktop\EngineSolution\libraries;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\code\systems\Graphics\Graphics.cpp" />
+    <ClCompile Include="..\..\..\code\systems\Graphics\GraphicsObjectCollection\GraphicsObjectCollection.cpp" />
+    <ClCompile Include="..\..\..\code\systems\Graphics\GraphicsObjectCollection\ModelCollection\ModelCollection.cpp" />
+    <ClCompile Include="..\..\..\code\systems\Graphics\GraphicsObjectCollection\RenderTextureCollection\RenderTextureCollection.cpp" />
+    <ClCompile Include="..\..\..\code\systems\Graphics\GraphicsObjectCollection\ShaderProgramCollection\ShaderProgramCollection.cpp" />
+    <ClCompile Include="..\..\..\code\systems\Graphics\GraphicsObjectCollection\TextureCollection\TextureCollection.cpp" />
+    <ClCompile Include="..\..\..\code\systems\Graphics\GraphicsObject\GraphicsObject.cpp" />
+    <ClCompile Include="..\..\..\code\systems\Graphics\ModelCollection\ModelCollection.cpp" />
+    <ClCompile Include="..\..\..\code\systems\Graphics\Model\Cube\Cube.cpp" />
+    <ClCompile Include="..\..\..\code\systems\Graphics\Model\Model.cpp" />
+    <ClCompile Include="..\..\..\code\systems\Graphics\Model\Quad\Quad.cpp" />
+    <ClCompile Include="..\..\..\code\systems\Graphics\OpenGLCallInterpreter\OpenGLCallInterpreter.cpp" />
+    <ClCompile Include="..\..\..\code\systems\Graphics\OpenGL\OpenGLDiagnostics.cpp" />
+    <ClCompile Include="..\..\..\code\systems\Graphics\OpenGL\OpenGLHelper.cpp" />
+    <ClCompile Include="..\..\..\code\systems\Graphics\RenderCamera\RenderCamera.cpp" />
+    <ClCompile Include="..\..\..\code\systems\Graphics\RenderLight\RenderLight.cpp" />
+    <ClCompile Include="..\..\..\code\systems\Graphics\RenderObjectCollection\RenderObjectCollection.cpp" />
+    <ClCompile Include="..\..\..\code\systems\Graphics\RenderObject\RenderObject.cpp" />
+    <ClCompile Include="..\..\..\code\systems\Graphics\RenderObserver\RenderObserver.cpp" />
+    <ClCompile Include="..\..\..\code\systems\Graphics\RenderTexture\RenderTexture.cpp" />
+    <ClCompile Include="..\..\..\code\systems\Graphics\ShaderDrawCallInterpreter\ShaderDrawCallInterpreter.cpp" />
+    <ClCompile Include="..\..\..\code\systems\Graphics\ShaderProgram\DynamicShaderProgram\DynamicShaderProgram.cpp" />
+    <ClCompile Include="..\..\..\code\systems\Graphics\ShaderProgram\ShaderProgram.cpp" />
+    <ClCompile Include="..\..\..\code\systems\Graphics\ShaderProgram\StaticShaderProgram\AlphaCutOff\AlphaCutOff.cpp" />
+    <ClCompile Include="..\..\..\code\systems\Graphics\ShaderProgram\StaticShaderProgram\Opaque\Opaque.cpp" />
+    <ClCompile Include="..\..\..\code\systems\Graphics\ShaderProgram\StaticShaderProgram\PinkShaderOfDeath\PinkShaderOfDeath.cpp" />
+    <ClCompile Include="..\..\..\code\systems\Graphics\ShaderProgram\StaticShaderProgram\RenderTextureColorDisplay\RenderTextureColorDisplay.cpp" />
+    <ClCompile Include="..\..\..\code\systems\Graphics\ShaderProgram\StaticShaderProgram\RenderTextureDepthDisplay\RenderTextureDepthDisplay.cpp" />
+    <ClCompile Include="..\..\..\code\systems\Graphics\ShaderProgram\StaticShaderProgram\Skybox\Skybox.cpp" />
+    <ClCompile Include="..\..\..\code\systems\Graphics\ShaderProgram\StaticShaderProgram\StaticShaderProgram.cpp" />
+    <ClCompile Include="..\..\..\code\systems\Graphics\StandardUniforms\StandardUniforms.cpp" />
+    <ClCompile Include="..\..\..\code\systems\Graphics\Texture\CheckeredTextureOfDeath\CheckeredTextureOfDeath.cpp" />
+    <ClCompile Include="..\..\..\code\systems\Graphics\Texture\Texture.cpp" />
+    <ClCompile Include="..\..\..\code\systems\Graphics\VertexFormat\VertexFormat.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\code\systems\Graphics\Graphics.h" />
+    <ClInclude Include="..\..\..\code\systems\Graphics\GraphicsObjectCollection\GraphicsObjectCollection.h" />
+    <ClInclude Include="..\..\..\code\systems\Graphics\GraphicsObjectCollection\ModelCollection\ModelCollection.h" />
+    <ClInclude Include="..\..\..\code\systems\Graphics\GraphicsObjectCollection\RenderTextureCollection\RenderTextureCollection.h" />
+    <ClInclude Include="..\..\..\code\systems\Graphics\GraphicsObjectCollection\ShaderProgramCollection\ShaderProgramCollection.h" />
+    <ClInclude Include="..\..\..\code\systems\Graphics\GraphicsObjectCollection\TextureCollection\TextureCollection.h" />
+    <ClInclude Include="..\..\..\code\systems\Graphics\GraphicsObject\GraphicsObject.h" />
+    <ClInclude Include="..\..\..\code\systems\Graphics\GraphicsTypes.h" />
+    <ClInclude Include="..\..\..\code\systems\Graphics\ModelCollection\ModelCollection.h" />
+    <ClInclude Include="..\..\..\code\systems\Graphics\Model\Cube\Cube.h" />
+    <ClInclude Include="..\..\..\code\systems\Graphics\Model\Model.h" />
+    <ClInclude Include="..\..\..\code\systems\Graphics\Model\Quad\Quad.h" />
+    <ClInclude Include="..\..\..\code\systems\Graphics\OpenGL\OpenGL.h" />
+    <ClInclude Include="..\..\..\code\systems\Graphics\OpenGL\OpenGLDiagnostics.h" />
+    <ClInclude Include="..\..\..\code\systems\Graphics\OpenGL\OpenGLHelper.h" />
+    <ClInclude Include="..\..\..\code\systems\Graphics\RenderCamera\RenderCamera.h" />
+    <ClInclude Include="..\..\..\code\systems\Graphics\RenderLight\RenderLight.h" />
+    <ClInclude Include="..\..\..\code\systems\Graphics\RenderObjectCollection\RenderObjectCollection.h" />
+    <ClInclude Include="..\..\..\code\systems\Graphics\RenderObject\RenderObject.h" />
+    <ClInclude Include="..\..\..\code\systems\Graphics\RenderObserver\RenderObserver.h" />
+    <ClInclude Include="..\..\..\code\systems\Graphics\RenderTexture\RenderTexture.h" />
+    <ClInclude Include="..\..\..\code\systems\Graphics\ShaderDrawCallInterpreter\ShaderDrawCallInterpreter.h" />
+    <ClInclude Include="..\..\..\code\systems\Graphics\ShaderProgram\DynamicShaderProgram\DynamicShaderProgram.h" />
+    <ClInclude Include="..\..\..\code\systems\Graphics\ShaderProgram\ShaderProgram.h" />
+    <ClInclude Include="..\..\..\code\systems\Graphics\ShaderProgram\StaticShaderProgram\AlphaCutOff\AlphaCutOff.h" />
+    <ClInclude Include="..\..\..\code\systems\Graphics\ShaderProgram\StaticShaderProgram\Opaque\Opaque.h" />
+    <ClInclude Include="..\..\..\code\systems\Graphics\ShaderProgram\StaticShaderProgram\PinkShaderOfDeath\PinkShaderOfDeath.h" />
+    <ClInclude Include="..\..\..\code\systems\Graphics\ShaderProgram\StaticShaderProgram\RenderTextureColorDisplay\RenderTextureColorDisplay.h" />
+    <ClInclude Include="..\..\..\code\systems\Graphics\ShaderProgram\StaticShaderProgram\RenderTextureDepthDisplay\RenderTextureDepthDisplay.h" />
+    <ClInclude Include="..\..\..\code\systems\Graphics\ShaderProgram\StaticShaderProgram\Skybox\Skybox.h" />
+    <ClInclude Include="..\..\..\code\systems\Graphics\ShaderProgram\StaticShaderProgram\StaticShaderProgram.h" />
+    <ClInclude Include="..\..\..\code\systems\Graphics\StandardUniforms\StandardUniforms.h" />
+    <ClInclude Include="..\..\..\code\systems\Graphics\Texture\CheckeredTextureOfDeath\CheckeredTextureOfDeath.h" />
+    <ClInclude Include="..\..\..\code\systems\Graphics\Texture\Texture.h" />
+    <ClInclude Include="..\..\..\code\systems\Graphics\VertexFormat\VertexFormat.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

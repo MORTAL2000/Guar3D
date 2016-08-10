@@ -1,0 +1,126 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="ECS">
+      <UniqueIdentifier>{e3a6871f-128e-45f3-87ca-27fd1b07491a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ECS\Component">
+      <UniqueIdentifier>{8f4ead2c-9282-457a-ac04-44be7f79aae7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ECS\ComponentCollection">
+      <UniqueIdentifier>{787b055e-c54b-48bc-9988-711b72a11b71}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ECS\ComponentTypeRegistry">
+      <UniqueIdentifier>{650a9e39-2f1f-43f3-8630-13bdf3bf60a3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ECS\GameObject">
+      <UniqueIdentifier>{8320a99a-31b1-4c04-8c54-476223e9d935}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ECS\GameObjectCollection">
+      <UniqueIdentifier>{559dc815-e2e8-409c-946f-156dd5766502}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ECS\SceneGraphCollection">
+      <UniqueIdentifier>{90405691-b299-4f92-94b7-be9735e2489b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ECS\Component\Camera">
+      <UniqueIdentifier>{009ca116-3427-4fbd-8c08-0cdbc58c4596}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ECS\Component\Light">
+      <UniqueIdentifier>{e7972443-c127-4d64-b59a-e8a443f600cf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ECS\Component\Observer">
+      <UniqueIdentifier>{47f44a0b-4aa8-4aa3-a9ab-109d7d013765}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ECS\Component\Renderer">
+      <UniqueIdentifier>{c43f2ae6-3c7e-4d69-b13b-534a88defa71}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ECS\Component\Transform">
+      <UniqueIdentifier>{5be2fbc9-fc02-418e-9df5-2aea21cf84e2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ECS\SceneGraph">
+      <UniqueIdentifier>{835b11a4-d04f-4a27-b7dd-36150b1d4b1f}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\code\systems\EntityComponentSystem\Component\Component.cpp">
+      <Filter>ECS\Component</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\code\systems\EntityComponentSystem\Component\Camera\Camera.cpp">
+      <Filter>ECS\Component\Camera</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\code\systems\EntityComponentSystem\Component\Light\Light.cpp">
+      <Filter>ECS\Component\Light</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\code\systems\EntityComponentSystem\Component\Renderer\Renderer.cpp">
+      <Filter>ECS\Component\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\code\systems\EntityComponentSystem\ComponentCollection\ComponentCollection.cpp">
+      <Filter>ECS\ComponentCollection</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\code\systems\EntityComponentSystem\ComponentTypeRegistry\ComponentTypeRegistry.cpp">
+      <Filter>ECS\ComponentTypeRegistry</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\code\systems\EntityComponentSystem\GameObject\GameObject.cpp">
+      <Filter>ECS\GameObject</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\code\systems\EntityComponentSystem\GameObjectCollection\GameObjectCollection.cpp">
+      <Filter>ECS\GameObjectCollection</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\code\systems\EntityComponentSystem\SceneGraph\SceneGraph.cpp">
+      <Filter>ECS\SceneGraph</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\code\systems\EntityComponentSystem\SceneGraphCollection\SceneGraphCollection.cpp">
+      <Filter>ECS\SceneGraphCollection</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\code\systems\EntityComponentSystem\Component\Observer\Observer.cpp">
+      <Filter>ECS\Component\Observer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\code\systems\EntityComponentSystem\Component\Transform\Transform.cpp">
+      <Filter>ECS\Component\Transform</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\code\systems\EntityComponentSystem\EntityComponentSystem.cpp">
+      <Filter>ECS</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\code\systems\EntityComponentSystem\Component\Component.h">
+      <Filter>ECS\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\code\systems\EntityComponentSystem\Component\Camera\Camera.h">
+      <Filter>ECS\Component\Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\code\systems\EntityComponentSystem\Component\Light\Light.h">
+      <Filter>ECS\Component\Light</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\code\systems\EntityComponentSystem\Component\Renderer\Renderer.h">
+      <Filter>ECS\Component\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\code\systems\EntityComponentSystem\ComponentCollection\ComponentCollection.h">
+      <Filter>ECS\ComponentCollection</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\code\systems\EntityComponentSystem\ComponentTypeRegistry\ComponentTypeRegistry.h">
+      <Filter>ECS\ComponentTypeRegistry</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\code\systems\EntityComponentSystem\GameObject\GameObject.h">
+      <Filter>ECS\GameObject</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\code\systems\EntityComponentSystem\GameObjectCollection\GameObjectCollection.h">
+      <Filter>ECS\GameObjectCollection</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\code\systems\EntityComponentSystem\SceneGraph\SceneGraph.h">
+      <Filter>ECS\SceneGraph</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\code\systems\EntityComponentSystem\SceneGraphCollection\SceneGraphCollection.h">
+      <Filter>ECS\SceneGraphCollection</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\code\systems\EntityComponentSystem\Component\Observer\Observer.h">
+      <Filter>ECS\Component\Observer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\code\systems\EntityComponentSystem\Component\Transform\Transform.h">
+      <Filter>ECS\Component\Transform</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\code\systems\EntityComponentSystem\EntityComponentSystem.h">
+      <Filter>ECS</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

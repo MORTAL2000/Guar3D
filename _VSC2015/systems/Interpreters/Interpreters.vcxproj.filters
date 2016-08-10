@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Interpreters">
+      <UniqueIdentifier>{a7d224b6-c522-4b2e-aa1d-183861bad5e0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Interpreters\LuaInterpreter">
+      <UniqueIdentifier>{f58b1ec9-33c6-4aa6-99c9-526586df4816}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\code\systems\Interpreters\LuaInterpreter\LuaInterpreter.cpp">
+      <Filter>Interpreters\LuaInterpreter</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\code\systems\Interpreters\LuaInterpreter\LuaInterpreter.h">
+      <Filter>Interpreters\LuaInterpreter</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

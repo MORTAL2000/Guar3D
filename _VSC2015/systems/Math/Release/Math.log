@@ -1,0 +1,5 @@
+﻿C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppBuild.targets(368,5): warning MSB8004: Output Directory does not end with a trailing slash.  This build instance will add the slash as it is required to allow proper evaluation of the Output Directory.
+  Vector2.cpp
+  Vector3.cpp
+..\..\..\code\systems\Math\Vector3\Vector3.cpp(66): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+  Math.vcxproj -> C:\Users\Joe\Desktop\EngineSolution\_VSC2015\systems\..\..\build\bin\Math.lib

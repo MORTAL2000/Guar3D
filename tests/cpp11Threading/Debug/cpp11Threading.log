@@ -1,0 +1,4 @@
+﻿  main.cpp
+c:\users\joe\desktop\enginesolution\tests\cpp11threading\source\main.cpp(27): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+  cpp11Threading.vcxproj -> C:\Users\Joe\Desktop\EngineSolution\tests\cpp11Threading\Debug\cpp11Threading.exe
+  cpp11Threading.vcxproj -> C:\Users\Joe\Desktop\EngineSolution\tests\cpp11Threading\Debug\cpp11Threading.pdb (Partial PDB)

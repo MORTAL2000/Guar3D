@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Math">
+      <UniqueIdentifier>{57af553f-998a-44c3-b47c-61a509554a83}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Math\Vector2">
+      <UniqueIdentifier>{ebe7ce80-6eb8-4523-9584-ed05fe5dc9c8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Math\Vector3">
+      <UniqueIdentifier>{a632bfcc-8420-45d4-bf84-65f01716ddf8}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\code\systems\Math\BasicTypes.h">
+      <Filter>Math</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\code\systems\Math\Constants.h">
+      <Filter>Math</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\code\systems\Math\Vector3\Vector3.h">
+      <Filter>Math\Vector3</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\code\systems\Math\Vector2\Vector2.h">
+      <Filter>Math\Vector2</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\code\systems\Math\Vector3\Vector3.cpp">
+      <Filter>Math\Vector3</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\code\systems\Math\Vector2\Vector2.cpp">
+      <Filter>Math\Vector2</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

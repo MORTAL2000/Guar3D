@@ -1,0 +1,315 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Graphics">
+      <UniqueIdentifier>{971e3f79-911c-43f1-8620-6bc65c636910}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Graphics\GraphicsObject">
+      <UniqueIdentifier>{02be00ae-b1ee-4e6a-99a6-ea06f1040ba3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Graphics\GraphicsObjectCollection">
+      <UniqueIdentifier>{d27db6a4-7bf1-4e9d-adc2-b36aea7e64d1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Graphics\Model">
+      <UniqueIdentifier>{ec1f273c-5cbb-4338-9990-7cad8f41b033}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Graphics\ModelCollection">
+      <UniqueIdentifier>{02769ac6-9eca-4dff-afdd-a8af7298b30d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Graphics\OpenGL">
+      <UniqueIdentifier>{c72e654f-dd19-421f-ba59-bdeedf6d886c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Graphics\OpenGLCallInterpreter">
+      <UniqueIdentifier>{cf28ea90-afed-4fd5-aa62-4ee02c974086}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Graphics\RenderCamera">
+      <UniqueIdentifier>{1bccee5f-6824-404a-8664-ad34daca3958}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Graphics\RenderLight">
+      <UniqueIdentifier>{481db974-836c-4cf0-b395-2953f3a889a0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Graphics\RenderObject">
+      <UniqueIdentifier>{50a4369e-77a3-4c0e-9c63-0dd7c033966d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Graphics\RenderObjectCollection">
+      <UniqueIdentifier>{ff034e7a-a893-40dc-b2db-9c46bf3a5a4e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Graphics\RenderObserver">
+      <UniqueIdentifier>{b3af9fc6-bff1-4484-9533-f0ce5e7d2fbd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Graphics\RenderTexture">
+      <UniqueIdentifier>{5c736ac3-a154-41af-9031-1bd887404354}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Graphics\ShaderDrawCallInterpreter">
+      <UniqueIdentifier>{8d5ba003-0c84-484a-b9bc-1e250cc1f353}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Graphics\ShaderProgram">
+      <UniqueIdentifier>{53dcbb7f-9337-49f1-a6dc-af756b16d9c4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Graphics\StandardUniforms">
+      <UniqueIdentifier>{23442b6b-9dc3-4483-8450-7db0a34c4e52}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Graphics\Texture">
+      <UniqueIdentifier>{878a7de1-a2e9-44b0-9764-d2bceab1ed5c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Graphics\GraphicsObjectCollection\ModelCollection">
+      <UniqueIdentifier>{81fa1bb4-1df5-46c0-8b32-fc41d277da98}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Graphics\GraphicsObjectCollection\RenderTextureCollection">
+      <UniqueIdentifier>{19435046-e3be-4252-a6e2-934ff45561b4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Graphics\GraphicsObjectCollection\ShaderProgramCollection">
+      <UniqueIdentifier>{f414d7e2-14b3-4ee1-b387-50f5366cc30b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Graphics\GraphicsObjectCollection\TextureCollection">
+      <UniqueIdentifier>{dae5cd86-a77a-4eb0-89a5-828ea7680e1a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Graphics\Model\Quad">
+      <UniqueIdentifier>{e1c9ead0-9a3c-4254-bc50-db331c1521b4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Graphics\Model\Cube">
+      <UniqueIdentifier>{e2c2f600-cca7-4ec4-a208-50979d801eec}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Graphics\ShaderProgram\StaticShaderProgram">
+      <UniqueIdentifier>{0157392c-672f-4b74-af21-1b50ab193577}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Graphics\ShaderProgram\DynamicShaderProgram">
+      <UniqueIdentifier>{934fd560-bd10-4fee-8cad-1a0c12a4d2fe}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Graphics\ShaderProgram\StaticShaderProgram\AlphaCutOff">
+      <UniqueIdentifier>{ab459d6d-f3e7-465a-bd5f-3bd5d095784f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Graphics\ShaderProgram\StaticShaderProgram\Opaque">
+      <UniqueIdentifier>{63359433-851c-4c87-bf2e-9b34663e19c6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Graphics\ShaderProgram\StaticShaderProgram\PinkShaderOfDeath">
+      <UniqueIdentifier>{c5d16472-2fe3-4808-b64c-460efa499428}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Graphics\ShaderProgram\StaticShaderProgram\RenderTextureColorDisplay">
+      <UniqueIdentifier>{7f0340ea-19da-469c-98db-bf28836dc8e2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Graphics\ShaderProgram\StaticShaderProgram\RenderTextureDepthDisplay">
+      <UniqueIdentifier>{5f0c622f-929d-40d9-a5f7-7ac1d9b2e87b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Graphics\ShaderProgram\StaticShaderProgram\Skybox">
+      <UniqueIdentifier>{1b9b0a29-eb25-474b-9a06-f2bd408dda6f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Graphics\Texture\CheckeredTextureOfDeath">
+      <UniqueIdentifier>{36d3f9c1-f87d-4fba-aba2-e7e019d69d25}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Graphics\VertexFormat">
+      <UniqueIdentifier>{618fd2c9-d28d-4b11-9702-0748d050f9d6}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\code\systems\Graphics\Graphics.cpp">
+      <Filter>Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\code\systems\Graphics\GraphicsObject\GraphicsObject.cpp">
+      <Filter>Graphics\GraphicsObject</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\code\systems\Graphics\GraphicsObjectCollection\GraphicsObjectCollection.cpp">
+      <Filter>Graphics\GraphicsObjectCollection</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\code\systems\Graphics\GraphicsObjectCollection\ModelCollection\ModelCollection.cpp">
+      <Filter>Graphics\GraphicsObjectCollection\ModelCollection</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\code\systems\Graphics\GraphicsObjectCollection\RenderTextureCollection\RenderTextureCollection.cpp">
+      <Filter>Graphics\GraphicsObjectCollection\RenderTextureCollection</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\code\systems\Graphics\GraphicsObjectCollection\ShaderProgramCollection\ShaderProgramCollection.cpp">
+      <Filter>Graphics\GraphicsObjectCollection\ShaderProgramCollection</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\code\systems\Graphics\GraphicsObjectCollection\TextureCollection\TextureCollection.cpp">
+      <Filter>Graphics\GraphicsObjectCollection\TextureCollection</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\code\systems\Graphics\Model\Model.cpp">
+      <Filter>Graphics\Model</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\code\systems\Graphics\Model\Quad\Quad.cpp">
+      <Filter>Graphics\Model\Quad</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\code\systems\Graphics\Model\Cube\Cube.cpp">
+      <Filter>Graphics\Model\Cube</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\code\systems\Graphics\ModelCollection\ModelCollection.cpp">
+      <Filter>Graphics\ModelCollection</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\code\systems\Graphics\OpenGL\OpenGLDiagnostics.cpp">
+      <Filter>Graphics\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\code\systems\Graphics\OpenGL\OpenGLHelper.cpp">
+      <Filter>Graphics\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\code\systems\Graphics\OpenGLCallInterpreter\OpenGLCallInterpreter.cpp">
+      <Filter>Graphics\OpenGLCallInterpreter</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\code\systems\Graphics\RenderCamera\RenderCamera.cpp">
+      <Filter>Graphics\RenderCamera</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\code\systems\Graphics\RenderLight\RenderLight.cpp">
+      <Filter>Graphics\RenderLight</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\code\systems\Graphics\RenderObject\RenderObject.cpp">
+      <Filter>Graphics\RenderObject</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\code\systems\Graphics\RenderObjectCollection\RenderObjectCollection.cpp">
+      <Filter>Graphics\RenderObjectCollection</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\code\systems\Graphics\RenderObserver\RenderObserver.cpp">
+      <Filter>Graphics\RenderObserver</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\code\systems\Graphics\RenderTexture\RenderTexture.cpp">
+      <Filter>Graphics\RenderTexture</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\code\systems\Graphics\ShaderDrawCallInterpreter\ShaderDrawCallInterpreter.cpp">
+      <Filter>Graphics\ShaderDrawCallInterpreter</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\code\systems\Graphics\ShaderProgram\ShaderProgram.cpp">
+      <Filter>Graphics\ShaderProgram</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\code\systems\Graphics\ShaderProgram\DynamicShaderProgram\DynamicShaderProgram.cpp">
+      <Filter>Graphics\ShaderProgram\DynamicShaderProgram</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\code\systems\Graphics\ShaderProgram\StaticShaderProgram\StaticShaderProgram.cpp">
+      <Filter>Graphics\ShaderProgram\StaticShaderProgram</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\code\systems\Graphics\ShaderProgram\StaticShaderProgram\Skybox\Skybox.cpp">
+      <Filter>Graphics\ShaderProgram\StaticShaderProgram\Skybox</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\code\systems\Graphics\ShaderProgram\StaticShaderProgram\RenderTextureDepthDisplay\RenderTextureDepthDisplay.cpp">
+      <Filter>Graphics\ShaderProgram\StaticShaderProgram\RenderTextureDepthDisplay</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\code\systems\Graphics\ShaderProgram\StaticShaderProgram\RenderTextureColorDisplay\RenderTextureColorDisplay.cpp">
+      <Filter>Graphics\ShaderProgram\StaticShaderProgram\RenderTextureColorDisplay</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\code\systems\Graphics\ShaderProgram\StaticShaderProgram\PinkShaderOfDeath\PinkShaderOfDeath.cpp">
+      <Filter>Graphics\ShaderProgram\StaticShaderProgram\PinkShaderOfDeath</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\code\systems\Graphics\ShaderProgram\StaticShaderProgram\Opaque\Opaque.cpp">
+      <Filter>Graphics\ShaderProgram\StaticShaderProgram\Opaque</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\code\systems\Graphics\ShaderProgram\StaticShaderProgram\AlphaCutOff\AlphaCutOff.cpp">
+      <Filter>Graphics\ShaderProgram\StaticShaderProgram\AlphaCutOff</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\code\systems\Graphics\StandardUniforms\StandardUniforms.cpp">
+      <Filter>Graphics\StandardUniforms</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\code\systems\Graphics\Texture\Texture.cpp">
+      <Filter>Graphics\Texture</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\code\systems\Graphics\Texture\CheckeredTextureOfDeath\CheckeredTextureOfDeath.cpp">
+      <Filter>Graphics\Texture\CheckeredTextureOfDeath</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\code\systems\Graphics\VertexFormat\VertexFormat.cpp">
+      <Filter>Graphics\VertexFormat</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\code\systems\Graphics\Graphics.h">
+      <Filter>Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\code\systems\Graphics\GraphicsTypes.h">
+      <Filter>Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\code\systems\Graphics\GraphicsObject\GraphicsObject.h">
+      <Filter>Graphics\GraphicsObject</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\code\systems\Graphics\GraphicsObjectCollection\GraphicsObjectCollection.h">
+      <Filter>Graphics\GraphicsObjectCollection</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\code\systems\Graphics\GraphicsObjectCollection\ModelCollection\ModelCollection.h">
+      <Filter>Graphics\GraphicsObjectCollection\ModelCollection</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\code\systems\Graphics\GraphicsObjectCollection\RenderTextureCollection\RenderTextureCollection.h">
+      <Filter>Graphics\GraphicsObjectCollection\RenderTextureCollection</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\code\systems\Graphics\GraphicsObjectCollection\ShaderProgramCollection\ShaderProgramCollection.h">
+      <Filter>Graphics\GraphicsObjectCollection\ShaderProgramCollection</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\code\systems\Graphics\GraphicsObjectCollection\TextureCollection\TextureCollection.h">
+      <Filter>Graphics\GraphicsObjectCollection\TextureCollection</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\code\systems\Graphics\Model\Model.h">
+      <Filter>Graphics\Model</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\code\systems\Graphics\Model\Quad\Quad.h">
+      <Filter>Graphics\Model\Quad</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\code\systems\Graphics\Model\Cube\Cube.h">
+      <Filter>Graphics\Model\Cube</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\code\systems\Graphics\ModelCollection\ModelCollection.h">
+      <Filter>Graphics\ModelCollection</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\code\systems\Graphics\OpenGL\OpenGL.h">
+      <Filter>Graphics\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\code\systems\Graphics\OpenGL\OpenGLDiagnostics.h">
+      <Filter>Graphics\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\code\systems\Graphics\OpenGL\OpenGLHelper.h">
+      <Filter>Graphics\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\code\systems\Graphics\RenderCamera\RenderCamera.h">
+      <Filter>Graphics\RenderCamera</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\code\systems\Graphics\RenderLight\RenderLight.h">
+      <Filter>Graphics\RenderLight</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\code\systems\Graphics\RenderObject\RenderObject.h">
+      <Filter>Graphics\RenderObject</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\code\systems\Graphics\RenderObjectCollection\RenderObjectCollection.h">
+      <Filter>Graphics\RenderObjectCollection</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\code\systems\Graphics\RenderObserver\RenderObserver.h">
+      <Filter>Graphics\RenderObserver</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\code\systems\Graphics\RenderTexture\RenderTexture.h">
+      <Filter>Graphics\RenderTexture</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\code\systems\Graphics\ShaderDrawCallInterpreter\ShaderDrawCallInterpreter.h">
+      <Filter>Graphics\ShaderDrawCallInterpreter</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\code\systems\Graphics\ShaderProgram\ShaderProgram.h">
+      <Filter>Graphics\ShaderProgram</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\code\systems\Graphics\ShaderProgram\DynamicShaderProgram\DynamicShaderProgram.h">
+      <Filter>Graphics\ShaderProgram\DynamicShaderProgram</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\code\systems\Graphics\ShaderProgram\StaticShaderProgram\StaticShaderProgram.h">
+      <Filter>Graphics\ShaderProgram\StaticShaderProgram</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\code\systems\Graphics\ShaderProgram\StaticShaderProgram\Skybox\Skybox.h">
+      <Filter>Graphics\ShaderProgram\StaticShaderProgram\Skybox</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\code\systems\Graphics\ShaderProgram\StaticShaderProgram\RenderTextureDepthDisplay\RenderTextureDepthDisplay.h">
+      <Filter>Graphics\ShaderProgram\StaticShaderProgram\RenderTextureDepthDisplay</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\code\systems\Graphics\ShaderProgram\StaticShaderProgram\RenderTextureColorDisplay\RenderTextureColorDisplay.h">
+      <Filter>Graphics\ShaderProgram\StaticShaderProgram\RenderTextureColorDisplay</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\code\systems\Graphics\ShaderProgram\StaticShaderProgram\PinkShaderOfDeath\PinkShaderOfDeath.h">
+      <Filter>Graphics\ShaderProgram\StaticShaderProgram\PinkShaderOfDeath</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\code\systems\Graphics\ShaderProgram\StaticShaderProgram\Opaque\Opaque.h">
+      <Filter>Graphics\ShaderProgram\StaticShaderProgram\Opaque</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\code\systems\Graphics\ShaderProgram\StaticShaderProgram\AlphaCutOff\AlphaCutOff.h">
+      <Filter>Graphics\ShaderProgram\StaticShaderProgram\AlphaCutOff</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\code\systems\Graphics\StandardUniforms\StandardUniforms.h">
+      <Filter>Graphics\StandardUniforms</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\code\systems\Graphics\Texture\Texture.h">
+      <Filter>Graphics\Texture</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\code\systems\Graphics\Texture\CheckeredTextureOfDeath\CheckeredTextureOfDeath.h">
+      <Filter>Graphics\Texture\CheckeredTextureOfDeath</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\code\systems\Graphics\VertexFormat\VertexFormat.h">
+      <Filter>Graphics\VertexFormat</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
