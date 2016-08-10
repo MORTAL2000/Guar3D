@@ -7,7 +7,7 @@
 
 using namespace guar;
 
-GLFWwindow* Input::m_Window = 0;
+static GLFWwindow* m_Window = 0;
 
 bool Input::getKeyDown(const Key::KeyCode &aKeyCode)
 {

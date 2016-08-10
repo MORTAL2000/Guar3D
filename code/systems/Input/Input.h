@@ -12,18 +12,14 @@ namespace guar
 {
 	class Input
 	{
-	private: //class function rules
+		friend class Engine;
+
 		Input()  = delete;
 		Input(const Input&) = delete;
 		~Input() = delete;
 		Input& operator=(const Input&) = delete;
-		friend class Engine;
-
-	private: //private methods
+		
 		static void init(GLFWwindow* aWindow);
-
-	private: //data members
-		static GLFWwindow* m_Window;
 
 	public: //public interface
 		static bool getKeyDown(const Key::KeyCode &aKeyCode);

@@ -46,9 +46,9 @@ void Graphics::init(GLFWwindow* aWindowHandle)
 	m_Models.init();        
     
     //Load dynamic autos
-	m_ShaderPrograms.loadDirectory("../Shaders");//Graphics::m_ShaderPrograms.loadDirectory("../Shaders");
-	m_Textures.loadDirectory("../Textures");//Graphics::m_Textures.loadDirectory("../Textures");
-	m_Models.loadDirectory("../Models");//Graphics::m_Models.loadDirectory("../Models");
+	m_ShaderPrograms.loadDirectory("../Shaders");
+	m_Textures.loadDirectory("../Textures");
+	m_Models.loadDirectory("../Models");
 
 	
 	glfwSetWindowSizeCallback(aWindowHandle, windowSizeCallback);

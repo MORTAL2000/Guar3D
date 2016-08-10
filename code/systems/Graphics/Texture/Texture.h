@@ -4,10 +4,10 @@
  * 
  * 
 */
+//gfx inc
 #include "../GraphicsTypes.h"
-
 #include "../GraphicsObject/GraphicsObject.h"
-
+//std inc
 #include <string>
 
 namespace guar
@@ -28,8 +28,6 @@ namespace guar
     
             Texture(std::string &aName, const GFXuint &aTextureHandle);
             Texture();
-    
-            //Texture &Texture :: operator= (Texture);
     
         };
 
