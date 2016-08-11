@@ -7,10 +7,13 @@
  *  Responsible for graphical effects
  *  
 */
+//Dev
+#include <Abstract\Interface.h>
 //Math inc
 #include <Math/Vector2/Vector2.h>
 //std inc
 #include <string>
+#include <memory>
 
 struct GLFWwindow;
 
@@ -20,16 +23,24 @@ namespace guar
 	namespace GFX { class ShaderProgram ; }
 	namespace GFX { class Texture       ; }
 	namespace GFX { class RenderTexture ; }
+	namespace GFX { class SceneGraph    ; }
+	namespace ECS { class SceneGraph    ; }
 
-	class Graphics final
+	class Graphics final //: public Dev::InternalInterface::Graphics
 	{
 	    friend class Engine;
+		friend ECS::SceneGraph;
+
 	    Graphics() = delete; Graphics(const Graphics&) = delete;
 		
 		//Engine interface
 	    static void init(GLFWwindow* aWindowHandle);
 		static void update(void);
-	
+
+		//Graphics scenegraph
+		static std::weak_ptr<GFX::SceneGraph> getScene   (const std::string &aName);
+		static std::weak_ptr<GFX::SceneGraph> createScene(const std::string &aName);
+
 	public: 
 		//game programmer interface
 	    static GFX::Model*         getModel         (const std::string &aModelName   = "");
@@ -37,7 +48,9 @@ namespace guar
 	    static GFX::Texture*       getTexture       (const std::string &aTextureName = "");
 	    static GFX::RenderTexture* getRenderTexture (const std::string &aTextureName = "");
 	    static Math::Vector2       getWindowSize	(void)                                ;
-	
+
+		
+
 	};
 
 }

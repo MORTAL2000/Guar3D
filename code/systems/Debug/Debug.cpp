@@ -38,8 +38,8 @@ void consoleInputThread()
 
 void Debug::init(void) 
 {
-	std::thread t1(consoleInputThread);
-	t1.detach();
+	//std::thread t1(consoleInputThread);
+	//t1.detach();
 
 }
 

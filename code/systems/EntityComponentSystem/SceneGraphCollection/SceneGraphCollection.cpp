@@ -13,12 +13,16 @@ SceneGraph* SceneGraphCollection::find(const std::string &aSceneGraphName)
 
 }
 
-void SceneGraphCollection::push_back(const guar::ECS::SceneGraph &aScene)
+void SceneGraphCollection::update(void)
 {
-	m_Vector.push_back(aScene);
+	for (int i = 0; i < m_Vector.size(); i++)
+		m_Vector[i].update();
 
 }
 
-int SceneGraphCollection::size(void) { return m_Vector.size(); }
-SceneGraph* SceneGraphCollection::back(void) { return &m_Vector.back(); }
-SceneGraph* SceneGraphCollection::operator[](const int &i) { return &m_Vector[i]; }
+SceneGraph* SceneGraphCollection::createScene(const std::string &aName)
+{
+	m_Vector.push_back(ECS::SceneGraph(aName));
+	return &m_Vector.back();
+
+}

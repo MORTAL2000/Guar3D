@@ -116,6 +116,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\..\examples\Game\Components\Orbiter\Orbiter.cpp" />
     <ClCompile Include="..\..\..\examples\Game\Components\PlayerController\PlayerController.cpp" />
     <ClCompile Include="..\..\..\examples\Game\Components\Rotator\Rotator.cpp" />
     <ClCompile Include="..\..\..\examples\Game\Components\Spinner\Spinner.cpp" />
@@ -123,6 +124,7 @@
     <ClCompile Include="..\..\..\examples\Game\main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\..\examples\Game\Components\Orbiter\Orbiter.h" />
     <ClInclude Include="..\..\..\examples\Game\Components\PlayerController\PlayerController.h" />
     <ClInclude Include="..\..\..\examples\Game\Components\Rotator\Rotator.h" />
     <ClInclude Include="..\..\..\examples\Game\Components\Spinner\Spinner.h" />

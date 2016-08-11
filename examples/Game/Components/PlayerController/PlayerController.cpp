@@ -8,6 +8,8 @@
 //Math inc
 #include <Math\Vector3\Vector3.h>
 #include <Math\Constants.h>
+//Time inc
+#include <Time\Time.h>
 //std inc
 #include <math.h>
 
@@ -32,7 +34,8 @@ void PlayerController::update(void)
 		if (Input::getKeyDown(Key::F))
 			delta += Math::Vector3::Right;
 
-		delta *= 0.05f;
+		//delta *= 0.05f;
+		delta *= Time::getDeltaTime() * 5.0f;
 
 		m_Transform._Get()->rotate(delta);
 
@@ -76,6 +79,7 @@ void PlayerController::update(void)
 			delta.y += 1;
 
 		//delta.normalize();
+		delta *= Time::getDeltaTime() * 60.0f;
 
 		m_Transform._Get()->translate(delta); //std::cout << Graphics::getRenderTexture("")->getName() << "\n";
 

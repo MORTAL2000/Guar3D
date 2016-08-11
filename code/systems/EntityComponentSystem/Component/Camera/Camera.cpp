@@ -16,14 +16,14 @@ void Camera::update(void)
 	if (m_Transform._Get() == 0)
 		return;
 
-	m_RenderCamera.setPosition(m_Transform._Get()->getPosition());
-	m_RenderCamera.setRotation(m_Transform._Get()->getRotation());
+	m_RenderCamera._Get()->setPosition(m_Transform._Get()->getPosition());
+	m_RenderCamera._Get()->setRotation(m_Transform._Get()->getRotation());
 
 }
 
 void Camera::draw(void)
 {
-	m_RenderCamera.draw();
+	m_RenderCamera._Get()->draw();
 
 }
 
@@ -34,11 +34,11 @@ void Camera::draw(void)
 //float   Camera::getNearClippingDistance (void) { return m_RenderCamera.getNearClippingDistance(); }
 //float   Camera::getFarClippingDistance  (void) { return m_RenderCamera.getFarClippingDistance();  }
 //float   Camera::getFieldOfView          (void) { return m_RenderCamera.getFieldOfView();          }
-Color   Camera::getClearColor           (void) { return m_RenderCamera.getClearColor();           }
+Color   Camera::getClearColor           (void) { return m_RenderCamera._Get()->getClearColor();           }
 
-void Camera::setPosition             (const Math::Vector3 &aPosition            ) { m_RenderCamera.setPosition(aPosition);						 }
-void Camera::setRotation             (const Math::Vector3 &aRotation            ) { m_RenderCamera.setRotation(aRotation);						 }
-void Camera::setNearClippingDistance (const float         &aNearClippingDistance) { m_RenderCamera.setNearClippingDistance(aNearClippingDistance); }
-void Camera::setFarClippingDistance  (const float         &aFarClippingDistance ) { m_RenderCamera.setFarClippingDistance(aFarClippingDistance);   }
-void Camera::setFieldOfView          (const float         &aFieldOfView         ) { m_RenderCamera.setFieldOfView(aFieldOfView);                   }
-void Camera::setClearColor           (const Color         &aClearColor          ) { m_RenderCamera.setClearColor(aClearColor);                     }
+void Camera::setPosition             (const Math::Vector3 &aPosition            ) { m_RenderCamera._Get()->setPosition(aPosition);						 }
+void Camera::setRotation             (const Math::Vector3 &aRotation            ) { m_RenderCamera._Get()->setRotation(aRotation);						 }
+void Camera::setNearClippingDistance (const float         &aNearClippingDistance) { m_RenderCamera._Get()->setNearClippingDistance(aNearClippingDistance); }
+void Camera::setFarClippingDistance  (const float         &aFarClippingDistance ) { m_RenderCamera._Get()->setFarClippingDistance(aFarClippingDistance);   }
+void Camera::setFieldOfView          (const float         &aFieldOfView         ) { m_RenderCamera._Get()->setFieldOfView(aFieldOfView);                   }
+void Camera::setClearColor           (const Color         &aClearColor          ) { m_RenderCamera._Get()->setClearColor(aClearColor);                     }

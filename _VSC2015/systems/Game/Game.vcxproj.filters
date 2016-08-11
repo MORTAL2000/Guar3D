@@ -19,6 +19,9 @@
     <Filter Include="src\Components\Spinner">
       <UniqueIdentifier>{ecfd22ea-d6d0-4076-85fc-840eb322edfe}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\Components\Orbiter">
+      <UniqueIdentifier>{b2a491eb-dbcc-4fcf-a77b-1e6b50e0dda4}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\examples\Game\main.cpp">
@@ -36,6 +39,9 @@
     <ClCompile Include="..\..\..\examples\Game\Components\Spinner\Spinner.cpp">
       <Filter>src\Components\Spinner</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\examples\Game\Components\Orbiter\Orbiter.cpp">
+      <Filter>src\Components\Orbiter</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\examples\Game\Game\Game.h">
@@ -49,6 +55,9 @@
     </ClInclude>
     <ClInclude Include="..\..\..\examples\Game\Components\Spinner\Spinner.h">
       <Filter>src\Components\Spinner</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\examples\Game\Components\Orbiter\Orbiter.h">
+      <Filter>src\Components\Orbiter</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

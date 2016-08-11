@@ -138,6 +138,8 @@
     <ClCompile Include="..\..\..\code\systems\Graphics\RenderObject\RenderObject.cpp" />
     <ClCompile Include="..\..\..\code\systems\Graphics\RenderObserver\RenderObserver.cpp" />
     <ClCompile Include="..\..\..\code\systems\Graphics\RenderTexture\RenderTexture.cpp" />
+    <ClCompile Include="..\..\..\code\systems\Graphics\SceneGraphCollection\SceneGraphCollection.cpp" />
+    <ClCompile Include="..\..\..\code\systems\Graphics\SceneGraph\SceneGraph.cpp" />
     <ClCompile Include="..\..\..\code\systems\Graphics\ShaderDrawCallInterpreter\ShaderDrawCallInterpreter.cpp" />
     <ClCompile Include="..\..\..\code\systems\Graphics\ShaderProgram\DynamicShaderProgram\DynamicShaderProgram.cpp" />
     <ClCompile Include="..\..\..\code\systems\Graphics\ShaderProgram\ShaderProgram.cpp" />
@@ -175,6 +177,8 @@
     <ClInclude Include="..\..\..\code\systems\Graphics\RenderObject\RenderObject.h" />
     <ClInclude Include="..\..\..\code\systems\Graphics\RenderObserver\RenderObserver.h" />
     <ClInclude Include="..\..\..\code\systems\Graphics\RenderTexture\RenderTexture.h" />
+    <ClInclude Include="..\..\..\code\systems\Graphics\SceneGraphCollection\SceneGraphCollection.h" />
+    <ClInclude Include="..\..\..\code\systems\Graphics\SceneGraph\SceneGraph.h" />
     <ClInclude Include="..\..\..\code\systems\Graphics\ShaderDrawCallInterpreter\ShaderDrawCallInterpreter.h" />
     <ClInclude Include="..\..\..\code\systems\Graphics\ShaderProgram\DynamicShaderProgram\DynamicShaderProgram.h" />
     <ClInclude Include="..\..\..\code\systems\Graphics\ShaderProgram\ShaderProgram.h" />

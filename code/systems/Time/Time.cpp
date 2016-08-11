@@ -9,6 +9,8 @@ using namespace guar;
 
 //static variables
 //etc
+double currentTime;
+double lastTime;
 
 double Time::getTime(void)
 {
@@ -18,19 +20,22 @@ double Time::getTime(void)
 
 double Time::getDeltaTime(void)
 {
-	return glfwGetTimerFrequency();
+	return currentTime;
 
 }
 
 void Time::init(void)
 {
-
-
+	currentTime = 0;
+	lastTime = 0;
 
 }
 
 void Time::update(void)
 {
+	currentTime = glfwGetTime() - lastTime;
+	lastTime = glfwGetTime();
 
+	//Debug::log(currentTime,"\n");
 	
 }

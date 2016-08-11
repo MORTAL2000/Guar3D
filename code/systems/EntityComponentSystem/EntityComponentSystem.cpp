@@ -21,19 +21,13 @@ void EntityComponentSystem::init(void)
 
 void EntityComponentSystem::update(void)
 {
-	for (int i = 0; i < m_SceneGraphs.size(); i++)
-	{
-		m_SceneGraphs[i]->update();
-		m_SceneGraphs[i]->draw();
-
-	}
+	m_SceneGraphs.update();
 
 }
 
 ECS::SceneGraph* EntityComponentSystem::createScene(const std::string &aName)
 {
-	m_SceneGraphs.push_back(ECS::SceneGraph(aName));
-	return m_SceneGraphs.back();
+	return m_SceneGraphs.createScene(aName);
 
 
 }

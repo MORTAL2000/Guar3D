@@ -13,7 +13,7 @@ void Spinner::update(void)
 {
 	m_Transform = getGameObject()->findComponent<guar::ECS::Transform>();
 
-	m_Transform._Get()->rotate(Math::Vector3::Right * 0.05f);
-	m_Transform._Get()->rotate(Math::Vector3::Up    * 0.04f);
+	m_Transform._Get()->rotate(Math::Vector3::Right * Time::getDeltaTime());
+	m_Transform._Get()->rotate(Math::Vector3::Up    * Time::getDeltaTime());
 
 }

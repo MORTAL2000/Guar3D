@@ -7,6 +7,7 @@
 //stdinc
 #include <vector>
 #include <memory>
+#include <string>
 
 namespace guar
 {
@@ -20,10 +21,8 @@ namespace guar
 
 		public:
 			SceneGraph* find(const std::string &aSceneGraphName);
-			void push_back(const guar::ECS::SceneGraph &aScene);
-			int size(void);
-			SceneGraph* back(void);
-			SceneGraph* operator[](const int &i);
+			SceneGraph* createScene(const std::string &aName);
+			void update(void);
 
 		};
 

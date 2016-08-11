@@ -47,9 +47,26 @@ static GLFWwindow* m_Window = 0;
  *  application loop
  * 
  */
+#include <thread>
+void Engine::drawThreadTest(void)
+{
+	glfwMakeContextCurrent(m_Window);
+
+	for (;;)
+	{
+		Graphics::update();
+
+	}
+
+}
+
 void Engine::mainLoop()
 {
+	glfwMakeContextCurrent(0);
+	EntityComponentSystem::update();
 	
+	std::thread t1(drawThreadTest);
+	t1.detach();
 	
 	try
 	{
@@ -57,9 +74,9 @@ void Engine::mainLoop()
 		while (!glfwWindowShouldClose(m_Window))
 		{
 			EntityComponentSystem::update();
-			Graphics::update();
-			glfwPollEvents();
+			//Graphics::update();
 			Time::update();
+			glfwPollEvents();
 
 		}
 
@@ -88,6 +105,8 @@ void Engine::mainInit(void)
 	Debug::announce("Engine init: Sound initializing...");
 	Debug::announce("Engine init: Network initializing...");
 	Debug::success("\n\n\nEngine init complete, passing control to the game!\n\n\n\n");
+
+	
 
 }
 

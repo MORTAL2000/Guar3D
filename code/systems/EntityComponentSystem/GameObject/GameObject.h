@@ -21,6 +21,8 @@ namespace guar
 		class SceneGraph;
 		class GameObjectDeleter;
 		class Light;
+		class Renderer;
+		class Camera;
 
 		class GameObject final
 		{
@@ -34,6 +36,9 @@ namespace guar
 			SceneGraph*                              m_SceneGraph;
 
 			//void init(void);
+			std::weak_ptr<Renderer> initARenderer(std::weak_ptr<Renderer>);
+			std::weak_ptr<Light>    initALight   (std::weak_ptr<Light>);
+			std::weak_ptr<Camera>   initACamera  (std::weak_ptr<Camera>);
 
 		public: //Accessors
 			std::string getName(void) {	return m_Name; }
@@ -54,21 +59,21 @@ namespace guar
 				m_Components.back()->init();
 
 				if (std::is_same<T, Renderer>::value)
-					m_SceneGraph->m_ForwardRenderers.push_back
+					m_SceneGraph->m_Renderers.push_back
 					(
-						std::weak_ptr<Renderer>(std::dynamic_pointer_cast<Renderer>(m_Components.back())) 
-				
+						initARenderer(std::dynamic_pointer_cast<Renderer>(m_Components.back()))
+
 					);
 				else if (std::is_same<T, Camera>::value)
 					m_SceneGraph->m_Cameras.push_back
 					(
-						std::weak_ptr<Camera>(std::dynamic_pointer_cast<Camera>(m_Components.back()))
-					
+						initACamera(std::dynamic_pointer_cast<Camera>(m_Components.back()))
+
 					);
 				else if (std::is_same<T, Light>::value)
 					m_SceneGraph->m_Lights.push_back
 					(
-						std::weak_ptr<Light>(std::dynamic_pointer_cast<Light>(m_Components.back()))
+						initALight(std::dynamic_pointer_cast<Light>(m_Components.back()))
 				
 					);
 

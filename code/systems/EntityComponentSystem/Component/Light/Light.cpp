@@ -18,28 +18,28 @@ void Light::update(void)
 	if (m_Transform._Get() == 0)
 		return;
 
-	m_RenderLight.setPosition(m_Transform._Get()->getPosition());
-	m_RenderLight.setRotation(m_Transform._Get()->getRotation());
+	m_RenderLight._Get()->setPosition(m_Transform._Get()->getPosition());
+	m_RenderLight._Get()->setRotation(m_Transform._Get()->getRotation());
 
 }
 
 void Light::draw(void)
 {
-	m_RenderLight.draw();
+	m_RenderLight._Get()->draw();
 
 
 }
 
-Math::Vector3		   Light::getPosition             (void) { return m_RenderLight.getPosition(); }
-Math::Vector3		   Light::getRotation             (void) { return m_RenderLight.getRotation(); }
-float		   Light::getNearClippingDistance (void) { return m_RenderLight.getNearClippingDistance(); }
-float		   Light::getFarClippingDistance  (void) { return m_RenderLight.getFarClippingDistance(); }
-float		   Light::getFieldOfView          (void) { return m_RenderLight.getFieldOfView(); }
+Math::Vector3 Light::getPosition             (void) { return m_RenderLight._Get()->getPosition(); }
+Math::Vector3 Light::getRotation             (void) { return m_RenderLight._Get()->getRotation(); }
+float		  Light::getNearClippingDistance (void) { return m_RenderLight._Get()->getNearClippingDistance(); }
+float		  Light::getFarClippingDistance  (void) { return m_RenderLight._Get()->getFarClippingDistance(); }
+float		  Light::getFieldOfView          (void) { return m_RenderLight._Get()->getFieldOfView(); }
 
 
 
-void Light::setPosition				(const Math::Vector3 &aPosition            ) { m_RenderLight.setPosition(aPosition); }
-void Light::setRotation				(const Math::Vector3 &aRotation            ) { m_RenderLight.setRotation(aRotation); }
-void Light::setNearClippingDistance (const float   &aNearClippingDistance) { m_RenderLight.setNearClippingDistance(aNearClippingDistance); }
-void Light::setFarClippingDistance  (const float   &aFarClippingDistance ) { m_RenderLight.setFarClippingDistance(aFarClippingDistance); }
-void Light::setFieldOfView          (const float   &aFieldOfView         ) { m_RenderLight.setFieldOfView(aFieldOfView); }
+void Light::setPosition				(const Math::Vector3 &aPosition      ) { m_RenderLight._Get()->setPosition(aPosition); }
+void Light::setRotation				(const Math::Vector3 &aRotation      ) { m_RenderLight._Get()->setRotation(aRotation); }
+void Light::setNearClippingDistance (const float   &aNearClippingDistance) { m_RenderLight._Get()->setNearClippingDistance(aNearClippingDistance); }
+void Light::setFarClippingDistance  (const float   &aFarClippingDistance ) { m_RenderLight._Get()->setFarClippingDistance(aFarClippingDistance); }
+void Light::setFieldOfView          (const float   &aFieldOfView         ) { m_RenderLight._Get()->setFieldOfView(aFieldOfView); }

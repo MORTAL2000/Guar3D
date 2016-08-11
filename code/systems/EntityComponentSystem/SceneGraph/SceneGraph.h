@@ -13,6 +13,8 @@
 
 namespace guar
 {
+	namespace GFX { class SceneGraph; }
+
 	namespace ECS
 	{
 		class GameObject;
@@ -25,15 +27,17 @@ namespace guar
 			friend GameObject;
 
 			std::string m_Name;
-			std::vector<std::shared_ptr<GameObject>> m_RootObjects;
 
-			//std::vector<std::weak_ptr<DeferredRenderer>> m_DeferredRenderers;
-			std::vector<std::weak_ptr<Renderer>> m_ForwardRenderers;
-			std::vector<std::weak_ptr<Camera>>   m_Cameras;
-			std::vector<std::weak_ptr<Light>>    m_Lights;
+			std::weak_ptr<GFX::SceneGraph> m_GraphicsScene;
+
+			std::vector<std::shared_ptr<GameObject>> m_RootObjects;
+			std::vector<std::weak_ptr<Renderer>>     m_Renderers;
+			std::vector<std::weak_ptr<Camera>>       m_Cameras;
+			std::vector<std::weak_ptr<Light>>        m_Lights;
 			
 		public:
 			std::string getName(void) { return m_Name; }
+			std::weak_ptr<GFX::SceneGraph> getGraphicsScene() { return m_GraphicsScene; }
 
 			std::weak_ptr<GameObject> getRootObject(const std::string &aRootGameObjectName);
 			GameObject findGameObject(std::string aGameObjectName);
@@ -44,7 +48,7 @@ namespace guar
 			
 
 			void update();
-			void draw();
+			//void draw();
 
 			SceneGraph();
 			SceneGraph(const std::string &aSceneName);

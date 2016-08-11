@@ -1,12 +1,25 @@
 #include "GameObject.h"
 
-//projinc
-#include "../Component/Renderer/Renderer.h"
+//ecs inc
+#include "../SceneGraph/SceneGraph.h"
 #include "../Component/Transform/Transform.h"
+#include "../Component/Renderer/Renderer.h"
+#include "../Component/Light/Light.h"
+#include "../Component/Camera/Camera.h"
 
-#include "../../Engine/Engine.h"
+//engine inc
+#include <Engine/Engine.h>
 
+//debug inc
 #include <debug\Debug.h>
+
+//gfx inc
+#include <Graphics\SceneGraph\SceneGraph.h>
+#include <Graphics\RenderObject\RenderObject.h>
+#include <Graphics\RenderLight\RenderLight.h>
+#include <Graphics\RenderCamera\RenderCamera.h>
+
+
 
 using namespace guar;
 using namespace ECS;
@@ -79,3 +92,26 @@ void GameObject::becomeChild(std::unique_ptr<GameObject> aGameObject)
 //	for(int i = 0; i < m_C)
 //
 //}
+
+
+
+std::weak_ptr<Renderer> GameObject::initARenderer(std::weak_ptr<Renderer> aRenderer)
+{
+	aRenderer._Get()->m_RenderObject = m_SceneGraph->m_GraphicsScene._Get()->createRenderObject();
+	return aRenderer;
+
+}
+
+std::weak_ptr<Light> GameObject::initALight(std::weak_ptr<Light> aLight)
+{
+	aLight._Get()->m_RenderLight = m_SceneGraph->m_GraphicsScene._Get()->createRenderLight();
+	return aLight;
+
+}
+
+std::weak_ptr<Camera> GameObject::initACamera(std::weak_ptr<Camera> aCamera)
+{
+	aCamera._Get()->m_RenderCamera = m_SceneGraph->m_GraphicsScene._Get()->createRenderCamera();
+	return aCamera;
+
+}

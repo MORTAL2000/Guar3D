@@ -19,6 +19,8 @@ namespace guar
 		//Private methods
 		static void init(void);
 
+		static void drawThreadTest();
+
 	public: //Public interface
 		static void mainInit(void);
 		static void mainLoop(void);

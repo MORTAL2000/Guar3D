@@ -12,6 +12,9 @@
 #include "GraphicsObjectCollection/ShaderProgramCollection/ShaderProgramCollection.h"
 #include "GraphicsObjectCollection/TextureCollection/TextureCollection.h"
 #include "GraphicsObjectCollection/RenderTextureCollection/RenderTextureCollection.h"
+#include "SceneGraphCollection\SceneGraphCollection.h"
+#include "SceneGraph\SceneGraph.h"
+
 //stdlib includes
 #include <stdio.h>
 #include <stdlib.h>
@@ -21,6 +24,7 @@ using namespace guar;
 using namespace GFX;
 
 //Data members
+static GFX::SceneGraphCollection    m_SceneGraphCollection;
 static GFX::ShaderProgramCollection m_ShaderPrograms;
 static GFX::TextureCollection       m_Textures;
 static GFX::ModelCollection         m_Models;
@@ -46,9 +50,9 @@ void Graphics::init(GLFWwindow* aWindowHandle)
 	m_Models.init();        
     
     //Load dynamic autos
-	m_ShaderPrograms.loadDirectory("../Shaders");
-	m_Textures.loadDirectory("../Textures");
-	m_Models.loadDirectory("../Models");
+	m_ShaderPrograms.loadDirectory ("../Shaders" );
+	m_Textures.loadDirectory       ("../Textures");
+	m_Models.loadDirectory         ("../Models"  );
 
 	
 	glfwSetWindowSizeCallback(aWindowHandle, windowSizeCallback);
@@ -68,9 +72,11 @@ void windowSizeCallback(GLFWwindow* aWindowHandle, int aX, int aY)
 
 void Graphics::update(void)
 {
-	glfwSwapBuffers(m_Window);
+	
 
-	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+	m_SceneGraphCollection.update(); //draw to backbuffer
+	glfwSwapBuffers(m_Window); //swap buffers
+	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); //clear back buffer
 
 }
 
@@ -79,3 +85,16 @@ GFX::ShaderProgram* Graphics::getShaderProgram (const std::string &aModelName)  
 GFX::Texture*       Graphics::getTexture       (const std::string &aTextureName) { return m_Textures.find(aTextureName);       }
 GFX::RenderTexture* Graphics::getRenderTexture (const std::string &aTextureName) { return m_RenderTextures.find(aTextureName); }
 Math::Vector2       Graphics::getWindowSize    (void)                            { return m_WindowSize;                        }
+
+
+std::weak_ptr<GFX::SceneGraph>  Graphics::getScene(const std::string &aName)
+{
+	return m_SceneGraphCollection.findScene(aName);
+
+}
+
+std::weak_ptr<GFX::SceneGraph> Graphics::createScene(const std::string &aName)
+{
+	return m_SceneGraphCollection.createScene(aName);
+
+}

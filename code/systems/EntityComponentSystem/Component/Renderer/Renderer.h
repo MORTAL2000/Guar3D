@@ -19,19 +19,21 @@ namespace guar
 
 	namespace ECS
 	{
-		static class Transform;
-		static class Light;
-		static class SceneGraph;
-		static class Camera;
-		static class Observer;
+		class Transform;
+		class Light;
+		class SceneGraph;
+		class Camera;
+		class Observer;
+		class GameObject;
 
 		class Renderer final : public Component
 		{
 			friend guar::ECS::SceneGraph; //friend funcs may be more appropriate
 			friend Camera;
+			friend GameObject;
 			
 			//Data members
-			GFX::RenderObject m_RenderObject;
+			std::weak_ptr<GFX::RenderObject> m_RenderObject;
 			std::weak_ptr<Transform> m_Transform;
 			
 			//ECS interface

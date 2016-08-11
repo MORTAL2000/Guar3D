@@ -100,6 +100,12 @@
     <Filter Include="Graphics\VertexFormat">
       <UniqueIdentifier>{618fd2c9-d28d-4b11-9702-0748d050f9d6}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Graphics\SceneGraph">
+      <UniqueIdentifier>{8c7047c0-6ba2-4fa1-9684-8f55b85338d7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Graphics\SceneGraphCollection">
+      <UniqueIdentifier>{3a23b007-7015-4a0b-89df-9f329787564e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\code\systems\Graphics\Graphics.cpp">
@@ -203,6 +209,12 @@
     </ClCompile>
     <ClCompile Include="..\..\..\code\systems\Graphics\VertexFormat\VertexFormat.cpp">
       <Filter>Graphics\VertexFormat</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\code\systems\Graphics\SceneGraph\SceneGraph.cpp">
+      <Filter>Graphics\SceneGraph</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\code\systems\Graphics\SceneGraphCollection\SceneGraphCollection.cpp">
+      <Filter>Graphics\SceneGraphCollection</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -310,6 +322,12 @@
     </ClInclude>
     <ClInclude Include="..\..\..\code\systems\Graphics\VertexFormat\VertexFormat.h">
       <Filter>Graphics\VertexFormat</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\code\systems\Graphics\SceneGraph\SceneGraph.h">
+      <Filter>Graphics\SceneGraph</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\code\systems\Graphics\SceneGraphCollection\SceneGraphCollection.h">
+      <Filter>Graphics\SceneGraphCollection</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

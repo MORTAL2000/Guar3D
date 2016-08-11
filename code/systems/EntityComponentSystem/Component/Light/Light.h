@@ -23,9 +23,10 @@ namespace guar
 		{
 			friend class Renderer;
 			friend class SceneGraph;
+			friend class GameObject;
 
-			std::weak_ptr<Transform> m_Transform;
-			GFX::RenderLight	     m_RenderLight;
+			std::weak_ptr<Transform>        m_Transform;
+			std::weak_ptr<GFX::RenderLight>	m_RenderLight;
 
 			void update(void) override;
 			void draw(void) override;
@@ -43,7 +44,7 @@ namespace guar
 			void setFarClippingDistance  (const float         &aFarClippingDistance ) ;
 			void setFieldOfView          (const float         &aFieldOfView         ) ;
 
-			GFX::RenderObserver* getRenderObserver(void) override { return &m_RenderLight; }
+			GFX::RenderObserver* getRenderObserver(void) override { return m_RenderLight._Get(); }
 
 		};
 

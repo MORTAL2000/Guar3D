@@ -15,14 +15,16 @@ namespace guar
 	namespace ECS
 	{
 		class Transform;
+		class GameObject;
 
 		class Camera : public Observer
 		{
 			friend class SceneGraph;
 			friend class Renderer;
+			friend ECS::GameObject;
 
-			std::weak_ptr<Transform> m_Transform;
-			GFX::RenderCamera m_RenderCamera;
+			std::weak_ptr<Transform>         m_Transform;
+			std::weak_ptr<GFX::RenderCamera> m_RenderCamera;
 
 			void update(void) override;
 			void draw(void) override;
@@ -42,7 +44,7 @@ namespace guar
 			void setFieldOfView          (const float         &aFieldOfView         );
 			void setClearColor           (const GFX::Color    &aClearColor          );
 
-			GFX::RenderObserver* getRenderObserver(void) override { return &m_RenderCamera; }
+			GFX::RenderObserver* getRenderObserver(void) override { return m_RenderCamera._Get(); }
 
 		};
 
