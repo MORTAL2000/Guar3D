@@ -50,3 +50,5 @@ intermediate/
 libraries/systems/
 .sdf
 *.sdf
+*.db
+*.suo

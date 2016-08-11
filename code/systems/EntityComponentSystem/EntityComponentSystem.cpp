@@ -14,7 +14,7 @@ static ECS::SceneGraphCollection m_SceneGraphs;
 
 void EntityComponentSystem::init(void)
 {
-	Debug::log("\n\n****\nEngine init: ECS initializing...\n****\n");
+	Debug::announce("Engine init: ECS initializing...");
 	ECS::ComponentTypeRegistry::init();
 
 }

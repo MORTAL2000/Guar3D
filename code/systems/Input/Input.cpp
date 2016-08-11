@@ -17,7 +17,7 @@ bool Input::getKeyDown(const Key::KeyCode &aKeyCode)
 
 void Input::init(GLFWwindow* aWindow)
 {
-	Debug::log("\n\n****\nEngine init: Input initializing...\n****\n");
+	Debug::announce("Engine init: Input initializing...");
 
 	s_Window = aWindow;
 

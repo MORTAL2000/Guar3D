@@ -35,7 +35,7 @@ void Graphics::init(GLFWwindow* aWindowHandle)
 {
 	m_Window = aWindowHandle;
 
-	Debug::log("\n\n****\nEngine init: Graphics initializing...\n****\n");
+	Debug::announce("Engine init: Graphics initializing...");
     printf("Graphics::Graphics()\n");
 	GLHelp::Diagnostics::clearGLErrors();
     

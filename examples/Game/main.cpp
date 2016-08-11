@@ -16,20 +16,11 @@ using namespace guar;
 
 int main(void)
 {
-	try
-	{
-		Engine::mainInit();
+	Engine::mainInit();
 
-		Game::init();
+	Game::init();
 
-		Engine::mainLoop();
-
-	}
-	catch (std::runtime_error& e)
-	{
-		Debug::log(e.what());
-
-	}
+	Engine::mainLoop();
 
     return 0;
     

@@ -1,12 +1,15 @@
 #include "OpenGLHelper.h"
 
+//gfx inc
 #include "../Graphics.h"
-
+#//debug inc
+#include <Debug\Debug.h>
 //stdlib includes
 #include <stdio.h>
 #include <stdlib.h>
 
 using namespace GLHelp;
+using namespace guar;
 
 //
 // Diagnostic functions
@@ -18,7 +21,7 @@ void Diagnostics::checkGLErrors(void)
 
 	if (errorCode == 0)
 	{
-		printf("GLErrors: No errors\n");
+		Debug::success("GLErrors: No errors\n");
 		return;
 
 	}
@@ -28,7 +31,7 @@ void Diagnostics::checkGLErrors(void)
 				return;
 			else
 			{
-				printf("GLErrors: WARNING error %d\n", errorCode);
+				Debug::error("GLErrors: WARNING error: ", errorCode,"\n");
 				errorCode = glGetError();
 
 			}

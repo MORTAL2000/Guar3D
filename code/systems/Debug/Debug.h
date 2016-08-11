@@ -11,95 +11,107 @@
 
 namespace guar
 {
-    class Debug
+    class Debug final
     {
 		friend class Engine; Debug() = delete; ~Debug() = delete;
 
 		//Engine interface
-		void init(void);
-		void update(void);
+		static void init(void);
+		static void update(void);
 
-		void print(const std::string &aMessage);
+		static void print(const std::string &aMessage);
 
-	public: //Game programmer interface
-		enum TextColor
+		static void setTextColor(const int &aColor);
+
+	public://Game programmer interface
+		class Color final
 		{
-			BLACK,
-			BLUE,
-			GREEN,
-			CYAN,
-			RED,
-			MAGENTA,
-			BROWN,
-			GREY,
-			DARKGREY,
-			LIGHTBLUE,
-			LIGHTGREEN,
-			LIGHTCYAN,
-			LIGHTRED,
-			LIGHTMAGENTA,
-			YELLOW,
-			WHITE
+			Color() = delete;
+
+		public:
+			static int BLACK;
+			static int BLUE;
+			static int GREEN;
+			static int CYAN;
+			static int RED;
+			static int MAGENTA;
+			static int BROWN;
+			static int GREY;
+			static int DARKGREY;
+			static int LIGHTBLUE;
+			static int LIGHTGREEN;
+			static int LIGHTCYAN;
+			static int LIGHTRED;
+			static int LIGHTMAGENTA;
+			static int YELLOW;
+			static int WHITE;
 
 		};
 
-	private:
-		static void setTextColor(const Debug::TextColor &aColor);
+		static void log() {}
 
-		//static void dolog() {}
-		//template<typename First, typename ...Rest>
-		//static void dolog(First && first, Rest && ...rest)
-		//{
-		//	std::cout << std::forward<First>(first);
-		//	dolog(std::forward<Rest>(rest)...);
-		//
-		//}
-
-	public:
 		template<typename First, typename ...Rest>
 		static void log(First && first, Rest && ...rest)
 		{
-			//if (std::is_same<First, enum TextColor>::value == true)
-			//{
-			//	setTextColor(first);
-			//
-			//}
-
-		//	if (std::is_same<First, TextColor>::value == true)
-		//	{
-		//		//if (first == YELLOW)
-				//setTextColor(YELLOW);
+			std::cout << std::forward<First>(first);				
+			log(std::forward<Rest>(rest)...);
 			
-			//}
-			//else
-			//{
-				std::cout << std::forward<First>(first);
-				
+		}
 
-			//}
-			//
-			//dolog(std::forward<Rest>(rest)...);
-			//
-			//setTextColor(TextColor::WHITE);
+		template<typename First, typename ...Rest>
+		static void error(First && first, Rest && ...rest)
+		{
+			setTextColor(Color::RED);
+			std::cout << std::forward<First>(first);
+			log(std::forward<Rest>(rest)...);
+			setTextColor(Color::WHITE);
 
 		}
 
-		//template
-		//<
-		//	typename First,
-		//	typename... Rest,
-		//	typename = EnableIf
-		//	<std::is_same<Decay<LastType<Rest...>>,TextColor>::value
-		//>
-		//static void log(First && first, Rest && ...rest)
-		//{
-		//	std::cout << std::forward<First>(first);
-		//	log(std::forward<Rest>(rest)...);
-		//
-		//}
-		
+		template<typename First, typename ...Rest>
+		static void success(First && first, Rest && ...rest)
+		{
+			setTextColor(Color::GREEN);
+			std::cout << std::forward<First>(first);
+			log(std::forward<Rest>(rest)...);
+			setTextColor(Color::WHITE);
 
-		
+		}
+
+		template<typename First, typename ...Rest>
+		static void alert(First && first, Rest && ...rest)
+		{
+			setTextColor(Color::MAGENTA);
+			std::cout << std::forward<First>(first);
+			log(std::forward<Rest>(rest)...);
+			setTextColor(Color::WHITE);
+
+		}
+
+		template<typename First, typename ...Rest>
+		static void announce(First && first, Rest && ...rest)
+		{
+			setTextColor(Color::YELLOW);
+			std::cout 
+				<< "\n\n*****************\n"
+				<< std::forward<First>(first)
+				<<   "\n*****************\n\n"
+				;
+			log(std::forward<Rest>(rest)...);
+			setTextColor(Color::WHITE);
+
+		}
+
+		template<typename First, typename ...Rest>
+		static void clog(const int &aColor,First && first, Rest && ...rest)
+		{
+			setTextColor(aColor);
+	
+			std::cout << std::forward<First>(first);
+			log(std::forward<Rest>(rest)...);
+			setTextColor(Debug::TextColor::WHITE);
+
+		}
         
     };
 

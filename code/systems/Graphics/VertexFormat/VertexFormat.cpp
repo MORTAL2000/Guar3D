@@ -147,7 +147,7 @@ Vertex::Data::~Data()
 {
     if (m_FloatArray != 0)
     {
-        Debug::log("Vertex::Data::~Data()\n");
+        //Debug::log("Vertex::Data::~Data()\n");
         free(m_FloatArray);
         
     }

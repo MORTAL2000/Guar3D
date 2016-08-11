@@ -19,6 +19,16 @@
 
 using namespace guar;
 
+static const char* c_EngineAsciiName =
+R"V0G0N(
+   ___                      _____      _ 
+  / _ \ _   _   __ _  _ __ |___ /   __| |
+ / /_\/| | | | / _` || '__|  |_ \  / _` |
+/ /_\\ | |_| || (_| || |    ___) || (_| |
+\____/  \__,_| \__,_||_|   |____/  \__,_|
+                                         
+)V0G0N";
+
 //static forward decs
 static void keyEventCallback(GLFWwindow* window, int key, int scancode, int action, int mods);
 static void initContext(void);
@@ -39,15 +49,27 @@ static GLFWwindow* m_Window = 0;
  */
 void Engine::mainLoop()
 {
-    /* Loop until the user closes the window */
-    while (!glfwWindowShouldClose(m_Window) )
-    {
-		EntityComponentSystem::update();
-		Graphics::update();
-		glfwPollEvents();
-		Time::update();
 	
-    }
+	
+	try
+	{
+		/* Loop until the user closes the window */
+		while (!glfwWindowShouldClose(m_Window))
+		{
+			EntityComponentSystem::update();
+			Graphics::update();
+			glfwPollEvents();
+			Time::update();
+
+		}
+
+	}
+
+	catch (std::runtime_error& e)
+	{
+		Debug::error(e.what());
+
+	}
 
     glfwTerminate();
     
@@ -61,18 +83,19 @@ void Engine::mainInit(void)
 	EntityComponentSystem::init();
 	Input::init(m_Window);
 	Time::init();
+	Debug::init();
 
-	Debug::log(Debug::CYAN, "\n\n****\nEngine init: Sound initializing...\n****\n");
-
-	Debug::log(Debug::GREEN, "\n\n****\nEngine init: Network initializing...\n****\n");
-
-	Debug::log("\n\n****\nEngine init complete\n****\n");
+	Debug::announce("Engine init: Sound initializing...");
+	Debug::announce("Engine init: Network initializing...");
+	Debug::success("\n\n\nEngine init complete, passing control to the game!\n\n\n\n");
 
 }
 
 void Engine::init(void)
 {
-	Debug::log("\n\n****\nEngine init: Libraries are initializing...\n****\n");
+	Debug::log(c_EngineAsciiName, "a 3D game engine.\n", "Build date: ", __DATE__);
+	Debug::announce("Engine init: Libraries are initializing...");
+
 	m_Window = 0;
 
 	initGLFW();
@@ -92,17 +115,17 @@ void Engine::init(void)
  */
 static void initGLEW(void)
 {
-    printf("initializing extension loader \"GLEW\"\n");
+    Debug::log("initializing extension loader \"GLEW\"\n");
     
     GLenum err = glewInit();
     if (GLEW_OK != err)
     {
         /* Problem: glewInit failed, something is seriously wrong. */
-        fprintf(stderr, "Error: %s\n", glewGetErrorString(err));
+        Debug::error("Error: ", glewGetErrorString(err),"\n");
         
     }
     
-    fprintf(stdout, "Status: Using GLEW %s\n", glewGetString(GLEW_VERSION)); 
+    Debug::success("Glew init complete: Using GLEW ", glewGetString(GLEW_VERSION), "\n");
     
 }
 
@@ -114,16 +137,16 @@ static void initGLEW(void)
  */
 static void initGLFW(void)
 {
-    printf("GLFW initalization: ");
+    Debug::log("GLFW initalization: ");
     //Try to init the lib
     if (!glfwInit())
     {
-        printf("failed\n");
+        Debug::error("failed\n");
         return;
     
     }
     
-    printf("done\n");
+    Debug::success("done\n");
     
     //print lib info
     int major, minor, rev;
@@ -191,16 +214,6 @@ static void keyEventCallback(GLFWwindow* window, int key, int scancode, int acti
 {
 	if (key == GLFW_KEY_ESCAPE && action == GLFW_PRESS)
         glfwSetWindowShouldClose(window, GLFW_TRUE);
-		
-	//if (key == GLFW_KEY_A && action == GLFW_PRESS)
-	//	printf("A pressed\n");
-        
-    if (key == GLFW_KEY_GRAVE_ACCENT && action == GLFW_PRESS)
-    {
-        int n;
-        std::cin >> n;
-        
-    }
 	
 }
 

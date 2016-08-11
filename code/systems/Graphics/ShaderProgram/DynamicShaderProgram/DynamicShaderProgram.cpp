@@ -15,9 +15,9 @@ using namespace GFX;
 
 DynamicShaderProgram::DynamicShaderProgram(const std::string &aFileName) : ShaderProgram()
 {
-    m_ShaderDrawCallCallInterpreter = 0;
+	Debug::alert("Loading dynamic shaderprogram from file\"", aFileName, "\"\n");
     
-    printf("ShaderProgram \"%s\" constructed...\n", aFileName.c_str());
+	m_ShaderDrawCallCallInterpreter = 0;
     m_Name = aFileName;
     
     m_ShaderDrawCallCallInterpreter = new ShaderDrawCallInterpreter();
