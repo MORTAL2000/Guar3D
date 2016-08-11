@@ -1,12 +1,27 @@
-Once forward render ADSS is implemented choice:
- a) deferred path
- b) learn about c++11 threads. Refactor ECS and Graphics to be threadsafe (tight binding atm).
- c) fix include guard names, fix namespace names, fix forward decs and includes etc.
+Next:
+decouple Renderer from ECS.
+provide Renderer with a scenegraph of its own.
+GraphicsObjectCollection should provide weak ptrs not raw ptrs.
+All resource collections should provide weak ptrs.
 
-fix interface between graphics and ecs.
-interface should be one way, it is 2 way.
-camera and light must be changed.
-refactor camera nad light stuff then encapsulate into ecs.
-look at relationship between ECS::Renderer and Graphics::RenderObject. This is correct.
+Graphics, ECS, Physics and Sound systems need their own scenegraphs.
+write an abstract SceneGraph type?
 
-graphics <- ecs not grahpics <-> ecs
+---------------------
+Later:
+
+Physics system. Implementation handled by Bullet.
+
+Finish forward renderpath
+  Clean up ortho shadow caster
+  Implement point light shadow caster
+  Implement spotlight shadow caster
+
+Start deferred renderpath
+
+Add collision checks for lights, to prevent lighting through walls, reduce # of lights being
+rendered etc.
+
+Audio system. Will probably use OpenAL soft.
+
+write lightbaking shader for static lights.
