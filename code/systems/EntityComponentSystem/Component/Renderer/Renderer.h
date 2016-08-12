@@ -50,7 +50,7 @@ namespace guar
 			//Shader related
 			void setShaderProgram(const std::string &aModelName);
 			
-			void setTexture(const std::string &aUniformName, GFX::Texture* aTexture);
+			void setTexture(const std::string &aUniformName, std::weak_ptr<GFX::Texture> aTexture);
 			void setTexture(const std::string &aUniformName, const std::string &aTextureName);
 			
 

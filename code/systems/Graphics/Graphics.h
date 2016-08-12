@@ -8,7 +8,7 @@
  *  
 */
 //Dev
-#include <Abstract\Interface.h>
+//#include <Abstract\Interface.h>
 //Math inc
 #include <Math/Vector2/Vector2.h>
 //std inc
@@ -32,24 +32,27 @@ namespace guar
 		friend ECS::SceneGraph;
 
 	    Graphics() = delete; Graphics(const Graphics&) = delete;
-		
+
+		static void renderThreadDrawLoop(void);
+
 		//Engine interface
 	    static void init(GLFWwindow* aWindowHandle);
 		static void update(void);
-
+		static void terminate(void);
+		
 		//Graphics scenegraph
 		static std::weak_ptr<GFX::SceneGraph> getScene   (const std::string &aName);
 		static std::weak_ptr<GFX::SceneGraph> createScene(const std::string &aName);
 
 	public: 
 		//game programmer interface
-	    static GFX::Model*         getModel         (const std::string &aModelName   = "");
-	    static GFX::ShaderProgram* getShaderProgram (const std::string &aModelName   = "");
-	    static GFX::Texture*       getTexture       (const std::string &aTextureName = "");
-	    static GFX::RenderTexture* getRenderTexture (const std::string &aTextureName = "");
-	    static Math::Vector2       getWindowSize	(void)                                ;
+	    static std::weak_ptr<GFX::Model        >getModel         (const std::string &aModelName   = "");
+	    static std::weak_ptr<GFX::ShaderProgram>getShaderProgram (const std::string &aModelName   = "");
+	    static std::weak_ptr<GFX::Texture      >getTexture       (const std::string &aTextureName = "");
+	    static std::weak_ptr<GFX::RenderTexture>getRenderTexture (const std::string &aTextureName = "");
+	    static Math::Vector2        getWindowSize	 (void)                                ;
 
-		
+
 
 	};
 

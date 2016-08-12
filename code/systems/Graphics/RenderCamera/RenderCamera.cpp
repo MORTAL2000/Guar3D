@@ -10,17 +10,20 @@
 using namespace guar;
 using namespace GFX;
 
-RenderCamera::RenderCamera() :
+RenderCamera::RenderCamera() : RenderObserver(), 
 	m_ClearColor(0.535f, 0.535f, 0.8f, 1.0f),
-	m_RenderTexture(0)
-
+	m_ViewportPosition(0, 0)
+    
 {}
 
 void RenderCamera::draw(void)
 {
+	RenderObserver::draw();
+
+	glViewport( m_ViewportPosition.x, m_ViewportPosition.y, (0.01f*m_ViewportSize.x*Graphics::getWindowSize().x), (0.01f*m_ViewportSize.y*Graphics::getWindowSize().y) );
 	glClearColor(m_ClearColor.r, m_ClearColor.g, m_ClearColor.b, m_ClearColor.a);
 	
-	RenderObserver::draw();
+	
 
 }
 

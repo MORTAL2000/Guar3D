@@ -12,6 +12,7 @@
 
 //#include <iostream>
 #include <string>
+#include <memory>
 
 using namespace guar;
 using namespace GFX;
@@ -69,7 +70,7 @@ ShaderProgram* RenderObject::getShaderProgram(void)
 
 void RenderObject::setTexture(const std::string &aUniformName, const std::string &aTextureName)
 {
-	m_TextureUniforms.insert(std::pair<std::string, Texture*>(aUniformName, Graphics::getTexture(aTextureName)));
+	m_TextureUniforms.insert(std::pair<std::string, std::weak_ptr<Texture>>(aUniformName, Graphics::getTexture(aTextureName)));
 
 }
 

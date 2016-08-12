@@ -1,5 +1,6 @@
 #include "Rotator.h"
 
+#include<Time\Time.h>
 #include<Input\Input.h>
 #include<Math\Vector3\Vector3.h>
 #include<EntityComponentSystem\GameObject\GameObject.h>
@@ -17,15 +18,24 @@ void Rotator::update(void)
 	i += 0.025f;
 	float radius = 70.0f;
 
-	if (Input::getKeyDown(Key::I))
-		m_Transform._Get()->translate(Math::Vector3::Forward);
-	if (Input::getKeyDown(Key::K))
-		m_Transform._Get()->translate(Math::Vector3::Backward);
-	if (Input::getKeyDown(Key::J))
-		m_Transform._Get()->translate(Math::Vector3::Left);
-	if (Input::getKeyDown(Key::L))
-		m_Transform._Get()->translate(Math::Vector3::Right);
+	{
+		Math::Vector3 delta = Math::Vector3();
 
+		if (Input::getKeyDown(Key::I))
+			delta += Math::Vector3::Forward;
+		if (Input::getKeyDown(Key::K))
+			delta += Math::Vector3::Backward;
+		if (Input::getKeyDown(Key::J))
+			delta += Math::Vector3::Left;
+		if (Input::getKeyDown(Key::L))
+			delta += Math::Vector3::Right;
+	
+		delta *= Time::getDeltaTime() * 30.0f;
+
+		m_Transform._Get()->translate(delta);
+	
+	}
+	
 	{
 		Math::Vector3 delta = Math::Vector3();
 
@@ -41,7 +51,7 @@ void Rotator::update(void)
 		if (Input::getKeyDown(Key::H))
 			delta += Math::Vector3::Right;
 
-		delta *= 0.05f;
+		delta *= Time::getDeltaTime() * 5.0f;
 
 		m_Transform._Get()->rotate(delta);
 

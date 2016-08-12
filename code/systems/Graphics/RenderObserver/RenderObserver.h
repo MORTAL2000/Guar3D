@@ -6,9 +6,13 @@
  * Graphics object that renders a scene. Base class for Cameras, Lights.
  *
 */
+//math inc
+#include <Math/Vector2/Vector2.h>
 #include <Math/Vector3/Vector3.h>
-
-#include <glm/fwd.hpp>//"../includes/glm/fwd.hpp"
+//external fwd
+#include <glm/fwd.hpp>
+//std inc
+#include <memory>
 
 namespace guar
 {
@@ -22,20 +26,23 @@ namespace guar
             RenderObserver();
             
         protected:
-            Math::Vector3        m_Position             ;
-            Math::Vector3        m_Rotation             ;
+            Math::Vector3  m_Position             ;
+            Math::Vector3  m_Rotation             ;
+
             float          m_NearClippingDistance ;
             float          m_FarClippingDistance  ;
             float          m_FieldOfView          ;
-            RenderTexture* m_RenderTexture        ;
+            
+			std::weak_ptr<RenderTexture> m_RenderTexture        ;
+			Math::Vector2  m_ViewportSize		  ;
     
         public:
-            Math::Vector3        getPosition             (void);
-            Math::Vector3        getRotation             (void);
-            float          getNearClippingDistance (void);
-            float          getFarClippingDistance  (void);
-            float          getFieldOfView          (void);
-            RenderTexture* getRenderTexture(void) { return m_RenderTexture; }
+            Math::Vector3				 getPosition             (void);
+            Math::Vector3				 getRotation             (void);
+            float						 getNearClippingDistance (void);
+            float						 getFarClippingDistance  (void);
+            float						 getFieldOfView          (void);
+			std::weak_ptr<RenderTexture> getRenderTexture(void) { return m_RenderTexture; }
             
             void setPosition             (const Math::Vector3  &aPosition            );
             void setRotation             (const Math::Vector3  &aRotation            );

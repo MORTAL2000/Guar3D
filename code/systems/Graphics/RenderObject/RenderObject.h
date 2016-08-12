@@ -19,6 +19,7 @@
 #include <string>
 #include <map>
 #include <vector>
+#include <memory>
 
 namespace guar
 {
@@ -46,7 +47,7 @@ namespace guar
             Math::Vector3 m_Scale;
     
             //Uniform properties
-            std::map<std::string, Texture*> m_TextureUniforms;
+            std::map<std::string, std::weak_ptr<Texture>> m_TextureUniforms;
     
         public: //interface
             void draw(RenderObserver& aCamera, std::vector<RenderLight> &aLights);

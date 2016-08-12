@@ -12,11 +12,13 @@ using namespace GFX;
 // Constructors
 //*************
 RenderObserver::RenderObserver() :
-	m_Position			  (       ),
-	m_Rotation			  (       ),
-	m_NearClippingDistance(  0.01f),
-	m_FarClippingDistance (1000.0f),
-	m_FieldOfView         (  90.0f)
+	m_Position(),
+	m_Rotation(),
+	m_NearClippingDistance(0.01f),
+	m_FarClippingDistance(1000.0f),
+	m_FieldOfView(90.0f),
+	m_RenderTexture(0),
+	m_ViewportSize(100,100)
 
 {}
 
@@ -44,7 +46,7 @@ void RenderObserver::draw(void)
 	if (m_RenderTexture != 0)
 	{
 		glBindFramebuffer(GL_FRAMEBUFFER, m_RenderTexture->getFBOHandle());
-		glViewport(0, 0, Graphics::getWindowSize().x, Graphics::getWindowSize().y);
+		glViewport(0, 0, m_RenderTexture->getTextureSize().x, m_RenderTexture->getTextureSize().y);
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
 	}

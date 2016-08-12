@@ -83,8 +83,8 @@ float LinearizeDepth(vec2 uv)
 {
 	uv.y = 1 + uv.y*-1;
 
-	float n = -0.10; // camera z near
-	float f = 200.0; // camera z far
+	float n = -10.0; // camera z near
+	float f = 1000.0; // camera z far
 	float z = texture2D(_Texture, uv).x;
 	return (2.0 * n) / (f + n - z * (f - n));	
 

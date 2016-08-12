@@ -55,7 +55,7 @@ void RenderLight::generateViewProjectionMatrix(glm::mat4x4* aViewMatrix, glm::ma
 	//glm::vec3 lightInvDir = glm::vec3(100, 100, 100);
 	//glm::mat4 view = glm::lookAt(lightInvDir, glm::vec3(0, 0, 0), glm::vec3(0, 1, 0));
 
-	glm::mat4 projection = glm::ortho<float>(-100, 100, -100, 100, -10, 1000);
+	glm::mat4 projection = glm::ortho<float>(-100, 100, -100, 100, -10, 1500);
 	
 
 	if (aViewMatrix != 0)

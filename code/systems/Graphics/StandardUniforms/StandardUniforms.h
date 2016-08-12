@@ -28,13 +28,14 @@ namespace guar
         {
             extern const char* CameraPosition   ;
     
-            extern const char* Time             ;
-            extern const char* Texture          ;
-            extern const char* MVP              ;
-            extern const char* ModelMatrix      ;
-            extern const char* ModelViewMatrix  ;
-            extern const char* ViewMatrix       ;
-            extern const char* ProjectionMatrix ;
+            extern const char* Time               ;
+            extern const char* Texture            ;
+            extern const char* MVP                ;
+            extern const char* ModelMatrix        ;
+			extern const char* ModelRotationMatrix;
+            extern const char* ModelViewMatrix    ;
+            extern const char* ViewMatrix         ;
+            extern const char* ProjectionMatrix   ;
     
             extern const char* Normal2WorldMatrix;
             extern const char* Normal2EyeSpaceMatrix;

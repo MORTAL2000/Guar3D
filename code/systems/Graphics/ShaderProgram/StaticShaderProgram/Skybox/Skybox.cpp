@@ -13,7 +13,7 @@ Skybox::Skybox() : StaticShaderProgram::StaticShaderProgram("Skybox",vertexShade
 //
 void Skybox::glDrawCalls(void)
 {
-    
+
 }
 
 std::string Skybox::vertexShaderGLSL(void)
@@ -83,7 +83,10 @@ void main()
 	//normalize frag pos, pulling frags into a spherical surface around 0,0,0.
 	//color according to height. 
 	//abs creates symmetry around y=0.
-    gl_FragColor = mix(horizonColor, spaceColor, abs(normalize(v_FragPosition).y));
+	
+	vec3 color = mix(horizonColor, spaceColor, abs(normalize(v_FragPosition).y));
+
+    gl_FragColor = vec4(color,1);
 	
 }
     

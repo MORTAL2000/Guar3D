@@ -21,7 +21,8 @@ using namespace guar;
 
 void Game::init()
 {
-	ECS::SceneGraph* mainScene = Engine::createScene("main");
+	ECS::SceneGraph* mainScene = Engine::createScene("mainScene");
+	//ECS::SceneGraph* skyScene  = Engine::createScene("skyScene");
 	{
 		std::weak_ptr<ECS::GameObject> gameObject = mainScene->createNewGameObject("The Ground");
 
@@ -182,14 +183,14 @@ void Game::init()
 	}
 	{
 		std::weak_ptr<ECS::GameObject> gameObject = mainScene->createNewGameObject("The Sky");
-
+		
 		gameObject._Get()->addComponent<guar::ECS::Renderer>();
 		gameObject._Get()->addComponent<guar::ECS::Transform>();
-
+		
 		std::weak_ptr<guar::ECS::Transform> transform = gameObject._Get()->findComponent<guar::ECS::Transform>();
 		transform._Get()->setScale(Math::Vector3(300.0f, 300.0f, 300.0f));
 		transform._Get()->setPosition(Math::Vector3(0, 0, 0));
-
+		
 		std::weak_ptr<guar::ECS::Renderer> renderer = gameObject._Get()->findComponent<guar::ECS::Renderer>();
 		renderer._Get()->setModel("Cube");
 		renderer._Get()->setShaderProgram("Skybox");
@@ -205,7 +206,7 @@ void Game::init()
 		std::weak_ptr<guar::ECS::Renderer> renderer = gameObject._Get()->findComponent<guar::ECS::Renderer>();
 		renderer._Get()->setModel("Cube");// "../Models/stanford-dragon.fbx"
 		renderer._Get()->setShaderProgram("RenderTextureDepthDisplay");
-		renderer._Get()->setTexture("_Texture", Graphics::getRenderTexture()->getDepthTexture());
+		renderer._Get()->setTexture("_Texture", Graphics::getRenderTexture()._Get()->getDepthTexture());
 
 		std::weak_ptr<guar::ECS::Transform> transform = gameObject._Get()->findComponent<guar::ECS::Transform>();
 		transform._Get()->setScale(Math::Vector3(80.0f, 80.0f, 80.0f));
@@ -231,7 +232,7 @@ void Game::init()
 
 	}
 
-	std::cout << Graphics::getRenderTexture()->getName() << ", " << Graphics::getRenderTexture()->getColorTexture()->getName() << ": " << Graphics::getRenderTexture()->getColorTexture()->getHandle() << "\n";
-	std::cout << Graphics::getTexture()->getHandle();
+	std::cout << Graphics::getRenderTexture()._Get()->getName() << ", " << Graphics::getRenderTexture()._Get()->getColorTexture()->getName() << ": " << Graphics::getRenderTexture()._Get()->getColorTexture()->getHandle() << "\n";
+	std::cout << Graphics::getTexture()._Get()->getHandle();
 
 }

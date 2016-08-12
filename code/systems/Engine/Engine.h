@@ -21,6 +21,8 @@ namespace guar
 
 		static void drawThreadTest();
 
+		static void terminate(void);
+
 	public: //Public interface
 		static void mainInit(void);
 		static void mainLoop(void);

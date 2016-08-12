@@ -10,6 +10,7 @@
 //stdinc
 #include <vector>
 #include <string>
+#include <memory>
 
 namespace guar
 {
@@ -22,22 +23,22 @@ namespace guar
     
         protected:
             //data members
-            std::vector<BaseType*> m_Vector;
+            std::vector<std::shared_ptr<BaseType>> m_Vector;
             std::vector<std::string> m_FileTypes;
             
         public:
             virtual void init(void) = 0;
     
-            BaseType* getDefault(void)
+            std::weak_ptr<BaseType> getDefault(void)
             {
                 if (m_Vector.size() == 0)
                     throw(std::runtime_error("GraphicsCollection needs at least one object in its vector"));
     
-                return m_Vector[0]; 
+                return std::weak_ptr<BaseType>(std::dynamic_pointer_cast<BaseType>(m_Vector[0])); 
             
             }
     
-            BaseType* find(const std::string &aItemName)
+            std::weak_ptr<BaseType> find(const std::string &aItemName)
             {
                 for (int i = 0; i < m_Vector.size(); i++)
                     if (((GraphicsObject*)m_Vector[i])->getName() == aItemName)
@@ -47,12 +48,12 @@ namespace guar
     
             }
     
-            BaseType* operator[](const int &i)
+			std::weak_ptr<BaseType> operator[](const int &i)
             {
                 if (i >= m_Vector.size())
                     return getDefault();
     
-                return m_Vector[i];
+                return std::weak_ptr<BaseType>(std::dynamic_pointer_cast<BaseType>(m_Vector[i]));
     
             }
     
@@ -127,7 +128,7 @@ namespace guar
                     //std::cout << "Loaded shaders are:\n";
     
                     for (int i = 0; i < m_Vector.size(); i++)
-                        std::cout << m_Vector[i]->getName() << "\n";
+                        std::cout << m_Vector[i]._Get()->getName() << "\n";
     
                 }
     

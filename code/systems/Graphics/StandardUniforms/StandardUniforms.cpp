@@ -26,6 +26,7 @@ const char* StandardUniforms::Time                  = "_Time"               ;
 const char* StandardUniforms::Texture               = "_Texture"            ;
 const char* StandardUniforms::MVP                   = "_MVP"                ;
 const char* StandardUniforms::ModelMatrix           = "_ModelMatrix"        ;
+const char* StandardUniforms::ModelRotationMatrix   = "_ModelRotationMatrix";
 const char* StandardUniforms::ViewMatrix            = "_ViewMatrix"         ;
 const char* StandardUniforms::ProjectionMatrix      = "_ProjectionMatrix"   ;
 const char* StandardUniforms::ModelViewMatrix       = "_ModelViewMatrix"    ;
@@ -56,7 +57,7 @@ void StandardUniforms::loadStandardUniforms(RenderObject &aRenderObject, RenderO
 			GLHelp::Uniforms::loadTexture(aShaderProgramHandle, i->first.c_str(), i->second->getHandle());
 	else
 	{
-		GLHelp::Uniforms::loadTexture(aShaderProgramHandle, StandardUniforms::Texture, Graphics::getTexture("")->getHandle());
+		GLHelp::Uniforms::loadTexture(aShaderProgramHandle, StandardUniforms::Texture, Graphics::getTexture("")._Get()->getHandle());
 	
 	}
 
@@ -87,6 +88,13 @@ void StandardUniforms::loadStandardUniforms(RenderObject &aRenderObject, RenderO
 	glm::mat4x4 view;
 	glm::mat4x4 projection;
 	aCamera->generateViewProjectionMatrix(&view, &projection, 0);
+
+	//MODELROTATION
+	glm::mat4x4 modelRotation;
+	modelRotation = glm::rotate(modelRotation, aRotation.x, glm::vec3(1.0f, 0.0f, 0.0f)); //This seems wasteful. Google
+	modelRotation = glm::rotate(modelRotation, aRotation.y, glm::vec3(0.0f, 1.0f, 0.0f));
+	modelRotation = glm::rotate(modelRotation, aRotation.z, glm::vec3(0.0f, 0.0f, 1.0f));
+	GLHelp::Uniforms::loadMatrix4x4(aShaderProgramHandle, StandardUniforms::ModelRotationMatrix, &modelRotation[0][0]);
 
 	//VIEW
 	//glm::mat4x4 view;

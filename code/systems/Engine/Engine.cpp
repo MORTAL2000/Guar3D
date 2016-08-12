@@ -1,33 +1,25 @@
 #include "Engine.h"
-
-//library includes
-#include "../Graphics/OpenGL/OpenGL.h"
-
-//engine components
-#include "../Graphics/Graphics.h"
-#include <debug/Debug.h>
-#include "../Graphics/ShaderProgram/ShaderProgram.h"
-#include "../EntityComponentSystem/ComponentTypeRegistry/ComponentTypeRegistry.h"
-#include <input/Input.h>
+//gfx inc
+#include <Graphics/OpenGL/OpenGL.h>
+#include <Graphics/Graphics.h>
+#include <Graphics/ShaderProgram/ShaderProgram.h>
+//input inc
+#include <Input/Input.h>
+//ECS inc
+#include <EntityComponentSystem/ComponentTypeRegistry/ComponentTypeRegistry.h>
 #include <EntityComponentSystem\EntityComponentSystem.h>
-#include <Time/Time.h>
 #include <EntityComponentSystem\SceneGraph\SceneGraph.h>
-
+//Debug inc
+#include <debug/Debug.h>
+//Time inc
+#include <Time/Time.h>
+//Development inc
+#include <Development\Guar3DASCII.h>
 //stdlib
 #include <stdio.h>
 #include <iostream>
 
 using namespace guar;
-
-static const char* c_EngineAsciiName =
-R"V0G0N(
-   ___                      _____      _ 
-  / _ \ _   _   __ _  _ __ |___ /   __| |
- / /_\/| | | | / _` || '__|  |_ \  / _` |
-/ /_\\ | |_| || (_| || |    ___) || (_| |
-\____/  \__,_| \__,_||_|   |____/  \__,_|
-                                         
-)V0G0N";
 
 //static forward decs
 static void keyEventCallback(GLFWwindow* window, int key, int scancode, int action, int mods);
@@ -36,8 +28,6 @@ static void initGLFW(void);
 static void initGLEW(void);
 
 //static data
-//ECS::SceneGraphCollection Engine::m_SceneGraphs;
-
 static GLFWwindow* m_Window = 0;
 
 /*  
@@ -47,27 +37,10 @@ static GLFWwindow* m_Window = 0;
  *  application loop
  * 
  */
-#include <thread>
-void Engine::drawThreadTest(void)
-{
-	glfwMakeContextCurrent(m_Window);
 
-	for (;;)
-	{
-		Graphics::update();
-
-	}
-
-}
 
 void Engine::mainLoop()
 {
-	glfwMakeContextCurrent(0);
-	EntityComponentSystem::update();
-	
-	std::thread t1(drawThreadTest);
-	t1.detach();
-	
 	try
 	{
 		/* Loop until the user closes the window */
@@ -88,13 +61,23 @@ void Engine::mainLoop()
 
 	}
 
-    glfwTerminate();
+	Engine::terminate();
+
     
+}
+
+void Engine::terminate(void)
+{
+	Graphics::terminate();
+
+	glfwTerminate();
+
+	std::terminate; //Kills all threads
+
 }
 
 void Engine::mainInit(void)
 {
-	
 	Engine::init();
     Graphics::init(m_Window);
 	EntityComponentSystem::init();
@@ -106,13 +89,11 @@ void Engine::mainInit(void)
 	Debug::announce("Engine init: Network initializing...");
 	Debug::success("\n\n\nEngine init complete, passing control to the game!\n\n\n\n");
 
-	
-
 }
 
 void Engine::init(void)
 {
-	Debug::log(c_EngineAsciiName, "a 3D game engine.\n", "Build date: ", __DATE__);
+	Debug::log(Dev::c_EngineAsciiName, "a 3D game engine.\n", "Build date: ", __DATE__);
 	Debug::announce("Engine init: Libraries are initializing...");
 
 	m_Window = 0;
@@ -122,6 +103,7 @@ void Engine::init(void)
 	initGLEW();
 
 	glfwSetKeyCallback(m_Window, keyEventCallback);
+	
 
 }
 
@@ -175,11 +157,11 @@ static void initGLFW(void)
 }
 
 //think about refactoring
-void glfwSetFramebufferSizeCallback(GLFWwindow* aWindow, int aWidth, int aHeight)
-{
-	glViewport(0, 0, aWidth, aHeight);
-
-}
+//void glfwSetFramebufferSizeCallback(GLFWwindow* aWindow, int aWidth, int aHeight)
+//{
+//	glViewport(0, 0, aWidth, aHeight);
+//
+//}
 
 /*
  * initContext
@@ -217,7 +199,7 @@ static void initContext(void)
 	printf("Renderer: %s\n"  ,glGetString(GL_RENDER) );
 
 	//
-	glfwSetFramebufferSizeCallback(m_Window, glfwSetFramebufferSizeCallback);
+	//glfwSetFramebufferSizeCallback(m_Window, glfwSetFramebufferSizeCallback);
     
 }
 

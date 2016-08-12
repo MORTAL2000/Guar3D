@@ -65,7 +65,7 @@ void Renderer::setTexture(const std::string &aUniformName, const std::string &aT
 	
 }
 
-void Renderer::setTexture(const std::string &aUniformName, GFX::Texture* aTexture)
+void Renderer::setTexture(const std::string &aUniformName, std::weak_ptr<GFX::Texture> aTexture)
 {
 	m_RenderObject._Get()->setTexture(aUniformName, aTexture);
 

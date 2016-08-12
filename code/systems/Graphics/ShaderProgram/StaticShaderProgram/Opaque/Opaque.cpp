@@ -308,7 +308,7 @@ vec3 ADSFinal = vec3(diffuseComponent.xyz + specularComponent.xyz * 0.5);//_Ligh
 
 
 
-	float bias = 0.005;
+	float bias = 0.001;
 	float visibility = 1.0;
 	if 
 	(

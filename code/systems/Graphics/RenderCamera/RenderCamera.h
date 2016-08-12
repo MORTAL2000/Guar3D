@@ -21,14 +21,10 @@ namespace guar
         
         class RenderCamera : public RenderObserver
         {
-            
-            RenderTexture* m_RenderTexture;
-            //GFXuint        m_FBOHandle            ;
-    
-            //RenderCamera
+			//Data members
             Color          m_ClearColor;
-            Math::Vector2        m_ViewportPosition;
-            Math::Vector2        m_ViewportSize;
+			Math::Vector2  m_ViewportPosition;
+            
         
             //RenderLight
             Color m_Color;

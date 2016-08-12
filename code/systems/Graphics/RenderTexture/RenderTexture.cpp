@@ -19,6 +19,7 @@ RenderTexture::RenderTexture() :
 RenderTexture::RenderTexture(const std::string &aName)
 {
 	m_Name = aName;
+	m_TextureSize = Math::Vector2(2048, 2048);
 
 	//FBO
 	{
@@ -38,7 +39,7 @@ RenderTexture::RenderTexture(const std::string &aName)
 		glGenTextures(1, &textureHandle);
 
 		glBindTexture(GL_TEXTURE_2D, textureHandle);
-		glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, 800, 800, 0, GL_RGB, GL_UNSIGNED_BYTE, 0);
+		glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, m_TextureSize.x, m_TextureSize.y, 0, GL_RGB, GL_UNSIGNED_BYTE, 0);
 		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
 		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
 
@@ -51,7 +52,7 @@ RenderTexture::RenderTexture(const std::string &aName)
 	{
 		glGenTextures(1, &depthTextureHandle);
 		glBindTexture(GL_TEXTURE_2D, depthTextureHandle);
-		glTexImage2D(GL_TEXTURE_2D, 0, GL_DEPTH_COMPONENT16, 800, 800, 0, GL_DEPTH_COMPONENT, GL_FLOAT, 0);
+		glTexImage2D(GL_TEXTURE_2D, 0, GL_DEPTH_COMPONENT16, m_TextureSize.x, m_TextureSize.y, 0, GL_DEPTH_COMPONENT, GL_FLOAT, 0);
 		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
 		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
 		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
