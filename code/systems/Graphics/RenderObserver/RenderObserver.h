@@ -33,8 +33,8 @@ namespace guar
             float          m_FarClippingDistance  ;
             float          m_FieldOfView          ;
             
-			std::weak_ptr<RenderTexture> m_RenderTexture        ;
-			Math::Vector2  m_ViewportSize		  ;
+			std::weak_ptr<RenderTexture> m_RenderTexture ;
+			Math::Vector2 m_ViewportSize ;
     
         public:
             Math::Vector3				 getPosition             (void);
@@ -44,12 +44,12 @@ namespace guar
             float						 getFieldOfView          (void);
 			std::weak_ptr<RenderTexture> getRenderTexture(void) { return m_RenderTexture; }
             
-            void setPosition             (const Math::Vector3  &aPosition            );
-            void setRotation             (const Math::Vector3  &aRotation            );
-            void setNearClippingDistance (const float    &aNearClippingDistance);
-            void setFarClippingDistance  (const float    &aFarClippingDistance );
-            void setFieldOfView          (const float    &aFieldOfView         );
-            void setRenderTexture(RenderTexture* aRenderTexture) { m_RenderTexture = aRenderTexture; }
+            void setPosition             (const Math::Vector3          &aPosition            );
+            void setRotation             (const Math::Vector3          &aRotation            );
+            void setNearClippingDistance (const float                  &aNearClippingDistance);
+            void setFarClippingDistance  (const float                  &aFarClippingDistance );
+            void setFieldOfView          (const float                  &aFieldOfView         );
+            void setRenderTexture        (std::weak_ptr<RenderTexture> aRenderTexture        ) { m_RenderTexture = aRenderTexture; }
     
             virtual void generateViewProjectionMatrix(glm::mat4x4* aViewMatrix, glm::mat4x4* aProjectionMatrix, glm::mat4x4* aVPMatrix) = 0;
     

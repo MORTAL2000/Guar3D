@@ -36,10 +36,8 @@ namespace guar
         class RenderObject final
         {
         private: //data members
-            Model* m_Model;
-            ShaderProgram* m_ShaderProgram;
-            //ShaderProgram* m_DeferredGeoShaderProgram;
-            //?MYSTERYTYPE?* m_DeferredWhatToDoWithTheGeoData; //??
+            std::weak_ptr<Model>         m_Model;
+            std::weak_ptr<ShaderProgram> m_ShaderProgram;
     
             //Modelmat properties
             Math::Vector3 m_Position;
@@ -52,27 +50,27 @@ namespace guar
         public: //interface
             void draw(RenderObserver& aCamera, std::vector<RenderLight> &aLights);
     
-            Model*         getModel         (void) { return m_Model;    }
-            ShaderProgram* getShaderProgram (void);
+			std::weak_ptr<Model>         getModel         (void) { return m_Model;    }
+            std::weak_ptr<ShaderProgram> getShaderProgram (void);
             Math::Vector3  getPosition      (void) { return m_Position; }
             Math::Vector3  getRotation      (void) { return m_Rotation; }
             Math::Vector3  getScale         (void) { return m_Scale;    }
     
-            void setModel         (Model*              aModel         ) { m_Model         = aModel;         }
-            void setShaderProgram (ShaderProgram*      aShaderProgram ) { m_ShaderProgram = aShaderProgram; }
-            void setPosition      (const Math::Vector3 &aPos          ) { m_Position      = aPos;           }
-            void setRotation      (const Math::Vector3 &aRotation     ) { m_Rotation      = aRotation;      }
-            void setScale         (const Math::Vector3 &aScale        ) { m_Scale         = aScale;         }
+            void setModel         (std::weak_ptr<Model>         aModel         ) { m_Model         = aModel;         }
+            void setShaderProgram (std::weak_ptr<ShaderProgram> aShaderProgram ) { m_ShaderProgram = aShaderProgram; }
+            void setPosition      (const Math::Vector3          &aPos          ) { m_Position      = aPos;           }
+            void setRotation      (const Math::Vector3          &aRotation     ) { m_Rotation      = aRotation;      }
+            void setScale         (const Math::Vector3          &aScale        ) { m_Scale         = aScale;         }
             
             //Uniform get/set
             void setTexture(const std::string &aUniformName, const std::string &aTextureName);
-            void setTexture(const std::string &aUniformName, Texture* aTexture);
+            void setTexture(const std::string &aUniformName, std::weak_ptr<Texture> aTexture);
     
     
-            Texture* getTexture(const std::string &aUniformName);
+			std::weak_ptr<Texture> getTexture(const std::string &aUniformName);
     
             //ctr
-            RenderObject(Model* aModel, ShaderProgram* aShaderProgram);
+            RenderObject(std::weak_ptr<Model> aModel, std::weak_ptr<ShaderProgram> aShaderProgram);
             RenderObject();
             RenderObject(const RenderObject& aRenderObject);
             

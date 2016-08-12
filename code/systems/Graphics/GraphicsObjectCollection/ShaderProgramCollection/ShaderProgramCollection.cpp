@@ -1,8 +1,6 @@
 #include "ShaderProgramCollection.h"
-
+//gfx inc
 #include "../../ShaderProgram/DynamicShaderProgram/DynamicShaderProgram.h"
-
-
 #include "../../ShaderProgram/StaticShaderProgram/StaticShaderProgram.h"
 #include "../../ShaderProgram/StaticShaderProgram/PinkShaderOfDeath/PinkShaderOfDeath.h"
 #include "../../ShaderProgram/StaticShaderProgram/AlphaCutOff/AlphaCutOff.h"
@@ -10,6 +8,8 @@
 #include "../../ShaderProgram/StaticShaderProgram/Opaque/Opaque.h"
 #include "../../ShaderProgram/StaticShaderProgram/RenderTextureColorDisplay/RenderTextureColorDisplay.h"
 #include "../../ShaderProgram/StaticShaderProgram/RenderTextureDepthDisplay/RenderTextureDepthDisplay.h"
+//std inc
+#include <memory>
 
 using namespace guar;
 using namespace GFX;
@@ -25,7 +25,7 @@ void ShaderProgramCollection::loadStaticShader()
 {
 	try
 	{
-		StaticShaderProgram *object = new T();
+		std::shared_ptr<StaticShaderProgram> object = std::shared_ptr<StaticShaderProgram>(new T());
 		m_Vector.push_back(object);
 
 	}

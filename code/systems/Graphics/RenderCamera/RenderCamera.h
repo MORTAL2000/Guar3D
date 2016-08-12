@@ -12,6 +12,9 @@
 #include <Math/Vector3/Vector3.h>
 #include <Math/Vector2/Vector2.h>
 
+//std inc
+#include <memory>
+
 namespace guar
 {
     namespace GFX
@@ -34,12 +37,12 @@ namespace guar
         
         public:
             
-            Color   getClearColor           (void) { return m_ClearColor;           }
-            RenderTexture* getRenderTexture (void) { return m_RenderTexture;        }
+            Color                        getClearColor    (void) { return m_ClearColor;           }
+            std::weak_ptr<RenderTexture> getRenderTexture (void) { return m_RenderTexture;        }
     
             
             void setClearColor           (const Color    &aClearColor          ) { m_ClearColor           = aClearColor          ; }
-            void setRenderTexture        (RenderTexture* aRenderTexture        ) { m_RenderTexture        = aRenderTexture       ; }
+            void setRenderTexture        (std::weak_ptr<RenderTexture> aRenderTexture        ) { m_RenderTexture        = aRenderTexture       ; }
     
             void draw(void) override;
         

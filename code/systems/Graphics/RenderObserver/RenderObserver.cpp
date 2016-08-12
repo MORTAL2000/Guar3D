@@ -17,7 +17,7 @@ RenderObserver::RenderObserver() :
 	m_NearClippingDistance(0.01f),
 	m_FarClippingDistance(1000.0f),
 	m_FieldOfView(90.0f),
-	m_RenderTexture(0),
+	m_RenderTexture(),
 	m_ViewportSize(100,100)
 
 {}
@@ -43,10 +43,10 @@ void RenderObserver::setFieldOfView          (const float    &aFieldOfView      
 
 void RenderObserver::draw(void)
 {
-	if (m_RenderTexture != 0)
+	if (m_RenderTexture._Get() != 0)
 	{
-		glBindFramebuffer(GL_FRAMEBUFFER, m_RenderTexture->getFBOHandle());
-		glViewport(0, 0, m_RenderTexture->getTextureSize().x, m_RenderTexture->getTextureSize().y);
+		glBindFramebuffer(GL_FRAMEBUFFER, m_RenderTexture._Get()->getFBOHandle());
+		glViewport(0, 0, m_RenderTexture._Get()->getTextureSize().x, m_RenderTexture._Get()->getTextureSize().y);
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
 	}

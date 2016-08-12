@@ -13,6 +13,7 @@
 //stdinc
 #include <map>
 #include <vector>
+#include <memory>
 
 namespace guar
 {
@@ -42,8 +43,9 @@ namespace guar
     
             //Etc.
     
-            void loadStandardUniforms(RenderObject &aRenderObject, RenderObserver* aCamera, std::vector<RenderLight> &aLights, std::map<std::string, guar::GFX::Texture*> &aTextureUniforms);
-    
+            //void loadStandardUniforms(RenderObject &aRenderObject, RenderObserver* aCamera, std::vector<RenderLight> &aLights, std::map<std::string, guar::GFX::Texture*> &aTextureUniforms);
+			void loadStandardUniforms(RenderObject &aRenderObject, RenderObserver* aCamera, std::vector<RenderLight> &aLights, std::map<std::string, std::weak_ptr<GFX::Texture>> aTextureUniforms);
+
         }
 
 	}

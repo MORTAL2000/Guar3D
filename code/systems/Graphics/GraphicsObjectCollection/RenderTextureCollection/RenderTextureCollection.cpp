@@ -1,17 +1,16 @@
 #include "RenderTextureCollection.h"
+//gfx inc
 #include "../../RenderTexture/RenderTexture.h"
-
-//#include <iostream>
+//std inc
+#include <memory>
 
 using namespace guar;
 using namespace GFX;
 
 void RenderTextureCollection::init(void)
 {
-	RenderTexture* newRT = new RenderTexture();
-
+	//this is a test and should be replaced
+	std::shared_ptr<RenderTexture> newRT = std::shared_ptr<RenderTexture>(new RenderTexture());
 	m_Vector.push_back(newRT);
-
-	//std::cout << "***********************************************" << m_Vector[0]->getColorTexture()->getName();
 
 }

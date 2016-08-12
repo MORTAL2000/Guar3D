@@ -41,8 +41,8 @@ namespace guar
 		static void terminate(void);
 		
 		//Graphics scenegraph
-		static std::weak_ptr<GFX::SceneGraph> getScene   (const std::string &aName);
-		static std::weak_ptr<GFX::SceneGraph> createScene(const std::string &aName);
+		static std::weak_ptr<GFX::SceneGraph> getScene    (const std::string &aName);
+		static std::weak_ptr<GFX::SceneGraph> createScene (const std::string &aName);
 
 	public: 
 		//game programmer interface
@@ -50,7 +50,7 @@ namespace guar
 	    static std::weak_ptr<GFX::ShaderProgram>getShaderProgram (const std::string &aModelName   = "");
 	    static std::weak_ptr<GFX::Texture      >getTexture       (const std::string &aTextureName = "");
 	    static std::weak_ptr<GFX::RenderTexture>getRenderTexture (const std::string &aTextureName = "");
-	    static Math::Vector2        getWindowSize	 (void)                                ;
+	    static Math::Vector2                    getWindowSize	 (void)                                ;
 
 
 

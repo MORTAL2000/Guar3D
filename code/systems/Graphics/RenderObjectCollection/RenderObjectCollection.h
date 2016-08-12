@@ -5,6 +5,7 @@
 #include "../RenderObject/RenderObject.h"
 #include "../Model/Model.h"
 #include "../ShaderProgram/ShaderProgram.h"
+#include <memory>
 
 namespace guar
 {
@@ -16,7 +17,7 @@ namespace guar
 			std::vector<RenderObject> m_RenderObjects;
 
 		public: //
-			void createRenderObject(std::string aName, Model* aModel, ShaderProgram* aShaderProgram);
+			void createRenderObject(std::string aName, std::weak_ptr<Model> aModel, std::weak_ptr<ShaderProgram> aShaderProgram);
 			//RenderObject* getTestObject(void){return &m_RenderObjects[0];}
 			RenderObject getTestObject(void) { return m_RenderObjects[0]; }
 

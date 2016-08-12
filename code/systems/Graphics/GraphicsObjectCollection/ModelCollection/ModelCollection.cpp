@@ -1,18 +1,17 @@
 #include "ModelCollection.h"
-
+//gfx inc
 #include "../../Model/Quad/Quad.h"
 #include "../../Model/Cube/Cube.h"
-
-//#include <iostream>
+//std inc
+#include <memory>
 
 using namespace guar;
 using namespace GFX;
 
 void ModelCollection::init(void)
 {
-	m_Vector.push_back(new Cube());
-	m_Vector.push_back(new Quad());
-	//m_Vector.push_back(new Model("../Models/stanford-dragon.fbx"));
+	m_Vector.push_back(std::shared_ptr<Model>(new Cube()));
+	m_Vector.push_back(std::shared_ptr<Model>(new Quad()));
 	
 }
 

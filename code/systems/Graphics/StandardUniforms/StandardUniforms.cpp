@@ -33,10 +33,10 @@ const char* StandardUniforms::ModelViewMatrix       = "_ModelViewMatrix"    ;
 const char* StandardUniforms::Normal2WorldMatrix    = "_Normal2WorldMatrix" ;
 const char* StandardUniforms::Normal2EyeSpaceMatrix = "_NormalMatrix"       ;
 
-void StandardUniforms::loadStandardUniforms(RenderObject &aRenderObject, RenderObserver* aCamera, std::vector<RenderLight> &aLights, std::map<std::string,guar::GFX::Texture*> &aTextureUniforms)
+void StandardUniforms::loadStandardUniforms(RenderObject &aRenderObject, RenderObserver* aCamera, std::vector<RenderLight> &aLights, std::map<std::string, std::weak_ptr<GFX::Texture>> aTextureUniforms)
 {
 	//REFACTOR THIS GARBAGE
-	GFXuint aShaderProgramHandle = aRenderObject.getShaderProgram()->getProgramHandle();
+	GFXuint aShaderProgramHandle = aRenderObject.getShaderProgram()._Get()->getProgramHandle();
 	Math::Vector3 aPosition      = aRenderObject.getPosition();
 	Math::Vector3 aRotation      = aRenderObject.getRotation();
 	Math::Vector3 aScale         = aRenderObject.getScale();
@@ -53,8 +53,8 @@ void StandardUniforms::loadStandardUniforms(RenderObject &aRenderObject, RenderO
 	
 	//TEXTURE UNIFORMS
 	if (aTextureUniforms.size() != 0)
-		for (std::map<std::string, guar::GFX::Texture*>::iterator i = aTextureUniforms.begin(); i != aTextureUniforms.end(); ++i)
-			GLHelp::Uniforms::loadTexture(aShaderProgramHandle, i->first.c_str(), i->second->getHandle());
+		for (std::map<std::string, std::weak_ptr<guar::GFX::Texture>>::iterator i = aTextureUniforms.begin(); i != aTextureUniforms.end(); ++i)
+			GLHelp::Uniforms::loadTexture(aShaderProgramHandle, i->first.c_str(), i->second._Get()->getHandle());
 	else
 	{
 		GLHelp::Uniforms::loadTexture(aShaderProgramHandle, StandardUniforms::Texture, Graphics::getTexture("")._Get()->getHandle());
@@ -176,7 +176,7 @@ void StandardUniforms::loadStandardUniforms(RenderObject &aRenderObject, RenderO
 		//_Light1Rotation
 		//
 		/* shadowcaster */
-		GLHelp::Uniforms::loadTexture(aShaderProgramHandle, lightMapUniformName, aLights[i].getRenderTexture()->getDepthTextureHandle(),1);//_Light1Map
+		GLHelp::Uniforms::loadTexture(aShaderProgramHandle, lightMapUniformName, aLights[i].getRenderTexture()._Get()->getDepthTextureHandle(),1);//_Light1Map
 		GLHelp::Uniforms::loadMatrix4x4(aShaderProgramHandle, lightMapMatrixUniformName, &lightmat[0][0]); //_Light1WorldToLightMap
 
 	}

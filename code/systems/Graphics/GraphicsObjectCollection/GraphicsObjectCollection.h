@@ -41,8 +41,9 @@ namespace guar
             std::weak_ptr<BaseType> find(const std::string &aItemName)
             {
                 for (int i = 0; i < m_Vector.size(); i++)
-                    if (((GraphicsObject*)m_Vector[i])->getName() == aItemName)
-                        return m_Vector[i];
+                    //if (((GraphicsObject*)m_Vector[i])->getName() == aItemName) //replaced by following line
+					if ((std::weak_ptr<GraphicsObject>(std::dynamic_pointer_cast<GraphicsObject>(m_Vector[i])))._Get()->getName() == aItemName)
+						return m_Vector[i];
     
                 return getDefault();
     
@@ -113,7 +114,7 @@ namespace guar
     
                         try
                         {
-                            m_Vector.push_back(new DynamicType(fullFileName.c_str()));
+                            m_Vector.push_back(std::shared_ptr<BaseType>(new DynamicType(fullFileName.c_str())));
     
                         }
                         catch (const std::runtime_error &e)

@@ -12,14 +12,13 @@ using namespace guar;
 using namespace GFX;
 
 RenderTexture::RenderTexture() : 
-	RenderTexture("Unnamed RenderTexture") 
-
+	RenderTexture("Unnamed RenderTexture")
 {}
 
-RenderTexture::RenderTexture(const std::string &aName)
+RenderTexture::RenderTexture(const std::string &aName) :
+	m_Name(aName),
+	m_TextureSize(2048, 2048)
 {
-	m_Name = aName;
-	m_TextureSize = Math::Vector2(2048, 2048);
 
 	//FBO
 	{
@@ -71,8 +70,11 @@ RenderTexture::RenderTexture(const std::string &aName)
 	if (glCheckFramebufferStatus(GL_FRAMEBUFFER) != GL_FRAMEBUFFER_COMPLETE)
 		Debug::log("RenderTexture::RenderTexture FRAMEBUFFER IS INCOMPLETE\n");
 
-	m_ColorTexture = Texture( std::string("Color"),GFXuint(textureHandle     ));
-	m_DepthTexture = Texture( std::string("Depth"),GFXuint(depthTextureHandle));
+	m_ColorTexture = std::shared_ptr<Texture>(new Texture( std::string("Color"),GFXuint(textureHandle     )));
+	m_DepthTexture = std::shared_ptr<Texture>(new Texture( std::string("Depth"),GFXuint(depthTextureHandle)));
+
+	//m_ColorTexturePtr = std::shared_ptr<Texture>(&m_ColorTexture);
+	//m_DepthTexturePtr = std::shared_ptr<Texture>(&m_DepthTexture);
 
 }
 

@@ -21,20 +21,20 @@ namespace guar
     {
         class RenderTexture : public GraphicsObject
         {
-            std::string   m_Name;
-            GFXuint       m_FBOHandle;
-            Texture       m_ColorTexture;
-            Texture       m_DepthTexture;
-			Math::Vector2 m_TextureSize;
-    
+            std::string              m_Name         ;
+            GFXuint                  m_FBOHandle    ;
+            std::shared_ptr<Texture> m_ColorTexture ;
+            std::shared_ptr<Texture> m_DepthTexture ;
+			Math::Vector2            m_TextureSize  ;
+
         public:
-            std::string   getName               (void) { return  m_Name;                     }
-            GFXuint       getFBOHandle          (void) { return  m_FBOHandle;                }
-            Texture*      getColorTexture       (void) { return &m_ColorTexture;             }
-            Texture*      getDepthTexture       (void) { return &m_DepthTexture;             }
-            GFXuint       getColorTextureHandle (void) { return  m_ColorTexture.getHandle(); }
-            GFXuint       getDepthTextureHandle (void) { return  m_DepthTexture.getHandle(); }
-			Math::Vector2 getTextureSize        (void) { return  m_TextureSize;              }
+            std::string            getName               (void) { return  m_Name;                             }
+            GFXuint                getFBOHandle          (void) { return  m_FBOHandle;                        }
+            std::weak_ptr<Texture> getColorTexture       (void) { return  m_ColorTexture;                     }
+            std::weak_ptr<Texture> getDepthTexture       (void) { return  m_DepthTexture;                     }
+            GFXuint                getColorTextureHandle (void) { return  m_ColorTexture._Get()->getHandle(); }
+            GFXuint                getDepthTextureHandle (void) { return  m_DepthTexture._Get()->getHandle(); }
+			Math::Vector2          getTextureSize        (void) { return  m_TextureSize;                      }
     
             RenderTexture();
             RenderTexture(const std::string &aName);

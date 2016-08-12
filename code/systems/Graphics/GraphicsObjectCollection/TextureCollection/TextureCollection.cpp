@@ -1,7 +1,8 @@
 #include "TextureCollection.h"
-//#include <iostream>
-
+//gfx inc
 #include "../../Texture/CheckeredTextureOfDeath/CheckeredTextureOfDeath.h"
+//std inc
+#include <memory>
 
 using namespace guar;
 using namespace GFX;
@@ -14,6 +15,6 @@ TextureCollection::TextureCollection()
 
 void TextureCollection::init()
 {
-    m_Vector.push_back(new staticTextures::CheckeredTextureOfDeath());
+    m_Vector.push_back(std::shared_ptr<Texture>(new staticTextures::CheckeredTextureOfDeath()));
     
 }

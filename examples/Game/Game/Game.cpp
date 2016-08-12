@@ -39,7 +39,7 @@ void Game::init()
 		renderer._Get()->setTexture("_Texture", "../Textures/grass.png");
 
 	}
-
+	
 	{
 		std::weak_ptr<ECS::GameObject> gameObject = mainScene->createNewGameObject("The Other Dragon");
 
@@ -232,7 +232,7 @@ void Game::init()
 
 	}
 
-	std::cout << Graphics::getRenderTexture()._Get()->getName() << ", " << Graphics::getRenderTexture()._Get()->getColorTexture()->getName() << ": " << Graphics::getRenderTexture()._Get()->getColorTexture()->getHandle() << "\n";
+	std::cout << Graphics::getRenderTexture()._Get()->getName() << ", " << Graphics::getRenderTexture()._Get()->getColorTexture()._Get()->getName() << ": " << Graphics::getRenderTexture()._Get()->getColorTexture()._Get()->getHandle() << "\n";
 	std::cout << Graphics::getTexture()._Get()->getHandle();
-
+	
 }

@@ -18,15 +18,15 @@ using namespace guar;
 using namespace GFX;
 
 RenderObject::RenderObject() :
-	m_Model(0),
-	m_ShaderProgram(0),
+	m_Model(),
+	m_ShaderProgram(),
 	m_Position(),
 	m_Rotation(),
 	m_Scale(1.0f),
 	m_TextureUniforms()
 {}
 
-RenderObject::RenderObject(Model* aModel, ShaderProgram* aShaderProgram) : 
+RenderObject::RenderObject(std::weak_ptr<Model> aModel, std::weak_ptr<ShaderProgram> aShaderProgram) : 
 	m_Model(aModel), 
 	m_ShaderProgram(aShaderProgram),
 	m_Position(0, 0, 0),
@@ -36,13 +36,13 @@ RenderObject::RenderObject(Model* aModel, ShaderProgram* aShaderProgram) :
 
 void RenderObject::draw(RenderObserver& aCamera, std::vector<RenderLight> &aLights)
  {
-    GFXuint shaderProgramHandle = m_ShaderProgram->getProgramHandle();
+    GFXuint shaderProgramHandle = m_ShaderProgram._Get()->getProgramHandle();
 
 	glUseProgram(shaderProgramHandle);
 
 	StandardUniforms::loadStandardUniforms(*this, &aCamera, aLights,m_TextureUniforms);
-    m_ShaderProgram->draw();
-    m_Model->draw(shaderProgramHandle);
+    m_ShaderProgram._Get()->draw();
+    m_Model._Get()->draw(shaderProgramHandle);
      
  }
 
@@ -62,7 +62,7 @@ RenderObject::RenderObject(const RenderObject& aRenderObject)
 
 }
 
-ShaderProgram* RenderObject::getShaderProgram(void)
+std::weak_ptr<ShaderProgram> RenderObject::getShaderProgram(void)
 {
 	return m_ShaderProgram;
 
@@ -74,9 +74,9 @@ void RenderObject::setTexture(const std::string &aUniformName, const std::string
 
 }
 
-void RenderObject::setTexture(const std::string &aUniformName, Texture* aTexture)
+void RenderObject::setTexture(const std::string &aUniformName, std::weak_ptr<Texture> aTexture)
 {
-	m_TextureUniforms.insert(std::pair<std::string, Texture*>(aUniformName, aTexture));
+	m_TextureUniforms.insert(std::pair<std::string, std::weak_ptr<Texture>>(aUniformName, aTexture));
 
 
 }
