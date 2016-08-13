@@ -3,6 +3,7 @@
 
 //std inc
 #include <string>
+#include <memory>
 
 namespace guar
 {
@@ -17,7 +18,7 @@ namespace guar
 		static void init(void);
 		static void update(void);
 		
-		static ECS::SceneGraph* createScene(const std::string &aName);
+		static std::weak_ptr<ECS::SceneGraph> createScene(const std::string &aName);
 
 	};
 

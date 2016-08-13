@@ -19,22 +19,22 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{D4F83621-3E0E-4F8A-8C6D-0841C5788E8B}</ProjectGuid>
-    <RootNamespace>Engine</RootNamespace>
+    <ProjectGuid>{ED3F3E48-B69C-42C5-B41C-57FF82573264}</ProjectGuid>
+    <RootNamespace>Development</RootNamespace>
     <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
-    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v140</PlatformToolset>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
-    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <ConfigurationType>Utility</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <PlatformToolset>v140</PlatformToolset>
-    <WholeProgramOptimization>false</WholeProgramOptimization>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
@@ -68,10 +68,7 @@
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <OutDir>$(SolutionDir)..\..\libraries\systems\</OutDir>
-    <IntDir>$(SolutionDir)..\..\intermediate\$(ProjectName)</IntDir>
-  </PropertyGroup>
+  <PropertyGroup />
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
@@ -89,23 +86,15 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
-      <Optimization>Disabled</Optimization>
+      <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>C:\Users\Joe\Desktop\cpp11Engine\code\systems;C:\Users\Joe\Desktop\cpp11Engine\code\dependencies</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalDependencies>Debug.lib;EntityComponentSystem.lib;Graphics.lib;Input.lib;Interpreters.lib;Math.lib;Time.lib;LodePNG.lib;zlibstatic.lib;libassimp.lib;Lua533.lib;jsoncpp.lib;glfw3.lib;glew32s.lib;glu32.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>C:\Users\Joe\Desktop\EngineSolution\libraries\systems;C:\Users\Joe\Desktop\EngineSolution\libraries\dependencies;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <ImportLibrary>$(SolutionDir)..\..\libraries\systems\$(TargetName).lib</ImportLibrary>
     </Link>
-    <Lib>
-      <AdditionalLibraryDirectories>$(SolutionDir)..\..\..\..\libraries\systems;$(SolutionDir)..\..\..\..\libraries\dependencies;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
-    </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -121,14 +110,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\code\systems\Engine\Engine.cpp" />
-    <ClCompile Include="..\..\..\code\systems\Engine\SceneGraphCollection\SceneGraph.cpp" />
-    <ClCompile Include="..\..\..\code\systems\Engine\SceneGraph\SceneGraph.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="..\..\..\code\systems\Engine\Engine.h" />
-    <ClInclude Include="..\..\..\code\systems\Engine\SceneGraphCollection\SceneGraph.h" />
-    <ClInclude Include="..\..\..\code\systems\Engine\SceneGraph\SceneGraph.h" />
+    <ClInclude Include="..\..\..\code\systems\Development\Guar3DASCII.h" />
+    <ClInclude Include="..\..\..\code\systems\Development\Interface.h" />
+    <ClInclude Include="..\..\..\code\systems\Development\SceneGraph.h" />
+    <ClInclude Include="..\..\..\code\systems\Development\SceneGraphCollection.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

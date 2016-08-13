@@ -218,7 +218,7 @@ static void keyEventCallback(GLFWwindow* window, int key, int scancode, int acti
 	
 }
 
-guar::ECS::SceneGraph* Engine::createScene(const std::string &aName)
+std::weak_ptr<guar::ECS::SceneGraph> Engine::createScene(const std::string &aName)
 { 
 	return EntityComponentSystem::createScene(aName);
 

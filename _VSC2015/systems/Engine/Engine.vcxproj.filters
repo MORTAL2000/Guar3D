@@ -4,15 +4,33 @@
     <Filter Include="Engine">
       <UniqueIdentifier>{d48c9524-a5fb-4c89-8616-63e71515d64f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Engine\SceneGraph">
+      <UniqueIdentifier>{adbe4456-8d13-4f7c-a495-792dd4b88e8d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\SceneGraphCollection">
+      <UniqueIdentifier>{81fe3cb0-49d3-440f-a902-b279f50c4438}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\code\systems\Engine\Engine.cpp">
       <Filter>Engine</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\code\systems\Engine\SceneGraph\SceneGraph.cpp">
+      <Filter>Engine\SceneGraph</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\code\systems\Engine\SceneGraphCollection\SceneGraph.cpp">
+      <Filter>Engine\SceneGraphCollection</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\code\systems\Engine\Engine.h">
       <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\code\systems\Engine\SceneGraph\SceneGraph.h">
+      <Filter>Engine\SceneGraph</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\code\systems\Engine\SceneGraphCollection\SceneGraph.h">
+      <Filter>Engine\SceneGraphCollection</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

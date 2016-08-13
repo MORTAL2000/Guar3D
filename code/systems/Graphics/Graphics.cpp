@@ -105,7 +105,7 @@ Math::Vector2                Graphics::getWindowSize    (void)                  
 
 std::weak_ptr<GFX::SceneGraph>  Graphics::getScene(const std::string &aName)
 {
-	return s_SceneGraphCollection.findScene(aName);
+	return s_SceneGraphCollection.find(aName);
 
 }
 

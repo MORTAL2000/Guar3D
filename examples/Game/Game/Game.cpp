@@ -21,10 +21,10 @@ using namespace guar;
 
 void Game::init()
 {
-	ECS::SceneGraph* mainScene = Engine::createScene("mainScene");
+	std::weak_ptr<ECS::SceneGraph> mainScene = Engine::createScene("mainScene");
 	//ECS::SceneGraph* skyScene  = Engine::createScene("skyScene");
 	{
-		std::weak_ptr<ECS::GameObject> gameObject = mainScene->createNewGameObject("The Ground");
+		std::weak_ptr<ECS::GameObject> gameObject = mainScene._Get()->createNewGameObject("The Ground");
 
 		gameObject._Get()->addComponent<guar::ECS::Renderer>();
 		gameObject._Get()->addComponent<guar::ECS::Transform>();
@@ -41,7 +41,7 @@ void Game::init()
 	}
 	
 	{
-		std::weak_ptr<ECS::GameObject> gameObject = mainScene->createNewGameObject("The Other Dragon");
+		std::weak_ptr<ECS::GameObject> gameObject = mainScene._Get()->createNewGameObject("The Other Dragon");
 
 		gameObject._Get()->addComponent<guar::ECS::Renderer>();
 		gameObject._Get()->addComponent<guar::ECS::Transform>();
@@ -58,7 +58,7 @@ void Game::init()
 	}
 
 	{
-		std::weak_ptr<ECS::GameObject> gameObject = mainScene->createNewGameObject("The cube");
+		std::weak_ptr<ECS::GameObject> gameObject = mainScene._Get()->createNewGameObject("The cube");
 
 		gameObject._Get()->addComponent<guar::ECS::Renderer>();
 		gameObject._Get()->addComponent<guar::ECS::Transform>();
@@ -74,7 +74,7 @@ void Game::init()
 
 	}
 	{
-		std::weak_ptr<ECS::GameObject> gameObject = mainScene->createNewGameObject("The Other Cube");
+		std::weak_ptr<ECS::GameObject> gameObject = mainScene._Get()->createNewGameObject("The Other Cube");
 
 		gameObject._Get()->addComponent<guar::ECS::Renderer>();
 		gameObject._Get()->addComponent<guar::ECS::Transform>();
@@ -91,7 +91,7 @@ void Game::init()
 	}
 
 	{
-		std::weak_ptr<ECS::GameObject> gameObject = mainScene->createNewGameObject("The bunny");
+		std::weak_ptr<ECS::GameObject> gameObject = mainScene._Get()->createNewGameObject("The bunny");
 
 		gameObject._Get()->addComponent<guar::ECS::Renderer>();
 		gameObject._Get()->addComponent<guar::ECS::Transform>();
@@ -107,7 +107,7 @@ void Game::init()
 
 	}
 	{
-		std::weak_ptr<ECS::GameObject> gameObject = mainScene->createNewGameObject("The torus");
+		std::weak_ptr<ECS::GameObject> gameObject = mainScene._Get()->createNewGameObject("The torus");
 
 		gameObject._Get()->addComponent<guar::ECS::Renderer>();
 		gameObject._Get()->addComponent<guar::ECS::Transform>();
@@ -126,7 +126,7 @@ void Game::init()
 	}
 
 	{
-		std::weak_ptr<ECS::GameObject> gameObject = mainScene->createNewGameObject("The Light");
+		std::weak_ptr<ECS::GameObject> gameObject = mainScene._Get()->createNewGameObject("The Light");
 
 		gameObject._Get()->addComponent<guar::ECS::Transform>();
 		gameObject._Get()->addComponent<guar::ECS::Light>();
@@ -139,7 +139,7 @@ void Game::init()
 		
 	}
 	{
-		std::weak_ptr<ECS::GameObject> gameObject = mainScene->createNewGameObject("The Dragon");
+		std::weak_ptr<ECS::GameObject> gameObject = mainScene._Get()->createNewGameObject("The Dragon");
 
 		gameObject._Get()->addComponent<guar::ECS::Renderer>();
 		gameObject._Get()->addComponent<guar::ECS::Transform>();
@@ -154,7 +154,7 @@ void Game::init()
 
 	}
 	{
-		std::weak_ptr<ECS::GameObject> gameObject = mainScene->createNewGameObject("The Shadowwall");
+		std::weak_ptr<ECS::GameObject> gameObject = mainScene._Get()->createNewGameObject("The Shadowwall");
 
 		gameObject._Get()->addComponent<guar::ECS::Renderer>();
 		gameObject._Get()->addComponent<guar::ECS::Transform>();
@@ -170,7 +170,7 @@ void Game::init()
 
 	}
 	{
-		std::weak_ptr<ECS::GameObject> gameObject = mainScene->createNewGameObject("The Player");
+		std::weak_ptr<ECS::GameObject> gameObject = mainScene._Get()->createNewGameObject("The Player");
 
 		gameObject._Get()->addComponent<guar::ECS::Transform>();
 		gameObject._Get()->addComponent<guar::ECS::Camera>();
@@ -182,7 +182,7 @@ void Game::init()
 
 	}
 	{
-		std::weak_ptr<ECS::GameObject> gameObject = mainScene->createNewGameObject("The Sky");
+		std::weak_ptr<ECS::GameObject> gameObject = mainScene._Get()->createNewGameObject("The Sky");
 		
 		gameObject._Get()->addComponent<guar::ECS::Renderer>();
 		gameObject._Get()->addComponent<guar::ECS::Transform>();
@@ -198,7 +198,7 @@ void Game::init()
 
 	}
 	{
-		std::weak_ptr<ECS::GameObject> gameObject = mainScene->createNewGameObject("The Screen");
+		std::weak_ptr<ECS::GameObject> gameObject = mainScene._Get()->createNewGameObject("The Screen");
 
 		gameObject._Get()->addComponent<guar::ECS::Renderer>();
 		gameObject._Get()->addComponent<guar::ECS::Transform>();
@@ -216,7 +216,7 @@ void Game::init()
 	}
 
 	{
-		std::weak_ptr<ECS::GameObject> gameObject = mainScene->createNewGameObject("The moving dragon");
+		std::weak_ptr<ECS::GameObject> gameObject = mainScene._Get()->createNewGameObject("The moving dragon");
 
 		gameObject._Get()->addComponent<guar::ECS::Renderer>();
 		gameObject._Get()->addComponent<guar::ECS::Transform>();

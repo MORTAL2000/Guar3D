@@ -4,6 +4,8 @@
  * SceneGraph.h
  * 
 */
+//dev inc
+#include <Development\SceneGraph.h>
 
 //stdinc
 #include <vector>
@@ -22,7 +24,7 @@ namespace guar
 		class Camera;
 		class Light;
 
-		class SceneGraph
+		class SceneGraph : public DEV::SceneGraph
 		{
 			friend GameObject;
 

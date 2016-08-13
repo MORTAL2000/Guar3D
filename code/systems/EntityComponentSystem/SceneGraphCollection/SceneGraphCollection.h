@@ -1,9 +1,10 @@
 #ifndef GUAR_ECS_SCENEGRAPHCOLLECTION_H
 #define GUAR_ECS_SCENEGRAPHCOLLECTION_H
 
-////projinc
-//#include "../SceneGraph/SceneGraph.h"
-
+//dev inc
+#include <Development\SceneGraphCollection.h>
+//ecs inc
+#include "../SceneGraph/SceneGraph.h"
 //stdinc
 #include <vector>
 #include <memory>
@@ -15,14 +16,9 @@ namespace guar
 	{
 		class SceneGraph;
 
-		class SceneGraphCollection
+		class SceneGraphCollection : public DEV::SceneGraphCollection<ECS::SceneGraph>
 		{
-			std::vector<guar::ECS::SceneGraph> m_Vector;
-
-		public:
-			SceneGraph* find(const std::string &aSceneGraphName);
-			SceneGraph* createScene(const std::string &aName);
-			void update(void);
+			
 
 		};
 

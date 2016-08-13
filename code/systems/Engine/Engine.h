@@ -7,6 +7,7 @@
  */
 //stdinc
 #include <string>
+#include <memory>
 
 namespace guar
 {
@@ -17,17 +18,14 @@ namespace guar
 		Engine() = delete; ~Engine() = delete;
 
 		//Private methods
-		static void init(void);
-
-		static void drawThreadTest();
-
+		static void init(void);  //consider refactoring these..
 		static void terminate(void);
 
 	public: //Public interface
 		static void mainInit(void);
 		static void mainLoop(void);
 
-		static guar::ECS::SceneGraph* createScene(const std::string &aName);
+		static std::weak_ptr<guar::ECS::SceneGraph> createScene(const std::string &aName);
 		
     };
     

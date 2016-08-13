@@ -1,6 +1,8 @@
 #ifndef GUAR_GRAPHICS_SCENEGRAPH_H
 #define GUAR_GRAPHICS_SCENEGRAPH_H
 
+//dev inc
+#include <Development\SceneGraph.h>
 //std inc
 #include <vector>
 #include <string>
@@ -12,7 +14,7 @@ namespace guar
 
 	namespace GFX
 	{
-		class SceneGraph
+		class SceneGraph : public DEV::SceneGraph
 		{
 			
 			std::string m_Name;

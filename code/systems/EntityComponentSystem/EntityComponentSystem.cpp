@@ -7,6 +7,7 @@
 //Debug inc
 #include <Debug\Debug.h>
 
+
 using namespace guar;
 
 //Data members
@@ -25,7 +26,7 @@ void EntityComponentSystem::update(void)
 
 }
 
-ECS::SceneGraph* EntityComponentSystem::createScene(const std::string &aName)
+std::weak_ptr<ECS::SceneGraph> EntityComponentSystem::createScene(const std::string &aName)
 {
 	return m_SceneGraphs.createScene(aName);
 

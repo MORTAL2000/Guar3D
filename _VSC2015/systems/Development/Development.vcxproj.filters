@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Development">
+      <UniqueIdentifier>{a5ebc4d8-49a5-4d60-b4c4-fb9405c95e1c}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\code\systems\Development\Guar3DASCII.h">
+      <Filter>Development</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\code\systems\Development\Interface.h">
+      <Filter>Development</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\code\systems\Development\SceneGraph.h">
+      <Filter>Development</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\code\systems\Development\SceneGraphCollection.h">
+      <Filter>Development</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
