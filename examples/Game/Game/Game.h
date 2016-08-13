@@ -9,6 +9,9 @@ namespace Game
 {
 	void init();
 
+	void initMainScene();
+	void initSkyScene();
+
 }
 
 #endif

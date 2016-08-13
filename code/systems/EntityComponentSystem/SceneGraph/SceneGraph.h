@@ -42,7 +42,7 @@ namespace guar
 			std::weak_ptr<GFX::SceneGraph> getGraphicsScene() { return m_GraphicsScene; }
 
 			std::weak_ptr<GameObject> getRootObject(const std::string &aRootGameObjectName);
-			GameObject findGameObject(std::string aGameObjectName);
+			std::weak_ptr<GameObject> findGameObject(std::string aGameObjectName);
 
 			void addRootObject(std::shared_ptr<GameObject> aGameObject);
 

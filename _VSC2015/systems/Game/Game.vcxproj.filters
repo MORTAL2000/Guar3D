@@ -22,6 +22,9 @@
     <Filter Include="src\Components\Orbiter">
       <UniqueIdentifier>{b2a491eb-dbcc-4fcf-a77b-1e6b50e0dda4}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\Components\SkyPlayer">
+      <UniqueIdentifier>{56f51f9e-a7f7-4f1f-9fdf-5f530a08438a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\examples\Game\main.cpp">
@@ -42,6 +45,9 @@
     <ClCompile Include="..\..\..\examples\Game\Components\Orbiter\Orbiter.cpp">
       <Filter>src\Components\Orbiter</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\examples\Game\Components\SkyPlayer\SkyPlayer.cpp">
+      <Filter>src\Components\SkyPlayer</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\examples\Game\Game\Game.h">
@@ -58,6 +64,9 @@
     </ClInclude>
     <ClInclude Include="..\..\..\examples\Game\Components\Orbiter\Orbiter.h">
       <Filter>src\Components\Orbiter</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\examples\Game\Components\SkyPlayer\SkyPlayer.h">
+      <Filter>src\Components\SkyPlayer</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -119,6 +119,7 @@
     <ClCompile Include="..\..\..\examples\Game\Components\Orbiter\Orbiter.cpp" />
     <ClCompile Include="..\..\..\examples\Game\Components\PlayerController\PlayerController.cpp" />
     <ClCompile Include="..\..\..\examples\Game\Components\Rotator\Rotator.cpp" />
+    <ClCompile Include="..\..\..\examples\Game\Components\SkyPlayer\SkyPlayer.cpp" />
     <ClCompile Include="..\..\..\examples\Game\Components\Spinner\Spinner.cpp" />
     <ClCompile Include="..\..\..\examples\Game\Game\Game.cpp" />
     <ClCompile Include="..\..\..\examples\Game\main.cpp" />
@@ -127,6 +128,7 @@
     <ClInclude Include="..\..\..\examples\Game\Components\Orbiter\Orbiter.h" />
     <ClInclude Include="..\..\..\examples\Game\Components\PlayerController\PlayerController.h" />
     <ClInclude Include="..\..\..\examples\Game\Components\Rotator\Rotator.h" />
+    <ClInclude Include="..\..\..\examples\Game\Components\SkyPlayer\SkyPlayer.h" />
     <ClInclude Include="..\..\..\examples\Game\Components\Spinner\Spinner.h" />
     <ClInclude Include="..\..\..\examples\Game\Game\Game.h" />
   </ItemGroup>

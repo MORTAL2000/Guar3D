@@ -16,13 +16,55 @@
 #include "../Components/PlayerController/PlayerController.h"
 #include "../Components/Spinner/Spinner.h"
 #include "../Components/Orbiter/Orbiter.h"
+#include "../Components/SkyPlayer/SkyPlayer.h"
 
 using namespace guar;
 
 void Game::init()
 {
+	initSkyScene();
+	initMainScene();
+
+}
+
+void Game::initSkyScene()
+{
+	std::weak_ptr<ECS::SceneGraph> skyScene = Engine::createScene("skyScene");
+	{
+		std::weak_ptr<ECS::GameObject> gameObject = skyScene._Get()->createNewGameObject("The Sky");
+
+		gameObject._Get()->addComponent<guar::ECS::Renderer>();
+		gameObject._Get()->addComponent<guar::ECS::Transform>();
+
+		std::weak_ptr<guar::ECS::Transform> transform = gameObject._Get()->findComponent<guar::ECS::Transform>();
+		transform._Get()->setScale(Math::Vector3(300.0f, 300.0f, 300.0f));
+		transform._Get()->setPosition(Math::Vector3(0, 0, 0));
+
+		std::weak_ptr<guar::ECS::Renderer> renderer = gameObject._Get()->findComponent<guar::ECS::Renderer>();
+		renderer._Get()->setModel("Cube");
+		renderer._Get()->setShaderProgram("Skybox");
+		renderer._Get()->setTexture("_Texture", "../Textures/grass.png");
+
+	}
+	{
+		std::weak_ptr<ECS::GameObject> gameObject = skyScene._Get()->createNewGameObject("The SKY Player");
+
+		gameObject._Get()->addComponent<guar::ECS::Transform>();
+		gameObject._Get()->addComponent<guar::ECS::Camera>();
+		gameObject._Get()->addComponent<SkyPlayer>();
+
+		std::weak_ptr<guar::ECS::Transform> transform = gameObject._Get()->findComponent<guar::ECS::Transform>();
+		transform._Get()->setScale(Math::Vector3(1.0f, 1.0f, 1.0f));
+		transform._Get()->setPosition(Math::Vector3(0.0f, 5.0f, 40.0f));
+
+	}
+
+
+}
+
+void Game::initMainScene()
+{
 	std::weak_ptr<ECS::SceneGraph> mainScene = Engine::createScene("mainScene");
-	//ECS::SceneGraph* skyScene  = Engine::createScene("skyScene");
 	{
 		std::weak_ptr<ECS::GameObject> gameObject = mainScene._Get()->createNewGameObject("The Ground");
 
@@ -39,7 +81,7 @@ void Game::init()
 		renderer._Get()->setTexture("_Texture", "../Textures/grass.png");
 
 	}
-	
+
 	{
 		std::weak_ptr<ECS::GameObject> gameObject = mainScene._Get()->createNewGameObject("The Other Dragon");
 
@@ -132,11 +174,11 @@ void Game::init()
 		gameObject._Get()->addComponent<guar::ECS::Light>();
 		gameObject._Get()->addComponent<Rotator>();
 
-		
+
 		std::weak_ptr<guar::ECS::Transform> transform = gameObject._Get()->findComponent<guar::ECS::Transform>();
 		transform._Get()->setScale(Math::Vector3(1.0f, 1.0f, 1.0f));
 		transform._Get()->setPosition(Math::Vector3(0.0f, 5.0f, 30.0f));
-		
+
 	}
 	{
 		std::weak_ptr<ECS::GameObject> gameObject = mainScene._Get()->createNewGameObject("The Dragon");
@@ -181,22 +223,7 @@ void Game::init()
 		transform._Get()->setPosition(Math::Vector3(0.0f, 5.0f, 40.0f));
 
 	}
-	{
-		std::weak_ptr<ECS::GameObject> gameObject = mainScene._Get()->createNewGameObject("The Sky");
-		
-		gameObject._Get()->addComponent<guar::ECS::Renderer>();
-		gameObject._Get()->addComponent<guar::ECS::Transform>();
-		
-		std::weak_ptr<guar::ECS::Transform> transform = gameObject._Get()->findComponent<guar::ECS::Transform>();
-		transform._Get()->setScale(Math::Vector3(300.0f, 300.0f, 300.0f));
-		transform._Get()->setPosition(Math::Vector3(0, 0, 0));
-		
-		std::weak_ptr<guar::ECS::Renderer> renderer = gameObject._Get()->findComponent<guar::ECS::Renderer>();
-		renderer._Get()->setModel("Cube");
-		renderer._Get()->setShaderProgram("Skybox");
-		renderer._Get()->setTexture("_Texture", "../Textures/grass.png");
 
-	}
 	{
 		std::weak_ptr<ECS::GameObject> gameObject = mainScene._Get()->createNewGameObject("The Screen");
 
@@ -234,5 +261,5 @@ void Game::init()
 
 	std::cout << Graphics::getRenderTexture()._Get()->getName() << ", " << Graphics::getRenderTexture()._Get()->getColorTexture()._Get()->getName() << ": " << Graphics::getRenderTexture()._Get()->getColorTexture()._Get()->getHandle() << "\n";
 	std::cout << Graphics::getTexture()._Get()->getHandle();
-	
+
 }

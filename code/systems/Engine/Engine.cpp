@@ -223,3 +223,9 @@ std::weak_ptr<guar::ECS::SceneGraph> Engine::createScene(const std::string &aNam
 	return EntityComponentSystem::createScene(aName);
 
 }
+
+std::weak_ptr<guar::ECS::SceneGraph> Engine::findScene(const std::string &aName)
+{
+	return EntityComponentSystem::findScene(aName);
+
+}

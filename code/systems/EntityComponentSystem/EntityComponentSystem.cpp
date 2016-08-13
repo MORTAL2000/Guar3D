@@ -32,3 +32,9 @@ std::weak_ptr<ECS::SceneGraph> EntityComponentSystem::createScene(const std::str
 
 
 }
+
+std::weak_ptr<ECS::SceneGraph> EntityComponentSystem::findScene(const std::string &aName)
+{
+	return m_SceneGraphs.find(aName);
+
+}

@@ -26,7 +26,8 @@ namespace guar
 		static void mainLoop(void);
 
 		static std::weak_ptr<guar::ECS::SceneGraph> createScene(const std::string &aName);
-		
+		static std::weak_ptr<guar::ECS::SceneGraph> findScene(const std::string &aName);
+
     };
     
 };
