@@ -1,0 +1,8 @@
+fbx files prefixed with "stanford-" are high poly models produced at
+stanford by means of scanning real world items.
+
+more information can be found at:
+http://graphics.stanford.edu/data/3Dscanrep/
+
+The stanford models were downloaded from:
+https://clara.io/library?query=stanford
