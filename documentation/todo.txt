@@ -23,3 +23,6 @@ paralellize resource loading
 
 review implementation LuaInterperter.cpp
 derive LuaInterpreter for config file loading foreach system.
+
+add projects to dependency solution for the dependencies that are missing (glew, glfw, bullet).
+ - important for quickly building for different targets
