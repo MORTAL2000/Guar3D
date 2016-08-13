@@ -19,8 +19,8 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{ED3F3E48-B69C-42C5-B41C-57FF82573264}</ProjectGuid>
-    <RootNamespace>Development</RootNamespace>
+    <ProjectGuid>{3DC95B4D-1A9C-4193-BFDC-1DF89693386F}</ProjectGuid>
+    <RootNamespace>Physics</RootNamespace>
     <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -31,7 +31,7 @@
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
-    <ConfigurationType>Utility</ConfigurationType>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <PlatformToolset>v140</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
@@ -68,7 +68,10 @@
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
-  <PropertyGroup />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>$(SolutionDir)..\..\libraries\systems\</OutDir>
+    <IntDir>$(SolutionDir)..\..\intermediate\$(ProjectName)</IntDir>
+  </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
@@ -90,6 +93,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>C:\Users\Joe\Desktop\cpp11Engine\code\systems;C:\Users\Joe\Desktop\cpp11Engine\code\dependencies</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
@@ -110,11 +114,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\code\systems\Development\Guar3DASCII.h" />
-    <ClInclude Include="..\..\..\code\systems\Development\Interface.h" />
-    <ClInclude Include="..\..\..\code\systems\Development\SceneGraph.h" />
-    <ClInclude Include="..\..\..\code\systems\Development\SceneGraphCollection.h" />
-    <ClInclude Include="..\..\..\code\systems\Development\System.h" />
+    <ClCompile Include="..\..\..\code\systems\Physics\Physics.cpp" />
+    <ClCompile Include="..\..\..\code\systems\Physics\SceneGraphCollection\SceneGraphCollection.cpp" />
+    <ClCompile Include="..\..\..\code\systems\Physics\SceneGraph\SceneGraph.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\code\systems\Physics\Physics.h" />
+    <ClInclude Include="..\..\..\code\systems\Physics\SceneGraphCollection\SceneGraphCollection.h" />
+    <ClInclude Include="..\..\..\code\systems\Physics\SceneGraph\SceneGraph.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

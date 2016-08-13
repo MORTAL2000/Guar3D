@@ -9,9 +9,14 @@ namespace guar
 	{
 		class SceneGraph
 		{
-			
+			std::string m_Name;
+
 		public:
+			std::string getName(void) { return m_Name; }
+
 			virtual void update() = 0;
+			
+			SceneGraph(const std::string &aName) : m_Name(aName) {}
 			
 		};
 

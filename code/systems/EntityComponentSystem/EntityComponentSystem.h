@@ -5,6 +5,8 @@
 #include <string>
 #include <memory>
 
+struct GLFWwindow;
+
 namespace guar
 {
 	namespace ECS { class SceneGraph; }
@@ -12,12 +14,14 @@ namespace guar
 	class EntityComponentSystem
 	{
 		friend class Engine;
-
 		EntityComponentSystem() = delete; ~EntityComponentSystem() = delete;
 
-		static void init(void);
+		//Engine interface
+		static void init(GLFWwindow* aWindowHandle);
 		static void update(void);
+		static void terminate(void);
 		
+		//Scenegraph interface
 		static std::weak_ptr<ECS::SceneGraph> createScene(const std::string &aName);
 		static std::weak_ptr<ECS::SceneGraph> findScene(const std::string &aName);
 

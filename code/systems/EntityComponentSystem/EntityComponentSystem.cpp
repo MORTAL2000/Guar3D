@@ -13,7 +13,7 @@ using namespace guar;
 //Data members
 static ECS::SceneGraphCollection m_SceneGraphs;
 
-void EntityComponentSystem::init(void)
+void EntityComponentSystem::init(GLFWwindow* aWindowHandle)
 {
 	Debug::announce("Engine init: ECS initializing...");
 	ECS::ComponentTypeRegistry::init();
@@ -23,6 +23,12 @@ void EntityComponentSystem::init(void)
 void EntityComponentSystem::update(void)
 {
 	m_SceneGraphs.update();
+
+}
+
+void EntityComponentSystem::terminate(void)
+{
+
 
 }
 

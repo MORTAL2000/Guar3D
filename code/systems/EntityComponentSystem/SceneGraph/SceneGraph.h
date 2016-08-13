@@ -16,6 +16,7 @@
 namespace guar
 {
 	namespace GFX { class SceneGraph; }
+	namespace PHY { class SceneGraph; }
 
 	namespace ECS
 	{
@@ -28,9 +29,8 @@ namespace guar
 		{
 			friend GameObject;
 
-			std::string m_Name;
-
 			std::weak_ptr<GFX::SceneGraph> m_GraphicsScene;
+			std::weak_ptr<PHY::SceneGraph> m_PhysicsScene;
 
 			std::vector<std::shared_ptr<GameObject>> m_RootObjects;
 			std::vector<std::weak_ptr<Renderer>>     m_Renderers;
@@ -38,7 +38,6 @@ namespace guar
 			std::vector<std::weak_ptr<Light>>        m_Lights;
 			
 		public:
-			std::string getName(void) { return m_Name; }
 			std::weak_ptr<GFX::SceneGraph> getGraphicsScene() { return m_GraphicsScene; }
 
 			std::weak_ptr<GameObject> getRootObject(const std::string &aRootGameObjectName);

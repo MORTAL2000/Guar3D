@@ -1,5 +1,7 @@
 Next:
-write Physics interface, add Bullet to project for implementation
+Consider refactoring much of ECS::SceneGraph implementation to ENG::SceneGraph.
+The idea here is all subsystem scenes will be treated equally (will all be has-a of ENG::SceneGraph rather than
+all but ecs being has-a of ECS::SceneGraph, which is a nonuniform policy)
 ---------------------
 Later:
 

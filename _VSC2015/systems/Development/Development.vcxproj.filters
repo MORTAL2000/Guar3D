@@ -18,5 +18,8 @@
     <ClInclude Include="..\..\..\code\systems\Development\SceneGraphCollection.h">
       <Filter>Development</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\code\systems\Development\System.h">
+      <Filter>Development</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

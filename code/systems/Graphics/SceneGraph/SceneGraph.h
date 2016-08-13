@@ -16,16 +16,11 @@ namespace guar
 	{
 		class SceneGraph : public DEV::SceneGraph
 		{
-			
-			std::string m_Name;
-
 			std::vector<std::shared_ptr<class RenderLight >> m_Lights;
 			std::vector<std::shared_ptr<class RenderCamera>> m_Cameras;
 			std::vector<std::shared_ptr<class RenderObject>> m_Objects;
 
 		public:
-			std::string getName(void) { return m_Name; }
-
 			std::weak_ptr<class RenderLight > createRenderLight  (void);
 			std::weak_ptr<class RenderCamera> createRenderCamera (void);
 			std::weak_ptr<class RenderObject> createRenderObject (void);

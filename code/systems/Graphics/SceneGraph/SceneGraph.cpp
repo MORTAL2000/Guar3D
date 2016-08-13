@@ -7,8 +7,7 @@
 using namespace guar;
 using namespace GFX;
 
-SceneGraph::SceneGraph(const std::string &aName) :
-	m_Name(aName)
+SceneGraph::SceneGraph(const std::string &aName) : DEV::SceneGraph(aName)
 {}
 
 void SceneGraph::update(void)

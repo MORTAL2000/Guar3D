@@ -5,6 +5,7 @@
 #include "../Component/Transform/Transform.h"
 #include "../GameObject/GameObject.h"
 #include <Graphics\Graphics.h>
+#include <Physics\Physics.h>
 
 
 //#include "../../Graphics/OpenGL/OpenGL.h"
@@ -13,13 +14,14 @@ using namespace guar;
 using namespace ECS;
 
 SceneGraph::SceneGraph() :
-	m_Name("Unnamed Scene")
+	SceneGraph("Unnamed Scene")
 
 {}
 
-SceneGraph::SceneGraph(const std::string &aSceneName) :
-	m_Name(aSceneName),
-	m_GraphicsScene(Graphics::createScene(aSceneName))
+SceneGraph::SceneGraph(const std::string &aSceneName) : 
+	DEV::SceneGraph(aSceneName),
+	m_GraphicsScene(Graphics::createScene(aSceneName)),
+	m_PhysicsScene (Physics::createScene (aSceneName))
 
 {}
 

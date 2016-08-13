@@ -15,6 +15,8 @@
 #include <Time/Time.h>
 //Development inc
 #include <Development\Guar3DASCII.h>
+//physics inc
+#include <Physics\Physics.h>
 //stdlib
 #include <stdio.h>
 #include <iostream>
@@ -46,8 +48,9 @@ void Engine::mainLoop()
 		/* Loop until the user closes the window */
 		while (!glfwWindowShouldClose(m_Window))
 		{
+			//Graphics::update();//moved to gfx thread
 			EntityComponentSystem::update();
-			//Graphics::update();
+			Physics::update();
 			Time::update();
 			glfwPollEvents();
 
@@ -68,7 +71,10 @@ void Engine::mainLoop()
 
 void Engine::terminate(void)
 {
-	Graphics::terminate();
+	Graphics             ::terminate();
+	EntityComponentSystem::terminate();
+	Physics              ::terminate();
+
 
 	glfwTerminate();
 
@@ -76,14 +82,16 @@ void Engine::terminate(void)
 
 }
 
+#include <Development\System.h>
 void Engine::mainInit(void)
 {
-	Engine::init();
-    Graphics::init(m_Window);
-	EntityComponentSystem::init();
-	Input::init(m_Window);
-	Time::init();
-	Debug::init();
+	Engine               ::init();
+    Graphics             ::init(m_Window);
+	EntityComponentSystem::init(m_Window);
+	Physics              ::init(m_Window);
+	Input                ::init(m_Window);
+	Time                 ::init();
+	Debug                ::init();
 
 	Debug::announce("Engine init: Sound initializing...");
 	Debug::announce("Engine init: Network initializing...");
