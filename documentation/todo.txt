@@ -1,13 +1,5 @@
 Next:
-decouple Renderer from ECS:
-provide Renderer with a scenegraph of its own.
-GraphicsObjectCollection should provide weak ptrs not raw ptrs.
-drawing should be handled via Graphics::draw iterating a graphics scenegraph collection, not done via the ECS (ForwardRenderer component).
-All resource collections should provide weak ptrs.
-
-Graphics, ECS, Physics and Sound systems need their own scenegraphs.
-write an abstract SceneGraph type and SceneGraph collection type to handle the definition of behaviours.
-
+write Physics interface, add Bullet to project for implementation
 ---------------------
 Later:
 
