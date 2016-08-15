@@ -47,9 +47,7 @@ namespace guar
 
 			std::weak_ptr<GameObject> createNewGameObject(const std::string &aName ="Unnamed");
 			
-
 			void update();
-			//void draw();
 
 			SceneGraph();
 			SceneGraph(const std::string &aSceneName);
