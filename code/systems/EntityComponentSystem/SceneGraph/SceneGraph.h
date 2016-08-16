@@ -41,15 +41,13 @@ namespace guar
 			std::weak_ptr<GFX::SceneGraph> getGraphicsScene() { return m_GraphicsScene; }
 
 			std::weak_ptr<GameObject> getRootObject(const std::string &aRootGameObjectName);
-			std::weak_ptr<GameObject> findGameObject(std::string aGameObjectName);
+			std::weak_ptr<GameObject> findGameObject(std::string aGameObjectName); //need to implement gameobject.findInChildren first
 
 			void addRootObject(std::shared_ptr<GameObject> aGameObject);
 
 			std::weak_ptr<GameObject> createNewGameObject(const std::string &aName ="Unnamed");
-			
 
 			void update();
-			//void draw();
 
 			SceneGraph();
 			SceneGraph(const std::string &aSceneName);

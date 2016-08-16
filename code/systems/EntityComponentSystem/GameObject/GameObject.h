@@ -45,6 +45,9 @@ namespace guar
 
 			void setName(const std::string &aName) { m_Name = aName; }
 
+			//ECS::Scenegraph interface
+			void update(void);
+
 		public: //public interface
 			void moveToScene(const std::string &aScene);
 			void addToScene (const std::string &aScene);
@@ -89,7 +92,7 @@ namespace guar
 
 			}
 
-			void update(void);
+			
 
 			void becomeChild(std::unique_ptr<GameObject> aGameObject);
 
