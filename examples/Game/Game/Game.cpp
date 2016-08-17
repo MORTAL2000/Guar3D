@@ -6,6 +6,7 @@
 #include <EntityComponentSystem\Component\Transform\Transform.h>
 #include <EntityComponentSystem\Component\Renderer\Renderer.h>
 #include <EntityComponentSystem\Component\Camera\Camera.h>
+#include <EntityComponentSystem\Component\Rigidbody\Rigidbody.h>
 #include <EntityComponentSystem\GameObject\GameObject.h>
 #include <EntityComponentSystem\SceneGraph\SceneGraph.h>
 //GFX inc
@@ -104,6 +105,7 @@ void Game::initMainScene()
 
 		gameObject._Get()->addComponent<guar::ECS::Renderer>();
 		gameObject._Get()->addComponent<guar::ECS::Transform>();
+		gameObject._Get()->addComponent<guar::ECS::Rigidbody>();
 
 		std::weak_ptr<guar::ECS::Renderer> renderer = gameObject._Get()->findComponent<guar::ECS::Renderer>();
 		renderer._Get()->setModel("Cube");
@@ -112,7 +114,7 @@ void Game::initMainScene()
 
 		std::weak_ptr<guar::ECS::Transform> transform = gameObject._Get()->findComponent<guar::ECS::Transform>();
 		transform._Get()->setScale(Math::Vector3(10.0f, 10.0f, 10.0f));
-		transform._Get()->setPosition(Math::Vector3(0.0f, 20.0f, 0.0f));
+		//transform._Get()->setPosition(Math::Vector3(0.0f, 20.0f, 0.0f));
 
 	}
 	{

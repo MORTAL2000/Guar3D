@@ -53,3 +53,4 @@ libraries/systems/
 *.db
 *.suo
 *.suo
+_VSC2015/systems/.vs/Engine/v14/.suo

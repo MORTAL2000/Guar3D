@@ -4,6 +4,9 @@
  * Vector3
  * 
 */
+//std inc
+#include <iostream>
+
 namespace guar
 {
 	namespace Math
@@ -28,6 +31,7 @@ namespace guar
 			Vector3 operator*(const float &aScalar);
 			Vector3 operator*(const float &aScalar) const;
 			void operator*=(const float &aScalar);
+			
 
 			static const Vector3 Up;
 			static const Vector3 Down;
@@ -38,6 +42,8 @@ namespace guar
 			static const Vector3 Zero;
 
 		};
+
+		std::ostream& operator<< (std::ostream& stream, const Math::Vector3& aVector3);
 
 	}
 

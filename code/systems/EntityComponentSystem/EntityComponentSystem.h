@@ -14,6 +14,8 @@ namespace guar
 	class EntityComponentSystem
 	{
 		friend class Engine;
+		//friend class GameObject;
+
 		EntityComponentSystem() = delete; ~EntityComponentSystem() = delete;
 
 		//Engine interface

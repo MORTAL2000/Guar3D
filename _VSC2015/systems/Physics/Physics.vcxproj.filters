@@ -11,6 +11,18 @@
     <Filter Include="Physics\SceneGraphCollection">
       <UniqueIdentifier>{24768226-a4f7-406e-bb1f-5a3fc14eeb13}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Physics\PhysicsWorld">
+      <UniqueIdentifier>{ff472922-8ef1-44ea-abda-61c3c225bcd9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Physics\PhysicsObject">
+      <UniqueIdentifier>{1b1d6ad7-9c0d-4fe1-bfbf-7d04aa850ede}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Physics\PhysicsObject\RigidBody">
+      <UniqueIdentifier>{08eb15b3-ee63-44ae-94cd-bc34c55ddb49}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Physics\PhysicsObject\SoftBody">
+      <UniqueIdentifier>{bd15b216-7c8e-4743-9446-aa3f3942babb}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\code\systems\Physics\Physics.cpp">
@@ -22,6 +34,18 @@
     <ClCompile Include="..\..\..\code\systems\Physics\SceneGraph\SceneGraph.cpp">
       <Filter>Physics\SceneGraph</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\code\systems\Physics\PhysicsWorld\PhysicsWorld.cpp">
+      <Filter>Physics\PhysicsWorld</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\code\systems\Physics\PhysicsObject\PhysicsObject.cpp">
+      <Filter>Physics\PhysicsObject</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\code\systems\Physics\PhysicsObject\RigidBody\RigidBody.cpp">
+      <Filter>Physics\PhysicsObject\RigidBody</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\code\systems\Physics\PhysicsObject\SoftBody\SoftBody.cpp">
+      <Filter>Physics\PhysicsObject\SoftBody</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\code\systems\Physics\Physics.h">
@@ -32,6 +56,18 @@
     </ClInclude>
     <ClInclude Include="..\..\..\code\systems\Physics\SceneGraph\SceneGraph.h">
       <Filter>Physics\SceneGraph</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\code\systems\Physics\PhysicsWorld\PhysicsWorld.h">
+      <Filter>Physics\PhysicsWorld</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\code\systems\Physics\PhysicsObject\PhysicsObject.h">
+      <Filter>Physics\PhysicsObject</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\code\systems\Physics\PhysicsObject\RigidBody\RigidBody.h">
+      <Filter>Physics\PhysicsObject\RigidBody</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\code\systems\Physics\PhysicsObject\SoftBody\SoftBody.h">
+      <Filter>Physics\PhysicsObject\SoftBody</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

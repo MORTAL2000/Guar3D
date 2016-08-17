@@ -6,6 +6,7 @@
 #include "../GameObject/GameObject.h"
 #include <Graphics\Graphics.h>
 #include <Physics\Physics.h>
+#include <Engine\Engine.h>
 
 
 //#include "../../Graphics/OpenGL/OpenGL.h"
@@ -28,7 +29,7 @@ SceneGraph::SceneGraph(const std::string &aSceneName) :
 void SceneGraph::addRootObject(std::shared_ptr<GameObject> aGameObject)
 { 
 	m_RootObjects.push_back(aGameObject); 
-	m_RootObjects.back()._Get()->m_SceneGraph = this;
+	m_RootObjects.back()._Get()->m_SceneGraph = Engine::findScene(getName());
 	//m_RootObjects.back()._Get()->init();
 
 }
@@ -54,7 +55,7 @@ std::weak_ptr<GameObject> SceneGraph::createNewGameObject(const std::string &aNa
 {
 	std::shared_ptr<GameObject> gameObject(new GameObject(aName));
 
-	gameObject._Get()->m_SceneGraph = this;
+	gameObject._Get()->m_SceneGraph = Engine::findScene(getName());
 
 	//TODO: add mechanism for iterating the hierarchy
 

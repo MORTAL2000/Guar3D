@@ -115,11 +115,19 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\code\systems\Physics\Physics.cpp" />
+    <ClCompile Include="..\..\..\code\systems\Physics\PhysicsObject\PhysicsObject.cpp" />
+    <ClCompile Include="..\..\..\code\systems\Physics\PhysicsObject\RigidBody\RigidBody.cpp" />
+    <ClCompile Include="..\..\..\code\systems\Physics\PhysicsObject\SoftBody\SoftBody.cpp" />
+    <ClCompile Include="..\..\..\code\systems\Physics\PhysicsWorld\PhysicsWorld.cpp" />
     <ClCompile Include="..\..\..\code\systems\Physics\SceneGraphCollection\SceneGraphCollection.cpp" />
     <ClCompile Include="..\..\..\code\systems\Physics\SceneGraph\SceneGraph.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\code\systems\Physics\Physics.h" />
+    <ClInclude Include="..\..\..\code\systems\Physics\PhysicsObject\PhysicsObject.h" />
+    <ClInclude Include="..\..\..\code\systems\Physics\PhysicsObject\RigidBody\RigidBody.h" />
+    <ClInclude Include="..\..\..\code\systems\Physics\PhysicsObject\SoftBody\SoftBody.h" />
+    <ClInclude Include="..\..\..\code\systems\Physics\PhysicsWorld\PhysicsWorld.h" />
     <ClInclude Include="..\..\..\code\systems\Physics\SceneGraphCollection\SceneGraphCollection.h" />
     <ClInclude Include="..\..\..\code\systems\Physics\SceneGraph\SceneGraph.h" />
   </ItemGroup>

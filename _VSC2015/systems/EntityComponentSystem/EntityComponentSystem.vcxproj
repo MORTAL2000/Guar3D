@@ -125,6 +125,7 @@
     <ClCompile Include="..\..\..\code\systems\EntityComponentSystem\Component\Light\Light.cpp" />
     <ClCompile Include="..\..\..\code\systems\EntityComponentSystem\Component\Observer\Observer.cpp" />
     <ClCompile Include="..\..\..\code\systems\EntityComponentSystem\Component\Renderer\Renderer.cpp" />
+    <ClCompile Include="..\..\..\code\systems\EntityComponentSystem\Component\Rigidbody\Rigidbody.cpp" />
     <ClCompile Include="..\..\..\code\systems\EntityComponentSystem\Component\Transform\Transform.cpp" />
     <ClCompile Include="..\..\..\code\systems\EntityComponentSystem\EntityComponentSystem.cpp" />
     <ClCompile Include="..\..\..\code\systems\EntityComponentSystem\GameObjectCollection\GameObjectCollection.cpp" />
@@ -140,6 +141,7 @@
     <ClInclude Include="..\..\..\code\systems\EntityComponentSystem\Component\Light\Light.h" />
     <ClInclude Include="..\..\..\code\systems\EntityComponentSystem\Component\Observer\Observer.h" />
     <ClInclude Include="..\..\..\code\systems\EntityComponentSystem\Component\Renderer\Renderer.h" />
+    <ClInclude Include="..\..\..\code\systems\EntityComponentSystem\Component\Rigidbody\Rigidbody.h" />
     <ClInclude Include="..\..\..\code\systems\EntityComponentSystem\Component\Transform\Transform.h" />
     <ClInclude Include="..\..\..\code\systems\EntityComponentSystem\EntityComponentSystem.h" />
     <ClInclude Include="..\..\..\code\systems\EntityComponentSystem\GameObjectCollection\GameObjectCollection.h" />

@@ -1,7 +1,9 @@
 #include "Vector3.h"
 
-//projinc
+//math inc
 #include <math.h>
+//std inc
+#include <iostream>
 
 using namespace guar;
 using namespace Math;
@@ -100,4 +102,10 @@ void Vector3::normalizeAndScale(const float &aScalar)
 	normalize();
 	operator*=(aScalar);
 
+}
+
+std::ostream& guar::Math::operator<<(std::ostream& stream,const Math::Vector3& aVector3)
+{
+	stream << "{" << aVector3.x << ", " << aVector3.y << ", " << aVector3.z << "}";
+	return stream;
 }

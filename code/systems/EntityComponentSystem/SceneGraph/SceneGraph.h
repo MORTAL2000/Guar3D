@@ -38,6 +38,8 @@ namespace guar
 			std::vector<std::weak_ptr<Light>>        m_Lights;
 			
 		public:
+			std::weak_ptr<PHY::SceneGraph> getPhysicsScene(void) { return m_PhysicsScene; }
+
 			std::weak_ptr<GFX::SceneGraph> getGraphicsScene() { return m_GraphicsScene; }
 
 			std::weak_ptr<GameObject> getRootObject(const std::string &aRootGameObjectName);

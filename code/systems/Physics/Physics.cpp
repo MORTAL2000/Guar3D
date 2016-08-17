@@ -16,7 +16,7 @@ void Physics::init(GLFWwindow* aWindowHandle)
 
 void Physics::update(void) 
 {
-
+	m_SceneGraphs.update();
 
 }
 

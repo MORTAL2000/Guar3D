@@ -32,10 +32,10 @@ namespace guar
 			GameObject* getGameObject(void) { return m_GameObject; }
 
 		private: //Gameobject interface
-			virtual void init    (void) {};
-			virtual void start   (void) {};
-			virtual void update  (void) {};
-			virtual void destroy (void) {};
+			virtual void init    (void) {}; //at component creation
+			virtual void start   (void) {}; //at scene discretion, called only once
+			virtual void update  (void) {}; //at main thread tick
+			virtual void destroy (void) {}; //at component destruction
 
 		};
 

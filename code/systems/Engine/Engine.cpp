@@ -39,20 +39,23 @@ static GLFWwindow* m_Window = 0;
  *  application loop
  * 
  */
-
-
 void Engine::mainLoop()
 {
 	try
 	{
+		double lastFrame = 0, currentFrame = 0;
+
 		/* Loop until the user closes the window */
 		while (!glfwWindowShouldClose(m_Window))
 		{
-			//Graphics::update();//moved to gfx thread
+			Physics              ::update();
 			EntityComponentSystem::update();
-			Physics::update();
-			Time::update();
-			glfwPollEvents();
+			Time                 ::update();
+			
+			
+			glfwPollEvents();//refactor
+
+			
 
 		}
 

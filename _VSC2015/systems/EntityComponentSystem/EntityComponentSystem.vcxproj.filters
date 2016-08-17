@@ -40,6 +40,9 @@
     <Filter Include="ECS\SceneGraph">
       <UniqueIdentifier>{835b11a4-d04f-4a27-b7dd-36150b1d4b1f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ECS\Component\Rigidbody">
+      <UniqueIdentifier>{592b6d1d-2be5-4352-8aa0-2dbfebf18035}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\code\systems\EntityComponentSystem\Component\Component.cpp">
@@ -81,6 +84,9 @@
     <ClCompile Include="..\..\..\code\systems\EntityComponentSystem\EntityComponentSystem.cpp">
       <Filter>ECS</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\code\systems\EntityComponentSystem\Component\Rigidbody\Rigidbody.cpp">
+      <Filter>ECS\Component\Rigidbody</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\code\systems\EntityComponentSystem\Component\Component.h">
@@ -121,6 +127,9 @@
     </ClInclude>
     <ClInclude Include="..\..\..\code\systems\EntityComponentSystem\EntityComponentSystem.h">
       <Filter>ECS</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\code\systems\EntityComponentSystem\Component\Rigidbody\Rigidbody.h">
+      <Filter>ECS\Component\Rigidbody</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

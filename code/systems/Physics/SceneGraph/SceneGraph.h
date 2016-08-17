@@ -10,14 +10,25 @@
 
 namespace guar
 {
-	namespace ECS { class GameObject; }
+	//namespace ECS { class Rigidbody; }
 
 	namespace PHY
 	{
+		class PhysicsWorld;
+		class PhysicsObject;
+
 		class SceneGraph : public DEV::SceneGraph
 		{
+			//friend ECS::Rigidbody;
+
+			std::shared_ptr<PhysicsWorld>               m_World;
+			std::vector<std::shared_ptr<PhysicsObject>> m_Objects;
+			
 		public:
+			std::weak_ptr<PhysicsObject> createRigidBody(void); //switch to createRigidBody, createSoftBody etc.
+
 			void update(void);
+			
 			SceneGraph(const std::string &aName);
 
 		};

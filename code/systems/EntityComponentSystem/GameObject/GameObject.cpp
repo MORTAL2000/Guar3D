@@ -97,21 +97,21 @@ void GameObject::becomeChild(std::unique_ptr<GameObject> aGameObject)
 
 std::weak_ptr<Renderer> GameObject::initARenderer(std::weak_ptr<Renderer> aRenderer)
 {
-	aRenderer._Get()->m_RenderObject = m_SceneGraph->m_GraphicsScene._Get()->createRenderObject();
+	aRenderer._Get()->m_RenderObject = m_SceneGraph._Get()->m_GraphicsScene._Get()->createRenderObject();
 	return aRenderer;
 
 }
 
 std::weak_ptr<Light> GameObject::initALight(std::weak_ptr<Light> aLight)
 {
-	aLight._Get()->m_RenderLight = m_SceneGraph->m_GraphicsScene._Get()->createRenderLight();
+	aLight._Get()->m_RenderLight = m_SceneGraph._Get()->m_GraphicsScene._Get()->createRenderLight();
 	return aLight;
 
 }
 
 std::weak_ptr<Camera> GameObject::initACamera(std::weak_ptr<Camera> aCamera)
 {
-	aCamera._Get()->m_RenderCamera = m_SceneGraph->m_GraphicsScene._Get()->createRenderCamera();
+	aCamera._Get()->m_RenderCamera = m_SceneGraph._Get()->m_GraphicsScene._Get()->createRenderCamera();
 	return aCamera;
 
 }
