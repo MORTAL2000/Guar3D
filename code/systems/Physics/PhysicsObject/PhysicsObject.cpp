@@ -14,11 +14,9 @@ PhysicsObject::PhysicsObject(PhysicsWorld &aPhysicsWorld, std::weak_ptr<ECS::Rig
 	m_Transform(new btTransform())
 {
 	//create a dynamic rigidbody
+	float size = 2.5f;
+	btCollisionShape* colShape = new btBoxShape(btVector3(size, size, size));//new btSphereShape(btScalar(1.f));
 	
-	//btCollisionShape* colShape = new btBoxShape(btVector3(1,1,1));
-	btCollisionShape* colShape = new btBoxShape(btVector3(1.f,1.f,1.f));//new btSphereShape(btScalar(1.f));
-	//m_CollisionShapes.push_back(std::shared_ptr<btCollisionShape>(colShape)); //this seems to be a memory management strategy, i will be using a different approach
-
 	/// Create Dynamic Objects
 	m_Transform._Get()->setIdentity();
 
@@ -64,20 +62,20 @@ void PhysicsObject::prePhysicsStepSync(void)
 		m_RigidBody._Get()->activate(true);
 	}
 
-	//Check if ECS transform rotation has changed
-	Math::Vector3 ecsRot = m_ECSRigidbody._Get()->getRotation();
-	btScalar x, y, z; m_Transform._Get()->getBasis().getEulerZYX(z,y,x);
-	
-	if
-	(
-		ecsRot.x != x ||
-		ecsRot.y != y ||
-		ecsRot.z != z
-	)
-	{
-		m_Transform._Get()->setRotation(btQuaternion(ecsRot.z, ecsRot.y, ecsRot.x));
-		m_RigidBody._Get()->activate(true);
-	}
+	////Check if ECS transform rotation has changed
+	//Math::Vector3 ecsRot = m_ECSRigidbody._Get()->getRotation();
+	//btScalar x, y, z; m_Transform._Get()->getBasis().getEulerZYX(z,y,x);
+	//
+	//if
+	//(
+	//	ecsRot.x != x ||
+	//	ecsRot.y != y ||
+	//	ecsRot.z != z
+	//)
+	//{
+	//	m_Transform._Get()->setRotation(btQuaternion(ecsRot.z, ecsRot.y, ecsRot.x));
+	//	m_RigidBody._Get()->activate(true);
+	//}
 
 
 	//update m_Transform data with ECS data
@@ -105,9 +103,34 @@ Math::Vector3 PhysicsObject::getPosition(void)
 
 Math::Vector3 PhysicsObject::getRotation(void)
 {
-	btScalar x, y, z;
+	float x, y, z;
 	m_Transform._Get()->getBasis().getEulerZYX(z, y, x);
 
+
+	////////////////
+	//btQuaternion mRotation;
+	//m_Transform._Get()->getBasis().getRotation(mRotation);
+	//
+	////// That gives you an angle in all range but excluding (85, 95) and (-95, 85). For other axis you can try to get Pitch or Yaw.
+	////float roll = mRotation.get
+	////
+	////// That gives you an angle in range [0, 240). Clockwise and counterclockwise directions isn't detected. 
+	////float angle = mRotation.getAngleAround(0, 0, 1);
+	////
+	////// Usually 0, but on (85, 95) and (-95, 85) becomes 1 and -1. 
+	////int gimbalPole = mRotation.getGimbalPole();
+	////
+	////// Using roll (pitch/yaw for other axis) if it's defined, and using angle with gimble pole otherwise.
+	////float rotation = (gimbalPole == 0) ? roll : angle * gimbalPole;
+	////
+	//////////////////
+	//
+	//btVector3 axis = mRotation.getAxis();
+	//axis *= mRotation.getAngle();
+	//
+	//x = axis.getX();
+	//y = axis.getY();
+	//z = axis.getZ();
 
 	return Math::Vector3
 	(

@@ -38,7 +38,7 @@ PhysicsWorld::PhysicsWorld()
 
 	btTransform groundTransform;
 	groundTransform.setIdentity();
-	groundTransform.setOrigin(btVector3(0, -51, 0));
+	groundTransform.setOrigin(btVector3(0, -55, 0));
 
 	{
 		btScalar mass(0.);

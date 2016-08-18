@@ -28,25 +28,25 @@ void Rigidbody::update(void)
 	m_Transform._Get()->setPosition(m_PhysicsObject._Get()->getPosition());
 	m_Transform._Get()->setRotation(m_PhysicsObject._Get()->getRotation());
 
-	static int test = 0;
-
-	if (test++ == 100000)
-	{
-		m_Transform._Get()->setPosition(Math::Vector3(10, 50, 0));
-
-	}
-
-	if (test == 300000)
-	{
-		m_Transform._Get()->setPosition(Math::Vector3(-10, 60, 0));
-
-	}
-
-	if (test == 600000)
-	{
-		m_Transform._Get()->setPosition(Math::Vector3(-50, 60, 0));
-
-	}
+	//static int test = 0;
+	//
+	//if (test++ == 100000)
+	//{
+	//	m_Transform._Get()->setPosition(Math::Vector3(10, 50, 0));
+	//
+	//}
+	//
+	//if (test == 300000)
+	//{
+	//	m_Transform._Get()->setPosition(Math::Vector3(-10, 60, 0));
+	//
+	//}
+	//
+	//if (test == 600000)
+	//{
+	//	m_Transform._Get()->setPosition(Math::Vector3(-50, 60, 0));
+	//
+	//}
 	
 }
 
