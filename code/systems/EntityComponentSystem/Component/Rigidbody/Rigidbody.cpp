@@ -15,24 +15,42 @@ using namespace ECS;
 
 void Rigidbody::init(void)
 {
-	m_PhysicsObject = getGameObject()->getSceneGraph()._Get()->getPhysicsScene()._Get()->createRigidBody();
+	//Rigidbody requires a transform
+	m_Transform = getGameObject()->findComponent<Transform>();
+
+	//Connect to corresponding PHY::Rigidbody in the phy scenegraph
+	m_PhysicsObject = getGameObject()->getSceneGraph()._Get()->getPhysicsScene()._Get()->createRigidBody(getGameObject()->findComponent<Rigidbody>());
 
 }
 
 void Rigidbody::update(void)
 {
-	if (m_Transform._Get() == 0)
-		m_Transform = getGameObject()->findComponent<Transform>();
+	m_Transform._Get()->setPosition(m_PhysicsObject._Get()->getPosition());
+	m_Transform._Get()->setRotation(m_PhysicsObject._Get()->getRotation());
 
-	if (m_Transform._Get() == 0)
-		return;
+	static int test = 0;
 
-	if (m_PhysicsObject._Get() != 0)
+	if (test++ == 100000)
 	{
-		m_Transform._Get()->setPosition(m_PhysicsObject._Get()->getPosition());
+		m_Transform._Get()->setPosition(Math::Vector3(10, 50, 0));
 
 	}
 
-	Debug::log(m_Transform._Get()->getPosition(),"\n");
+	if (test == 300000)
+	{
+		m_Transform._Get()->setPosition(Math::Vector3(-10, 60, 0));
 
+	}
+
+	if (test == 600000)
+	{
+		m_Transform._Get()->setPosition(Math::Vector3(-50, 60, 0));
+
+	}
+	
 }
+
+Math::Vector3 Rigidbody::getPosition(void) { return m_Transform._Get()->getPosition(); }
+Math::Vector3 Rigidbody::getRotation(void) { return m_Transform._Get()->getRotation(); }
+
+void Rigidbody::setPosition(const Math::Vector3 &aPosition) { m_Transform._Get()->setPosition(aPosition); }

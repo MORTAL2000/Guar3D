@@ -10,7 +10,8 @@
 
 namespace guar
 {
-	//namespace ECS { class Rigidbody; }
+	namespace ECS { class Rigidbody; }
+	//etc..
 
 	namespace PHY
 	{
@@ -25,7 +26,7 @@ namespace guar
 			std::vector<std::shared_ptr<PhysicsObject>> m_Objects;
 			
 		public:
-			std::weak_ptr<PhysicsObject> createRigidBody(void); //switch to createRigidBody, createSoftBody etc.
+			std::weak_ptr<PhysicsObject> createRigidBody(std::weak_ptr<ECS::Rigidbody>); //switch to createRigidBody, createSoftBody etc.
 
 			void update(void);
 			

@@ -66,7 +66,7 @@ PhysicsWorld::PhysicsWorld()
 
 void PhysicsWorld::update(void)
 {
-	m_DynamicsWorld->stepSimulation(1.f / 1000.f, 10); //replace first arg with delta time
+	m_DynamicsWorld->stepSimulation(1.f / 50000.f, 1); //replace first arg with delta time
 	
 }
 

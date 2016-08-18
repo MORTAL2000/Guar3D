@@ -51,12 +51,12 @@ void RenderLight::generateViewProjectionMatrix(glm::mat4x4* aViewMatrix, glm::ma
 	//glm::mat4x4 projection = glm::perspective(glm::radians(m_FieldOfView), aspectRatio, m_NearClippingDistance, m_FarClippingDistance);
 
 
-	////////////////////////////////////////////////////////////
-	//glm::vec3 lightInvDir = glm::vec3(100, 100, 100);
-	//glm::mat4 view = glm::lookAt(lightInvDir, glm::vec3(0, 0, 0), glm::vec3(0, 1, 0));
-
-	glm::mat4 projection = glm::ortho<float>(-100, 100, -100, 100, -10, 1500);
+	//////////////////////////////////////////////////////////// HACK
+	float size = 500.f;
+	glm::mat4 projection = glm::ortho<float>(-size, size, -size, size, -1000.f, 3000.f);
 	
+	//float aspectRatio = Graphics::getWindowSize().getAspectRatio();
+	//glm::mat4x4 projection = glm::perspective(glm::radians(m_FieldOfView), aspectRatio, m_NearClippingDistance, m_FarClippingDistance);
 
 	if (aViewMatrix != 0)
 		*aViewMatrix = view;

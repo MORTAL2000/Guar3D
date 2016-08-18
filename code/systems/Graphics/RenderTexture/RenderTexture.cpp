@@ -17,7 +17,7 @@ RenderTexture::RenderTexture() :
 
 RenderTexture::RenderTexture(const std::string &aName) :
 	m_Name(aName),
-	m_TextureSize(2048, 2048)
+	m_TextureSize(4096, 4096)
 {
 
 	//FBO

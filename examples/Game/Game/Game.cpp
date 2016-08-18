@@ -114,7 +114,8 @@ void Game::initMainScene()
 
 		std::weak_ptr<guar::ECS::Transform> transform = gameObject._Get()->findComponent<guar::ECS::Transform>();
 		transform._Get()->setScale(Math::Vector3(10.0f, 10.0f, 10.0f));
-		//transform._Get()->setPosition(Math::Vector3(0.0f, 20.0f, 0.0f));
+		transform._Get()->setPosition(Math::Vector3(0.0f, 100.0f, 0.0f));
+		transform._Get()->setRotation(Math::Vector3(10.0f, 50.0f, 30.0f));
 
 	}
 	{

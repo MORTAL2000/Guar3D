@@ -1,7 +1,7 @@
 Next:
-Consider refactoring much of ECS::SceneGraph implementation to ENG::SceneGraph.
-The idea here is all subsystem scenes will be treated equally (will all be has-a of ENG::SceneGraph rather than
-all but ecs being has-a of ECS::SceneGraph, which is a nonuniform policy)
+Finish ECS::Rigidbody <-> PHY::Rigidbody interface.
+ - implement pre and post simulation sync
+ - implement raycasting & resolving to weak ptr to ECS Rigidbody not the PHY body
 ---------------------
 Later:
 

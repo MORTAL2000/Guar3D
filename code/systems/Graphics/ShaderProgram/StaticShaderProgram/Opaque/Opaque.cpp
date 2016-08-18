@@ -196,7 +196,7 @@ uniform mat4 _InverseTransposeModelMatrix;
 uniform vec3 _CameraPosition;
 
 //Shadowmaps
-uniform sampler2D _Light1Map;
+uniform sampler2D _Light1Map; //sampler2D
 uniform mat4 _Light1Matrix;
 
 //uniform struct Light
@@ -315,7 +315,7 @@ vec3 ADSFinal = vec3(diffuseComponent.xyz + specularComponent.xyz * 0.5);//_Ligh
 	ShadowCoord.x >= 0 && ShadowCoord.x <= 1 &&
 	ShadowCoord.y >= 0 && ShadowCoord.y <= 1
 	)
-	if ( texture( _Light1Map, ShadowCoord.xy ).z  <  ShadowCoord.z-bias)
+	if   ( texture( _Light1Map, ShadowCoord.xy ).z  <  ShadowCoord.z-bias)
 	{
 		visibility = 0.5;
 	
