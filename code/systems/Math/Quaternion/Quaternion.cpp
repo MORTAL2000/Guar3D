@@ -8,12 +8,17 @@ using namespace Math;
 
 Quaternion::Quaternion()
 {
-	glm::quat quat;
+	//glm::quat quat;
+	//
+	//x = quat.x;
+	//y = quat.y;
+	//z = quat.z;
+	//w = quat.w;
 
-	x = quat.x;
-	y = quat.y;
-	z = quat.z;
-	w = quat.w;
+	x = 0;
+	y = 0;
+	z = 0;
+	w = 1;
 
 }
 
