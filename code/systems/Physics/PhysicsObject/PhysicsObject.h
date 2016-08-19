@@ -3,6 +3,7 @@
 
 //math inc
 #include <Math\Vector3\Vector3.h>
+#include <Math\Quaternion\Quaternion.h>
 //std inc
 #include <memory>
 
@@ -38,7 +39,7 @@ namespace guar
 
 		public:
 			Math::Vector3 getPosition(void);
-			Math::Vector3 getRotation(void);
+			Math::Quaternion getRotation(void);
 
 			PhysicsObject(PhysicsWorld &aPhysicsWorld, std::weak_ptr<ECS::Rigidbody> aECSRigidbody);
 			

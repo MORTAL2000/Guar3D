@@ -30,7 +30,7 @@ RenderObject::RenderObject(std::weak_ptr<Model> aModel, std::weak_ptr<ShaderProg
 	m_Model(aModel), 
 	m_ShaderProgram(aShaderProgram),
 	m_Position(0, 0, 0),
-	m_Rotation(0, 0, 0),
+	m_Rotation(Math::Quaternion()),
 	m_Scale(1.0f)
 {}
 

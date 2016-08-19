@@ -8,6 +8,7 @@
 #include "../Component.h"
 //math inc
 #include <Math\Vector3\Vector3.h>
+#include <Math\Quaternion\Quaternion.h>
 //std inc
 #include <memory>
 
@@ -30,7 +31,7 @@ namespace guar
 
 		public:
 			Math::Vector3 getPosition(void);// { return m_Transform._Get()->getPosition(); }
-			Math::Vector3 getRotation(void);// { return m_Transform._Get()->getRotation(); }
+			Math::Quaternion getRotation(void);// { return m_Transform._Get()->getRotation(); }
 
 			void setPosition(const Math::Vector3 &aPosition);// { m_Transform._Get()->setPosition(aPosition); }
 

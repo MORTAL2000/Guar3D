@@ -22,7 +22,8 @@ void Rigidbody::init(void)
 	m_PhysicsObject = getGameObject()->getSceneGraph()._Get()->getPhysicsScene()._Get()->createRigidBody(getGameObject()->findComponent<Rigidbody>());
 
 }
-
+#include <Input\Input.h>
+#include <Input\Key\Key.h>
 void Rigidbody::update(void)
 {
 	m_Transform._Get()->setPosition(m_PhysicsObject._Get()->getPosition());
@@ -48,9 +49,12 @@ void Rigidbody::update(void)
 	//
 	//}
 	
+	if (Input::getKeyDown(Key::T))
+		Debug::log(m_Transform._Get()->getRotation(),"\n");
+
 }
 
 Math::Vector3 Rigidbody::getPosition(void) { return m_Transform._Get()->getPosition(); }
-Math::Vector3 Rigidbody::getRotation(void) { return m_Transform._Get()->getRotation(); }
+Math::Quaternion Rigidbody::getRotation(void) { return m_Transform._Get()->getRotation(); }
 
 void Rigidbody::setPosition(const Math::Vector3 &aPosition) { m_Transform._Get()->setPosition(aPosition); }

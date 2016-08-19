@@ -101,41 +101,16 @@ Math::Vector3 PhysicsObject::getPosition(void)
 
 }
 
-Math::Vector3 PhysicsObject::getRotation(void)
+Math::Quaternion PhysicsObject::getRotation(void)
 {
-	float x, y, z;
-	m_Transform._Get()->getBasis().getEulerZYX(z, y, x);
+	btQuaternion btQuat = m_Transform._Get()->getRotation();
+	Math::Quaternion quat;
 
+	quat.x = btQuat.getX();
+	quat.y = btQuat.getY();
+	quat.z = btQuat.getZ();
+	quat.w = btQuat.getW();
 
-	////////////////
-	//btQuaternion mRotation;
-	//m_Transform._Get()->getBasis().getRotation(mRotation);
-	//
-	////// That gives you an angle in all range but excluding (85, 95) and (-95, 85). For other axis you can try to get Pitch or Yaw.
-	////float roll = mRotation.get
-	////
-	////// That gives you an angle in range [0, 240). Clockwise and counterclockwise directions isn't detected. 
-	////float angle = mRotation.getAngleAround(0, 0, 1);
-	////
-	////// Usually 0, but on (85, 95) and (-95, 85) becomes 1 and -1. 
-	////int gimbalPole = mRotation.getGimbalPole();
-	////
-	////// Using roll (pitch/yaw for other axis) if it's defined, and using angle with gimble pole otherwise.
-	////float rotation = (gimbalPole == 0) ? roll : angle * gimbalPole;
-	////
-	//////////////////
-	//
-	//btVector3 axis = mRotation.getAxis();
-	//axis *= mRotation.getAngle();
-	//
-	//x = axis.getX();
-	//y = axis.getY();
-	//z = axis.getZ();
-
-	return Math::Vector3
-	(
-		x,y,z
-		
-	);
+	return quat;
 
 }

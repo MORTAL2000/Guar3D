@@ -30,11 +30,11 @@ void Light::draw(void)
 
 }
 
-Math::Vector3 Light::getPosition             (void) { return m_RenderLight._Get()->getPosition(); }
-Math::Vector3 Light::getRotation             (void) { return m_RenderLight._Get()->getRotation(); }
-float		  Light::getNearClippingDistance (void) { return m_RenderLight._Get()->getNearClippingDistance(); }
-float		  Light::getFarClippingDistance  (void) { return m_RenderLight._Get()->getFarClippingDistance(); }
-float		  Light::getFieldOfView          (void) { return m_RenderLight._Get()->getFieldOfView(); }
+Math::Vector3    Light::getPosition             (void) { return m_RenderLight._Get()->getPosition(); }
+Math::Quaternion Light::getRotation             (void) { return m_RenderLight._Get()->getRotation(); }
+float		     Light::getNearClippingDistance (void) { return m_RenderLight._Get()->getNearClippingDistance(); }
+float		     Light::getFarClippingDistance  (void) { return m_RenderLight._Get()->getFarClippingDistance(); }
+float		     Light::getFieldOfView          (void) { return m_RenderLight._Get()->getFieldOfView(); }
 
 
 

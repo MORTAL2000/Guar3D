@@ -10,6 +10,7 @@
 #include "../../../Graphics/RenderLight/RenderLight.h"
 //mathinc
 #include <Math/Vector3/Vector3.h>
+#include <Math/Quaternion/Quaternion.h>
 
 namespace guar
 {
@@ -32,11 +33,11 @@ namespace guar
 			void draw(void) override;
 
 		public:
-			Math::Vector3 getPosition			  (void) ;
-			Math::Vector3 getRotation			  (void) ;
-			float		  getNearClippingDistance (void) ;
-			float		  getFarClippingDistance  (void) ;
-			float		  getFieldOfView		  (void) ;
+			Math::Vector3    getPosition			  (void) ;
+			Math::Quaternion getRotation			  (void) ;
+			float		     getNearClippingDistance (void) ;
+			float		     getFarClippingDistance  (void) ;
+			float		     getFieldOfView		  (void) ;
 
 			void setPosition             (const Math::Vector3 &aPosition            ) ;
 			void setRotation             (const Math::Vector3 &aRotation            ) ;

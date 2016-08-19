@@ -16,6 +16,7 @@
 #include <glm/matrix.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/matrix_inverse.hpp>
+#include <glm/gtx/quaternion.hpp>
 
 using namespace guar;
 using namespace GFX;
@@ -36,17 +37,16 @@ const char* StandardUniforms::Normal2EyeSpaceMatrix = "_NormalMatrix"       ;
 void StandardUniforms::loadStandardUniforms(RenderObject &aRenderObject, RenderObserver* aCamera, std::vector<RenderLight> &aLights, std::map<std::string, std::weak_ptr<GFX::Texture>> aTextureUniforms)
 {
 	//REFACTOR THIS GARBAGE
-	GFXuint aShaderProgramHandle = aRenderObject.getShaderProgram()._Get()->getProgramHandle();
-	Math::Vector3 aPosition      = aRenderObject.getPosition();
-	Math::Vector3 aRotation      = aRenderObject.getRotation();
-	Math::Vector3 aScale         = aRenderObject.getScale();
+	GFXuint aShaderProgramHandle  = aRenderObject.getShaderProgram()._Get()->getProgramHandle();
+	Math::Vector3    aPosition    = aRenderObject.getPosition();
+	Math::Quaternion aRotation    = aRenderObject.getRotation();
+	Math::Vector3    aScale       = aRenderObject.getScale();
 	//REFACTOR THIS GARBAGE
-	Math::Vector3 aCameraPosition = aCamera->getPosition();
-	Math::Vector3 aCameraRotation = aCamera->getRotation();
-	float   aNearClipDist         = aCamera->getNearClippingDistance();
-	float   aFarClipDist          = aCamera->getFarClippingDistance();
-	float   aFOV                  = aCamera->getFieldOfView();
-
+	Math::Vector3    aCameraPosition = aCamera->getPosition();
+	Math::Quaternion aCameraRotation = aCamera->getRotation();
+	float            aNearClipDist   = aCamera->getNearClippingDistance();
+	float            aFarClipDist    = aCamera->getFarClippingDistance();
+	float            aFOV            = aCamera->getFieldOfView();
 
 	//TIME
 	GLHelp::Uniforms::load1Foat  (aShaderProgramHandle, StandardUniforms::Time, Time::getTime());
@@ -79,9 +79,17 @@ void StandardUniforms::loadStandardUniforms(RenderObject &aRenderObject, RenderO
 	//MODEL
 	glm::mat4x4 model;
 	model = glm::translate<>(model, glm::vec3(aPosition.x, aPosition.y, aPosition.z)); //note the backwards mat mul. trs not srt.
-	model = glm::rotate(model, aRotation.x, glm::vec3(1.0f, 0.0f, 0.0f)); //This seems wasteful. Google
-	model = glm::rotate(model, aRotation.y, glm::vec3(0.0f, 1.0f, 0.0f));
-	model = glm::rotate(model, aRotation.z, glm::vec3(0.0f, 0.0f, 1.0f));
+	//model = glm::rotate(model, aRotation.x, glm::vec3(1.0f, 0.0f, 0.0f)); //This seems wasteful. Google
+	//model = glm::rotate(model, aRotation.y, glm::vec3(0.0f, 1.0f, 0.0f));
+	//model = glm::rotate(model, aRotation.z, glm::vec3(0.0f, 0.0f, 1.0f));
+	glm::quat rotation;
+	rotation.x = aRotation.x;
+	rotation.y = aRotation.y;
+	rotation.z = aRotation.z;
+	rotation.w = aRotation.w;
+	model = model * (model, glm::mat4_cast(rotation));
+
+
 	model = glm::scale(model, glm::vec3(aScale.x, aScale.y, aScale.z));    //not working      
 	GLHelp::Uniforms::loadMatrix4x4(aShaderProgramHandle, StandardUniforms::ModelMatrix, &model[0][0]);
 

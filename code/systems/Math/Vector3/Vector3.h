@@ -13,9 +13,7 @@ namespace guar
 	{
 		struct Vector3
 		{
-			float x;
-			float y;
-			float z;
+			float x, y, z;
 
 			Vector3(const float &aX, const float &aY, const float &aZ);
 			Vector3(const float &aScalar);

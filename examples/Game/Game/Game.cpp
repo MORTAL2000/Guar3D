@@ -189,24 +189,24 @@ void Game::initMainScene()
 	//	transform._Get()->setPosition(Math::Vector3(-10.0f, 5.0f, 0.0f));
 	//
 	//}
-	//{
-	//	std::weak_ptr<ECS::GameObject> gameObject = mainScene._Get()->createNewGameObject("The torus");
-	//
-	//	gameObject._Get()->addComponent<guar::ECS::Renderer>();
-	//	gameObject._Get()->addComponent<guar::ECS::Transform>();
-	//	gameObject._Get()->addComponent<Game::Spinner>();
-	//
-	//	std::weak_ptr<guar::ECS::Renderer> renderer = gameObject._Get()->findComponent<guar::ECS::Renderer>();
-	//	renderer._Get()->setModel("../Models/torus.fbx");
-	//	renderer._Get()->setShaderProgram("Opaque");
-	//	renderer._Get()->setTexture("_Texture", "../Textures/awesome.png");
-	//
-	//
-	//	std::weak_ptr<guar::ECS::Transform> transform = gameObject._Get()->findComponent<guar::ECS::Transform>();
-	//	transform._Get()->setScale(Math::Vector3(0.5f, 0.5f, 0.5f));
-	//	transform._Get()->setPosition(Math::Vector3(+15.0f, 5.0f, 0.0f));
-	//
-	//}
+	{
+		std::weak_ptr<ECS::GameObject> gameObject = mainScene._Get()->createNewGameObject("The torus");
+	
+		gameObject._Get()->addComponent<guar::ECS::Renderer>();
+		gameObject._Get()->addComponent<guar::ECS::Transform>();
+		gameObject._Get()->addComponent<Game::Spinner>();
+	
+		std::weak_ptr<guar::ECS::Renderer> renderer = gameObject._Get()->findComponent<guar::ECS::Renderer>();
+		renderer._Get()->setModel("../Models/torus.fbx");
+		renderer._Get()->setShaderProgram("Opaque");
+		renderer._Get()->setTexture("_Texture", "../Textures/awesome.png");
+	
+	
+		std::weak_ptr<guar::ECS::Transform> transform = gameObject._Get()->findComponent<guar::ECS::Transform>();
+		transform._Get()->setScale(Math::Vector3(0.5f, 0.5f, 0.5f));
+		transform._Get()->setPosition(Math::Vector3(+15.0f, 5.0f, 0.0f));
+	
+	}
 
 	{
 		std::weak_ptr<ECS::GameObject> gameObject = mainScene._Get()->createNewGameObject("The Light");

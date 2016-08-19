@@ -25,17 +25,17 @@ RenderObserver::RenderObserver() :
 //******************
 // Getters & Setters
 //******************
-Math::Vector3 RenderObserver::getPosition             (void) { return m_Position;             }
-Math::Vector3 RenderObserver::getRotation             (void) { return m_Rotation;             }
-float         RenderObserver::getNearClippingDistance (void) { return m_NearClippingDistance; }
-float         RenderObserver::getFarClippingDistance  (void) { return m_FarClippingDistance;  }
-float         RenderObserver::getFieldOfView          (void) { return m_FieldOfView;          }
+Math::Vector3    RenderObserver::getPosition             (void) { return m_Position;             }
+Math::Quaternion RenderObserver::getRotation             (void) { return m_Rotation;             }
+float            RenderObserver::getNearClippingDistance (void) { return m_NearClippingDistance; }
+float            RenderObserver::getFarClippingDistance  (void) { return m_FarClippingDistance;  }
+float            RenderObserver::getFieldOfView          (void) { return m_FieldOfView;          }
 
-void RenderObserver::setPosition             (const Math::Vector3  &aPosition            ) { m_Position             = aPosition;             }
-void RenderObserver::setRotation             (const Math::Vector3  &aRotation            ) { m_Rotation             = aRotation;             }
-void RenderObserver::setNearClippingDistance (const float    &aNearClippingDistance) { m_NearClippingDistance = aNearClippingDistance; }
-void RenderObserver::setFarClippingDistance  (const float    &aFarClippingDistance ) { m_FarClippingDistance  = aFarClippingDistance;  }
-void RenderObserver::setFieldOfView          (const float    &aFieldOfView         ) { m_FieldOfView          = aFieldOfView;          }
+void RenderObserver::setPosition             (const Math::Vector3     &aPosition            ) { m_Position             = aPosition;             }
+void RenderObserver::setRotation             (const Math::Quaternion  &aRotation            ) { m_Rotation             = aRotation;             }
+void RenderObserver::setNearClippingDistance (const float             &aNearClippingDistance) { m_NearClippingDistance = aNearClippingDistance; }
+void RenderObserver::setFarClippingDistance  (const float             &aFarClippingDistance ) { m_FarClippingDistance  = aFarClippingDistance;  }
+void RenderObserver::setFieldOfView          (const float             &aFieldOfView         ) { m_FieldOfView          = aFieldOfView;          }
 
 //********************************
 // Member function implementations

@@ -10,6 +10,9 @@
     <Filter Include="Math\Vector3">
       <UniqueIdentifier>{a632bfcc-8420-45d4-bf84-65f01716ddf8}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Math\Quaternion">
+      <UniqueIdentifier>{b2d63bc7-dca5-4ae5-97e4-af67051ea64c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\code\systems\Math\BasicTypes.h">
@@ -24,6 +27,9 @@
     <ClInclude Include="..\..\..\code\systems\Math\Vector2\Vector2.h">
       <Filter>Math\Vector2</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\code\systems\Math\Quaternion\Quaternion.h">
+      <Filter>Math\Quaternion</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\code\systems\Math\Vector3\Vector3.cpp">
@@ -31,6 +37,9 @@
     </ClCompile>
     <ClCompile Include="..\..\..\code\systems\Math\Vector2\Vector2.cpp">
       <Filter>Math\Vector2</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\code\systems\Math\Quaternion\Quaternion.cpp">
+      <Filter>Math\Quaternion</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

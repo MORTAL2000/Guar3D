@@ -9,6 +9,7 @@
 //math inc
 #include <Math/Vector2/Vector2.h>
 #include <Math/Vector3/Vector3.h>
+#include <Math/Quaternion/Quaternion.h>
 //external fwd
 #include <glm/fwd.hpp>
 //std inc
@@ -26,8 +27,8 @@ namespace guar
             RenderObserver();
             
         protected:
-            Math::Vector3  m_Position             ;
-            Math::Vector3  m_Rotation             ;
+            Math::Vector3    m_Position ;
+            Math::Quaternion m_Rotation ;
 
             float          m_NearClippingDistance ;
             float          m_FarClippingDistance  ;
@@ -38,14 +39,14 @@ namespace guar
     
         public:
             Math::Vector3				 getPosition             (void);
-            Math::Vector3				 getRotation             (void);
+            Math::Quaternion			 getRotation             (void);
             float						 getNearClippingDistance (void);
             float						 getFarClippingDistance  (void);
             float						 getFieldOfView          (void);
 			std::weak_ptr<RenderTexture> getRenderTexture(void) { return m_RenderTexture; }
             
             void setPosition             (const Math::Vector3          &aPosition            );
-            void setRotation             (const Math::Vector3          &aRotation            );
+            void setRotation             (const Math::Quaternion       &aRotation            );
             void setNearClippingDistance (const float                  &aNearClippingDistance);
             void setFarClippingDistance  (const float                  &aFarClippingDistance );
             void setFieldOfView          (const float                  &aFieldOfView         );

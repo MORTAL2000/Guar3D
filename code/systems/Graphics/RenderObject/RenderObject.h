@@ -14,6 +14,7 @@
 
 //projinc
 #include <Math/Vector3/Vector3.h>
+#include <Math/Quaternion/Quaternion.h>
 
 //stdinc
 #include <string>
@@ -40,9 +41,9 @@ namespace guar
             std::weak_ptr<ShaderProgram> m_ShaderProgram;
     
             //Modelmat properties
-            Math::Vector3 m_Position;
-            Math::Vector3 m_Rotation;
-            Math::Vector3 m_Scale;
+            Math::Vector3    m_Position;
+            Math::Quaternion m_Rotation;
+            Math::Vector3    m_Scale;
     
             //Uniform properties
             std::map<std::string, std::weak_ptr<Texture>> m_TextureUniforms;
@@ -52,14 +53,14 @@ namespace guar
     
 			std::weak_ptr<Model>         getModel         (void) { return m_Model;    }
             std::weak_ptr<ShaderProgram> getShaderProgram (void);
-            Math::Vector3  getPosition      (void) { return m_Position; }
-            Math::Vector3  getRotation      (void) { return m_Rotation; }
-            Math::Vector3  getScale         (void) { return m_Scale;    }
+            Math::Vector3     getPosition (void) { return m_Position; }
+            Math::Quaternion  getRotation (void) { return m_Rotation; }
+            Math::Vector3     getScale    (void) { return m_Scale;    }
     
             void setModel         (std::weak_ptr<Model>         aModel         ) { m_Model         = aModel;         }
             void setShaderProgram (std::weak_ptr<ShaderProgram> aShaderProgram ) { m_ShaderProgram = aShaderProgram; }
             void setPosition      (const Math::Vector3          &aPos          ) { m_Position      = aPos;           }
-            void setRotation      (const Math::Vector3          &aRotation     ) { m_Rotation      = aRotation;      }
+            void setRotation      (const Math::Quaternion       &aRotation     ) { m_Rotation      = aRotation;      }
             void setScale         (const Math::Vector3          &aScale        ) { m_Scale         = aScale;         }
             
             //Uniform get/set
