@@ -1,28 +1,25 @@
 #include "Quaternion.h"
 
-//external inc
+//math inc
+#include "../Vector3/Vector3.h"
+//implementation inc
 #include <glm/gtc/quaternion.hpp>
+//std inc
+#include <iostream>
 
 using namespace guar;
 using namespace Math;
 
-Quaternion::Quaternion()
-{
-	//glm::quat quat;
-	//
-	//x = quat.x;
-	//y = quat.y;
-	//z = quat.z;
-	//w = quat.w;
+Quaternion::Quaternion() : x(0.), y(0.), z(0.), w(1.)
+{}
 
-	x = 0;
-	y = 0;
-	z = 0;
-	w = 1;
+Quaternion::Quaternion(const Vector3 &aEulerAngles)
+{
+	setFromEuler(aEulerAngles);
 
 }
 
-Quaternion::Quaternion(const Vector3 &aEulerAngles)
+void Quaternion::setFromEuler(const Vector3 &aEulerAngles)
 {
 	glm::quat quat;
 	quat = glm::rotate(quat, aEulerAngles.x, glm::vec3(1.0f, 0.0f, 0.0f));
@@ -42,3 +39,4 @@ std::ostream& guar::Math::operator<< (std::ostream& stream, const Math::Quaterni
 	return stream;
 
 }
+

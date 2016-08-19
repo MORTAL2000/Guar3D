@@ -1,9 +1,12 @@
 #ifndef GAME_COMPONENT_PLAYERCONTROLLER_H
 #define GAME_COMPONENT_PLAYERCONTROLLER_H
 
+//ecs inc
 #include <EntityComponentSystem\Component\Component.h>
+//math inc
+#include <Math\Vector3\Vector3.h>
 
-namespace guar { namespace ECS { class Transform; } }
+namespace guar { namespace ECS  { class  Transform; } }
 
 namespace Game
 {
@@ -11,12 +14,10 @@ namespace Game
 	{
 		std::weak_ptr<guar::ECS::Transform> m_Transform;
 
-		void start(void) override
-		{
+		guar::Math::Vector3 m_Rotation;
 
-
-		}
-
+		void init  (void) override;
+		//void start (void) override;
 		void update(void) override;
 
 	};

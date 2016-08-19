@@ -5,7 +5,7 @@
  * 
 */
 //std inc
-#include <iostream>
+#include <iosfwd>
 
 namespace guar
 {

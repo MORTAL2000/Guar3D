@@ -16,6 +16,14 @@
 using namespace Game;
 using namespace guar;
 
+void PlayerController::init(void)
+{
+	//m_Rotation = m_Transform()._Get()->
+
+	m_Transform = getGameObject()->findComponent<guar::ECS::Transform>();
+
+}
+
 void PlayerController::update(void)
 {
 	m_Transform = getGameObject()->findComponent<guar::ECS::Transform>();
@@ -37,9 +45,10 @@ void PlayerController::update(void)
 		//delta *= 0.05f;
 		delta *= Time::getDeltaTime() * 5.0f;
 
-		m_Transform._Get()->rotate(delta);
-
+		m_Rotation += delta;
 		
+		m_Transform._Get()->setRotation(m_Rotation);
+
 	}
 
 	{
@@ -47,29 +56,29 @@ void PlayerController::update(void)
 
 		if (Input::getKeyDown(Key::W))
 		{
-			delta.x += sin(m_Transform._Get()->getRotation().y);
-			delta.z -= cos(m_Transform._Get()->getRotation().y);
+			delta.x += sin(m_Rotation.y);
+			delta.z -= cos(m_Rotation.y);
 
 		}
 
 		if (Input::getKeyDown(Key::S))
 		{
-			delta.x -= sin(m_Transform._Get()->getRotation().y);
-			delta.z += cos(m_Transform._Get()->getRotation().y);
+			delta.x -= sin(m_Rotation.y);
+			delta.z += cos(m_Rotation.y);
 
 		}
 
 		if (Input::getKeyDown(Key::A))
 		{
-			delta.x -= sin(m_Transform._Get()->getRotation().y + (90.0f * Math::PI / 180));
-			delta.z += cos(m_Transform._Get()->getRotation().y + (90.0f * Math::PI / 180));
+			delta.x -= sin(m_Rotation.y + (90.0f * Math::PI / 180));
+			delta.z += cos(m_Rotation.y + (90.0f * Math::PI / 180));
 
 		}
 
 		if (Input::getKeyDown(Key::D))
 		{
-			delta.x += sin(m_Transform._Get()->getRotation().y + (90.0f * Math::PI / 180));
-			delta.z -= cos(m_Transform._Get()->getRotation().y + (90.0f * Math::PI / 180));
+			delta.x += sin(m_Rotation.y + (90.0f * Math::PI / 180));
+			delta.z -= cos(m_Rotation.y + (90.0f * Math::PI / 180));
 
 		}
 

@@ -12,8 +12,6 @@ void Transform::translate(const Math::Vector3 &aTranslation)
 
 }
 
-#include <Debug\Debug.h>
-
 void Transform::rotate(const Math::Vector3 &aRotation)
 {
 	glm::quat a;
@@ -35,5 +33,11 @@ void Transform::rotate(const Math::Vector3 &aRotation)
 	m_Rotation.y = a.y;
 	m_Rotation.z = a.z;
 	m_Rotation.w = a.w;
+
+}
+
+void Transform::setRotation(const Math::Vector3 &aEulerAngles)
+{
+	m_Rotation.setFromEuler(aEulerAngles);
 
 }

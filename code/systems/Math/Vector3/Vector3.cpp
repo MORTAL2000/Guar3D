@@ -81,7 +81,7 @@ float Vector3::length(void)
 	return sqrt( (x*x) + (y*y) + (z*z) );
 
 }
-#include <iostream>
+
 void Vector3::normalize(void)
 {
 	float magnitude = Vector3::length();

@@ -28,6 +28,7 @@ namespace guar
 
 			void setPosition(const Math::Vector3    &aPosition) { m_Position = aPosition; }
 			void setRotation(const Math::Quaternion &aRotation) { m_Rotation = aRotation; }
+			void setRotation(const Math::Vector3    &aEulerAngles);
 			void setScale   (const Math::Vector3    &aScale   ) { m_Scale    = aScale;    }
 
 			void translate(const Math::Vector3 &aTranslation);
