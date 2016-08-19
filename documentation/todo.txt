@@ -1,8 +1,4 @@
 Next:
-Fix Game::PlayerController
- - implementation needs to be updated to work with Quaternions
-
-
 Finish ECS::Rigidbody <-> PHY::Rigidbody interface.
  - abstraction for bullet collider types (box, sphere, etc.)
  - implement raycasting & resolving to weak ptr to ECS Rigidbody not the PHY body
