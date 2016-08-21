@@ -14,18 +14,7 @@ void Transform::translate(const Math::Vector3 &aTranslation)
 
 void Transform::rotate(const Math::Vector3 &aRotation)
 {
-	glm::quat a;
-	a.x = m_Rotation.x;
-	a.y = m_Rotation.y;
-	a.z = m_Rotation.z;
-	a.w = m_Rotation.w;
-
-	//a = glm::rotate(a, aRotation.x, glm::vec3(1.0f, 0.0f, 0.0f));
-	//a = glm::rotate(a, 0.001f, glm::vec3(0.0f, 1.0f, 0.0f));
-	//a = glm::rotate(a, aRotation.z, glm::vec3(0.0f, 0.0f, 1.0f));
-	
-	//a = x * a;
-	
+	glm::quat a(m_Rotation.w, m_Rotation.x, m_Rotation.y, m_Rotation.z);	
 	glm::quat b(glm::vec3(aRotation.x,aRotation.y,aRotation.z));
 	a = b* a;
 
@@ -39,5 +28,22 @@ void Transform::rotate(const Math::Vector3 &aRotation)
 void Transform::setRotation(const Math::Vector3 &aEulerAngles)
 {
 	m_Rotation.setFromEuler(aEulerAngles);
+
+}
+#include<Debug\Debug.h>
+Math::Vector3 Transform::getEulerAngles(void)
+{
+	glm::quat quaternion(m_Rotation.w, m_Rotation.x, m_Rotation.y, m_Rotation.z);
+	glm::vec3 euler = glm::eulerAngles(quaternion);
+
+	Debug::log("Quat: ", m_Rotation, "Euler: ", euler.x, ", ", euler.y, ", ", euler.z, "\n");
+
+	return Math::Vector3
+	(
+		euler.x,
+		euler.y,
+		euler.z
+	
+	);
 
 }

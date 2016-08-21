@@ -13,10 +13,14 @@
 
 using namespace Game;
 using namespace guar;
-
+#include <Debug\Debug.h>
 void Rotator::init(void)
 {
 	m_Transform = getGameObject()->findComponent<guar::ECS::Transform>();
+
+	m_Rotation = m_Transform._Get()->getEulerAngles();
+
+	Debug::log(m_Rotation);
 	
 }
 

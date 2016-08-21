@@ -49,7 +49,7 @@ void PhysicsObject::prePhysicsStepSync(void)
 {
 	//Check if ECS transform position has changed
 	Math::Vector3 ecsPos = m_ECSRigidbody._Get()->getPosition();
-	btVector3     btPos  = m_Transform._Get()->getOrigin();
+	btVector3     btPos  = m_Transform   ._Get()->getOrigin  ();
 	
 	if
 	(
@@ -62,21 +62,22 @@ void PhysicsObject::prePhysicsStepSync(void)
 		m_RigidBody._Get()->activate(true);
 	}
 
-	////Check if ECS transform rotation has changed
-	//Math::Vector3 ecsRot = m_ECSRigidbody._Get()->getRotation();
-	//btScalar x, y, z; m_Transform._Get()->getBasis().getEulerZYX(z,y,x);
-	//
-	//if
-	//(
-	//	ecsRot.x != x ||
-	//	ecsRot.y != y ||
-	//	ecsRot.z != z
-	//)
-	//{
-	//	m_Transform._Get()->setRotation(btQuaternion(ecsRot.z, ecsRot.y, ecsRot.x));
-	//	m_RigidBody._Get()->activate(true);
-	//}
-
+	//Check if ECS transform rotation has changed
+	Math::Quaternion ecsRot = m_ECSRigidbody._Get()->getRotation();
+	btQuaternion     btRot  = m_Transform   ._Get()->getRotation();
+	
+	if
+	(
+		ecsRot.x != btRot.getX() ||
+		ecsRot.y != btRot.getY() ||
+		ecsRot.z != btRot.getZ() ||
+		ecsRot.w != btRot.getW()
+	)
+	{
+		m_Transform._Get()->setRotation(btQuaternion(ecsRot.z, ecsRot.y, ecsRot.x,ecsRot.w));
+		m_RigidBody._Get()->activate(true);
+	
+	}
 
 	//update m_Transform data with ECS data
 	m_RigidBody._Get()->setCenterOfMassTransform(*m_Transform._Get());
@@ -91,26 +92,12 @@ void PhysicsObject::postPhysicsStepSync(void)
 
 Math::Vector3 PhysicsObject::getPosition(void)
 {	
-	return Math::Vector3
-	(
-		m_Transform._Get()->getOrigin().getX(),
-		m_Transform._Get()->getOrigin().getY(),
-		m_Transform._Get()->getOrigin().getZ()
-
-	);
+	return Math::Vector3(m_Transform._Get()->getOrigin());
 
 }
 
 Math::Quaternion PhysicsObject::getRotation(void)
 {
-	btQuaternion btQuat = m_Transform._Get()->getRotation();
-	Math::Quaternion quat;
-
-	quat.x = btQuat.getX();
-	quat.y = btQuat.getY();
-	quat.z = btQuat.getZ();
-	quat.w = btQuat.getW();
-
-	return quat;
+	return Math::Quaternion(m_Transform._Get()->getRotation());
 
 }

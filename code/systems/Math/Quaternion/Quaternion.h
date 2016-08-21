@@ -4,6 +4,8 @@
 //std inc
 #include <iosfwd>
 
+class btQuaternion;
+
 namespace guar
 {
 	namespace Math
@@ -18,6 +20,7 @@ namespace guar
 
 			Quaternion();
 			Quaternion(const Vector3 &aEulerAngles);
+			Quaternion(const btQuaternion &aBulletQuaternion);
 
 		};
 

@@ -38,7 +38,7 @@ namespace guar
 			void postPhysicsStepSync(void);
 
 		public:
-			Math::Vector3 getPosition(void);
+			Math::Vector3    getPosition(void);
 			Math::Quaternion getRotation(void);
 
 			PhysicsObject(PhysicsWorld &aPhysicsWorld, std::weak_ptr<ECS::Rigidbody> aECSRigidbody);

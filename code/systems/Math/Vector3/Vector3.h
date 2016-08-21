@@ -7,6 +7,8 @@
 //std inc
 #include <iosfwd>
 
+class btVector3;
+
 namespace guar
 {
 	namespace Math
@@ -14,10 +16,6 @@ namespace guar
 		struct Vector3
 		{
 			float x, y, z;
-
-			Vector3(const float &aX, const float &aY, const float &aZ);
-			Vector3(const float &aScalar);
-			Vector3();
 
 			float length(void);
 			void normalize(void);
@@ -29,7 +27,6 @@ namespace guar
 			Vector3 operator*(const float &aScalar);
 			Vector3 operator*(const float &aScalar) const;
 			void operator*=(const float &aScalar);
-			
 
 			static const Vector3 Up;
 			static const Vector3 Down;
@@ -38,6 +35,12 @@ namespace guar
 			static const Vector3 Forward;
 			static const Vector3 Backward;
 			static const Vector3 Zero;
+
+			Vector3();
+			Vector3(const float &aScalar);
+			Vector3(const float &aX, const float &aY, const float &aZ);
+			Vector3(const btVector3 &aBulletVector);
+			
 
 		};
 

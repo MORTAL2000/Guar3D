@@ -55,7 +55,7 @@ namespace guar
 			void addToScene (const std::string &aScene);
 
 
-			template<class T> void addComponent()
+			template<class T> std::weak_ptr<T> addComponent()
 			{
 				static_assert(std::is_base_of<Component, T>::value == true, "T is not derived from Component and therefore cannot be added to the Gameobject.");
 				
@@ -81,6 +81,8 @@ namespace guar
 						initALight(std::dynamic_pointer_cast<Light>(m_Components.back()))
 				
 					);
+
+				return std::weak_ptr<T>(std::dynamic_pointer_cast<T>(m_Components.back()));
 
 			}
 

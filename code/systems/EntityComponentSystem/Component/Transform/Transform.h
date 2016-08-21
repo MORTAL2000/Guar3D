@@ -25,6 +25,7 @@ namespace guar
 			Math::Vector3    getPosition(void) { return m_Position; }
 			Math::Quaternion getRotation(void) { return m_Rotation; }
 			Math::Vector3    getScale   (void) { return m_Scale;    }
+			Math::Vector3    getEulerAngles(void);
 
 			void setPosition(const Math::Vector3    &aPosition) { m_Position = aPosition; }
 			void setRotation(const Math::Quaternion &aRotation) { m_Rotation = aRotation; }
