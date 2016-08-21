@@ -34,28 +34,31 @@ void initExampleScene()
 	std::weak_ptr<ECS::SceneGraph> mainScene = Engine::createScene("mainScene");
     
     //Create the ground
-    std::weak_ptr<ECS::GameObject> gameObject = mainScene._Get()->createNewGameObject("The Ground");
+    {
+    	std::weak_ptr<ECS::GameObject> gameObject = mainScene._Get()->createNewGameObject("The Ground");
 
-	std::weak_ptr<guar::ECS::Renderer> renderer = gameObject._Get()->addComponent<guar::ECS::Renderer>();
-	renderer._Get()->setModel("Cube");
-	renderer._Get()->setShaderProgram("Opaque");
-	renderer._Get()->setTexture("_Texture", "../Textures/grass.png");
+		std::weak_ptr<guar::ECS::Renderer> renderer = gameObject._Get()->addComponent<guar::ECS::Renderer>();
+		renderer._Get()->setModel("Cube");
+		renderer._Get()->setShaderProgram("Opaque");
+		renderer._Get()->setTexture("_Texture", "../Textures/grass.png");
 
-	std::weak_ptr<guar::ECS::Transform> transform = gameObject._Get()->addComponent<guar::ECS::Transform>();
-	transform._Get()->setScale(Math::Vector3(600.0f, 5.0f, 600.0f));
-	transform._Get()->setPosition(Math::Vector3(0, -7.5f, 0));
+		std::weak_ptr<guar::ECS::Transform> transform = gameObject._Get()->addComponent<guar::ECS::Transform>();
+		transform._Get()->setScale(Math::Vector3(600.0f, 5.0f, 600.0f));
+		transform._Get()->setPosition(Math::Vector3(0, -7.5f, 0));
+    }
     
     //Create the player
-    std::weak_ptr<ECS::GameObject> gameObject = mainScene._Get()->createNewGameObject("The Player");
+	{
+		std::weak_ptr<ECS::GameObject> gameObject = mainScene._Get()->createNewGameObject("The Player");
 
-	std::weak_ptr<guar::ECS::Transform> transform = gameObject._Get()->addComponent<guar::ECS::Transform>();
-	transform._Get()->setScale(Math::Vector3(1.0f, 1.0f, 1.0f));
-	transform._Get()->setPosition(Math::Vector3(0.0f, 5.0f, 40.0f));
+		std::weak_ptr<guar::ECS::Transform> transform = gameObject._Get()->addComponent<guar::ECS::Transform>();
+		transform._Get()->setScale(Math::Vector3(1.0f, 1.0f, 1.0f));
+		transform._Get()->setPosition(Math::Vector3(0.0f, 5.0f, 40.0f));
 
-	gameObject._Get()->addComponent<guar::ECS::Camera>(); //engine supplied component
-	gameObject._Get()->addComponent<PlayerController>(); //custom component
+		gameObject._Get()->addComponent<guar::ECS::Camera>(); //engine supplied component
+		gameObject._Get()->addComponent<PlayerController>(); //custom component
 
-	
+	}	
 
 }
 ```
