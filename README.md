@@ -45,6 +45,7 @@ void initExampleScene()
 		std::weak_ptr<guar::ECS::Transform> transform = gameObject._Get()->addComponent<guar::ECS::Transform>();
 		transform._Get()->setScale(Math::Vector3(600.0f, 5.0f, 600.0f));
 		transform._Get()->setPosition(Math::Vector3(0, -7.5f, 0));
+        
     }
     
     //Create the player
@@ -92,3 +93,6 @@ namespace Game
 
 #endif
 ```
+### Threading diagram
+![alt tag](https://dl.dropboxusercontent.com/u/102655232/Github/Guar3D/Threading%20diagram%208_21_2016.png "Threading diagram, August 21, 2016")
+The engine uses two main threads, a dedicated graphics thread and a main thread, for everything else. Both threads make use of thread pools to accomplish certain tasks such as loading resources from file, etc.
