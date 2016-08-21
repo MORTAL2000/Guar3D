@@ -18,15 +18,13 @@ using namespace guar;
 
 void PlayerController::init(void)
 {
-	//m_Rotation = m_Transform()._Get()->
-
 	m_Transform = getGameObject()->findComponent<guar::ECS::Transform>();
 
 }
 
 void PlayerController::update(void)
 {
-	m_Transform = getGameObject()->findComponent<guar::ECS::Transform>();
+	//Rotate
 	{
 		Math::Vector3 delta = Math::Vector3();
 
@@ -41,8 +39,7 @@ void PlayerController::update(void)
 
 		if (Input::getKeyDown(Key::F))
 			delta += Math::Vector3::Right;
-
-		//delta *= 0.05f;
+		
 		delta *= Time::getDeltaTime() * 5.0f;
 
 		m_Rotation += delta;
@@ -51,6 +48,7 @@ void PlayerController::update(void)
 
 	}
 
+	//Translate
 	{
 		Math::Vector3 delta = Math::Vector3();
 
@@ -88,10 +86,9 @@ void PlayerController::update(void)
 		if (Input::getKeyDown(Key::SPACE))
 			delta.y += 1;
 
-		//delta.normalize();
 		delta *= Time::getDeltaTime() * 60.0f;
 
-		m_Transform._Get()->translate(delta); //std::cout << Graphics::getRenderTexture("")->getName() << "\n";
+		m_Transform._Get()->translate(delta);
 
 	}
 

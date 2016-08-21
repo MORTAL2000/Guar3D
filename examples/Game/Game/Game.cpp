@@ -83,22 +83,22 @@ void Game::initMainScene()
 
 	}
 
-	//{
-	//	std::weak_ptr<ECS::GameObject> gameObject = mainScene._Get()->createNewGameObject("The Other Dragon");
-	//
-	//	gameObject._Get()->addComponent<guar::ECS::Renderer>();
-	//	gameObject._Get()->addComponent<guar::ECS::Transform>();
-	//
-	//	std::weak_ptr<guar::ECS::Renderer> renderer = gameObject._Get()->findComponent<guar::ECS::Renderer>();
-	//	renderer._Get()->setModel("../Models/stanford-dragon.fbx");//stanford-dragon
-	//	renderer._Get()->setShaderProgram("Opaque");
-	//	renderer._Get()->setTexture("_Texture", "../Textures/Water.png");
-	//
-	//	std::weak_ptr<guar::ECS::Transform> transform = gameObject._Get()->findComponent<guar::ECS::Transform>();
-	//	transform._Get()->setScale(Math::Vector3(1.0f, 1.0f, 1.0f));
-	//	transform._Get()->setPosition(Math::Vector3(70.0f, 10.0f, 0.0f));
-	//
-	//}
+	{
+		std::weak_ptr<ECS::GameObject> gameObject = mainScene._Get()->createNewGameObject("The Other Dragon");
+	
+		gameObject._Get()->addComponent<guar::ECS::Renderer>();
+		gameObject._Get()->addComponent<guar::ECS::Transform>();
+	
+		std::weak_ptr<guar::ECS::Renderer> renderer = gameObject._Get()->findComponent<guar::ECS::Renderer>();
+		renderer._Get()->setModel("../Models/stanford-dragon.fbx");//stanford-dragon
+		renderer._Get()->setShaderProgram("Opaque");
+		renderer._Get()->setTexture("_Texture", "../Textures/Water.png");
+	
+		std::weak_ptr<guar::ECS::Transform> transform = gameObject._Get()->findComponent<guar::ECS::Transform>();
+		transform._Get()->setScale(Math::Vector3(1.0f, 1.0f, 1.0f));
+		transform._Get()->setPosition(Math::Vector3(70.0f, 10.0f, 0.0f));
+	
+	}
 
 	float cubeScale = 5.f;
 	{
@@ -173,22 +173,22 @@ void Game::initMainScene()
 
 	}
 
-	//{
-	//	std::weak_ptr<ECS::GameObject> gameObject = mainScene._Get()->createNewGameObject("The bunny");
-	//
-	//	gameObject._Get()->addComponent<guar::ECS::Renderer>();
-	//	gameObject._Get()->addComponent<guar::ECS::Transform>();
-	//
-	//	std::weak_ptr<guar::ECS::Renderer> renderer = gameObject._Get()->findComponent<guar::ECS::Renderer>();
-	//	renderer._Get()->setModel("../Models/stanford-bunny.fbx");
-	//	renderer._Get()->setShaderProgram("Opaque");
-	//	renderer._Get()->setTexture("_Texture", "../Textures/brick.png");
-	//
-	//	std::weak_ptr<guar::ECS::Transform> transform = gameObject._Get()->findComponent<guar::ECS::Transform>();
-	//	transform._Get()->setScale(Math::Vector3(0.01f, 0.01f, 0.01f));
-	//	transform._Get()->setPosition(Math::Vector3(-10.0f, 5.0f, 0.0f));
-	//
-	//}
+	{
+		std::weak_ptr<ECS::GameObject> gameObject = mainScene._Get()->createNewGameObject("The bunny");
+	
+		gameObject._Get()->addComponent<guar::ECS::Renderer>();
+		gameObject._Get()->addComponent<guar::ECS::Transform>();
+	
+		std::weak_ptr<guar::ECS::Renderer> renderer = gameObject._Get()->findComponent<guar::ECS::Renderer>();
+		renderer._Get()->setModel("../Models/stanford-bunny.fbx");
+		renderer._Get()->setShaderProgram("Opaque");
+		renderer._Get()->setTexture("_Texture", "../Textures/brick.png");
+	
+		std::weak_ptr<guar::ECS::Transform> transform = gameObject._Get()->findComponent<guar::ECS::Transform>();
+		transform._Get()->setScale(Math::Vector3(0.01f, 0.01f, 0.01f));
+		transform._Get()->setPosition(Math::Vector3(-10.0f, 5.0f, 0.0f));
+	
+	}
 	{
 		std::weak_ptr<ECS::GameObject> gameObject = mainScene._Get()->createNewGameObject("The torus");
 	
@@ -221,37 +221,37 @@ void Game::initMainScene()
 		transform._Get()->setPosition(Math::Vector3(0.0f, 5.0f, 30.0f));
 
 	}
-	//{
-	//	std::weak_ptr<ECS::GameObject> gameObject = mainScene._Get()->createNewGameObject("The Dragon");
-	//
-	//	gameObject._Get()->addComponent<guar::ECS::Renderer>();
-	//	gameObject._Get()->addComponent<guar::ECS::Transform>();
-	//
-	//	std::weak_ptr<guar::ECS::Renderer> renderer = gameObject._Get()->findComponent<guar::ECS::Renderer>();
-	//	renderer._Get()->setModel("../Models/stanford-dragon.fbx");// "../Models/stanford-dragon.fbx"
-	//	renderer._Get()->setShaderProgram("Opaque");
-	//	renderer._Get()->setTexture("_Texture", "../Textures/Water.png");
-	//
-	//	std::weak_ptr<guar::ECS::Transform> transform = gameObject._Get()->findComponent<guar::ECS::Transform>();
-	//	transform._Get()->setScale(Math::Vector3(1.0f, 1.0f, 1.0f));
-	//
-	//}
-	//{
-	//	std::weak_ptr<ECS::GameObject> gameObject = mainScene._Get()->createNewGameObject("The Shadowwall");
-	//
-	//	gameObject._Get()->addComponent<guar::ECS::Renderer>();
-	//	gameObject._Get()->addComponent<guar::ECS::Transform>();
-	//
-	//	std::weak_ptr<guar::ECS::Renderer> renderer = gameObject._Get()->findComponent<guar::ECS::Renderer>();
-	//	renderer._Get()->setModel("Cube");// "../Models/stanford-dragon.fbx"
-	//	renderer._Get()->setShaderProgram("Opaque");
-	//	renderer._Get()->setTexture("_Texture", "../Textures/Water.png");
-	//
-	//	std::weak_ptr<guar::ECS::Transform> transform = gameObject._Get()->findComponent<guar::ECS::Transform>();
-	//	transform._Get()->setScale(Math::Vector3(40.0f, 40.0f, 10.0f));
-	//	transform._Get()->setPosition(Math::Vector3(0.0, 15.0f, -30.0f));
-	//
-	//}
+	{
+		std::weak_ptr<ECS::GameObject> gameObject = mainScene._Get()->createNewGameObject("The Dragon");
+	
+		gameObject._Get()->addComponent<guar::ECS::Renderer>();
+		gameObject._Get()->addComponent<guar::ECS::Transform>();
+	
+		std::weak_ptr<guar::ECS::Renderer> renderer = gameObject._Get()->findComponent<guar::ECS::Renderer>();
+		renderer._Get()->setModel("../Models/stanford-dragon.fbx");// "../Models/stanford-dragon.fbx"
+		renderer._Get()->setShaderProgram("Opaque");
+		renderer._Get()->setTexture("_Texture", "../Textures/Water.png");
+	
+		std::weak_ptr<guar::ECS::Transform> transform = gameObject._Get()->findComponent<guar::ECS::Transform>();
+		transform._Get()->setScale(Math::Vector3(1.0f, 1.0f, 1.0f));
+	
+	}
+	{
+		std::weak_ptr<ECS::GameObject> gameObject = mainScene._Get()->createNewGameObject("The Shadowwall");
+	
+		gameObject._Get()->addComponent<guar::ECS::Renderer>();
+		gameObject._Get()->addComponent<guar::ECS::Transform>();
+	
+		std::weak_ptr<guar::ECS::Renderer> renderer = gameObject._Get()->findComponent<guar::ECS::Renderer>();
+		renderer._Get()->setModel("Cube");// "../Models/stanford-dragon.fbx"
+		renderer._Get()->setShaderProgram("Opaque");
+		renderer._Get()->setTexture("_Texture", "../Textures/Water.png");
+	
+		std::weak_ptr<guar::ECS::Transform> transform = gameObject._Get()->findComponent<guar::ECS::Transform>();
+		transform._Get()->setScale(Math::Vector3(40.0f, 40.0f, 10.0f));
+		transform._Get()->setPosition(Math::Vector3(0.0, 15.0f, -30.0f));
+	
+	}
 	{
 		std::weak_ptr<ECS::GameObject> gameObject = mainScene._Get()->createNewGameObject("The Player");
 
@@ -283,22 +283,22 @@ void Game::initMainScene()
 
 	}
 
-	//{
-	//	std::weak_ptr<ECS::GameObject> gameObject = mainScene._Get()->createNewGameObject("The moving dragon");
-	//
-	//	gameObject._Get()->addComponent<guar::ECS::Renderer>();
-	//	gameObject._Get()->addComponent<guar::ECS::Transform>();
-	//	gameObject._Get()->addComponent<Game::Orbiter>();
-	//
-	//	std::weak_ptr<guar::ECS::Renderer> renderer = gameObject._Get()->findComponent<guar::ECS::Renderer>();
-	//	renderer._Get()->setModel("../Models/stanford-dragon.fbx");// "../Models/stanford-dragon.fbx"
-	//	renderer._Get()->setShaderProgram("Opaque");
-	//	renderer._Get()->setTexture("_Texture", "../Textures/Water.png");
-	//
-	//	std::weak_ptr<guar::ECS::Transform> transform = gameObject._Get()->findComponent<guar::ECS::Transform>();
-	//	transform._Get()->setScale(Math::Vector3(1.0f, 1.0f, 1.0f));
-	//
-	//}
+	{
+		std::weak_ptr<ECS::GameObject> gameObject = mainScene._Get()->createNewGameObject("The moving dragon");
+	
+		gameObject._Get()->addComponent<guar::ECS::Renderer>();
+		gameObject._Get()->addComponent<guar::ECS::Transform>();
+		gameObject._Get()->addComponent<Game::Orbiter>();
+	
+		std::weak_ptr<guar::ECS::Renderer> renderer = gameObject._Get()->findComponent<guar::ECS::Renderer>();
+		renderer._Get()->setModel("../Models/stanford-dragon.fbx");// "../Models/stanford-dragon.fbx"
+		renderer._Get()->setShaderProgram("Opaque");
+		renderer._Get()->setTexture("_Texture", "../Textures/Water.png");
+	
+		std::weak_ptr<guar::ECS::Transform> transform = gameObject._Get()->findComponent<guar::ECS::Transform>();
+		transform._Get()->setScale(Math::Vector3(1.0f, 1.0f, 1.0f));
+	
+	}
 
 	std::cout << Graphics::getRenderTexture()._Get()->getName() << ", " << Graphics::getRenderTexture()._Get()->getColorTexture()._Get()->getName() << ": " << Graphics::getRenderTexture()._Get()->getColorTexture()._Get()->getHandle() << "\n";
 	std::cout << Graphics::getTexture()._Get()->getHandle();
