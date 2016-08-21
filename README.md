@@ -63,6 +63,7 @@ void initExampleScene()
 
 }
 ```
+
 ### Creating a custom component
 ```c++
 #ifndef GAME_COMPONENT_PLAYERCONTROLLER_H
@@ -93,6 +94,28 @@ namespace Game
 
 #endif
 ```
+
 ### Threading diagram
 ![alt tag](https://dl.dropboxusercontent.com/u/102655232/Github/Guar3D/Threading%20diagram%208_21_2016.png "Threading diagram, August 21, 2016")
 The engine uses two main threads, a dedicated graphics thread and a main thread, for everything else. Both threads make use of thread pools to accomplish certain tasks such as loading resources from file, etc.
+
+### Libraries used
+OpenGL context & extension management
+* glew
+* glfw
+
+Math
+* glm
+
+File io
+* zlib
+* assimp
+* lodePNG
+* jsoncpp
+
+Scripting
+* Lua
+
+Portability headers
+* dirent
+* rlutil
