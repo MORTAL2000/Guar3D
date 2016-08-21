@@ -102,23 +102,26 @@ The engine uses two main threads, a dedicated graphics thread and a main thread,
 
 ### Libraries used
 OpenGL context & extension management
-* glew
-* glfw
+* [GLEW](http://glew.sourceforge.net/)
+* [GLFW](http://www.glfw.org/)
 
 Math
-* glm
+* [GLM](http://glm.g-truc.net/0.9.7/index.html)
+
+Physics
+* [Bullet](http://bulletphysics.org/wordpress/)
 
 File io
-* zlib
-* assimp
-* lodePNG
-* jsoncpp
+* [zlib](http://www.zlib.net/)
+* [assimp](http://www.assimp.org/)
+* [lodePNG](http://lodev.org/lodepng/)
+* [jsoncpp](https://github.com/open-source-parsers/jsoncpp)
 
 Scripting
-* Lua
+* [Lua](https://www.lua.org/)
 
 Portability headers
-* dirent
-* rlutil
+* [dirent](https://github.com/tronkko/dirent)
+* [rlutil](https://github.com/tapio/rlutil)
 
 library licenses can be found in root/licenses/%LibraryName% LICENSE.txt
