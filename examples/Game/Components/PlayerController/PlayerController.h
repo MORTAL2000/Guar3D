@@ -5,6 +5,8 @@
 #include <EntityComponentSystem\Component\Component.h>
 //math inc
 #include <Math\Vector3\Vector3.h>
+//std inc
+#include <memory>
 
 namespace guar { namespace ECS  { class  Transform; } }
 
