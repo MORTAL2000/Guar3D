@@ -180,12 +180,21 @@ static void initGLFW(void)
  * void
  * Initializes the GLFW Window and the OpenGL context
  */
+//#include<Debug\Debug.h>
 static void initContext(void)
 {
     printf("GL and window initalization: ");
     
     m_Window = glfwCreateWindow(800, 800, "GL", NULL, NULL);
-    if (!m_Window)
+	
+	//glfwDestroyWindow(m_Window);
+	//const GLFWvidmode* vidMode = glfwGetVideoMode(glfwGetPrimaryMonitor());
+	//Debug::log(vidMode->height, ", ", vidMode->width,", ",vidMode->refreshRate);
+	//m_Window = glfwCreateWindow(vidMode->width,vidMode->height, "GL", glfwGetPrimaryMonitor(), NULL);
+
+
+	
+	if (!m_Window)
     {
         printf("failed\n");
         glfwTerminate();

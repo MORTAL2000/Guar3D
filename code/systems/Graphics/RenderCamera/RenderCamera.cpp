@@ -41,7 +41,10 @@ void RenderCamera::generateViewProjectionMatrix(glm::mat4x4* aViewMatrix, glm::m
 	
 	//PROJECTION
 	float aspectRatio = Graphics::getWindowSize().getAspectRatio();
-	glm::mat4x4 projection = glm::perspective(glm::radians(m_FieldOfView), aspectRatio, m_NearClippingDistance, m_FarClippingDistance);
+	glm::mat4x4 projection;
+
+	if (aspectRatio > 0.f)
+		projection = glm::perspective(glm::radians(m_FieldOfView), aspectRatio, m_NearClippingDistance, m_FarClippingDistance);
 
 	if (aViewMatrix != 0)
 		*aViewMatrix = view;

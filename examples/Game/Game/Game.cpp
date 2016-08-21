@@ -125,9 +125,10 @@ void Game::initMainScene()
 		gameObject._Get()->addComponent<guar::ECS::Rigidbody>();
 	
 	}
+
 	for (int i = 0; i < 10; i++)
 	{
-		std::weak_ptr<ECS::GameObject> gameObject = mainScene._Get()->createNewGameObject("The cube3");
+		std::weak_ptr<ECS::GameObject> gameObject = mainScene._Get()->createNewGameObject("Rigidbody test #" + i);
 
 		std::weak_ptr<guar::ECS::Renderer> renderer = gameObject._Get()->addComponent<guar::ECS::Renderer>();
 		renderer._Get()->setModel("Cube");
