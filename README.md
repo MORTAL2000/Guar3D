@@ -119,3 +119,5 @@ Scripting
 Portability headers
 * dirent
 * rlutil
+
+library licenses can be found in root/licenses/%LibraryName% LICENSE.txt
