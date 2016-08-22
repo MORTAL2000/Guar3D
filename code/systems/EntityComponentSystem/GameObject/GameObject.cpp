@@ -48,6 +48,14 @@ GameObject::~GameObject()
 
 }
 
+void GameObject::init(void)
+{
+	//Init components
+	for (int i = 0; i < m_Components.size(); i++)
+		m_Components[i]->init();
+
+}
+
 void GameObject::update(void)
 {
 	//Update components

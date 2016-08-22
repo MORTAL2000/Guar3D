@@ -2,6 +2,8 @@
 //phy inc
 #include "../PhysicsWorld/PhysicsWorld.h"
 #include "../PhysicsObject/PhysicsObject.h"
+#include "../PhysicsObject/RigidBody/RigidBody.h"
+#include <EntityComponentSystem\Component\PhysicsBody\Rigidbody\Rigidbody.h>
 
 using namespace guar;
 using namespace PHY;
@@ -25,9 +27,10 @@ void SceneGraph::update(void)
 	
 }
 
-std::weak_ptr<PhysicsObject> SceneGraph::createRigidBody(std::weak_ptr<ECS::Rigidbody> aECSRigidbody)
+std::weak_ptr<PHY::RigidBody> SceneGraph::createRigidBody(std::weak_ptr<ECS::Rigidbody> aECSRigidbody,std::vector<std::weak_ptr<PHY::Collider>> &aColliders, const float &aMass)
 {
-	m_Objects.push_back(std::shared_ptr<PhysicsObject>(new PhysicsObject(*m_World._Get(), aECSRigidbody)));
-	return std::weak_ptr<PhysicsObject>(m_Objects.back());
+	m_Objects.push_back(std::shared_ptr<PHY::PhysicsObject>(new PHY::RigidBody(*m_World._Get(), aColliders, aECSRigidbody, aMass)));
+	return std::weak_ptr<RigidBody>(std::dynamic_pointer_cast<RigidBody>(m_Objects.back()));
+
 
 }

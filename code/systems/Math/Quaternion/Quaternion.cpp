@@ -11,6 +11,8 @@
 using namespace guar;
 using namespace Math;
 
+const Quaternion Quaternion::Identity = Quaternion();
+
 Quaternion::Quaternion() : x(0.), y(0.), z(0.), w(1.)
 {}
 

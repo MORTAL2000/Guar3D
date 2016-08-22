@@ -6,9 +6,10 @@
 #include <EntityComponentSystem\Component\Transform\Transform.h>
 #include <EntityComponentSystem\Component\Renderer\Renderer.h>
 #include <EntityComponentSystem\Component\Camera\Camera.h>
-#include <EntityComponentSystem\Component\Rigidbody\Rigidbody.h>
+#include <EntityComponentSystem\Component\PhysicsBody\Rigidbody\Rigidbody.h>
 #include <EntityComponentSystem\GameObject\GameObject.h>
 #include <EntityComponentSystem\SceneGraph\SceneGraph.h>
+#include <EntityComponentSystem\Component\Collider\BoxCollider\BoxCollider.h>
 //GFX inc
 #include <Graphics\Graphics.h>
 #include <Graphics\RenderTexture\RenderTexture.h>
@@ -77,6 +78,12 @@ void Game::initMainScene()
 		std::weak_ptr<guar::ECS::Transform> transform = gameObject._Get()->addComponent<guar::ECS::Transform>();
 		transform._Get()->setScale(Math::Vector3(600.0f, 5.0f, 600.0f));
 		transform._Get()->setPosition(Math::Vector3(0, -7.5f, 0));
+
+		std::weak_ptr<guar::ECS::BoxCollider> boxCollider = gameObject._Get()->addComponent<guar::ECS::BoxCollider>();
+		boxCollider._Get()->setSize(Math::Vector3(600.0f, 5.0f, 600.0f));
+
+		std::weak_ptr<guar::ECS::Rigidbody> rigidbody = gameObject._Get()->addComponent<guar::ECS::Rigidbody>();
+		rigidbody._Get()->setMass(0.f);
 		
 	}
 
@@ -95,37 +102,6 @@ void Game::initMainScene()
 	}
 
 	float cubeScale = 5.f;
-	{
-		std::weak_ptr<ECS::GameObject> gameObject = mainScene._Get()->createNewGameObject("The cube");
-
-		std::weak_ptr<guar::ECS::Renderer> renderer = gameObject._Get()->addComponent<guar::ECS::Renderer>();
-		renderer._Get()->setModel("Cube");
-		renderer._Get()->setShaderProgram("Opaque");
-		renderer._Get()->setTexture("_Texture", "../Textures/Water.png");
-
-		std::weak_ptr<guar::ECS::Transform> transform = gameObject._Get()->addComponent<guar::ECS::Transform>();
-		transform._Get()->setScale(Math::Vector3(cubeScale, cubeScale, cubeScale));
-		transform._Get()->setPosition(Math::Vector3(0.0f, 90.0f, 0.0f));
-
-		gameObject._Get()->addComponent<guar::ECS::Rigidbody>();		
-
-	}
-	{
-		std::weak_ptr<ECS::GameObject> gameObject = mainScene._Get()->createNewGameObject("The cube2");
-	
-		std::weak_ptr<guar::ECS::Renderer> renderer = gameObject._Get()->addComponent<guar::ECS::Renderer>();
-		renderer._Get()->setModel("Cube");
-		renderer._Get()->setShaderProgram("Opaque");
-		renderer._Get()->setTexture("_Texture", "../Textures/Water.png");
-
-		std::weak_ptr<guar::ECS::Transform> transform = gameObject._Get()->addComponent<guar::ECS::Transform>();
-		transform._Get()->setScale(Math::Vector3(cubeScale, cubeScale, cubeScale));
-		transform._Get()->setPosition(Math::Vector3(0.25f, 100.0f, 0.0f));
-		
-		gameObject._Get()->addComponent<guar::ECS::Rigidbody>();
-	
-	}
-
 	for (int i = 0; i < 10; i++)
 	{
 		std::weak_ptr<ECS::GameObject> gameObject = mainScene._Get()->createNewGameObject("Rigidbody test #" + i);
@@ -135,12 +111,19 @@ void Game::initMainScene()
 		renderer._Get()->setShaderProgram("Opaque");
 		renderer._Get()->setTexture("_Texture", "../Textures/Water.png");
 
+		
+
 		std::weak_ptr<guar::ECS::Transform> transform = gameObject._Get()->addComponent<guar::ECS::Transform>();
 		transform._Get()->setScale(Math::Vector3(cubeScale, cubeScale, cubeScale));
-		transform._Get()->setPosition(Math::Vector3(+3.25f + (i*0.01f), 110.0f + (i*5.f), 1.0f));
+		transform._Get()->setPosition(Math::Vector3(+3.25f + (i*0.015f), 110.0f + (i*5.f), 1.0f));
 
-		gameObject._Get()->addComponent<guar::ECS::Rigidbody>();
+		std::weak_ptr<guar::ECS::BoxCollider> boxCollider = gameObject._Get()->addComponent<guar::ECS::BoxCollider>();
+		boxCollider._Get()->setSize(Math::Vector3(cubeScale, cubeScale, cubeScale));
+		
+		std::weak_ptr<guar::ECS::Rigidbody> rigidbody = gameObject._Get()->addComponent<guar::ECS::Rigidbody>();
+		rigidbody._Get()->setMass(1.f);
 
+		
 	}
 	{
 		std::weak_ptr<ECS::GameObject> gameObject = mainScene._Get()->createNewGameObject("The Other Cube");

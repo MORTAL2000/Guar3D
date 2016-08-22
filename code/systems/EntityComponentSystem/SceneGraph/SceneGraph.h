@@ -36,6 +36,8 @@ namespace guar
 			std::vector<std::weak_ptr<Renderer>>     m_Renderers;
 			std::vector<std::weak_ptr<Camera>>       m_Cameras;
 			std::vector<std::weak_ptr<Light>>        m_Lights;
+
+			bool m_DidInit;
 			
 		public:
 			std::weak_ptr<PHY::SceneGraph> getPhysicsScene(void) { return m_PhysicsScene; }
@@ -49,6 +51,7 @@ namespace guar
 
 			std::weak_ptr<GameObject> createNewGameObject(const std::string &aName ="Unnamed");
 
+			void init();
 			void update();
 
 			SceneGraph();

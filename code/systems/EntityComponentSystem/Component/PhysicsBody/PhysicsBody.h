@@ -1,9 +1,6 @@
-#ifndef GUAR_ECS_RIGIDBODY_H
-#define GUAR_ECS_RIGIDBODY_H
-/*
-*
-*
-*/
+#ifndef GUAR_ECS_PHYSICSBODY_H
+#define GUAR_ECS_PHYSICSBODY_H
+
 //ecs inc
 #include "../Component.h"
 //math inc
@@ -15,32 +12,31 @@
 namespace guar
 {
 	namespace PHY { class PhysicsObject; }
-
+	
 	namespace ECS
 	{
 		class Transform;
 
-		class Rigidbody : public Component
+		class PhysicsBody : public Component
 		{
+		protected:
 			std::weak_ptr<ECS::Transform>     m_Transform;
 			std::weak_ptr<PHY::PhysicsObject> m_PhysicsObject;
 
 			//Gameobject interface
-			void init  (void) override;
+			void init(const std::weak_ptr<PHY::PhysicsObject> &aPhysicsObject);
 			void update(void) override;
 
 		public:
-			Math::Vector3 getPosition(void);// { return m_Transform._Get()->getPosition(); }
-			Math::Quaternion getRotation(void);// { return m_Transform._Get()->getRotation(); }
+			Math::Vector3    getPosition(void);
+			Math::Quaternion getRotation(void);
 
-			void setPosition(const Math::Vector3 &aPosition);// { m_Transform._Get()->setPosition(aPosition); }
-
+			void setPosition(const Math::Vector3 &aPosition);
 
 		};
 
 	}
 
 }
-
 
 #endif

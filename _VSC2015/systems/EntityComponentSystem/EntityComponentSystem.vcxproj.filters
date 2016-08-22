@@ -40,8 +40,32 @@
     <Filter Include="ECS\SceneGraph">
       <UniqueIdentifier>{835b11a4-d04f-4a27-b7dd-36150b1d4b1f}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ECS\Component\Rigidbody">
+    <Filter Include="ECS\Component\PhysicsBody">
+      <UniqueIdentifier>{eaf40e15-2506-4b82-9800-1f4611a0dd6c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ECS\Component\PhysicsBody\Rigidbody">
       <UniqueIdentifier>{592b6d1d-2be5-4352-8aa0-2dbfebf18035}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ECS\Component\Collider">
+      <UniqueIdentifier>{534ebf63-5f9d-47e8-b6f6-78f1f0bb8d30}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ECS\Component\Collider\BoxCollider">
+      <UniqueIdentifier>{aef49e8c-da54-4eb2-b04b-d38cc0abc1b3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ECS\Component\Collider\CapsuleCollider">
+      <UniqueIdentifier>{ec693a24-f980-4277-bc94-f54c124f9430}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ECS\Component\Collider\ConeCollider">
+      <UniqueIdentifier>{13213a5f-cb43-47dc-860d-285f36838837}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ECS\Component\Collider\CylinderCollider">
+      <UniqueIdentifier>{ffacd7b6-c6da-465e-b45c-fb59c4d9957b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ECS\Component\Collider\SphereCollider">
+      <UniqueIdentifier>{61ed19af-9339-412f-9c12-443357d9f95c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ECS\Component\PhysicsBody\Softbody">
+      <UniqueIdentifier>{2bc6d9f0-7518-40ab-997d-5e8202966db4}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -84,8 +108,29 @@
     <ClCompile Include="..\..\..\code\systems\EntityComponentSystem\EntityComponentSystem.cpp">
       <Filter>ECS</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\code\systems\EntityComponentSystem\Component\Rigidbody\Rigidbody.cpp">
-      <Filter>ECS\Component\Rigidbody</Filter>
+    <ClCompile Include="..\..\..\code\systems\EntityComponentSystem\Component\PhysicsBody\Rigidbody\Rigidbody.cpp">
+      <Filter>ECS\Component\PhysicsBody\Rigidbody</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\code\systems\EntityComponentSystem\Component\PhysicsBody\PhysicsBody.cpp">
+      <Filter>ECS\Component\PhysicsBody</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\code\systems\EntityComponentSystem\Component\Collider\Collider.cpp">
+      <Filter>ECS\Component\Collider</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\code\systems\EntityComponentSystem\Component\Collider\BoxCollider\BoxCollider.cpp">
+      <Filter>ECS\Component\Collider\BoxCollider</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\code\systems\EntityComponentSystem\Component\Collider\CapsuleCollider\CapsuleCollider.cpp">
+      <Filter>ECS\Component\Collider\CapsuleCollider</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\code\systems\EntityComponentSystem\Component\Collider\ConeCollider\ConeCollider.cpp">
+      <Filter>ECS\Component\Collider\ConeCollider</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\code\systems\EntityComponentSystem\Component\Collider\CylinderCollider\CylinderCollider.cpp">
+      <Filter>ECS\Component\Collider\CylinderCollider</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\code\systems\EntityComponentSystem\Component\Collider\SphereCollider\SphereCollider.cpp">
+      <Filter>ECS\Component\Collider\SphereCollider</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -128,8 +173,29 @@
     <ClInclude Include="..\..\..\code\systems\EntityComponentSystem\EntityComponentSystem.h">
       <Filter>ECS</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\code\systems\EntityComponentSystem\Component\Rigidbody\Rigidbody.h">
-      <Filter>ECS\Component\Rigidbody</Filter>
+    <ClInclude Include="..\..\..\code\systems\EntityComponentSystem\Component\PhysicsBody\Rigidbody\Rigidbody.h">
+      <Filter>ECS\Component\PhysicsBody\Rigidbody</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\code\systems\EntityComponentSystem\Component\PhysicsBody\PhysicsBody.h">
+      <Filter>ECS\Component\PhysicsBody</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\code\systems\EntityComponentSystem\Component\Collider\Collider.h">
+      <Filter>ECS\Component\Collider</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\code\systems\EntityComponentSystem\Component\Collider\BoxCollider\BoxCollider.h">
+      <Filter>ECS\Component\Collider\BoxCollider</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\code\systems\EntityComponentSystem\Component\Collider\CapsuleCollider\CapsuleCollider.h">
+      <Filter>ECS\Component\Collider\CapsuleCollider</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\code\systems\EntityComponentSystem\Component\Collider\ConeCollider\ConeCollider.h">
+      <Filter>ECS\Component\Collider\ConeCollider</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\code\systems\EntityComponentSystem\Component\Collider\CylinderCollider\CylinderCollider.h">
+      <Filter>ECS\Component\Collider\CylinderCollider</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\code\systems\EntityComponentSystem\Component\Collider\SphereCollider\SphereCollider.h">
+      <Filter>ECS\Component\Collider\SphereCollider</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -31,42 +31,42 @@ PhysicsWorld::PhysicsWorld()
 
 
 
-	//////////////////////HACK//////////////////////////////////////
-
-	//collisionShapes.push_back(groundShape);
-	btCollisionShape* groundShape = new btBoxShape(btVector3(btScalar(50.), btScalar(50.), btScalar(50.)));
-
-	btTransform groundTransform;
-	groundTransform.setIdentity();
-	groundTransform.setOrigin(btVector3(0, -55, 0));
-
-	{
-		btScalar mass(0.);
-
-		//rigidbody is dynamic if and only if mass is non zero, otherwise static
-		bool isDynamic = (mass != 0.f);
-
-		btVector3 localInertia(0, 0, 0);
-		if (isDynamic)
-			groundShape->calculateLocalInertia(mass, localInertia);
-
-		//using motionstate is optional, it provides interpolation capabilities, and only synchronizes 'active' objects
-		btDefaultMotionState* myMotionState = new btDefaultMotionState(groundTransform);
-		btRigidBody::btRigidBodyConstructionInfo rbInfo(mass, myMotionState, groundShape, localInertia);
-		btRigidBody* body = new btRigidBody(rbInfo);
-
-		//add the body to the dynamics world
-		m_DynamicsWorld._Get()->addRigidBody(body);
-	}
-
-
-	///////////////////////////////////////////////////////
+	////////////////////////HACK//////////////////////////////////////
+	//
+	////collisionShapes.push_back(groundShape);
+	//btCollisionShape* groundShape = new btBoxShape(btVector3(btScalar(50.), btScalar(50.), btScalar(50.)));
+	//
+	//btTransform groundTransform;
+	//groundTransform.setIdentity();
+	//groundTransform.setOrigin(btVector3(0, -55, 0));
+	//
+	//{
+	//	btScalar mass(0.);
+	//
+	//	//rigidbody is dynamic if and only if mass is non zero, otherwise static
+	//	bool isDynamic = (mass != 0.f);
+	//
+	//	btVector3 localInertia(0, 0, 0);
+	//	if (isDynamic)
+	//		groundShape->calculateLocalInertia(mass, localInertia);
+	//
+	//	//using motionstate is optional, it provides interpolation capabilities, and only synchronizes 'active' objects
+	//	btDefaultMotionState* myMotionState = new btDefaultMotionState(groundTransform);
+	//	btRigidBody::btRigidBodyConstructionInfo rbInfo(mass, myMotionState, groundShape, localInertia);
+	//	btRigidBody* body = new btRigidBody(rbInfo);
+	//
+	//	//add the body to the dynamics world
+	//	m_DynamicsWorld._Get()->addRigidBody(body);
+	//}
+	//
+	//
+	/////////////////////////////////////////////////////////
 
 }
 
 void PhysicsWorld::update(void)
 {
-	m_DynamicsWorld->stepSimulation(1.f / 50000.f, 1); //replace first arg with delta time
+	m_DynamicsWorld->stepSimulation(1.f / 40000.f, 1); //replace first arg with delta time
 	
 }
 

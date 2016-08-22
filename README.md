@@ -1,7 +1,7 @@
 # Guar3D
 Game engine using C++11, OpenGL.
 ![alt tag](https://dl.dropboxusercontent.com/u/102655232/Github/Guar3D/Build_8_21_2016.png "Build August 21, 2016")
-example game: [Win 32 build](https://dl.dropboxusercontent.com/u/102655232/Github/Guar3D/build%20august_21_2016.7z) 
+example game: [Win32 build](https://dl.dropboxusercontent.com/u/102655232/Github/Guar3D/build%20august_21_2016.7z) 
 
 
 ### Features:

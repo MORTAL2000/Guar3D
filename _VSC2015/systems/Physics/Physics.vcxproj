@@ -114,6 +114,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\..\code\systems\Physics\Collider\BoxCollider\BoxCollider.cpp" />
+    <ClCompile Include="..\..\..\code\systems\Physics\Collider\Collider.cpp" />
     <ClCompile Include="..\..\..\code\systems\Physics\Physics.cpp" />
     <ClCompile Include="..\..\..\code\systems\Physics\PhysicsObject\PhysicsObject.cpp" />
     <ClCompile Include="..\..\..\code\systems\Physics\PhysicsObject\RigidBody\RigidBody.cpp" />
@@ -123,6 +125,8 @@
     <ClCompile Include="..\..\..\code\systems\Physics\SceneGraph\SceneGraph.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\..\code\systems\Physics\Collider\BoxCollider\BoxCollider.h" />
+    <ClInclude Include="..\..\..\code\systems\Physics\Collider\Collider.h" />
     <ClInclude Include="..\..\..\code\systems\Physics\Physics.h" />
     <ClInclude Include="..\..\..\code\systems\Physics\PhysicsObject\PhysicsObject.h" />
     <ClInclude Include="..\..\..\code\systems\Physics\PhysicsObject\RigidBody\RigidBody.h" />

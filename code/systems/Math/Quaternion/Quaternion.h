@@ -22,6 +22,8 @@ namespace guar
 			Quaternion(const Vector3 &aEulerAngles);
 			Quaternion(const btQuaternion &aBulletQuaternion);
 
+			static const Quaternion Identity;
+
 		};
 
 		std::ostream& operator<< (std::ostream& stream, const Math::Quaternion& aQuaternion);

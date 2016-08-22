@@ -14,7 +14,7 @@ class btTransform;
 
 namespace guar
 {
-	namespace ECS { class Rigidbody; }
+	namespace ECS { class PhysicsBody; }
 
 	namespace PHY
 	{
@@ -25,23 +25,26 @@ namespace guar
 		{
 			friend SceneGraph;
 
+		protected:
 			//connection to the corresponding ECS component
-			std::weak_ptr<ECS::Rigidbody> m_ECSRigidbody;
+			std::weak_ptr<ECS::PhysicsBody> m_ECSRigidbody;
 
 			//phyics data
 			std::shared_ptr<btCollisionShape> m_CollisionShape;
-			std::shared_ptr<btRigidBody>      m_RigidBody;
 			std::shared_ptr<btTransform>      m_Transform; //holds pos, rot
 			
 			//PhysicsWorld interface
-			void prePhysicsStepSync (void);
-			void postPhysicsStepSync(void);
+			virtual void prePhysicsStepSync (void) = 0;
+			virtual void postPhysicsStepSync(void) = 0;
 
 		public:
-			Math::Vector3    getPosition(void);
-			Math::Quaternion getRotation(void);
+			virtual Math::Vector3    getPosition(void);
+			virtual Math::Quaternion getRotation(void);
 
-			PhysicsObject(PhysicsWorld &aPhysicsWorld, std::weak_ptr<ECS::Rigidbody> aECSRigidbody);
+			void setPosition(const Math::Vector3    &aPosition);
+			void setRotation(const Math::Quaternion &aRotation);
+
+			PhysicsObject(PhysicsWorld &aPhysicsWorld, std::weak_ptr<ECS::PhysicsBody> aECSRigidbody);
 			
 		};
 

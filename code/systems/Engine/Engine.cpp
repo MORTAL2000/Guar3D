@@ -43,8 +43,6 @@ void Engine::mainLoop()
 {
 	try
 	{
-		double lastFrame = 0, currentFrame = 0;
-
 		/* Loop until the user closes the window */
 		while (!glfwWindowShouldClose(m_Window))
 		{

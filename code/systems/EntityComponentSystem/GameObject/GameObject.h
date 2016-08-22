@@ -48,6 +48,7 @@ namespace guar
 			void setName(const std::string &aName) { m_Name = aName; }
 
 			//ECS::Scenegraph interface
+			void init(void);
 			void update(void);
 
 		public: //public interface
@@ -61,7 +62,7 @@ namespace guar
 				
 				m_Components.push_back(std::make_shared<T>());
 				m_Components.back()->m_GameObject = this;
-				m_Components.back()->init();
+				//m_Components.back()->init();
 
 				if (std::is_same<T, Renderer>::value)
 					m_SceneGraph._Get()->m_Renderers.push_back
@@ -93,6 +94,20 @@ namespace guar
 				for (int i = 0; i < m_Components.size(); i++)
 					if (std::dynamic_pointer_cast<T>(m_Components[i]))
 						return std::weak_ptr<T>(std::dynamic_pointer_cast<T>(m_Components[i]));
+
+			}
+
+			template<class T> std::vector<std::weak_ptr<T>> findComponents()
+			{
+				static_assert(std::is_base_of<Component, T>::value == true, "T is not derived from Component and therefore will not be found in components.");
+
+				std::vector<std::weak_ptr<T>> componentVector;
+
+				for (int i = 0; i < m_Components.size(); i++)
+					if (std::dynamic_pointer_cast<T>(m_Components[i]))
+						componentVector.push_back(std::weak_ptr<T>(std::dynamic_pointer_cast<T>(m_Components[i])));
+
+				return componentVector;
 
 			}
 

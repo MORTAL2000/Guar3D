@@ -23,6 +23,24 @@
     <Filter Include="Physics\PhysicsObject\SoftBody">
       <UniqueIdentifier>{bd15b216-7c8e-4743-9446-aa3f3942babb}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Physics\Collider">
+      <UniqueIdentifier>{b7df7078-9333-43ed-849d-064f56aa4fbe}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Physics\Collider\BoxCollider">
+      <UniqueIdentifier>{35577e0b-6839-4159-88e6-3929f6c68977}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Physics\Collider\CapsuleCollider">
+      <UniqueIdentifier>{0d4800ef-008e-4c07-ba72-db81fa10ac69}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Physics\Collider\ConeCollider">
+      <UniqueIdentifier>{e1a902ff-35dc-4386-9331-ff0e554f1731}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Physics\Collider\CylinderCollider">
+      <UniqueIdentifier>{467a3f2a-7fb7-4fde-82fd-1a7db80fec63}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Physics\Collider\SphereCollider">
+      <UniqueIdentifier>{83a312d6-86f5-427e-b575-e73e438cc02c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\code\systems\Physics\Physics.cpp">
@@ -46,6 +64,12 @@
     <ClCompile Include="..\..\..\code\systems\Physics\PhysicsObject\SoftBody\SoftBody.cpp">
       <Filter>Physics\PhysicsObject\SoftBody</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\code\systems\Physics\Collider\Collider.cpp">
+      <Filter>Physics\Collider</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\code\systems\Physics\Collider\BoxCollider\BoxCollider.cpp">
+      <Filter>Physics\Collider\BoxCollider</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\code\systems\Physics\Physics.h">
@@ -68,6 +92,12 @@
     </ClInclude>
     <ClInclude Include="..\..\..\code\systems\Physics\PhysicsObject\SoftBody\SoftBody.h">
       <Filter>Physics\PhysicsObject\SoftBody</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\code\systems\Physics\Collider\Collider.h">
+      <Filter>Physics\Collider</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\code\systems\Physics\Collider\BoxCollider\BoxCollider.h">
+      <Filter>Physics\Collider\BoxCollider</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
