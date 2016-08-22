@@ -3,6 +3,10 @@
 //ECS inc
 #include <EntityComponentSystem\Component\Transform\Transform.h>
 #include <EntityComponentSystem\GameObject\GameObject.h>
+#include <EntityComponentSystem\SceneGraph\SceneGraph.h>
+//PHY inc
+#include <Physics\SceneGraph\SceneGraph.h>
+#include <Physics\Collision\Collision.h>
 //Input inc
 #include <Input\Input.h>
 //Math inc
@@ -12,6 +16,8 @@
 #include <Time\Time.h>
 //std inc
 #include <math.h>
+//debug inc
+#include <Debug\Debug.h>
 
 using namespace Game;
 using namespace guar;
@@ -89,6 +95,20 @@ void PlayerController::update(void)
 		delta *= Time::getDeltaTime() * 60.0f;
 
 		m_Transform._Get()->translate(delta);
+
+	}
+
+	//shoot
+	{
+		if (Input::getKeyDown(Key::T))
+		{
+			PHY::Collision collision;
+
+			getGameObject()->getSceneGraph()._Get()->getPhysicsScene()._Get()->rayCast(m_Transform._Get()->getPosition(),Math::Vector3::Forward,1000.f);
+
+			Debug::log("PlayerController::update(void)\n");
+
+		}
 
 	}
 

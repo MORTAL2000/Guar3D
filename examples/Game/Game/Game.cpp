@@ -13,6 +13,8 @@
 //GFX inc
 #include <Graphics\Graphics.h>
 #include <Graphics\RenderTexture\RenderTexture.h>
+//PHY inc
+#include <Physics\SceneGraph\SceneGraph.h>
 //Game inc
 #include "../Components/Rotator/Rotator.h"
 #include "../Components/PlayerController/PlayerController.h"
@@ -245,5 +247,5 @@ void Game::initMainScene()
 		gameObject._Get()->addComponent<Game::Orbiter>();
 	
 	}
-	
+		
 }

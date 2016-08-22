@@ -41,6 +41,9 @@
     <Filter Include="Physics\Collider\SphereCollider">
       <UniqueIdentifier>{83a312d6-86f5-427e-b575-e73e438cc02c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Physics\Collision">
+      <UniqueIdentifier>{73268d83-495a-4855-a48b-0d020f2ee3a5}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\code\systems\Physics\Physics.cpp">
@@ -70,6 +73,9 @@
     <ClCompile Include="..\..\..\code\systems\Physics\Collider\BoxCollider\BoxCollider.cpp">
       <Filter>Physics\Collider\BoxCollider</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\code\systems\Physics\Collision\Collision.cpp">
+      <Filter>Physics\Collision</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\code\systems\Physics\Physics.h">
@@ -98,6 +104,9 @@
     </ClInclude>
     <ClInclude Include="..\..\..\code\systems\Physics\Collider\BoxCollider\BoxCollider.h">
       <Filter>Physics\Collider\BoxCollider</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\code\systems\Physics\Collision\Collision.h">
+      <Filter>Physics\Collision</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

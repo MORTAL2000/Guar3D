@@ -1,7 +1,14 @@
 Next:
 Finish ECS::Rigidbody <-> PHY::Rigidbody interface.
- - abstraction for bullet collider types (box, sphere, etc.)
  - implement raycasting & resolving to weak ptr to ECS Rigidbody not the PHY body
+	- camera center fixed test for Game::PlayerController
+	- raycast from mouse pos in Game::PlayerController. Have to compensate for projection distortion
+ - implement remaining abstractions for bullet collider types (sphere, capsule, cylinder, cone, trimesh)
+
+
+move component::init from ecs::scenegraph::update to a callback system.
+ - std::vector<initfuncptr> scenegraph::m_initlist
+ - call and remove
 
 
 ---------------------

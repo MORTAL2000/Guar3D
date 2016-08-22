@@ -3,6 +3,7 @@
 
 //phy inc
 #include "../Collider/Collider.h"
+#include "../Collision/Collision.h"
 //dev inc
 #include <Development\SceneGraph.h>
 //std inc
@@ -28,6 +29,8 @@ namespace guar
 			
 		public:
 			std::weak_ptr<PHY::RigidBody> createRigidBody(std::weak_ptr<ECS::Rigidbody> aECSRigidbody, std::vector<std::weak_ptr<PHY::Collider>> &aColliders, const float &aMass);
+			PHY::Collision rayCast(const Math::Vector3 &aOrigin, const Math::Vector3 &aDirection, const float &aDistance);
+
 
 			void update(void);
 			
