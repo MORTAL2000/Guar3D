@@ -39,7 +39,7 @@ void Time::update(void)
 	currentTime = glfwGetTime() - lastTime;
 	lastTime = glfwGetTime();
 
-	Debug::log(getDeltaTime(),"\n");
+	//Debug::log(getDeltaTime(),"\n");
 
 	/*
 	//refactor

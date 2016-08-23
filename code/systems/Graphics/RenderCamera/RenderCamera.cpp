@@ -23,12 +23,14 @@ void RenderCamera::draw(void)
 {
 	RenderObserver::draw(); 
 	
-	//glClear(GL_DEPTH_BUFFER_BIT);
-
 	glViewport(0.01f*m_ViewportPosition.x*Graphics::getWindowSize().x, 0.01f*m_ViewportPosition.y*Graphics::getWindowSize().y, (0.01f*m_ViewportSize.x*Graphics::getWindowSize().x), (0.01f*m_ViewportSize.y*Graphics::getWindowSize().y) );
-	glClearColor(m_ClearColor.r, m_ClearColor.g, m_ClearColor.b, m_ClearColor.a);
+
+	if (m_ClearIsEnabled)
+	{
+		glClearColor(m_ClearColor.r, m_ClearColor.g, m_ClearColor.b, m_ClearColor.a);
+		glClear(m_ClearMode);
 	
-	
+	}
 
 }
 
@@ -59,5 +61,12 @@ void RenderCamera::generateViewProjectionMatrix(glm::mat4x4* aViewMatrix, glm::m
 	
 	if (aVPMatrix != 0)
 		*aVPMatrix = projection * view;
+
+}
+
+void RenderCamera::setClearMode(const bool &aEnabled, const ClearMode::ClearModeCode &aClearMode)
+{
+	m_ClearIsEnabled = aEnabled   ;
+	m_ClearMode      = aClearMode ;
 
 }

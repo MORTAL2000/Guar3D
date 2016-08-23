@@ -106,6 +106,9 @@
     <Filter Include="Graphics\SceneGraphCollection">
       <UniqueIdentifier>{3a23b007-7015-4a0b-89df-9f329787564e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Graphics\ClearMode">
+      <UniqueIdentifier>{9ecd0a80-ee64-4b1b-9183-51be3a6399af}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\code\systems\Graphics\Graphics.cpp">
@@ -215,6 +218,9 @@
     </ClCompile>
     <ClCompile Include="..\..\..\code\systems\Graphics\SceneGraphCollection\SceneGraphCollection.cpp">
       <Filter>Graphics\SceneGraphCollection</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\code\systems\Graphics\ClearMode\ClearMode.cpp">
+      <Filter>Graphics\ClearMode</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -328,6 +334,9 @@
     </ClInclude>
     <ClInclude Include="..\..\..\code\systems\Graphics\SceneGraphCollection\SceneGraphCollection.h">
       <Filter>Graphics\SceneGraphCollection</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\code\systems\Graphics\ClearMode\ClearMode.h">
+      <Filter>Graphics\ClearMode</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

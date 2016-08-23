@@ -1,9 +1,4 @@
 Next:
-GFX::RenderCamera
- - parameterize clearcolor
- - parameterize clear modes
- - create clear modes at GFX abstraction level
-
 ECS::Camera 
  - implement ScreenToPoint
 
@@ -24,6 +19,9 @@ Later:
 
 Finish ECS::Rigidbody <-> PHY::Rigidbody interface.
  - implement remaining abstractions for bullet collider types (sphere, capsule, cylinder, cone, trimesh)
+
+GFX::RenderCamera
+ - give cameras their own FBOs so that glClear will not wipe FBO0's buffers
 
 Finish forward renderpath
   Clean up ortho shadow caster

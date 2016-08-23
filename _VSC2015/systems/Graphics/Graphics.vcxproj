@@ -118,6 +118,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\..\code\systems\Graphics\ClearMode\ClearMode.cpp" />
     <ClCompile Include="..\..\..\code\systems\Graphics\Graphics.cpp" />
     <ClCompile Include="..\..\..\code\systems\Graphics\GraphicsObjectCollection\GraphicsObjectCollection.cpp" />
     <ClCompile Include="..\..\..\code\systems\Graphics\GraphicsObjectCollection\ModelCollection\ModelCollection.cpp" />
@@ -156,6 +157,7 @@
     <ClCompile Include="..\..\..\code\systems\Graphics\VertexFormat\VertexFormat.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\..\code\systems\Graphics\ClearMode\ClearMode.h" />
     <ClInclude Include="..\..\..\code\systems\Graphics\Graphics.h" />
     <ClInclude Include="..\..\..\code\systems\Graphics\GraphicsObjectCollection\GraphicsObjectCollection.h" />
     <ClInclude Include="..\..\..\code\systems\Graphics\GraphicsObjectCollection\ModelCollection\ModelCollection.h" />

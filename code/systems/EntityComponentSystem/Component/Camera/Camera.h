@@ -4,6 +4,7 @@
 //ecsinc
 #include "../Observer/Observer.h"
 //gfxinc
+#include <Graphics\ClearMode\ClearMode.h>
 #include "../../../Graphics/RenderCamera/RenderCamera.h"
 //stdinc
 #include <memory>
@@ -45,6 +46,8 @@ namespace guar
 			void setClearColor           (const GFX::Color    &aClearColor          );
 			void setViewportPosition     (const Math::Vector2 &aViewportPosition    ); 
 			void setViewportSize         (const Math::Vector2 &aViewportSize        ); 
+
+			void setClearMode(const bool &aEnabled, const GFX::ClearMode::ClearModeCode &aClearMode) { m_RenderCamera._Get()->setClearMode(aEnabled, aClearMode); }
 
 			GFX::RenderObserver* getRenderObserver(void) override { return m_RenderCamera._Get(); }
 

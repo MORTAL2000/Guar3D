@@ -34,30 +34,52 @@ void PlayerController::init(void)
 void PlayerController::update(void)
 {
 	//Rotate
-	if (Input::getMouseButtonDown(MouseButton::Two) == true)
 	{
-		Input::lockMouse(true);
 		Math::Vector3 delta = Math::Vector3();
 
-		if (Input::getMouseDelta().x > 0)
-			delta += Math::Vector3::Up;
+		if (Input::getMouseButtonDown(MouseButton::Two) == true)
+		{
+			Input::lockMouse(true);
 
-		if (Input::getMouseDelta().x < 0)
-			delta -= Math::Vector3::Up;
+			if (Input::getMouseDelta().x > 0)
+				delta += Math::Vector3::Up;
 
-		if (Input::getMouseDelta().y < 0)
-			delta += Math::Vector3::Left;
-		
-		if (Input::getMouseDelta().y > 0)
-			delta += Math::Vector3::Right;
+			if (Input::getMouseDelta().x < 0)
+				delta -= Math::Vector3::Up;
 
-		delta *= Time::getDeltaTime() * 200.0f;
+			if (Input::getMouseDelta().y < 0)
+				delta += Math::Vector3::Left;
+
+			if (Input::getMouseDelta().y > 0)
+				delta += Math::Vector3::Right;
+
+			delta *= Time::getDeltaTime() * 200.0f;
+			
+		}
+		else
+		{
+			Input::lockMouse(false);
+			
+			if (Input::getKeyDown(Key::Q))
+				delta -= Math::Vector3::Up;
+
+			if (Input::getKeyDown(Key::E))
+				delta += Math::Vector3::Up;
+
+			if (Input::getKeyDown(Key::R))
+				delta += Math::Vector3::Left;
+
+			if (Input::getKeyDown(Key::F))
+				delta += Math::Vector3::Right;
+
+			delta *= Time::getDeltaTime() * 5.0f;
+			
+		}
+
 		m_Rotation += delta;
 		m_Transform._Get()->setRotation(m_Rotation);
 
 	}
-	else
-		Input::lockMouse(false);
 
 	//Translate
 	{
@@ -65,25 +87,32 @@ void PlayerController::update(void)
 
 		if (Input::getKeyDown(Key::W))
 		{
-			delta -= Math::Vector3 //d vec, with -z axis// - (90.0f * Math::PI / 180)
-			(
-				cos(m_Rotation.y - (90.0f * Math::PI / 180))*cos(m_Rotation.x),
-				sin(m_Rotation.x),
-				sin(m_Rotation.y - (90.0f * Math::PI / 180))*cos(m_Rotation.x)
+			//delta -= Math::Vector3 //d vec, with -z axis// - (90.0f * Math::PI / 180)
+			//(
+			//	/*cos(m_Rotation.y - (90.0f * Math::PI / 180))*cos(m_Rotation.x),*/
+			//	/*sin(m_Rotation.x),										     */
+			//	/*sin(m_Rotation.y - (90.0f * Math::PI / 180))*cos(m_Rotation.x) */
+			//
+			//
+			//);
 
-			);
+			delta.x -= sin(m_Rotation.y);
+			delta.z += cos(m_Rotation.y);
 			
 		}
 
 		if (Input::getKeyDown(Key::S))
 		{
-			delta += Math::Vector3 //d vec, with -z axis// - (90.0f * Math::PI / 180)
-			(
-				cos(m_Rotation.y - (90.0f * Math::PI / 180))*cos(m_Rotation.x),
-				sin(m_Rotation.x),
-				sin(m_Rotation.y - (90.0f * Math::PI / 180))*cos(m_Rotation.x)
+			//delta += Math::Vector3 //d vec, with -z axis// - (90.0f * Math::PI / 180)
+			//(
+			//	/*cos(m_Rotation.y - (90.0f * Math::PI / 180))*cos(m_Rotation.x),*/
+			//	/*sin(m_Rotation.x),											 */
+			//	/*sin(m_Rotation.y - (90.0f * Math::PI / 180))*cos(m_Rotation.x) */
+			//
+			//);
 
-			);
+			delta.x += sin(m_Rotation.y);
+			delta.z -= cos(m_Rotation.y);
 
 		}
 

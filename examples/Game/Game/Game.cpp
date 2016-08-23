@@ -317,7 +317,9 @@ void Game::initMainScene()
 		std::weak_ptr<guar::ECS::Camera> camera = gameObject._Get()->addComponent<guar::ECS::Camera>();
 		camera._Get()->setViewportSize(Math::Vector2(20, 20));
 		camera._Get()->setViewportPosition(Math::Vector2(0, 80));
-	
+		camera._Get()->setClearColor(guar::GFX::Color(0.5f, 0.5f, 0.5f, 0.5f));
+		camera._Get()->setClearMode(true, guar::GFX::ClearMode::DepthBuffer /*| guar::GFX::ClearMode::ColorBuffer*/);
+
 	}
 		
 }
