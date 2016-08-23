@@ -27,7 +27,11 @@ void Camera::draw(void)
 
 }
 
+Math::Vector3 Camera::getWorldPointFromScreenPoint(const Math::Vector2 &aScreenPoint, const float &aWorldSpaceDistance)
+{
+	return m_RenderCamera._Get()->getWorldPointFromScreenPoint(aScreenPoint, aWorldSpaceDistance);
 
+}
 
 //Vector3 Camera::getPosition				(void) { return m_RenderCamera.getPosition();             }
 //Vector3 Camera::getRotation				(void) { return m_RenderCamera.getRotation();             }

@@ -16,6 +16,7 @@ namespace Game
 	class PlayerController : public guar::ECS::Component
 	{
 		std::weak_ptr<guar::ECS::Transform> m_Transform;
+
 		guar::Math::Vector3 m_Rotation;
 
 		void init  (void) override;
