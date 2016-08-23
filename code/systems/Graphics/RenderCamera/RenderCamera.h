@@ -44,6 +44,9 @@ namespace guar
             void setClearColor           (const Color    &aClearColor          ) { m_ClearColor           = aClearColor          ; }
             void setRenderTexture        (std::weak_ptr<RenderTexture> aRenderTexture        ) { m_RenderTexture        = aRenderTexture       ; }
     
+			void setViewportPosition(const Math::Vector2 &aViewportPosition) { m_ViewportPosition = aViewportPosition; }
+			void setViewportSize    (const Math::Vector2 &aViewportSize)     { m_ViewportSize     = aViewportSize;     }
+
             void draw(void) override;
         
             RenderCamera();

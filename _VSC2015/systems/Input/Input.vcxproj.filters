@@ -7,6 +7,9 @@
     <Filter Include="Input\Key">
       <UniqueIdentifier>{419842ea-e584-4886-9029-1b11ceef4bd0}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Input\MouseButton">
+      <UniqueIdentifier>{5b59eedc-f9c2-4e1f-8edd-413635395292}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\code\systems\Input\Input.cpp">
@@ -15,6 +18,9 @@
     <ClCompile Include="..\..\..\code\systems\Input\Key\Key.cpp">
       <Filter>Input\Key</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\code\systems\Input\MouseButton\MouseButton.cpp">
+      <Filter>Input\MouseButton</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\code\systems\Input\Input.h">
@@ -22,6 +28,9 @@
     </ClInclude>
     <ClInclude Include="..\..\..\code\systems\Input\Key\Key.h">
       <Filter>Input\Key</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\code\systems\Input\MouseButton\MouseButton.h">
+      <Filter>Input\MouseButton</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

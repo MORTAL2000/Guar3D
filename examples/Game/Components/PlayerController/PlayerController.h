@@ -5,6 +5,7 @@
 #include <EntityComponentSystem\Component\Component.h>
 //math inc
 #include <Math\Vector3\Vector3.h>
+#include <Math\Vector2\Vector2.h>
 //std inc
 #include <memory>
 
@@ -15,7 +16,6 @@ namespace Game
 	class PlayerController : public guar::ECS::Component
 	{
 		std::weak_ptr<guar::ECS::Transform> m_Transform;
-
 		guar::Math::Vector3 m_Rotation;
 
 		void init  (void) override;

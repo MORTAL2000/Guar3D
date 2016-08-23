@@ -3,6 +3,8 @@
 #include "../RenderLight/RenderLight.h"
 #include "../RenderObject/RenderObject.h"
 #include "../RenderCamera/RenderCamera.h"
+//implementation inc
+#include "../OpenGL/OpenGL.h"
 
 using namespace guar;
 using namespace GFX;
@@ -13,8 +15,7 @@ SceneGraph::SceneGraph(const std::string &aName) : DEV::SceneGraph(aName)
 void SceneGraph::update(void)
 {
 	//THIS IS A HACK REMOVE
-	std::vector<RenderLight> lights;
-	
+	std::vector<RenderLight> lights;	
 
 	//Render from the lights
 	for (int i = 0; i < m_Lights.size(); i++)

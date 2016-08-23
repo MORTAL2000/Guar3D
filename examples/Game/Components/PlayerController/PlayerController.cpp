@@ -34,28 +34,30 @@ void PlayerController::init(void)
 void PlayerController::update(void)
 {
 	//Rotate
+	if (Input::getMouseButtonDown(MouseButton::Two) == true)
 	{
+		Input::lockMouse(true);
 		Math::Vector3 delta = Math::Vector3();
 
-		if (Input::getKeyDown(Key::E))
+		if (Input::getMouseDelta().x > 0)
 			delta += Math::Vector3::Up;
 
-		if (Input::getKeyDown(Key::Q))
-			delta += Math::Vector3::Down;
+		if (Input::getMouseDelta().x < 0)
+			delta -= Math::Vector3::Up;
 
-		if (Input::getKeyDown(Key::R))
+		if (Input::getMouseDelta().y < 0)
 			delta += Math::Vector3::Left;
-
-		if (Input::getKeyDown(Key::F))
+		
+		if (Input::getMouseDelta().y > 0)
 			delta += Math::Vector3::Right;
-		
-		delta *= Time::getDeltaTime() * 5.0f;
 
+		delta *= Time::getDeltaTime() * 200.0f;
 		m_Rotation += delta;
-		
 		m_Transform._Get()->setRotation(m_Rotation);
 
 	}
+	else
+		Input::lockMouse(false);
 
 	//Translate
 	{
@@ -113,8 +115,10 @@ void PlayerController::update(void)
 
 	//shoot
 	{
-		if (Input::getKeyDown(Key::T))
+		if (Input::getMouseButtonDown(MouseButton::One))
 		{
+			//Debug::log(Input::getMousePos(), "\n");
+
 			PHY::Collision raycastInfo;
 			
 			if (getGameObject()->getSceneGraph()._Get()->getPhysicsScene()._Get()->rayCast(m_Transform._Get()->getPosition(), m_Transform._Get()->getForwardVector(), 1000.f, raycastInfo))

@@ -42,3 +42,5 @@ void Camera::setNearClippingDistance (const float         &aNearClippingDistance
 void Camera::setFarClippingDistance  (const float         &aFarClippingDistance ) { m_RenderCamera._Get()->setFarClippingDistance(aFarClippingDistance);   }
 void Camera::setFieldOfView          (const float         &aFieldOfView         ) { m_RenderCamera._Get()->setFieldOfView(aFieldOfView);                   }
 void Camera::setClearColor           (const Color         &aClearColor          ) { m_RenderCamera._Get()->setClearColor(aClearColor);                     }
+void Camera::setViewportPosition     (const Math::Vector2 &aViewportPosition    ) { m_RenderCamera._Get()->setViewportPosition(aViewportPosition); }
+void Camera::setViewportSize         (const Math::Vector2 &aViewportSize        ) { m_RenderCamera._Get()->setViewportSize    (aViewportSize    ); }

@@ -281,7 +281,10 @@ void Game::initMainScene()
 		transform._Get()->setRotation(Math::Vector3(0.f, 180.f, 0.f));
 		transform._Get()->setScale(Math::Vector3(2., 2., 2.));
 
-		gameObject._Get()->addComponent<guar::ECS::Camera>();
+		std::weak_ptr<guar::ECS::Camera> camera = gameObject._Get()->addComponent<guar::ECS::Camera>();
+		//camera._Get()->setViewportSize(Math::Vector2(20, 20));
+		//camera._Get()->setViewportPosition(Math::Vector2(20, 20));
+
 		gameObject._Get()->addComponent<PlayerController>();
 
 	}
@@ -303,17 +306,18 @@ void Game::initMainScene()
 		boxCollider._Get()->setSize(Math::Vector3(1., 1., 1.));
 	
 	}
-	//{
-	//	std::weak_ptr<ECS::GameObject> gameObject = mainScene._Get()->createNewGameObject("The Observer");
-	//
-	//	std::weak_ptr<guar::ECS::Transform> transform = gameObject._Get()->addComponent<guar::ECS::Transform>();
-	//	transform._Get()->setScale(Math::Vector3(1.0f, 1.0f, 1.0f));
-	//	transform._Get()->setPosition(Math::Vector3(0.0f, 5.0f, 70.0f));
-	//	transform._Get()->setRotation(Math::Vector3(0.f, 180.f, 0.f));
-	//
-	//	//gameObject._Get()->addComponent<guar::ECS::Camera>();
-	//	//gameObject._Get()->addComponent<PlayerController>();
-	//
-	//}
+	{
+		std::weak_ptr<ECS::GameObject> gameObject = mainScene._Get()->createNewGameObject("The Observer");
+	
+		std::weak_ptr<guar::ECS::Transform> transform = gameObject._Get()->addComponent<guar::ECS::Transform>();
+		transform._Get()->setScale(Math::Vector3(1.0f, 1.0f, 1.0f));
+		transform._Get()->setPosition(Math::Vector3(0.0f, 5.0f, 70.0f));
+		transform._Get()->setRotation(Math::Vector3(0.f, 180.f, 0.f));
+	
+		std::weak_ptr<guar::ECS::Camera> camera = gameObject._Get()->addComponent<guar::ECS::Camera>();
+		camera._Get()->setViewportSize(Math::Vector2(20, 20));
+		camera._Get()->setViewportPosition(Math::Vector2(0, 80));
+	
+	}
 		
 }

@@ -43,6 +43,8 @@ namespace guar
 			void setFarClippingDistance  (const float         &aFarClippingDistance );
 			void setFieldOfView          (const float         &aFieldOfView         );
 			void setClearColor           (const GFX::Color    &aClearColor          );
+			void setViewportPosition     (const Math::Vector2 &aViewportPosition    ); 
+			void setViewportSize         (const Math::Vector2 &aViewportSize        ); 
 
 			GFX::RenderObserver* getRenderObserver(void) override { return m_RenderCamera._Get(); }
 

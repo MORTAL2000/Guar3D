@@ -5,6 +5,8 @@
  * 
  * 
 */
+//std inc
+#include <iosfwd>
 
 namespace guar
 {
@@ -19,7 +21,12 @@ namespace guar
 
 			float getAspectRatio(void) { return x / y; }
 
+			Vector2 operator/(const Vector2 &aVector);
+			Vector2 operator-(const Vector2 &aVector);
+
 		};
+
+		std::ostream& operator<< (std::ostream& stream, const Math::Vector2& aVector2);
 
 	}
 

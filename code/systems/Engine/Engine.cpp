@@ -46,12 +46,14 @@ void Engine::mainLoop()
 		/* Loop until the user closes the window */
 		while (!glfwWindowShouldClose(m_Window))
 		{
+			//Graphics::update();
 			Physics              ::update();
 			EntityComponentSystem::update();
 			Time                 ::update();
+			Input                ::update();
 			
 			
-			glfwPollEvents();//refactor
+			//glfwPollEvents();//refactor
 
 			
 

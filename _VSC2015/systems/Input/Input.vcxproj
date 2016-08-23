@@ -120,10 +120,12 @@
   <ItemGroup>
     <ClCompile Include="..\..\..\code\systems\Input\Input.cpp" />
     <ClCompile Include="..\..\..\code\systems\Input\Key\Key.cpp" />
+    <ClCompile Include="..\..\..\code\systems\Input\MouseButton\MouseButton.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\code\systems\Input\Input.h" />
     <ClInclude Include="..\..\..\code\systems\Input\Key\Key.h" />
+    <ClInclude Include="..\..\..\code\systems\Input\MouseButton\MouseButton.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
