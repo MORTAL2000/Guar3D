@@ -1,4 +1,6 @@
 #include "SceneGraph.h"
+//ecs inc
+#include <EntityComponentSystem\GameObject\GameObject.h>
 //phy inc
 #include "../PhysicsWorld/PhysicsWorld.h"
 #include "../PhysicsObject/PhysicsObject.h"
@@ -43,19 +45,36 @@ std::weak_ptr<PHY::RigidBody> SceneGraph::createRigidBody(std::weak_ptr<ECS::Rig
 //
 //}
 
-btCollisionWorld::ClosestRayResultCallback RayCallback(btVector3 Start, btVector3 End);
-
-PHY::Collision SceneGraph::rayCast(const Math::Vector3 &aOrigin, const Math::Vector3 &aDirection, const float &aDistance)
+//btCollisionWorld::ClosestRayResultCallback RayCallback(btVector3 Start, btVector3 End)
+//{
+//
+//
+//}
+#include<Debug\Debug.h>
+bool SceneGraph::rayCast(const Math::Vector3 &aOrigin, const Math::Vector3 &aDirection, const float &aDistance, PHY::Collision &ioRaycastInfo)
 {
-	PHY::Collision collision;
+	//calculate from and to vectors
+	btVector3 fromVector(aOrigin.x, aOrigin.y, aOrigin.z); //(aOrigin.x, aOrigin.y, aOrigin.z);
 
-	//do stuff
-	btVector3 fromVector(aOrigin.x, aOrigin.y, aOrigin.z);
-	btVector3 toVector(aDirection.x, aDirection.y, aDirection.z);
+	Math::Vector3 toVec = aOrigin; // (aOrigin + aDirection);
+	toVec += (aDirection * aDistance);
+	btVector3 toVector  (toVec.x, toVec.y, toVec.z);
+
+	//Debug::log(aOrigin, ", ", toVec, "\n");
+
+	//create the callback structure
+	btCollisionWorld::AllHitsRayResultCallback rayCallback(fromVector,toVector);
 	
-	m_World._Get()->getDynamicsWorld()._Get()->rayTest(fromVector, toVector, RayCallback); //World->rayTest(Start, End, RayCallback);
+	m_World._Get()->getDynamicsWorld()._Get()->rayTest(fromVector, toVector, rayCallback); //World->rayTest(Start, End, RayCallback);
 
+	//write info to the io arg if there was a hit
+	if (rayCallback.hasHit())
+	{
+		ioRaycastInfo.physicsbody = ((PHY::PhysicsObject*)rayCallback.m_collisionObject->getUserPointer())->getECSPhysicsBody();
+		return true;
 
-	return collision;
+	}
+
+	return false;
 
 }

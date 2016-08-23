@@ -21,6 +21,7 @@
 #include "../Components/Spinner/Spinner.h"
 #include "../Components/Orbiter/Orbiter.h"
 #include "../Components/SkyPlayer/SkyPlayer.h"
+#include "../Components/Chaser/Chaser.h"
 
 using namespace guar;
 
@@ -106,14 +107,12 @@ void Game::initMainScene()
 	float cubeScale = 5.f;
 	for (int i = 0; i < 10; i++)
 	{
-		std::weak_ptr<ECS::GameObject> gameObject = mainScene._Get()->createNewGameObject("Rigidbody test #" + i);
+		std::weak_ptr<ECS::GameObject> gameObject = mainScene._Get()->createNewGameObject(std::string("Rigidbody test #") + std::to_string(i));
 
 		std::weak_ptr<guar::ECS::Renderer> renderer = gameObject._Get()->addComponent<guar::ECS::Renderer>();
 		renderer._Get()->setModel("Cube");
 		renderer._Get()->setShaderProgram("Opaque");
 		renderer._Get()->setTexture("_Texture", "../Textures/Water.png");
-
-		
 
 		std::weak_ptr<guar::ECS::Transform> transform = gameObject._Get()->addComponent<guar::ECS::Transform>();
 		transform._Get()->setScale(Math::Vector3(cubeScale, cubeScale, cubeScale));
@@ -205,6 +204,12 @@ void Game::initMainScene()
 		std::weak_ptr<guar::ECS::Transform> transform = gameObject._Get()->addComponent<guar::ECS::Transform>();
 		transform._Get()->setScale(Math::Vector3(40.0f, 40.0f, 10.0f));
 		transform._Get()->setPosition(Math::Vector3(0.0, 15.0f, -30.0f));
+
+		std::weak_ptr<guar::ECS::BoxCollider> boxCollider = gameObject._Get()->addComponent<guar::ECS::BoxCollider>();
+		boxCollider._Get()->setSize(Math::Vector3(40.0f, 40.0f, 10.0f));
+
+		std::weak_ptr<guar::ECS::Rigidbody> rigidbody = gameObject._Get()->addComponent<guar::ECS::Rigidbody>();
+		rigidbody._Get()->setMass(0.f);
 	
 	}
 	{
@@ -213,6 +218,7 @@ void Game::initMainScene()
 		std::weak_ptr<guar::ECS::Transform> transform = gameObject._Get()->addComponent<guar::ECS::Transform>();
 		transform._Get()->setScale(Math::Vector3(1.0f, 1.0f, 1.0f));
 		transform._Get()->setPosition(Math::Vector3(0.0f, 5.0f, 40.0f));
+		transform._Get()->setRotation(Math::Vector3(0.f, 180.f, 0.f));
 
 		gameObject._Get()->addComponent<guar::ECS::Camera>();
 		gameObject._Get()->addComponent<PlayerController>();
@@ -230,9 +236,34 @@ void Game::initMainScene()
 		std::weak_ptr<guar::ECS::Transform> transform = gameObject._Get()->addComponent<guar::ECS::Transform>();
 		transform._Get()->setScale(Math::Vector3(80.0f, 80.0f, 80.0f));
 		transform._Get()->setPosition(Math::Vector3(0.0f, 35.0f, -90.0f));
+
+		std::weak_ptr<guar::ECS::BoxCollider> boxCollider = gameObject._Get()->addComponent<guar::ECS::BoxCollider>();
+		boxCollider._Get()->setSize(Math::Vector3(80.0f, 80.0f, 80.0f));
+
+		std::weak_ptr<guar::ECS::Rigidbody> rigidbody = gameObject._Get()->addComponent<guar::ECS::Rigidbody>();
+		rigidbody._Get()->setMass(0.f);
 		
 	}
+	{
+		std::weak_ptr<ECS::GameObject> gameObject = mainScene._Get()->createNewGameObject("Rigidbody test ABOVE THESCREEN");
 
+		std::weak_ptr<guar::ECS::Renderer> renderer = gameObject._Get()->addComponent<guar::ECS::Renderer>();
+		renderer._Get()->setModel("Cube");
+		renderer._Get()->setShaderProgram("Opaque");
+		renderer._Get()->setTexture("_Texture", "../Textures/Water.png");
+
+		std::weak_ptr<guar::ECS::Transform> transform = gameObject._Get()->addComponent<guar::ECS::Transform>();
+		transform._Get()->setScale(Math::Vector3(cubeScale, cubeScale, cubeScale));
+		transform._Get()->setPosition(Math::Vector3(0.0f, 100.0f, -49.0f));
+
+		std::weak_ptr<guar::ECS::BoxCollider> boxCollider = gameObject._Get()->addComponent<guar::ECS::BoxCollider>();
+		boxCollider._Get()->setSize(Math::Vector3(cubeScale, cubeScale, cubeScale));
+
+		std::weak_ptr<guar::ECS::Rigidbody> rigidbody = gameObject._Get()->addComponent<guar::ECS::Rigidbody>();
+		rigidbody._Get()->setMass(1.f);
+
+
+	}
 	{
 		std::weak_ptr<ECS::GameObject> gameObject = mainScene._Get()->createNewGameObject("The moving dragon");
 	
@@ -246,6 +277,21 @@ void Game::initMainScene()
 
 		gameObject._Get()->addComponent<Game::Orbiter>();
 	
+	}
+	{
+		std::weak_ptr<ECS::GameObject> gameObject = mainScene._Get()->createNewGameObject("Chaser");
+
+		std::weak_ptr<guar::ECS::Renderer> renderer = gameObject._Get()->addComponent<guar::ECS::Renderer>();
+		renderer._Get()->setModel("Cube");// "../Models/stanford-dragon.fbx"
+		renderer._Get()->setShaderProgram("Opaque");
+		renderer._Get()->setTexture("_Texture", "");
+
+		std::weak_ptr<guar::ECS::Transform> transform = gameObject._Get()->addComponent<guar::ECS::Transform>();
+		transform._Get()->setPosition(Math::Vector3(0., 5., +7.));
+		transform._Get()->setScale(Math::Vector3(.25, .25, .25));
+
+		gameObject._Get()->addComponent<Chaser>();
+
 	}
 		
 }

@@ -27,7 +27,7 @@ namespace guar
 
 		protected:
 			//connection to the corresponding ECS component
-			std::weak_ptr<ECS::PhysicsBody> m_ECSRigidbody;
+			std::weak_ptr<ECS::PhysicsBody> m_ECSPhysicsBody;
 
 			//phyics data
 			std::shared_ptr<btCollisionShape> m_CollisionShape;
@@ -38,13 +38,15 @@ namespace guar
 			virtual void postPhysicsStepSync(void) = 0;
 
 		public:
+			std::weak_ptr<ECS::PhysicsBody> getECSPhysicsBody(void);
+
 			virtual Math::Vector3    getPosition(void);
 			virtual Math::Quaternion getRotation(void);
 
 			void setPosition(const Math::Vector3    &aPosition);
 			void setRotation(const Math::Quaternion &aRotation);
 
-			PhysicsObject(PhysicsWorld &aPhysicsWorld, std::weak_ptr<ECS::PhysicsBody> aECSRigidbody);
+			PhysicsObject(PhysicsWorld &aPhysicsWorld, std::weak_ptr<ECS::PhysicsBody> aECSPhysicsBody);
 			
 		};
 

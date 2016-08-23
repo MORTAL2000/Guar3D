@@ -27,6 +27,9 @@ namespace guar
 
 		class RigidBody : public PhysicsObject
 		{
+			//ecs data
+			//std::weak_ptr<ECS::Rigidbody> m_ECSRigidbody;
+
 			//phyics data
 			std::shared_ptr<btRigidBody>      m_RigidBody;
 
@@ -35,6 +38,8 @@ namespace guar
 			void postPhysicsStepSync(void) override;
 
 		public:
+			//std::weak_ptr<ECS::Rigidbody> getECSRigidbody(void);
+			
 			RigidBody(PhysicsWorld &aPhysicsWorld, const std::vector<std::weak_ptr<PHY::Collider>> &aColliders, std::weak_ptr<ECS::Rigidbody> aECSRigidbody, const float &aMass = 0.f);
 
 		};

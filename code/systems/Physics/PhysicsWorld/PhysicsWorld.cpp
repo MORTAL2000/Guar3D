@@ -1,6 +1,8 @@
 #include "PhysicsWorld.h"
 //Debug inc
 #include <Debug\Debug.h>
+//time inc
+#include <Time\Time.h>
 //External inc
 #include <Bullet\btBulletDynamicsCommon.h>
 
@@ -27,7 +29,7 @@ PhysicsWorld::PhysicsWorld()
 
 	//set gravity direction
 	//m_DynamicsWorld._Get()->setGravity(btVector3(0, -0.4f, 0));
-
+	//m_DynamicsWorld._Get()->setGravity(btVector3(0.,-9.8f,0.));
 
 
 
@@ -66,7 +68,7 @@ PhysicsWorld::PhysicsWorld()
 
 void PhysicsWorld::update(void)
 {
-	m_DynamicsWorld->stepSimulation(1.f / 40000.f, 1); //replace first arg with delta time
+	m_DynamicsWorld->stepSimulation(Time::getDeltaTime(), 20); //replace first arg with delta time
 	
 }
 

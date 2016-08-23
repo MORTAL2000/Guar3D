@@ -22,8 +22,11 @@ namespace guar
 			void normalizeAndScale(const float &aScalar);
 
 			Vector3 operator+(const Vector3 &aVector);
+			//Vector3 const operator+(const Vector3 &aVector);
+			
 			Vector3 operator-(const Vector3 &aVector);
 			void operator+=(const Vector3 &aVector);
+			void operator-=(const Vector3 &aVector);
 			Vector3 operator*(const float &aScalar);
 			Vector3 operator*(const float &aScalar) const;
 			void operator*=(const float &aScalar);

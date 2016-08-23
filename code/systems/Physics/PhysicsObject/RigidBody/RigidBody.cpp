@@ -13,6 +13,8 @@ using namespace PHY;
 RigidBody::RigidBody(PhysicsWorld &aPhysicsWorld, const std::vector<std::weak_ptr<PHY::Collider>> &aColliders, std::weak_ptr<ECS::Rigidbody> aECSRigidbody, const float &aMass) :
 	PhysicsObject(aPhysicsWorld, aECSRigidbody)
 {
+	//m_ECSRigidbody = aECSRigidbody;
+
 	//create the compound shape
 	btCompoundShape* compoundShape = new btCompoundShape(true, 1);
 	//push back data to shape
@@ -52,6 +54,8 @@ RigidBody::RigidBody(PhysicsWorld &aPhysicsWorld, const std::vector<std::weak_pt
 	btRigidBody::btRigidBodyConstructionInfo rbInfo(mass, myMotionState, colShape, localInertia);
 	btRigidBody* body = new btRigidBody(rbInfo);
 
+	body->setUserPointer(this); //connect the btrigidbody to this phyrigidbody for raytracing etc.
+
 	//add to world
 	aPhysicsWorld.getDynamicsWorld()._Get()->addRigidBody(body);
 
@@ -64,7 +68,7 @@ RigidBody::RigidBody(PhysicsWorld &aPhysicsWorld, const std::vector<std::weak_pt
 void RigidBody::prePhysicsStepSync(void)
 {
 	//Check if ECS transform position has changed
-	Math::Vector3 ecsPos = m_ECSRigidbody._Get()->getPosition();
+	Math::Vector3 ecsPos = m_ECSPhysicsBody._Get()->getPosition();
 	btVector3     btPos = m_Transform._Get()->getOrigin();
 
 	if
@@ -79,7 +83,7 @@ void RigidBody::prePhysicsStepSync(void)
 	}
 
 	//Check if ECS transform rotation has changed
-	Math::Quaternion ecsRot = m_ECSRigidbody._Get()->getRotation();
+	Math::Quaternion ecsRot = m_ECSPhysicsBody._Get()->getRotation();
 	btQuaternion     btRot = m_Transform._Get()->getRotation();
 
 	if
@@ -115,5 +119,11 @@ void RigidBody::postPhysicsStepSync(void)
 //Math::Quaternion RigidBody::getRotation(void)
 //{
 //	return Math::Quaternion(m_Transform._Get()->getRotation());
+//
+//}
+
+//std::weak_ptr<ECS::Rigidbody> RigidBody::getECSRigidbody(void)
+//{
+//	return m_ECSRigidbody;
 //
 //}

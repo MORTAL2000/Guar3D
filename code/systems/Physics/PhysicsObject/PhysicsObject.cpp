@@ -9,8 +9,8 @@
 using namespace guar;
 using namespace PHY;
 
-PhysicsObject::PhysicsObject(PhysicsWorld &aPhysicsWorld, std::weak_ptr<ECS::PhysicsBody> aECSRigidbody) :
-	m_ECSRigidbody(aECSRigidbody),
+PhysicsObject::PhysicsObject(PhysicsWorld &aPhysicsWorld, std::weak_ptr<ECS::PhysicsBody> aECSPhysicsBody) :
+	m_ECSPhysicsBody(aECSPhysicsBody),
 	m_Transform(new btTransform())
 {}
 
@@ -36,4 +36,10 @@ void PhysicsObject::setRotation(const Math::Quaternion &aRotation)
 {
 	m_Transform._Get()->setRotation(btQuaternion(aRotation.x, aRotation.y, aRotation.z, aRotation.w));
 	
+}
+
+std::weak_ptr<ECS::PhysicsBody> PhysicsObject::getECSPhysicsBody(void)
+{
+	return m_ECSPhysicsBody;
+
 }

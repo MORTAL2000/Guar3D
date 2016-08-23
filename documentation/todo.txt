@@ -5,16 +5,17 @@ Finish ECS::Rigidbody <-> PHY::Rigidbody interface.
 	- raycast from mouse pos in Game::PlayerController. Have to compensate for projection distortion
  - implement remaining abstractions for bullet collider types (sphere, capsule, cylinder, cone, trimesh)
 
-
 move component::init from ecs::scenegraph::update to a callback system.
  - std::vector<initfuncptr> scenegraph::m_initlist
  - call and remove
 
+add methods to create collision meshes from render meshes and vice versa.
+
+parameterize primitive arg for glDraw. Currenty hard coded to triangles, but point and line have
+their uses.
 
 ---------------------
 Later:
-
-Physics system. Implementation handled by Bullet.
 
 Finish forward renderpath
   Clean up ortho shadow caster

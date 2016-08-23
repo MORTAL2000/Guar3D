@@ -45,6 +45,14 @@ void Vector3::operator+=(const Vector3 &aVector)
 
 }
 
+void Vector3::operator-=(const Vector3 &aVector)
+{
+	x -= aVector.x;
+	y -= aVector.y;
+	z -= aVector.z;
+
+}
+
 Vector3 Vector3::operator*(const float &aScalar)
 {
 	return Vector3
@@ -108,6 +116,7 @@ void Vector3::normalizeAndScale(const float &aScalar)
 
 std::ostream& guar::Math::operator<<(std::ostream& stream,const Math::Vector3& aVector3)
 {
+	stream.clear();
 	stream << "{" << aVector3.x << ", " << aVector3.y << ", " << aVector3.z << "}";
 	return stream;
 }

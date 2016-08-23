@@ -36,6 +36,8 @@ namespace guar
 			void rotate   (const Math::Vector3 &aRotation   );
 			//void translate(const float &aX = 0, const float &aY =0, const float &aZ =0);
 
+			Math::Vector3 getForwardVector(void);
+
 		};	
 
 	}

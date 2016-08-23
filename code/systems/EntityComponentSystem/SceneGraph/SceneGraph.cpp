@@ -77,3 +77,19 @@ void SceneGraph::init(void)
 		m_RootObjects[i]._Get()->init();
 	
 }
+
+std::weak_ptr<GameObject> SceneGraph::findGameObject(std::string aGameObjectName)
+{
+	for (int i = 0; i < m_RootObjects.size(); i++)
+	{
+		if (m_RootObjects[i]._Get()->getName() == aGameObjectName)
+		{
+			return m_RootObjects[i];
+
+		}
+
+	}
+
+	return std::weak_ptr<GameObject>();
+
+}

@@ -4,6 +4,7 @@
 #include <EntityComponentSystem\Component\Transform\Transform.h>
 #include <EntityComponentSystem\GameObject\GameObject.h>
 #include <EntityComponentSystem\SceneGraph\SceneGraph.h>
+#include <EntityComponentSystem\Component\PhysicsBody\PhysicsBody.h>
 //PHY inc
 #include <Physics\SceneGraph\SceneGraph.h>
 #include <Physics\Collision\Collision.h>
@@ -25,6 +26,8 @@ using namespace guar;
 void PlayerController::init(void)
 {
 	m_Transform = getGameObject()->findComponent<guar::ECS::Transform>();
+
+	//m_Rotation = m_Transform._Get()->getRotation().getEuler();
 
 }
 
@@ -60,29 +63,39 @@ void PlayerController::update(void)
 
 		if (Input::getKeyDown(Key::W))
 		{
-			delta.x += sin(m_Rotation.y);
-			delta.z -= cos(m_Rotation.y);
+			delta -= Math::Vector3 //d vec, with -z axis// - (90.0f * Math::PI / 180)
+			(
+				cos(m_Rotation.y - (90.0f * Math::PI / 180))*cos(m_Rotation.x),
+				sin(m_Rotation.x),
+				sin(m_Rotation.y - (90.0f * Math::PI / 180))*cos(m_Rotation.x)
 
+			);
+			
 		}
 
 		if (Input::getKeyDown(Key::S))
 		{
-			delta.x -= sin(m_Rotation.y);
-			delta.z += cos(m_Rotation.y);
+			delta += Math::Vector3 //d vec, with -z axis// - (90.0f * Math::PI / 180)
+			(
+				cos(m_Rotation.y - (90.0f * Math::PI / 180))*cos(m_Rotation.x),
+				sin(m_Rotation.x),
+				sin(m_Rotation.y - (90.0f * Math::PI / 180))*cos(m_Rotation.x)
+
+			);
 
 		}
 
 		if (Input::getKeyDown(Key::A))
 		{
-			delta.x -= sin(m_Rotation.y + (90.0f * Math::PI / 180));
-			delta.z += cos(m_Rotation.y + (90.0f * Math::PI / 180));
+			delta.x += sin(m_Rotation.y + (90.0f * Math::PI / 180));
+			delta.z -= cos(m_Rotation.y + (90.0f * Math::PI / 180));
 
 		}
 
 		if (Input::getKeyDown(Key::D))
 		{
-			delta.x += sin(m_Rotation.y + (90.0f * Math::PI / 180));
-			delta.z -= cos(m_Rotation.y + (90.0f * Math::PI / 180));
+			delta.x -= sin(m_Rotation.y + (90.0f * Math::PI / 180));
+			delta.z += cos(m_Rotation.y + (90.0f * Math::PI / 180));
 
 		}
 
@@ -102,11 +115,13 @@ void PlayerController::update(void)
 	{
 		if (Input::getKeyDown(Key::T))
 		{
-			PHY::Collision collision;
-
-			getGameObject()->getSceneGraph()._Get()->getPhysicsScene()._Get()->rayCast(m_Transform._Get()->getPosition(),Math::Vector3::Forward,1000.f);
-
-			Debug::log("PlayerController::update(void)\n");
+			PHY::Collision raycastInfo;
+			
+			if (getGameObject()->getSceneGraph()._Get()->getPhysicsScene()._Get()->rayCast(m_Transform._Get()->getPosition(), m_Transform._Get()->getForwardVector(), 1000.f, raycastInfo))
+			{
+				Debug::log(raycastInfo.physicsbody._Get()->getGameObject()->getName(),"\n");
+				
+			}
 
 		}
 

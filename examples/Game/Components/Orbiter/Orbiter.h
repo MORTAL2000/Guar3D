@@ -11,6 +11,7 @@ namespace Game
 	{
 		std::weak_ptr<guar::ECS::Transform> m_Transform;
 
+		//void init(void) override;
 		void update(void) override;
 
 

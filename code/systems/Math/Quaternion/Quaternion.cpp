@@ -36,6 +36,23 @@ void Quaternion::setFromEuler(const Vector3 &aEulerAngles)
 
 }
 
+Math::Vector3 Quaternion::getEuler(void)
+{
+	glm::quat quaternion(w, x, y, z);
+	glm::vec3 euler = glm::eulerAngles(quaternion);
+
+	//Debug::log("Quat: ", m_Rotation, "Euler: ", euler.x, ", ", euler.y, ", ", euler.z, "\n");
+
+	return Math::Vector3
+	(
+		euler.x,
+		euler.y,
+		euler.z
+
+	);
+
+}
+
 Quaternion::Quaternion(const btQuaternion &aBulletQuaternion)
 {
 	x = aBulletQuaternion.getX();
@@ -52,3 +69,11 @@ std::ostream& guar::Math::operator<< (std::ostream& stream, const Math::Quaterni
 
 }
 
+Quaternion::Quaternion(const float &aX, const float &aY, const float &aZ, const float &aW)
+{
+	x = aX;
+	y = aY;
+	z = aZ;
+	w = aW;
+
+}

@@ -8,6 +8,8 @@
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/quaternion.hpp>
 
+#include <Math/Constants.h>
+
 using namespace guar;
 using namespace GFX;
 
@@ -37,6 +39,7 @@ void RenderCamera::generateViewProjectionMatrix(glm::mat4x4* aViewMatrix, glm::m
 	//view = glm::rotate(view, m_Rotation.z, glm::vec3(0.0f, 0.0f, 1.0f));
 	//view = glm::mat4_cast(glm::quat(m_Rotation.x, m_Rotation.y, m_Rotation.z, m_Rotation.w));
 	view = glm::mat4_cast(glm::quat(m_Rotation.w, m_Rotation.x, m_Rotation.y, m_Rotation.z));
+	view = glm::rotate(view, 180.f*((float)Math::PI/180.f), glm::vec3(0.0f, 1.0f, 0.0f));//camera looks down +z
 	view = glm::translate<>(view, glm::vec3(-m_Position.x, -m_Position.y, -m_Position.z));
 	
 	//PROJECTION
