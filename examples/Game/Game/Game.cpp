@@ -212,18 +212,7 @@ void Game::initMainScene()
 		rigidbody._Get()->setMass(0.f);
 	
 	}
-	{
-		std::weak_ptr<ECS::GameObject> gameObject = mainScene._Get()->createNewGameObject("The Player");
-
-		std::weak_ptr<guar::ECS::Transform> transform = gameObject._Get()->addComponent<guar::ECS::Transform>();
-		transform._Get()->setScale(Math::Vector3(1.0f, 1.0f, 1.0f));
-		transform._Get()->setPosition(Math::Vector3(0.0f, 5.0f, 40.0f));
-		transform._Get()->setRotation(Math::Vector3(0.f, 180.f, 0.f));
-
-		gameObject._Get()->addComponent<guar::ECS::Camera>();
-		gameObject._Get()->addComponent<PlayerController>();
-		
-	}
+	
 
 	{
 		std::weak_ptr<ECS::GameObject> gameObject = mainScene._Get()->createNewGameObject("The Screen");
@@ -279,19 +268,52 @@ void Game::initMainScene()
 	
 	}
 	{
-		std::weak_ptr<ECS::GameObject> gameObject = mainScene._Get()->createNewGameObject("Chaser");
+		std::weak_ptr<ECS::GameObject> gameObject = mainScene._Get()->createNewGameObject("The Player");
 
+		//std::weak_ptr<guar::ECS::Renderer> renderer = gameObject._Get()->addComponent<guar::ECS::Renderer>();
+		//renderer._Get()->setModel("Cube");// "../Models/stanford-dragon.fbx"
+		//renderer._Get()->setShaderProgram("Opaque");
+		//renderer._Get()->setTexture("_Texture", "");
+
+		std::weak_ptr<guar::ECS::Transform> transform = gameObject._Get()->addComponent<guar::ECS::Transform>();
+		transform._Get()->setScale(Math::Vector3(1.0f, 1.0f, 1.0f));
+		transform._Get()->setPosition(Math::Vector3(0.0f, 5.0f, 40.0f));
+		transform._Get()->setRotation(Math::Vector3(0.f, 180.f, 0.f));
+		transform._Get()->setScale(Math::Vector3(2., 2., 2.));
+
+		gameObject._Get()->addComponent<guar::ECS::Camera>();
+		gameObject._Get()->addComponent<PlayerController>();
+
+	}
+	{
+		std::weak_ptr<ECS::GameObject> gameObject = mainScene._Get()->createNewGameObject("Chaser");
+	
 		std::weak_ptr<guar::ECS::Renderer> renderer = gameObject._Get()->addComponent<guar::ECS::Renderer>();
 		renderer._Get()->setModel("Cube");// "../Models/stanford-dragon.fbx"
 		renderer._Get()->setShaderProgram("Opaque");
 		renderer._Get()->setTexture("_Texture", "");
-
+	
 		std::weak_ptr<guar::ECS::Transform> transform = gameObject._Get()->addComponent<guar::ECS::Transform>();
-		transform._Get()->setPosition(Math::Vector3(0., 5., +7.));
-		transform._Get()->setScale(Math::Vector3(.25, .25, .25));
-
+		transform._Get()->setPosition(Math::Vector3(0., +10., +15.));
+		transform._Get()->setScale(Math::Vector3(1., 1., 1.));
+	
 		gameObject._Get()->addComponent<Chaser>();
 
+		std::weak_ptr<guar::ECS::BoxCollider> boxCollider = gameObject._Get()->addComponent<guar::ECS::BoxCollider>();
+		boxCollider._Get()->setSize(Math::Vector3(1., 1., 1.));
+	
 	}
+	//{
+	//	std::weak_ptr<ECS::GameObject> gameObject = mainScene._Get()->createNewGameObject("The Observer");
+	//
+	//	std::weak_ptr<guar::ECS::Transform> transform = gameObject._Get()->addComponent<guar::ECS::Transform>();
+	//	transform._Get()->setScale(Math::Vector3(1.0f, 1.0f, 1.0f));
+	//	transform._Get()->setPosition(Math::Vector3(0.0f, 5.0f, 70.0f));
+	//	transform._Get()->setRotation(Math::Vector3(0.f, 180.f, 0.f));
+	//
+	//	//gameObject._Get()->addComponent<guar::ECS::Camera>();
+	//	//gameObject._Get()->addComponent<PlayerController>();
+	//
+	//}
 		
 }

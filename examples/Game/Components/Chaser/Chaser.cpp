@@ -19,8 +19,8 @@ void Chaser::update(void)
 {
 	guar::Math::Vector3 position = guar::Math::Vector3();
 
-	position  = m_PlayerTransform._Get()->getPosition();
-	position += m_PlayerTransform._Get()->getForwardVector();
+	position = m_PlayerTransform._Get()->getPosition();
+	position += m_PlayerTransform._Get()->getForwardVector()*5.f;
 
 	m_Transform._Get()->setPosition
 	(

@@ -43,7 +43,6 @@ namespace guar
 			Vector3(const float &aScalar);
 			Vector3(const float &aX, const float &aY, const float &aZ);
 			Vector3(const btVector3 &aBulletVector);
-			
 
 		};
 
