@@ -118,6 +118,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\..\code\systems\EntityComponentSystem\ComponentCallbackList\ComponentCallbackList.cpp" />
+    <ClCompile Include="..\..\..\code\systems\EntityComponentSystem\ComponentCallbackList\InitComponentCallbackList\InitComponentCallbackList.cpp" />
     <ClCompile Include="..\..\..\code\systems\EntityComponentSystem\ComponentCollection\ComponentCollection.cpp" />
     <ClCompile Include="..\..\..\code\systems\EntityComponentSystem\ComponentTypeRegistry\ComponentTypeRegistry.cpp" />
     <ClCompile Include="..\..\..\code\systems\EntityComponentSystem\Component\Camera\Camera.cpp" />
@@ -141,6 +143,8 @@
     <ClCompile Include="..\..\..\code\systems\EntityComponentSystem\SceneGraph\SceneGraph.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\..\code\systems\EntityComponentSystem\ComponentCallbackList\ComponentCallbackList.h" />
+    <ClInclude Include="..\..\..\code\systems\EntityComponentSystem\ComponentCallbackList\InitComponentCallbackList\InitComponentCallbackList.h" />
     <ClInclude Include="..\..\..\code\systems\EntityComponentSystem\ComponentCollection\ComponentCollection.h" />
     <ClInclude Include="..\..\..\code\systems\EntityComponentSystem\ComponentTypeRegistry\ComponentTypeRegistry.h" />
     <ClInclude Include="..\..\..\code\systems\EntityComponentSystem\Component\Camera\Camera.h" />

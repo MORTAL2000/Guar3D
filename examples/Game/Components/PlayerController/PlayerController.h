@@ -22,6 +22,8 @@ namespace Game
 		guar::Math::Vector3 m_Rotation;
 		float m_Distance;
 
+		float m_ReloadTimer;
+
 		void init  (void) override;
 		//void start (void) override;
 		void update(void) override;

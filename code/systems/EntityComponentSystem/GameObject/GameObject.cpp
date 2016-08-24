@@ -25,21 +25,12 @@ using namespace guar;
 using namespace ECS;
 
 GameObject::GameObject() : 
-	GameObject
-	(
-		"Unnamed GameObject"
-	
-	)
-
+	GameObject("Unnamed GameObject")
 {}
 
 GameObject::GameObject(const std::string &aName) :
 	m_Name(aName)
-
-{
-	//m_SceneGraph = &Engine::m_SceneGraph; //absurd hack TODO: COMPLETELY FIX GAMEOBJECT INSTANTIATION
-
-}
+{}
 
 
 GameObject::~GameObject()
@@ -60,7 +51,8 @@ void GameObject::update(void)
 {
 	//Update components
 	for (int i = 0; i < m_Components.size(); i++)
-		m_Components[i]->update();
+		if (m_Components[i]->isReady())
+			m_Components[i]->update();
 
 	//Update children
 	for (int i = 0; i < m_Children.size(); i++)

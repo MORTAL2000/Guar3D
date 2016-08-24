@@ -20,8 +20,8 @@ namespace guar
 		class PhysicsBody : public Component
 		{
 		protected:
-			std::weak_ptr<ECS::Transform>     m_Transform;
-			std::weak_ptr<PHY::PhysicsObject> m_PhysicsObject;
+			std::weak_ptr<ECS::Transform>     m_Transform     ;
+			std::weak_ptr<PHY::PhysicsObject> m_PhysicsObject ;
 
 			//Gameobject interface
 			void init(const std::weak_ptr<PHY::PhysicsObject> &aPhysicsObject);

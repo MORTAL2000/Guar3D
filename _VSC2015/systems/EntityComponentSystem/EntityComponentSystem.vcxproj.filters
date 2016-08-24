@@ -67,6 +67,12 @@
     <Filter Include="ECS\Component\PhysicsBody\Softbody">
       <UniqueIdentifier>{2bc6d9f0-7518-40ab-997d-5e8202966db4}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ECS\ComponentCallbackList">
+      <UniqueIdentifier>{aeb734f9-0a24-47a2-a6ce-cab2613f4aea}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ECS\ComponentCallbackList\InitComponentCallbackList">
+      <UniqueIdentifier>{13cd873a-bfbb-4cde-a519-915da7dd1712}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\code\systems\EntityComponentSystem\Component\Component.cpp">
@@ -132,6 +138,12 @@
     <ClCompile Include="..\..\..\code\systems\EntityComponentSystem\Component\Collider\SphereCollider\SphereCollider.cpp">
       <Filter>ECS\Component\Collider\SphereCollider</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\code\systems\EntityComponentSystem\ComponentCallbackList\ComponentCallbackList.cpp">
+      <Filter>ECS\ComponentCallbackList</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\code\systems\EntityComponentSystem\ComponentCallbackList\InitComponentCallbackList\InitComponentCallbackList.cpp">
+      <Filter>ECS\ComponentCallbackList\InitComponentCallbackList</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\code\systems\EntityComponentSystem\Component\Component.h">
@@ -196,6 +208,12 @@
     </ClInclude>
     <ClInclude Include="..\..\..\code\systems\EntityComponentSystem\Component\Collider\SphereCollider\SphereCollider.h">
       <Filter>ECS\Component\Collider\SphereCollider</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\code\systems\EntityComponentSystem\ComponentCallbackList\ComponentCallbackList.h">
+      <Filter>ECS\ComponentCallbackList</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\code\systems\EntityComponentSystem\ComponentCallbackList\InitComponentCallbackList\InitComponentCallbackList.h">
+      <Filter>ECS\ComponentCallbackList\InitComponentCallbackList</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

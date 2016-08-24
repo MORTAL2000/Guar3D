@@ -36,12 +36,12 @@ namespace guar
 			void draw(void) override;
 
 		public:
-			//Vector3 getPosition             (void);
-			//Vector3 getRotation             (void);
-			//float   getNearClippingDistance (void);
-			//float   getFarClippingDistance  (void);
-			//float   getFieldOfView          (void);
-			GFX::Color   getClearColor           (void);
+			//Vector3     getPosition                 (void);
+			//Vector3     getRotation                 (void);
+			//float       getNearClippingDistance     (void);
+			//float       getFarClippingDistance      (void);
+			//float       getFieldOfView              (void);
+			GFX::Color    getClearColor               (void);
 			Math::Vector3 getWorldPointFromScreenPoint(const Math::Vector2 &aScreenPoint, const float &aWorldSpaceDistance); 
 			Math::Vector3 getWorldPointFromScreenPoint(const Math::Vector2 &aScreenPoint);
 			

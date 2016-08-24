@@ -20,7 +20,7 @@ SceneGraph::SceneGraph() :
 {}
 
 SceneGraph::SceneGraph(const std::string &aSceneName) :
-	m_DidInit(false),
+	//m_DidInit(false),
 	DEV::SceneGraph(aSceneName),
 	m_GraphicsScene(Graphics::createScene(aSceneName)),
 	m_PhysicsScene (Physics::createScene (aSceneName))
@@ -31,14 +31,12 @@ void SceneGraph::addRootObject(std::shared_ptr<GameObject> aGameObject)
 { 
 	m_RootObjects.push_back(aGameObject); 
 	m_RootObjects.back()._Get()->m_SceneGraph = Engine::findScene(getName());
-	//m_RootObjects.back()._Get()->init();
 
 }
 
 void SceneGraph::update(void)
 {
-	if (!m_DidInit)
-		init();
+	m_ComponentInitCallbackList.update();
 
 	for (int i = 0; i < m_RootObjects.size(); i++)
 		m_RootObjects[i]._Get()->update();
@@ -67,15 +65,6 @@ std::weak_ptr<GameObject> SceneGraph::createNewGameObject(const std::string &aNa
 
 	return std::weak_ptr<GameObject>(gameObject);
 
-}
-#include <Debug\Debug.h>
-void SceneGraph::init(void)
-{
-	m_DidInit = true;
-
-	for (int i = 0; i < m_RootObjects.size(); i++)
-		m_RootObjects[i]._Get()->init();
-	
 }
 
 std::weak_ptr<GameObject> SceneGraph::findGameObject(std::string aGameObjectName)

@@ -20,9 +20,42 @@
 #include <math.h>
 //debug inc
 #include <Debug\Debug.h>
+//game inc
+#include "../../Game/Game.h"
 
 using namespace Game;
 using namespace guar;
+
+#include <EntityComponentSystem\Component\Renderer\Renderer.h>
+#include <EntityComponentSystem\Component\Collider\BoxCollider\BoxCollider.h>
+#include <EntityComponentSystem\Component\PhysicsBody\Rigidbody\Rigidbody.h>
+void createCube(const std::weak_ptr<guar::ECS::SceneGraph> &aScene, const guar::Math::Vector3 &aPosition)
+{
+	float cubeScale = 5.f;
+	std::weak_ptr<ECS::GameObject> gameObject = aScene._Get()->createNewGameObject(std::string("Rigidbody test"));
+	
+	std::weak_ptr<guar::ECS::Renderer> renderer = gameObject._Get()->addComponent<guar::ECS::Renderer>();
+	renderer._Get()->setModel("Cube");
+	renderer._Get()->setShaderProgram("Opaque");
+	renderer._Get()->setTexture("_Texture", "../Textures/Water.png");
+	
+	std::weak_ptr<guar::ECS::Transform> transform = gameObject._Get()->addComponent<guar::ECS::Transform>();
+	transform._Get()->setScale(Math::Vector3(cubeScale, cubeScale, cubeScale));
+	transform._Get()->setPosition(aPosition);
+	
+	std::weak_ptr<guar::ECS::BoxCollider> boxCollider = gameObject._Get()->addComponent<guar::ECS::BoxCollider>();
+	boxCollider._Get()->setSize(Math::Vector3(cubeScale, cubeScale, cubeScale));
+
+	//std::weak_ptr<guar::ECS::Camera> camera = gameObject._Get()->addComponent<guar::ECS::Camera>();
+	//camera._Get()->setViewportSize(Math::Vector2(20, 20));
+	//camera._Get()->setViewportPosition(Math::Vector2(0, 0));
+	
+	std::weak_ptr<guar::ECS::Rigidbody> rigidbody = gameObject._Get()->addComponent<guar::ECS::Rigidbody>();
+	rigidbody._Get()->setMass(1.f);
+
+	//Debug::log("BUILDING FROM PLAYERCONTROLLER: ", gameObject._Get()->getName(), "\n");
+
+}
 
 void PlayerController::init(void)
 {
@@ -32,6 +65,7 @@ void PlayerController::init(void)
 	//m_Rotation = m_Transform._Get()->getRotation().getEuler();
 
 	m_Distance = 1.;
+	m_ReloadTimer = 0;
 
 }
 
@@ -169,6 +203,18 @@ void PlayerController::update(void)
 			}
 
 		}
+
+		if (Input::getMouseButtonDown(MouseButton::Three))
+		{
+			if (m_ReloadTimer > 1.)
+			{
+				createCube(getGameObject()->getSceneGraph(), m_Camera._Get()->getWorldPointFromScreenPoint(Input::getMousePos(), 30.f));
+				m_ReloadTimer = 0;
+			}
+
+		}
+
+		m_ReloadTimer += Time::getDeltaTime();
 
 	}
 

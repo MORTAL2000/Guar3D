@@ -6,12 +6,14 @@
 */
 //dev inc
 #include <Development\SceneGraph.h>
-
+//ecs
+#include "../ComponentCallbackList/InitComponentCallbackList/InitComponentCallbackList.h"
 //stdinc
 #include <vector>
 #include <string>
 #include <iostream>
 #include <memory>
+//#include <functional>
 
 namespace guar
 {
@@ -24,6 +26,7 @@ namespace guar
 		class Renderer;
 		class Camera;
 		class Light;
+		class Component;
 
 		class SceneGraph : public DEV::SceneGraph
 		{
@@ -37,7 +40,7 @@ namespace guar
 			std::vector<std::weak_ptr<Camera>>       m_Cameras;
 			std::vector<std::weak_ptr<Light>>        m_Lights;
 
-			bool m_DidInit;
+			InitComponentCallbackList m_ComponentInitCallbackList;
 			
 		public:
 			std::weak_ptr<PHY::SceneGraph> getPhysicsScene(void) { return m_PhysicsScene; }
@@ -51,7 +54,6 @@ namespace guar
 
 			std::weak_ptr<GameObject> createNewGameObject(const std::string &aName ="Unnamed");
 
-			void init();
 			void update();
 
 			SceneGraph();

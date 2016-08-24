@@ -6,6 +6,7 @@
 */
 //project includes
 #include "../Component/Light/Light.h"
+#include "../Component/Component.h"
 
 //stdlib includes
 #include <vector>
@@ -62,7 +63,8 @@ namespace guar
 				
 				m_Components.push_back(std::make_shared<T>());
 				m_Components.back()->m_GameObject = this;
-				//m_Components.back()->init();
+				
+				m_SceneGraph._Get()->m_ComponentInitCallbackList.push_back(std::tuple<Component*, std::function<void(void)>>(m_Components.back()._Get(), std::bind(&ECS::Component::init, m_Components.back()._Get())));
 
 				if (std::is_same<T, Renderer>::value)
 					m_SceneGraph._Get()->m_Renderers.push_back

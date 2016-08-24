@@ -14,16 +14,22 @@ namespace guar
 	namespace ECS
 	{
 		class GameObject;
+		class ComponentCallbackList;
 
 		class Component
 		{
 			friend GameObject;
 			friend std::shared_ptr<Component>;
+			friend ComponentCallbackList;
 
 			GameObject* m_GameObject;
+
+			bool m_Ready;
 		
 		public: //Only GameObject can instantiate Components FIX
 			Component();
+
+			bool isReady();
 			
 		public:
 			~Component();//call a virtual destroyfunc

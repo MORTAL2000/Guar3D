@@ -21,14 +21,14 @@ void PhysicsBody::init(const std::weak_ptr<PHY::PhysicsObject> &aPhysicsObject)
 
 	m_PhysicsObject._Get()->setPosition(m_Transform._Get()->getPosition());
 	m_PhysicsObject._Get()->setRotation(m_Transform._Get()->getRotation());
-
+	
 }
 
 void PhysicsBody::update(void)
 {
 	m_Transform._Get()->setPosition(m_PhysicsObject._Get()->getPosition());
 	m_Transform._Get()->setRotation(m_PhysicsObject._Get()->getRotation());
-
+	
 }
 
 Math::Vector3    PhysicsBody::getPosition(void) { return m_Transform._Get()->getPosition(); }
