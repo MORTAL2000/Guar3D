@@ -1,10 +1,9 @@
 Next:
-move component::init from ecs::scenegraph::update to a callback system.
- - std::vector<initfuncptr> scenegraph::m_initlist
- - call and remove
-
 GFX::RenderCamera
  - add FBO to implementation so that gl buffer operations do not affect the output of other cameras (in terms of depth, color, stencil, accum).
+
+skeletons
+ - rigged animation, cpu implementation. Read about GPU based, maybe useful to push muls to vert shader.
 
 creation of gfx meshes from col meshes & shapes(sphere, box, cylinder, capsule, cone), creation of col meshes from gfx meshes.
   - add methods to create collision meshes from render meshes and vice versa.
@@ -20,6 +19,17 @@ implement deferred render path
     - abstract type that forces implementer to write to textures & attaches those textures for them.
  - ECS::DeferredRenderer
     - render component that only accepts deferred path types
+
+Cleaning
+ - clean all systems: replace needless includes with forward decs, etc.
+ - reduce the excessive use of "friend" in ECS project.
+
+Mouse input improvements
+ - currently feels very coarse and deltas spike at the mercy of main thread's tick rate.
+
+Buffer position & rotations for graphics system
+ - when the main thread slows down enough, it is possible to see the gfx thead rendering with a mix of new and old position data, leading to slight jittering.
+ double or triple buffer graphics object 4x4s and only operate on complete gfx scene states to fix.
 
 ---------------------
 Later:
