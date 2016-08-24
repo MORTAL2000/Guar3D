@@ -30,7 +30,7 @@ namespace guar
 		public:
 			std::weak_ptr<PHY::RigidBody> createRigidBody(std::weak_ptr<ECS::Rigidbody> aECSRigidbody, std::vector<std::weak_ptr<PHY::Collider>> &aColliders, const float &aMass);
 			bool rayCast(const Math::Vector3 &aOrigin, const Math::Vector3 &aDirection, const float &aDistance, PHY::Collision &ioRaycastInfo);
-
+			bool rayCast(const Math::Vector3 &aFromVector, const Math::Vector3 &aToVector, PHY::Collision &ioRaycastInfo);
 
 			void update(void);
 			

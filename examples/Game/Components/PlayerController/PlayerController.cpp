@@ -5,6 +5,7 @@
 #include <EntityComponentSystem\GameObject\GameObject.h>
 #include <EntityComponentSystem\SceneGraph\SceneGraph.h>
 #include <EntityComponentSystem\Component\PhysicsBody\PhysicsBody.h>
+#include <EntityComponentSystem\Component\Camera\Camera.h>
 //PHY inc
 #include <Physics\SceneGraph\SceneGraph.h>
 #include <Physics\Collision\Collision.h>
@@ -26,8 +27,11 @@ using namespace guar;
 void PlayerController::init(void)
 {
 	m_Transform = getGameObject()->findComponent<guar::ECS::Transform>();
+	m_Camera = getGameObject()->findComponent<guar::ECS::Camera>();
 
 	//m_Rotation = m_Transform._Get()->getRotation().getEuler();
+
+	m_Distance = 1.;
 
 }
 
@@ -144,13 +148,21 @@ void PlayerController::update(void)
 
 	//shoot
 	{
+		if (Input::getKeyDown(Key::T))
+		{
+			
+			m_Distance += 1.*Time::getDeltaTime();
+			//Debug::log(m_Distance,"\n");
+		}
+
 		if (Input::getMouseButtonDown(MouseButton::One))
 		{
 			//Debug::log(Input::getMousePos(), "\n");
 
 			PHY::Collision raycastInfo;
 			
-			if (getGameObject()->getSceneGraph()._Get()->getPhysicsScene()._Get()->rayCast(m_Transform._Get()->getPosition(), m_Transform._Get()->getForwardVector(), 1000.f, raycastInfo))
+			//if (getGameObject()->getSceneGraph()._Get()->getPhysicsScene()._Get()->rayCast(m_Transform._Get()->getPosition(), m_Transform._Get()->getForwardVector(), 1000.f, raycastInfo))
+			if (getGameObject()->getSceneGraph()._Get()->getPhysicsScene()._Get()->rayCast(m_Transform._Get()->getPosition(),m_Camera._Get()->getWorldPointFromScreenPoint(Input::getMousePos()), raycastInfo))
 			{
 				Debug::log(raycastInfo.physicsbody._Get()->getGameObject()->getName(),"\n");
 				

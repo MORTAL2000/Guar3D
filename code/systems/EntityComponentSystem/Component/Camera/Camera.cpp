@@ -33,6 +33,12 @@ Math::Vector3 Camera::getWorldPointFromScreenPoint(const Math::Vector2 &aScreenP
 
 }
 
+Math::Vector3 Camera::getWorldPointFromScreenPoint(const Math::Vector2 &aScreenPoint)
+{
+	return m_RenderCamera._Get()->getWorldPointFromScreenPoint(aScreenPoint);
+
+}
+
 //Vector3 Camera::getPosition				(void) { return m_RenderCamera.getPosition();             }
 //Vector3 Camera::getRotation				(void) { return m_RenderCamera.getRotation();             }
 //float   Camera::getNearClippingDistance (void) { return m_RenderCamera.getNearClippingDistance(); }

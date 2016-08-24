@@ -40,7 +40,8 @@ namespace guar
 			//float   getFieldOfView          (void);
 			GFX::Color   getClearColor           (void);
 			Math::Vector3 getWorldPointFromScreenPoint(const Math::Vector2 &aScreenPoint, const float &aWorldSpaceDistance); 
-
+			Math::Vector3 getWorldPointFromScreenPoint(const Math::Vector2 &aScreenPoint);
+			
 			void setPosition             (const Math::Vector3 &aPosition            );
 			void setRotation             (const Math::Vector3 &aRotation            );
 			void setNearClippingDistance (const float         &aNearClippingDistance);

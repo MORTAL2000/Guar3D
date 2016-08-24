@@ -46,6 +46,8 @@ namespace guar
 			void setViewportPosition(const Math::Vector2          &aViewportPosition) { m_ViewportPosition = aViewportPosition ; }
 			void setViewportSize    (const Math::Vector2          &aViewportSize    ) { m_ViewportSize     = aViewportSize     ; }
 			void setClearMode(const bool &aEnabled, const ClearMode::ClearModeCode &aClearMode);
+
+			Math::Vector3 getWorldPointFromScreenPoint(const Math::Vector2 &aScreenPoint);
 			Math::Vector3 getWorldPointFromScreenPoint(const Math::Vector2 &aScreenPoint, const float &aWorldSpaceDistance);
 
             void draw(void) override;

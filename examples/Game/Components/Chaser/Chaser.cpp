@@ -31,7 +31,6 @@ void Chaser::update(void)
 	//position = m_PlayerTransform._Get()->getPosition();
 	//position += m_PlayerTransform._Get()->getForwardVector()*5.f;
 
-	position = m_PlayerCamera._Get()->getWorldPointFromScreenPoint(guar::Input::getMousePos(),1.0f);
 	
 	//guar::Debug::log(position, "\n");
 

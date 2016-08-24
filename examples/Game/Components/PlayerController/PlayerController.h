@@ -9,15 +9,18 @@
 //std inc
 #include <memory>
 
-namespace guar { namespace ECS  { class  Transform; } }
+namespace guar { namespace ECS { class Transform; } }
+namespace guar { namespace ECS { class Camera   ; } }
 
 namespace Game
 {
 	class PlayerController : public guar::ECS::Component
 	{
 		std::weak_ptr<guar::ECS::Transform> m_Transform;
+		std::weak_ptr<guar::ECS::Camera> m_Camera;
 
 		guar::Math::Vector3 m_Rotation;
+		float m_Distance;
 
 		void init  (void) override;
 		//void start (void) override;
