@@ -1,21 +1,30 @@
 Next:
-ECS::Camera 
- - implement ScreenToPoint
-
-Finish ECS::Rigidbody <-> PHY::Rigidbody interface.
- - raycast from mouse pos in Game::PlayerController. Have to compensate for projection distortion
-
 move component::init from ecs::scenegraph::update to a callback system.
  - std::vector<initfuncptr> scenegraph::m_initlist
  - call and remove
 
-add methods to create collision meshes from render meshes and vice versa.
+GFX::RenderCamera
+ - add FBO to implementation so that gl buffer operations do not affect the output of other cameras (in terms of depth, color, stencil, accum).
 
-parameterize primitive arg for glDraw. Currenty hard coded to triangles, but point and line have
-their uses.
+creation of gfx meshes from col meshes & shapes(sphere, box, cylinder, capsule, cone), creation of col meshes from gfx meshes.
+  - add methods to create collision meshes from render meshes and vice versa.
+  - parameterize primitive arg for glDraw. Currenty hard coded to triangles, but point and line have
+    their uses (visualizing rays and collision meshes).
+
+implement deferred render path
+ - GFX::DeferredGeoBuffer
+    - Review GFX::RenderTexture
+ - GFX::DeferredGeoShader
+    - abstract type w capacity for children to write pos, norm, tan,bi, lin & nonlin depth etc. to textures
+ - GFX::DeferredFXShader
+    - abstract type that forces implementer to write to textures & attaches those textures for them.
+ - ECS::DeferredRenderer
+    - render component that only accepts deferred path types
 
 ---------------------
 Later:
+
+Think about clean way to incorporate gpu raycasting into GFX. Think about standardized raycasting shader API etc. (look at ShaderToy).
 
 Finish ECS::Rigidbody <-> PHY::Rigidbody interface.
  - implement remaining abstractions for bullet collider types (sphere, capsule, cylinder, cone, trimesh)
@@ -28,14 +37,13 @@ Finish forward renderpath
   Implement point light shadow caster
   Implement spotlight shadow caster
 
-Start deferred renderpath
-
-Add collision checks for lights, to prevent lighting through walls, reduce # of lights being
-rendered etc.
+Add collision checks for lights and cameras for deferred light culling.
 
 Audio system. Will probably use OpenAL soft.
 
-write lightbaking shader for static lights.
+lightbaking system for static light data generation.
+  - Plan: do lighting, shadow casting etc. as usual BUT: mul results to uv space, write results to texture & texture to disk. Texture to be sampled as usual later @ far less cost.
+  - be sure to make threadsafe, want to be able to throw this on a worker thread while game is running st possible to recalculate static lights.
 
 paralellize resource loading
 

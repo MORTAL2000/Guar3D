@@ -4,6 +4,8 @@
 #include "../Transform/Transform.h"
 #include "../../../Graphics/GraphicsTypes.h"
 
+#include "../../../Graphics/RenderCamera/RenderCamera.h"
+
 using namespace guar;
 using namespace ECS;
 using namespace GFX;
@@ -54,3 +56,8 @@ void Camera::setFieldOfView          (const float         &aFieldOfView         
 void Camera::setClearColor           (const Color         &aClearColor          ) { m_RenderCamera._Get()->setClearColor(aClearColor);                     }
 void Camera::setViewportPosition     (const Math::Vector2 &aViewportPosition    ) { m_RenderCamera._Get()->setViewportPosition(aViewportPosition); }
 void Camera::setViewportSize         (const Math::Vector2 &aViewportSize        ) { m_RenderCamera._Get()->setViewportSize    (aViewportSize    ); }
+
+
+void Camera::setClearMode(const bool &aEnabled, const GFX::ClearMode::ClearModeCode &aClearMode) { m_RenderCamera._Get()->setClearMode(aEnabled, aClearMode); }
+
+GFX::RenderObserver* Camera::getRenderObserver(void) { return m_RenderCamera._Get(); }

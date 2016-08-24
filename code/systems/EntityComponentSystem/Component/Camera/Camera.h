@@ -5,15 +5,18 @@
 #include "../Observer/Observer.h"
 //gfxinc
 #include <Graphics\ClearMode\ClearMode.h>
-#include "../../../Graphics/RenderCamera/RenderCamera.h"
+#include <Graphics\GraphicsTypes.h>
+
 //math inc
 #include <Math\Vector3\Vector3.h>
+#include <Math\Vector2\Vector2.h>
 //stdinc
 #include <memory>
 
 namespace guar
 {
-	namespace GFX { RenderObserver; }
+	namespace GFX { class RenderObserver; }
+	namespace GFX { class RenderCamera; }
 
 	namespace ECS
 	{
@@ -51,9 +54,9 @@ namespace guar
 			void setViewportPosition     (const Math::Vector2 &aViewportPosition    ); 
 			void setViewportSize         (const Math::Vector2 &aViewportSize        ); 
 
-			void setClearMode(const bool &aEnabled, const GFX::ClearMode::ClearModeCode &aClearMode) { m_RenderCamera._Get()->setClearMode(aEnabled, aClearMode); }
+			void setClearMode(const bool &aEnabled, const GFX::ClearMode::ClearModeCode &aClearMode);// { m_RenderCamera._Get()->setClearMode(aEnabled, aClearMode); }
 
-			GFX::RenderObserver* getRenderObserver(void) override { return m_RenderCamera._Get(); }
+			GFX::RenderObserver* getRenderObserver(void) override;
 
 		};
 
