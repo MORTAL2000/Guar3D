@@ -85,26 +85,68 @@ Math::Vector3 RenderCamera::getWorldPointFromScreenPoint(const Math::Vector2 &aS
 	glm::mat4 tmpProj;// = glm::perspective(90.0f, screenW / screenH, 0.1f, 1000.0f);
 	generateViewProjectionMatrix(&tmpView, &tmpProj);
 	//screen pos
+	
+	float zFar        = m_FarClippingDistance;
+	float zNear       = m_NearClippingDistance;
+	float linearDepth = aWorldSpaceDistance;
+	float nonLinearDepth = (zFar + zNear - 2.0 * zNear * zFar / linearDepth) / (zFar - zNear);
+	nonLinearDepth = (nonLinearDepth + 1.0) / 2.0;
+	
+	//Debug::log("wsd:", aWorldSpaceDistance,"Lineardepth:",linearDepth, "\n");
+	
+	
 	glm::vec3 screenPos = glm::vec3
 	(
 		aScreenPoint.x * m_ViewportSize.x, //denormalizing to fit glm expectation
 		m_ViewportSize.y + (-1.f*aScreenPoint.y * m_ViewportSize.y), //flipping input screen pos y and denormalizing to match glm expectation
-		(2 * m_NearClippingDistance) / (m_FarClippingDistance + m_NearClippingDistance - aWorldSpaceDistance * (m_FarClippingDistance - m_NearClippingDistance)) //linearizing depth
-	
+		//(2 * m_NearClippingDistance) / (m_FarClippingDistance + m_NearClippingDistance - 1.0f * (m_FarClippingDistance - m_NearClippingDistance)) //linearizing depth
+		nonLinearDepth
 	);
 
 	//calc wpos
 	glm::vec3 worldPos = glm::unProject(screenPos, tmpView, tmpProj, viewport);
-	//worldPos = worldPos / (worldPos.z * -1.f);
-
-	//Debug::log(worldPos.x, ", ", worldPos.y, ", ", worldPos.z,"\n");
-
+		
 	return Math::Vector3
 	(
 		worldPos.x,
 		worldPos.y,
 		worldPos.z
 		
+	);
+
+}
+
+Math::Vector3 RenderCamera::getWorldPointFromScreenPoint(const Math::Vector2 &aScreenPoint)
+{
+	//----
+	//marshal data
+	//----
+	//vp dimensions
+	float screenW = m_ViewportSize.x;
+	float screenH = m_ViewportSize.y;
+	glm::vec4 viewport = glm::vec4(0.0f, 0.0f, screenW, screenH);
+	//v&p mats
+	glm::mat4 tmpView;// (1.0f);
+	glm::mat4 tmpProj;// = glm::perspective(90.0f, screenW / screenH, 0.1f, 1000.0f);
+	generateViewProjectionMatrix(&tmpView, &tmpProj);
+	//screen pos
+	glm::vec3 screenPos = glm::vec3
+	(
+		aScreenPoint.x * m_ViewportSize.x, //denormalizing to fit glm expectation
+		m_ViewportSize.y + (-1.f*aScreenPoint.y * m_ViewportSize.y), //flipping input screen pos y and denormalizing to match glm expectation
+																	 //(2 * m_NearClippingDistance) / (m_FarClippingDistance + m_NearClippingDistance - 1.0f * (m_FarClippingDistance - m_NearClippingDistance)) //linearizing depth
+		1.0f
+	);
+
+	//calc wpos
+	glm::vec3 worldPos = glm::unProject(screenPos, tmpView, tmpProj, viewport);
+
+	return Math::Vector3
+	(
+		worldPos.x,
+		worldPos.y,
+		worldPos.z
+
 	);
 
 }
