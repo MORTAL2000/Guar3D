@@ -3,7 +3,8 @@ GFX::RenderCamera
  - add FBO to implementation so that gl buffer operations do not affect the output of other cameras (in terms of depth, color, stencil, accum).
 
 skeletons
- - rigged animation, cpu implementation. Read about GPU based, maybe useful to push muls to vert shader.
+ - rigged animation, cpu implementation. Will be using Ozz for this.
+ - rigged animation, gpu implementation. implement myself, for mobile builds. GPU will require customizable vertex formats for per vert 4x4s and weights.
 
 creation of gfx meshes from col meshes & shapes(sphere, box, cylinder, capsule, cone), creation of col meshes from gfx meshes.
   - add methods to create collision meshes from render meshes and vice versa.
@@ -33,6 +34,16 @@ Buffer position & rotations for graphics system
 
 ---------------------
 Later:
+
+Voxel Terrain system:
+ - PolyVox looks like a good candidate for implementation
+
+Create online documentation
+ - use Doxygen to generate wiki.
+
+remove final hard coupling between ECS and GFX
+ - Gameobject is responsible for initializing the implementation types of ECS::Renderer, camera, light. This is inconsistent with an otherwise subsystem agnostic
+ ECS. Must have missed when I initially disentangled the two a month ago. Fix.
 
 Think about clean way to incorporate gpu raycasting into GFX. Think about standardized raycasting shader API etc. (look at ShaderToy).
 

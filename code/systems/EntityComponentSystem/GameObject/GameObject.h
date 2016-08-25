@@ -69,8 +69,8 @@ namespace guar
 				if (std::is_same<T, Renderer>::value)
 					m_SceneGraph._Get()->m_Renderers.push_back
 					(
-						initARenderer(std::dynamic_pointer_cast<Renderer>(m_Components.back()))
-
+					initARenderer(std::dynamic_pointer_cast<Renderer>(m_Components.back()))
+				
 					);
 				else if (std::is_same<T, Camera>::value)
 					m_SceneGraph._Get()->m_Cameras.push_back

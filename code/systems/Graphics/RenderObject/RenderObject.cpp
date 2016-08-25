@@ -18,8 +18,8 @@ using namespace guar;
 using namespace GFX;
 
 RenderObject::RenderObject() :
-	m_Model(),
-	m_ShaderProgram(),
+	m_Model(Graphics::getModel()),
+	m_ShaderProgram(Graphics::getShaderProgram()),
 	m_Position(),
 	m_Rotation(),
 	m_Scale(1.0f),

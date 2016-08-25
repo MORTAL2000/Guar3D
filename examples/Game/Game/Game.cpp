@@ -321,27 +321,37 @@ void Game::initMainScene()
 		camera._Get()->setClearMode(true, guar::GFX::ClearMode::DepthBuffer /*| guar::GFX::ClearMode::ColorBuffer*/);
 
 	}
+	{
+		std::weak_ptr<ECS::GameObject> gameObject = mainScene._Get()->createNewGameObject("The Animation Tester");
+
+		std::weak_ptr<guar::ECS::Renderer> renderer = gameObject._Get()->addComponent<guar::ECS::Renderer>();
+		renderer._Get()->setModel("../Models/gangnam_style.fbx");// "../Models/stanford-dragon.fbx"
+		renderer._Get()->setShaderProgram("Opaque");
+		renderer._Get()->setTexture("_Texture", "../Textures/brick.png");
+
+		std::weak_ptr<guar::ECS::Transform> transform = gameObject._Get()->addComponent<guar::ECS::Transform>();
+		transform._Get()->setScale(Math::Vector3(0.1f, 0.1f, 0.1f));
+		transform._Get()->setPosition(Math::Vector3(-0., -5., 80.));
+		transform._Get()->setRotation(Math::Vector3::Up * 180.*(3.14 / 180.));
+
+		//todo.. animation ecs component
+
+	}
+	{
+		std::weak_ptr<ECS::GameObject> gameObject = mainScene._Get()->createNewGameObject("Lucy");
+	
+		std::weak_ptr<guar::ECS::Renderer> renderer = gameObject._Get()->addComponent<guar::ECS::Renderer>();
+		renderer._Get()->setModel("../Models/lucy-statue-stanford-scan.fbx");// "../Models/stanford-dragon.fbx"
+		renderer._Get()->setShaderProgram("Opaque");
+		renderer._Get()->setTexture("_Texture", "../Textures/brick.png");
+	
+		std::weak_ptr<guar::ECS::Transform> transform = gameObject._Get()->addComponent<guar::ECS::Transform>();
+		transform._Get()->setScale(Math::Vector3(0.01f, 0.01f, 0.01f));
+		transform._Get()->setPosition(Math::Vector3(-30., 0., 80.));
+		transform._Get()->setRotation(Math::Vector3::Left*90.*(3.14/180.));
+	
+		//todo.. animation ecs component
+	
+	}
 	
 }
-
-//void Game::createCube(const std::weak_ptr<guar::ECS::SceneGraph> &aScene, const guar::Math::Vector3 &aPosition)
-//{
-//	float cubeScale = 5.f;
-//	std::weak_ptr<ECS::GameObject> gameObject = aScene._Get()->createNewGameObject(std::string("Rigidbody test"));
-//	
-//	std::weak_ptr<guar::ECS::Renderer> renderer = gameObject._Get()->addComponent<guar::ECS::Renderer>();
-//	renderer._Get()->setModel("Cube");
-//	renderer._Get()->setShaderProgram("Opaque");
-//	renderer._Get()->setTexture("_Texture", "../Textures/Water.png");
-//	
-//	std::weak_ptr<guar::ECS::Transform> transform = gameObject._Get()->addComponent<guar::ECS::Transform>();
-//	transform._Get()->setScale(Math::Vector3(cubeScale, cubeScale, cubeScale));
-//	transform._Get()->setPosition(aPosition);
-//	
-//	std::weak_ptr<guar::ECS::BoxCollider> boxCollider = gameObject._Get()->addComponent<guar::ECS::BoxCollider>();
-//	boxCollider._Get()->setSize(Math::Vector3(cubeScale, cubeScale, cubeScale));
-//	
-//	std::weak_ptr<guar::ECS::Rigidbody> rigidbody = gameObject._Get()->addComponent<guar::ECS::Rigidbody>();
-//	rigidbody._Get()->setMass(1.f);
-//
-//}

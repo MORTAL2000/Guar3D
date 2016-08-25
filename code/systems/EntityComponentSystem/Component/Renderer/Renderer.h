@@ -37,7 +37,8 @@ namespace guar
 			std::weak_ptr<Transform> m_Transform;
 			
 			//ECS interface
-			virtual void start (void) override;
+			virtual void init  (void) override;
+			//virtual void start (void) override;
 			virtual void update(void) override;
 			
 			//Scenegraph interface

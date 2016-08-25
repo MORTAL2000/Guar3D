@@ -4,22 +4,21 @@
 #include "../../GameObject/GameObject.h"
 #include "../Transform/Transform.h"
 #include "../Observer/Observer.h"
-//#include "../Light/Light.h"
-//#include "../Camera/Camera.h"
-////gfxinc
+#include "../../SceneGraph/SceneGraph.h"
+//gfxinc
 #include "../../../Graphics/RenderObject/RenderObject.h"
-//#include "../../../Graphics/RenderCamera/RenderCamera.h"
-//#include "../../../Graphics/RenderObserver/RenderObserver.h"
 #include "../../../Graphics/Graphics.h"
+#include <Graphics\SceneGraph\SceneGraph.h>
+
+#include <Debug\Debug.h>
 
 using namespace guar;
 using namespace ECS;
 using namespace GFX;
 
-void Renderer::start(void)
+void Renderer::init(void)
 {
-	//m_RenderObject = RenderObject();
-
+	//m_RenderObject = getGameObject()->getSceneGraph()._Get()->getGraphicsScene()._Get()->createRenderObject();
 	
 }
 

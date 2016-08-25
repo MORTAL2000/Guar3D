@@ -16,8 +16,6 @@ namespace Game
 	void initMainScene();
 	void initSkyScene();
 
-	//void createCube(const std::weak_ptr<guar::ECS::SceneGraph> &aScene, const guar::Math::Vector3 &aPosition);
-
 }
 
 #endif
