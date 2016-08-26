@@ -4,6 +4,7 @@
 #include "../VertexFormat/VertexFormat.h"
 #include <debug\Debug.h>
 #include "../MeshVertex/MeshVertex.h"
+#include "../Skeleton/Skeleton.h"
 //std inc
 #include <stdio.h>
 #include <vector>
@@ -15,9 +16,119 @@
 #include <ozz/animation/offline/raw_skeleton.h>
 #include <ozz/animation/offline/skeleton_builder.h>
 #include <ozz/animation/runtime/skeleton.h>
+//glm
+#include <glm/matrix.hpp>
+#include <glm/gtc/matrix_transform.hpp>
+#include <glm/gtc/matrix_inverse.hpp>
+#include <glm/gtx/quaternion.hpp>
+
+#include "ogldev_math_3d.h"
+
 
 using namespace guar;
 using namespace GFX;
+
+static const aiScene* testScene;
+static aiAnimation* testAnimation;	//Kill it with fire
+
+//void CalcInterpolatedScaling(aiVector3D& Out, float AnimationTime, const aiNodeAnim* pNodeAnim)
+//{
+//	if (pNodeAnim->mNumScalingKeys == 1) {
+//		Out = pNodeAnim->mScalingKeys[0].mValue;
+//		return;
+//	}
+//
+//	uint ScalingIndex = FindScaling(AnimationTime, pNodeAnim);
+//	uint NextScalingIndex = (ScalingIndex + 1);
+//	assert(NextScalingIndex < pNodeAnim->mNumScalingKeys);
+//	float DeltaTime = (float)(pNodeAnim->mScalingKeys[NextScalingIndex].mTime - pNodeAnim->mScalingKeys[ScalingIndex].mTime);
+//	float Factor = (AnimationTime - (float)pNodeAnim->mScalingKeys[ScalingIndex].mTime) / DeltaTime;
+//	assert(Factor >= 0.0f && Factor <= 1.0f);
+//	const aiVector3D& Start = pNodeAnim->mScalingKeys[ScalingIndex].mValue;
+//	const aiVector3D& End = pNodeAnim->mScalingKeys[NextScalingIndex].mValue;
+//	aiVector3D Delta = End - Start;
+//	Out = Start + Factor * Delta;
+//}
+//
+//
+//void ReadNodeHeirarchy(float AnimationTime, const aiNode* pNode, const Matrix4f& ParentTransform)
+//{
+//	std::string NodeName(pNode->mName.data);
+//
+//	const aiAnimation* pAnimation = testScene->mAnimations[0];
+//
+//	Matrix4f NodeTransformation(pNode->mTransformation);
+//
+//	const aiNodeAnim* pNodeAnim = FindNodeAnim(pAnimation, NodeName);
+//
+//	if (pNodeAnim) {
+//		// Interpolate scaling and generate scaling transformation matrix
+//		aiVector3D Scaling;
+//		CalcInterpolatedScaling(Scaling, AnimationTime, pNodeAnim);
+//		Matrix4f ScalingM;
+//		ScalingM.InitScaleTransform(Scaling.x, Scaling.y, Scaling.z);
+//
+//		// Interpolate rotation and generate rotation transformation matrix
+//		aiQuaternion RotationQ;
+//		CalcInterpolatedRotation(RotationQ, AnimationTime, pNodeAnim);
+//		Matrix4f RotationM = Matrix4f(RotationQ.GetMatrix());
+//
+//		// Interpolate translation and generate translation transformation matrix
+//		aiVector3D Translation;
+//		CalcInterpolatedPosition(Translation, AnimationTime, pNodeAnim);
+//		Matrix4f TranslationM;
+//		TranslationM.InitTranslationTransform(Translation.x, Translation.y, Translation.z);
+//
+//		// Combine the above transformations
+//		NodeTransformation = TranslationM * RotationM * ScalingM;
+//	}
+//
+//	Matrix4f GlobalTransformation = ParentTransform * NodeTransformation;
+//
+//	if (m_BoneMapping.find(NodeName) != m_BoneMapping.end()) {
+//		uint BoneIndex = m_BoneMapping[NodeName];
+//		m_BoneInfo[BoneIndex].FinalTransformation = m_GlobalInverseTransform * GlobalTransformation *
+//			m_BoneInfo[BoneIndex].BoneOffset;
+//	}
+//
+//	for (uint i = 0; i < pNode->mNumChildren; i++) {
+//		ReadNodeHeirarchy(AnimationTime, pNode->mChildren[i], GlobalTransformation);
+//	}
+//}
+
+
+void Model::animate(void)
+{
+	std::vector<Matrix4f> Transforms;
+
+	//Debug::log("animating\n");
+	
+	Matrix4f Identity;
+	Identity.InitIdentity();
+	
+	
+	//TIME ARGUMENT
+	static float TimeInSeconds = 0;
+	TimeInSeconds += 0.1;
+
+	//CALCULATE TIME OFFSET
+	float TicksPerSecond = 25.;
+	if (testAnimation->mTicksPerSecond != 0)
+		TicksPerSecond = testAnimation->mTicksPerSecond;
+	float TimeInTicks = TimeInSeconds * TicksPerSecond;
+	float AnimationTime = fmod(TimeInTicks, testAnimation->mDuration);
+	
+	//ReadNodeHeirarchy(AnimationTime, testScene->mRootNode, Identity);
+	
+	Transforms.resize(m_Skeleton.size());
+	
+	for (unsigned int i = 0; i < m_Skeleton.size(); i++)
+	{
+		//Transforms[i] = m_Skeleton.getBone(i).FinalTransformation;
+	
+	}
+
+}
 
 void Model::draw(const GFXuint &programHandle)
 {
@@ -28,11 +139,7 @@ void Model::draw(const GFXuint &programHandle)
     
 }
 
-void Model::animate(void)
-{
 
-
-}
 
 Model::Model(const std::string &aName, Vertex::Data aVertexData)
 {
@@ -81,6 +188,8 @@ Vertex::Data Model::loadMeshFromFile(const std::string &aFileName, const std::st
 
 	}
 
+	testScene = scene;
+
 	//read the first mesh HARDCODE, THIS FUNC SHOULD REALLY BE REFACTORED OUT OF GFX::MODEL
 	aiMesh *mesh = scene->mMeshes[0];
 
@@ -90,15 +199,9 @@ Vertex::Data Model::loadMeshFromFile(const std::string &aFileName, const std::st
 		return vertexes;
 
 	}
-	
-	///////This targets a specific sub model. Was not used.
-	//if (!aMeshName.empty())
-	//	for (int i = 0; i < scene->mNumMeshes; i++)
-	//		if (scene->mMeshes[i]->mName.C_Str() == aMeshName)
-	//			mesh = scene->mMeshes[i];
 
 	//
-	// COPY THE MESH
+	// COPY THE VERTEX ATTRIBUTE DATA
 	//
 	Debug::log("Loading mesh: ", mesh->mName.C_Str(), "'s vertex data", "\n");
 	const int numFaces = mesh->mNumFaces;
@@ -116,48 +219,46 @@ Vertex::Data Model::loadMeshFromFile(const std::string &aFileName, const std::st
 			aiVector3D tangent   = (mesh->HasTangentsAndBitangents()) ?  mesh->mTangents        [face.mIndices[j]] : aiVector3D();
 			aiVector3D bitangent = (mesh->HasTangentsAndBitangents()) ?  mesh->mBitangents      [face.mIndices[j]] : aiVector3D();
 
-			GFX::Vertex::Format vertdata =
-				Vertex::create
-				(
-					pos      .x, pos      .y, pos      .z,
-					uv       .x, uv       .y,		   
-					normal   .x, normal   .y, normal   .z,
-					tangent  .x, tangent  .y, tangent  .z,
-					bitangent.x, bitangent.y, bitangent.z
-
-				);
-
 			vertexes.push_back
 			(
-				vertdata
-			
-			); // 1--0
+				Vertex::create
+				(
+					pos.x, pos.y, pos.z,
+					uv.x, uv.y,
+					normal.x, normal.y, normal.z,
+					tangent.x, tangent.y, tangent.z,
+					bitangent.x, bitangent.y, bitangent.z
 
-			/////HACK: STORING DATA IN CPUSIDE BUFFER FOR CPU SIDE ANIM
-			//meshVertexes.push_back(MeshVertex());
-			//meshVertexes.back().setGPUVertexData(vertdata);
+				)
+			
+			);
 
 		}
 
 	}
 
 	//
-	// COPY THE SKELETON
+	// COPY BONE DATA TO SKELETON AND PUSH WEIGHT DATA INTO VERTS (since animation is GPU based for this engine)
 	//
 	Debug::log("bone count: ",mesh->mNumBones, "\n");
 	if (mesh->HasBones())
 	{
 		Debug::log("Loading mesh: ", mesh->mName.C_Str(), "'s skeleton data", "\n");
 
-		// Creates a RawSkeleton.
-		ozz::animation::offline::RawSkeleton raw_skeleton;
-
-		//create joints...
 		aiBone** bones = mesh->mBones;
 		aiBone* currentBone = 0;
 		for (int i = 0; i < mesh->mNumBones; i++)
 		{
 			currentBone = bones[i];
+			
+			currentBone->mName.C_Str();
+						
+			m_Skeleton.push_back
+			(
+				currentBone->mName.C_Str(), 
+				GFX::Bone(i,currentBone->mOffsetMatrix)
+			
+			);
 			
 			//get name
 			std::string name = (currentBone->mName).C_Str();
@@ -216,33 +317,12 @@ Vertex::Data Model::loadMeshFromFile(const std::string &aFileName, const std::st
 	// COPY ANIMATIONS
 	//
 	// todo
+	if (scene->HasAnimations())
+	{
+		testAnimation = scene->mAnimations[0];
 
+	}
 	
-	
-	
-	//int boneinfluencecount = 0;
-	//
-	//for (int i = 0; i < vertexes.size(); i++)
-	//	if (vertexes[i] > boneinfluencecount)
-	//		boneinfluencecount = meshVertexes[i].getBoneDataSize();
-	//
-	//Debug::log("NUMBER OF INFLUENCING BONES IS: ", boneinfluencecount, "\n");
-	//if (mesh->HasBones())
-	//{
-	//	for (int i = 0; i < vertexes.size(); i++)
-	//	{
-	//		if (vertexes.get(i)->bone1I != -1)
-	//			Debug::log("vertex no: ", i, ", ", vertexes.get(i)->bone1I, "\n");
-	//
-	//	}
-	//
-	//	Debug::log("bone number: ", mesh->mNumBones,"\n");
-	//
-	//}
-	
-	//push data out
-	//m_CPUVertexBuffer = meshVertexes;
-
 	return vertexes;
 
 }

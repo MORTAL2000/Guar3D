@@ -174,6 +174,7 @@
     <ClInclude Include="..\..\..\code\systems\Graphics\ModelCollection\ModelCollection.h" />
     <ClInclude Include="..\..\..\code\systems\Graphics\Model\Cube\Cube.h" />
     <ClInclude Include="..\..\..\code\systems\Graphics\Model\Model.h" />
+    <ClInclude Include="..\..\..\code\systems\Graphics\Model\ogldev_math_3d.h" />
     <ClInclude Include="..\..\..\code\systems\Graphics\Model\Quad\Quad.h" />
     <ClInclude Include="..\..\..\code\systems\Graphics\OpenGL\OpenGL.h" />
     <ClInclude Include="..\..\..\code\systems\Graphics\OpenGL\OpenGLDiagnostics.h" />

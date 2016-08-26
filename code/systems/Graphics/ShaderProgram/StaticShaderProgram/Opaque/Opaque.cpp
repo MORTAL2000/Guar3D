@@ -152,7 +152,7 @@ in vec3 a_Position;
 in vec2 a_UV;
 in vec3 a_Normal;
 
-in vec2 a_BoneWeight1;
+in vec2 a_BoneWeight1; //0 = ID, 1 = normalized contribution from bone
 in vec2 a_BoneWeight2;
 in vec2 a_BoneWeight3;
 in vec2 a_BoneWeight4;

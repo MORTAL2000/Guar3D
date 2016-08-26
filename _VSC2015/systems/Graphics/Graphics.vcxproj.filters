@@ -365,5 +365,8 @@
     <ClInclude Include="..\..\..\code\systems\Graphics\Animation\Animation.h">
       <Filter>Graphics\Animation</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\code\systems\Graphics\Model\ogldev_math_3d.h">
+      <Filter>Graphics\Model</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
