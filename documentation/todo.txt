@@ -1,10 +1,6 @@
 Next:
-GFX::RenderCamera
- - add FBO to implementation so that gl buffer operations do not affect the output of other cameras (in terms of depth, color, stencil, accum).
-
 skeletons
- - rigged animation, cpu implementation. Will be using Ozz for this.
- - rigged animation, gpu implementation. implement myself, for mobile builds. GPU will require customizable vertex formats for per vert 4x4s and weights.
+ - rigged animation, gpu implementation. implement myself, for mobile builds. GPU will require customizable vertex formats for per vert weights.
 
 creation of gfx meshes from col meshes & shapes(sphere, box, cylinder, capsule, cone), creation of col meshes from gfx meshes.
   - add methods to create collision meshes from render meshes and vice versa.
@@ -23,17 +19,37 @@ implement deferred render path
 
 Cleaning
  - clean all systems: replace needless includes with forward decs, etc.
+   - remove any fwds of std because this is dangerous & may lead to undefined behaviour not only on other compilers but even other versions of msvc++ (compiler i currently use for development)
+   - move all fwds into fwd headers, following precedent of iosfwd (gfxfwd, phyfwd, etc.) ie. I made the classes so I fwd them, not the clients.
+   - hide the implementation fwds in gfx, there is a bit too much of that and pollutes the game programmer's
+     headers with needless GLM and ASSIMP class fwds (which have no meaning to the programmer and cannot be relied on since implementation may change).
+   - create resource load and unload tests to hunt for memory leaks
+   - handle physics case where a new physics body fails to be added to the world (too many bodies) as this currently causes a runtime crash
+    (when the ecs::rigidbody tries to get new position data from its phy::rigidbody, which is either null or pointing at someone else's memory)
  - reduce the excessive use of "friend" in ECS project.
+ - remove the special initialization that gameobject does for gfx objects, this is assemetric w regards to other systems and tightly couples
+ GFX to ECS, which is bad design and makes the code harder to read.
+ - optimize code, especially graphics. The GFX thread tick rate is beginning to lag noticably on demo scene. This really shouldnt be the case
+  at this point (shader only does ADS+shadow+anim) no ao etc.. Look at heavy math areas, look at lighting; reduce complexity add
+aggressive early quit conditions etc.
 
 Mouse input improvements
- - currently feels very coarse and deltas spike at the mercy of main thread's tick rate.
+ - currently feels very coarse and deltas spike at the mercy of main thread's tick rate. Delta time also spikes occasionally. Think about this.
 
 Buffer position & rotations for graphics system
  - when the main thread slows down enough, it is possible to see the gfx thead rendering with a mix of new and old position data, leading to slight jittering.
  double or triple buffer graphics object 4x4s and only operate on complete gfx scene states to fix.
 
+GFX::RenderCamera
+ - add FBO to implementation so that gl buffer operations do not affect the output of other cameras (in terms of depth, color, stencil, accum).
+   this functionality can alternatively be implemented with scissor, but I think the FBO option is more mainstream. FBO also allows rendertextures to be attached to cameras,
+   which may be a nice feature for procedural texture generation.
+
 ---------------------
 Later:
+
+skeletons
+ - rigged animation, cpu implementation. Will be using Ozz for this.
 
 Voxel Terrain system:
  - PolyVox looks like a good candidate for implementation

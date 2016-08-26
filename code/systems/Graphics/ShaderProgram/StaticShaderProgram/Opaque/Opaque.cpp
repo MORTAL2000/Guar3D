@@ -141,8 +141,8 @@ glClearColor(1.0f,0.0f,1.0f,0.0f);
 //
 std::string staticShaders::Opaque::vertexShaderGLSL(void)
 {
-return
-R"V0G0N(
+	return
+		R"V0G0N(
 
 #version 150
 
@@ -152,6 +152,12 @@ in vec3 a_Position;
 in vec2 a_UV;
 in vec3 a_Normal;
 
+in vec2 a_BoneWeight1;
+in vec2 a_BoneWeight2;
+in vec2 a_BoneWeight3;
+in vec2 a_BoneWeight4;
+in vec2 a_BoneWeight5;
+
 out vec3 fragVert;
 out vec2 fragTexCoord;
 out vec3 fragNormal;
@@ -159,18 +165,27 @@ out vec3 fragNormal;
 out vec4 ShadowCoord;
 uniform mat4 _Light1Matrix;
 
+const int MAX_BONES = 40;
+uniform mat4 _Bones[MAX_BONES]; 
+
 void main()
 {
-gl_Position = _MVP * vec4(a_Position, 1) ;
+	//calculate bone transform
+	mat4 BoneTransform;
+    BoneTransform  = _Bones[int(a_BoneWeight1[0])] * a_BoneWeight1[1];
+    BoneTransform += _Bones[int(a_BoneWeight2[0])] * a_BoneWeight2[1];
+    BoneTransform += _Bones[int(a_BoneWeight3[0])] * a_BoneWeight3[1];
+    BoneTransform += _Bones[int(a_BoneWeight4[0])] * a_BoneWeight4[1];
+	BoneTransform += _Bones[int(a_BoneWeight5[0])] * a_BoneWeight5[1];
 
-// Pass some variables to the fragment shader
-fragTexCoord = a_UV       ;
-fragNormal   = a_Normal   ;
-fragVert     = a_Position ;
-
-
-
-ShadowCoord = _Light1Matrix * vec4(a_Position,1);
+	gl_Position = _MVP * BoneTransform * vec4(a_Position, 1) ;
+	
+	// Pass some variables to the fragment shader
+	fragTexCoord = a_UV       ;
+	fragNormal   = a_Normal   ;
+	fragVert     = a_Position ;
+	
+	ShadowCoord = _Light1Matrix * vec4(a_Position,1);
 
 }
 

@@ -118,6 +118,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\..\code\systems\Graphics\Animation\Animation.cpp" />
+    <ClCompile Include="..\..\..\code\systems\Graphics\Bone\Bone.cpp" />
     <ClCompile Include="..\..\..\code\systems\Graphics\ClearMode\ClearMode.cpp" />
     <ClCompile Include="..\..\..\code\systems\Graphics\Graphics.cpp" />
     <ClCompile Include="..\..\..\code\systems\Graphics\GraphicsObjectCollection\GraphicsObjectCollection.cpp" />
@@ -151,12 +153,15 @@
     <ClCompile Include="..\..\..\code\systems\Graphics\ShaderProgram\StaticShaderProgram\RenderTextureDepthDisplay\RenderTextureDepthDisplay.cpp" />
     <ClCompile Include="..\..\..\code\systems\Graphics\ShaderProgram\StaticShaderProgram\Skybox\Skybox.cpp" />
     <ClCompile Include="..\..\..\code\systems\Graphics\ShaderProgram\StaticShaderProgram\StaticShaderProgram.cpp" />
+    <ClCompile Include="..\..\..\code\systems\Graphics\Skeleton\Skeleton.cpp" />
     <ClCompile Include="..\..\..\code\systems\Graphics\StandardUniforms\StandardUniforms.cpp" />
     <ClCompile Include="..\..\..\code\systems\Graphics\Texture\CheckeredTextureOfDeath\CheckeredTextureOfDeath.cpp" />
     <ClCompile Include="..\..\..\code\systems\Graphics\Texture\Texture.cpp" />
     <ClCompile Include="..\..\..\code\systems\Graphics\VertexFormat\VertexFormat.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\..\code\systems\Graphics\Animation\Animation.h" />
+    <ClInclude Include="..\..\..\code\systems\Graphics\Bone\Bone.h" />
     <ClInclude Include="..\..\..\code\systems\Graphics\ClearMode\ClearMode.h" />
     <ClInclude Include="..\..\..\code\systems\Graphics\Graphics.h" />
     <ClInclude Include="..\..\..\code\systems\Graphics\GraphicsObjectCollection\GraphicsObjectCollection.h" />
@@ -191,6 +196,7 @@
     <ClInclude Include="..\..\..\code\systems\Graphics\ShaderProgram\StaticShaderProgram\RenderTextureDepthDisplay\RenderTextureDepthDisplay.h" />
     <ClInclude Include="..\..\..\code\systems\Graphics\ShaderProgram\StaticShaderProgram\Skybox\Skybox.h" />
     <ClInclude Include="..\..\..\code\systems\Graphics\ShaderProgram\StaticShaderProgram\StaticShaderProgram.h" />
+    <ClInclude Include="..\..\..\code\systems\Graphics\Skeleton\Skeleton.h" />
     <ClInclude Include="..\..\..\code\systems\Graphics\StandardUniforms\StandardUniforms.h" />
     <ClInclude Include="..\..\..\code\systems\Graphics\Texture\CheckeredTextureOfDeath\CheckeredTextureOfDeath.h" />
     <ClInclude Include="..\..\..\code\systems\Graphics\Texture\Texture.h" />

@@ -109,6 +109,15 @@
     <Filter Include="Graphics\ClearMode">
       <UniqueIdentifier>{9ecd0a80-ee64-4b1b-9183-51be3a6399af}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Graphics\Bone">
+      <UniqueIdentifier>{e8828670-bb29-4926-a66d-cf95f911d7c9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Graphics\Skeleton">
+      <UniqueIdentifier>{8786a99f-811e-4cec-bb8f-45a368811f2a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Graphics\Animation">
+      <UniqueIdentifier>{a802a756-7c64-4c2b-a227-cfac86c10c74}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\code\systems\Graphics\Graphics.cpp">
@@ -221,6 +230,15 @@
     </ClCompile>
     <ClCompile Include="..\..\..\code\systems\Graphics\ClearMode\ClearMode.cpp">
       <Filter>Graphics\ClearMode</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\code\systems\Graphics\Skeleton\Skeleton.cpp">
+      <Filter>Graphics\Skeleton</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\code\systems\Graphics\Bone\Bone.cpp">
+      <Filter>Graphics\Bone</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\code\systems\Graphics\Animation\Animation.cpp">
+      <Filter>Graphics\Animation</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -337,6 +355,15 @@
     </ClInclude>
     <ClInclude Include="..\..\..\code\systems\Graphics\ClearMode\ClearMode.h">
       <Filter>Graphics\ClearMode</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\code\systems\Graphics\Skeleton\Skeleton.h">
+      <Filter>Graphics\Skeleton</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\code\systems\Graphics\Bone\Bone.h">
+      <Filter>Graphics\Bone</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\code\systems\Graphics\Animation\Animation.h">
+      <Filter>Graphics\Animation</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

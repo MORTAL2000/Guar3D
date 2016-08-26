@@ -21,7 +21,20 @@ const int Vertex::NormalAttributeSize    = 3;
 const int Vertex::TangentAttributeSize   = 3;
 const int Vertex::BitangentAttributeSize = 3;
 
-Vertex::Format Vertex::create(GFXfloat aX, GFXfloat aY, GFXfloat aZ, GFXfloat aU, GFXfloat aV, GFXfloat aNX, GFXfloat aNY, GFXfloat aNZ, GFXfloat aTX, GFXfloat aTY, GFXfloat aTZ, GFXfloat aBX, GFXfloat aBY, GFXfloat aBZ)
+Vertex::Format Vertex::create
+(
+	GFXfloat aX      , GFXfloat aY      , GFXfloat aZ  ,
+	GFXfloat aU      , GFXfloat aV      ,			   
+	GFXfloat aNX     , GFXfloat aNY     , GFXfloat aNZ ,
+	GFXfloat aTX     , GFXfloat aTY     , GFXfloat aTZ ,
+	GFXfloat aBX     , GFXfloat aBY     , GFXfloat aBZ ,
+	GFXfloat aBone1I , GFXfloat aBone1W ,
+	GFXfloat aBone2I , GFXfloat aBone2W ,
+	GFXfloat aBone3I , GFXfloat aBone3W ,
+	GFXfloat aBone4I , GFXfloat aBone4W ,
+	GFXfloat aBone5I , GFXfloat aBone5W 
+
+)
 {
     Vertex::Format vertex;
     
@@ -49,6 +62,26 @@ Vertex::Format Vertex::create(GFXfloat aX, GFXfloat aY, GFXfloat aZ, GFXfloat aU
 	vertex.bY = aBY;
 	vertex.bZ = aBZ;
     
+	//Bone1
+	vertex.bone1I = aBone1I; 
+	vertex.bone1W = aBone1W;
+	
+	//Bone2
+	vertex.bone2I = aBone2I; 
+	vertex.bone2W = aBone2W;
+	
+	//Bone3
+	vertex.bone3I = aBone3I; 
+	vertex.bone3W = aBone3W;
+	
+	//Bone4
+	vertex.bone4I = aBone4I; 
+	vertex.bone4W = aBone4W;
+	
+	//Bone5
+	vertex.bone5I = aBone5I; 
+	vertex.bone5W = aBone5W;
+	
     //  ETC
 
     return vertex;
@@ -128,6 +161,25 @@ GFXfloat* Vertex::Data::toArray(void)
 		*m_FloatArray++ = m_VertexData[i].bY;
 		*m_FloatArray++ = m_VertexData[i].bZ;
 
+		//Bone1
+		*m_FloatArray++ = m_VertexData[i].bone1I;
+		*m_FloatArray++ = m_VertexData[i].bone1W;
+		
+		//Bone2
+		*m_FloatArray++ = m_VertexData[i].bone2I;
+		*m_FloatArray++ = m_VertexData[i].bone2W;
+
+		//Bone3
+		*m_FloatArray++ = m_VertexData[i].bone3I;
+		*m_FloatArray++ = m_VertexData[i].bone3W;
+
+		//Bone4
+		*m_FloatArray++ = m_VertexData[i].bone4I;
+		*m_FloatArray++ = m_VertexData[i].bone4W;
+
+		//Bone5
+		*m_FloatArray++ = m_VertexData[i].bone5I;
+		*m_FloatArray++ = m_VertexData[i].bone5W;
         
         //  ETC
         

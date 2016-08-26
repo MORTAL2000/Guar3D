@@ -91,7 +91,7 @@ void PlayerController::update(void)
 			if (Input::getMouseDelta().y > 0)
 				delta += Math::Vector3::Right;
 
-			delta *= Time::getDeltaTime() * 200.0f;
+			delta *= Time::getDeltaTime() * 100.0f;
 			
 		}
 		else

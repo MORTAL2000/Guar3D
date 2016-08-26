@@ -187,6 +187,23 @@ void StandardUniforms::loadStandardUniforms(RenderObject &aRenderObject, RenderO
 
 	}
 
+	//
+	// GPU BONE ANIMATION
+	//
+	//void Uniforms::loadMatrix4x4(const GLuint &aShaderHandle, const char* &aUniformName, const float* aMatrix4x4)
+	{
+		GLint uniformHandle = glGetUniformLocation(aShaderProgramHandle, "_Bones");
+
+		if (uniformHandle != -1)
+		{
+			static glm::mat4x4 test[200];
+			float* arrayOfBoneMatricies = &test[0][0][0];
+
+			glUniformMatrix4fv(uniformHandle, 200, GL_FALSE, arrayOfBoneMatricies);
+
+		}
+
+	}
 
 
 }

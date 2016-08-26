@@ -3,6 +3,7 @@
 #include "../OpenGL/OpenGL.h"
 #include "../VertexFormat/VertexFormat.h"
 #include <debug\Debug.h>
+#include "../MeshVertex/MeshVertex.h"
 //std inc
 #include <stdio.h>
 #include <vector>
@@ -20,9 +21,17 @@ using namespace GFX;
 
 void Model::draw(const GFXuint &programHandle)
 {
+	animate();
+
     Vertex::EnableAttributes(programHandle, m_VertexBufferHandle);
     glDrawArrays( GL_TRIANGLES, 0, m_VertexCount );
     
+}
+
+void Model::animate(void)
+{
+
+
 }
 
 Model::Model(const std::string &aName, Vertex::Data aVertexData)
@@ -42,7 +51,8 @@ Model::Model(const std::string &aName, Vertex::Data aVertexData)
 	    
 }
 
-Model::Model(const std::string &aFileName, const std::string &aMeshName) : Model(aFileName,loadMeshFromFile(aFileName, aMeshName)) {}
+Model::Model(const std::string &aFileName, const std::string &aMeshName) : Model(aFileName, loadMeshFromFile(aFileName, aMeshName))
+{}
 
 Vertex::Data Model::loadMeshFromFile(const std::string &aFileName, const std::string &aMeshName)
 {
@@ -61,6 +71,7 @@ Vertex::Data Model::loadMeshFromFile(const std::string &aFileName, const std::st
 	
 	);
 
+	//std::vector<MeshVertex> meshVertexes;
 	Vertex::Data vertexes;
 
 	if (!scene)
@@ -105,19 +116,26 @@ Vertex::Data Model::loadMeshFromFile(const std::string &aFileName, const std::st
 			aiVector3D tangent   = (mesh->HasTangentsAndBitangents()) ?  mesh->mTangents        [face.mIndices[j]] : aiVector3D();
 			aiVector3D bitangent = (mesh->HasTangentsAndBitangents()) ?  mesh->mBitangents      [face.mIndices[j]] : aiVector3D();
 
-			vertexes.push_back
-			(
+			GFX::Vertex::Format vertdata =
 				Vertex::create
 				(
-					pos.x, pos.y, pos.z, 
-					uv.x, uv.y, 
-					normal.x, normal.y, normal.z,
-					tangent.x, tangent.y, tangent.z,
+					pos      .x, pos      .y, pos      .z,
+					uv       .x, uv       .y,		   
+					normal   .x, normal   .y, normal   .z,
+					tangent  .x, tangent  .y, tangent  .z,
 					bitangent.x, bitangent.y, bitangent.z
-				
-				)
+
+				);
+
+			vertexes.push_back
+			(
+				vertdata
 			
 			); // 1--0
+
+			/////HACK: STORING DATA IN CPUSIDE BUFFER FOR CPU SIDE ANIM
+			//meshVertexes.push_back(MeshVertex());
+			//meshVertexes.back().setGPUVertexData(vertdata);
 
 		}
 
@@ -135,20 +153,95 @@ Vertex::Data Model::loadMeshFromFile(const std::string &aFileName, const std::st
 		ozz::animation::offline::RawSkeleton raw_skeleton;
 
 		//create joints...
+		aiBone** bones = mesh->mBones;
+		aiBone* currentBone = 0;
 		for (int i = 0; i < mesh->mNumBones; i++)
 		{
+			currentBone = bones[i];
+			
+			//get name
+			std::string name = (currentBone->mName).C_Str();
+			Debug::log("Bone name: ",name, "\n");
 
+			//get bone transform matrix
+			currentBone->mOffsetMatrix;
 
+			//Iterate the array of affected vertexes
+			for (int j = 0; j < currentBone->mNumWeights; j++)
+			{
+				//PUSH BONE DATA INTO VERTEX DATA
+				if (vertexes.get(currentBone->mWeights[j].mVertexId)->bone1I == -1)
+				{
+					vertexes.get(currentBone->mWeights[j].mVertexId)->bone1I = i; //index of bone
+					vertexes.get(currentBone->mWeights[j].mVertexId)->bone1W = currentBone->mWeights[j].mWeight; //weight of bone
+
+				}
+				else if (vertexes.get(currentBone->mWeights[j].mVertexId)->bone2I == -1)
+				{
+					vertexes.get(currentBone->mWeights[j].mVertexId)->bone2I = i; //index of bone
+					vertexes.get(currentBone->mWeights[j].mVertexId)->bone2W = currentBone->mWeights[j].mWeight; //weight of bone
+
+				}
+				else if (vertexes.get(currentBone->mWeights[j].mVertexId)->bone3I == -1)
+				{
+					vertexes.get(currentBone->mWeights[j].mVertexId)->bone3I = i; //index of bone
+					vertexes.get(currentBone->mWeights[j].mVertexId)->bone3W = currentBone->mWeights[j].mWeight; //weight of bone
+
+				}
+				else if (vertexes.get(currentBone->mWeights[j].mVertexId)->bone4I == -1)
+				{
+					vertexes.get(currentBone->mWeights[j].mVertexId)->bone4I = i; //index of bone
+					vertexes.get(currentBone->mWeights[j].mVertexId)->bone4W = currentBone->mWeights[j].mWeight; //weight of bone
+
+				}
+				else if (vertexes.get(currentBone->mWeights[j].mVertexId)->bone5I == -1)
+				{
+					vertexes.get(currentBone->mWeights[j].mVertexId)->bone5I = i; //index of bone
+					vertexes.get(currentBone->mWeights[j].mVertexId)->bone5W = currentBone->mWeights[j].mWeight; //weight of bone
+
+				}
+				else
+				{
+					Debug::log("too many weights\n");
+					assert(0);
+				}
+
+			}
+			
 		}
-
-
-
+		
 	}
 
 	//
 	// COPY ANIMATIONS
 	//
 	// todo
+
+	
+	
+	
+	//int boneinfluencecount = 0;
+	//
+	//for (int i = 0; i < vertexes.size(); i++)
+	//	if (vertexes[i] > boneinfluencecount)
+	//		boneinfluencecount = meshVertexes[i].getBoneDataSize();
+	//
+	//Debug::log("NUMBER OF INFLUENCING BONES IS: ", boneinfluencecount, "\n");
+	//if (mesh->HasBones())
+	//{
+	//	for (int i = 0; i < vertexes.size(); i++)
+	//	{
+	//		if (vertexes.get(i)->bone1I != -1)
+	//			Debug::log("vertex no: ", i, ", ", vertexes.get(i)->bone1I, "\n");
+	//
+	//	}
+	//
+	//	Debug::log("bone number: ", mesh->mNumBones,"\n");
+	//
+	//}
+	
+	//push data out
+	//m_CPUVertexBuffer = meshVertexes;
 
 	return vertexes;
 

@@ -14,6 +14,8 @@
 #include "../GraphicsTypes.h"
 #include "../VertexFormat/VertexFormat.h"
 #include "../GraphicsObject/GraphicsObject.h"
+#include "../Skeleton/Skeleton.h"
+#include "../Animation/Animation.h"
 
 namespace guar
 {
@@ -21,20 +23,21 @@ namespace guar
     {
         class Model : public GraphicsObject
         {
-			
-
-        protected:
-			//Model() {}//msvc2013 wants this?
-            //std::string m_Name;
+			//animation data
+			GFX::Skeleton m_Skeleton;
+			std::vector<GFX::Animation> m_Animations;
+						
+			//gpu data
             GFXuint m_VertexBufferHandle;
-            int m_VertexCount;
+            int     m_VertexCount;
             
+			void animate(void);
+
         public:    
-            //accessors
-            //std::string getName(void){return m_Name;}
             int getVertexCount(void) { return m_VertexCount; }
             
             void draw(const GFXuint &programHandle);
+			
                     
             //constructors    
             Model(const std::string &aFileName, const std::string &aMeshName = "");
