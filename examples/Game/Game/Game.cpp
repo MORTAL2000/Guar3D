@@ -327,7 +327,7 @@ void Game::initMainScene()
 		std::weak_ptr<guar::ECS::Renderer> renderer = gameObject._Get()->addComponent<guar::ECS::Renderer>();
 		renderer._Get()->setModel("../Models/gangnam_style.fbx");// "../Models/stanford-dragon.fbx"
 		renderer._Get()->setShaderProgram("Opaque");
-		renderer._Get()->setTexture("_Texture", "../Textures/brick.png");
+		renderer._Get()->setTexture("_Texture", "../Textures/Guard_02__diffuse.png");
 
 		std::weak_ptr<guar::ECS::Transform> transform = gameObject._Get()->addComponent<guar::ECS::Transform>();
 		transform._Get()->setScale(Math::Vector3(0.1f, 0.1f, 0.1f));

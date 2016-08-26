@@ -180,9 +180,12 @@ void main()
 
 	gl_Position = _MVP * BoneTransform * vec4(a_Position, 1) ;
 	
+	vec2 uv = a_UV;
+	//uv.y *= -1;//proving im loading textures flipped
+
 	// Pass some variables to the fragment shader
-	fragTexCoord = a_UV       ;
-	fragNormal   = a_Normal   ;
+	fragTexCoord = uv ;
+	fragNormal   = a_Normal   ; //will have to adjust with bonetransform in future
 	fragVert     = a_Position ;
 	
 	ShadowCoord = _Light1Matrix * vec4(a_Position,1);
