@@ -1,10 +1,16 @@
 Next:
-skeletons
- - rigged animation, gpu implementation. implement myself, for mobile builds. GPU will require customizable vertex formats for per vert weights.
-	-skeleton data to ram DONE
-	-bone data to vram DONE
-	-vertex shader + uniform calls DONE
-	-transform bone data with respect to time offset in animation sequence NOT DONE
+:: Goal: Render a keyframe on the test model ::
+complete:
+ - hacked data path from file to uniform upload DONE
+ - single bone transform and weight application DONE
+ - ai to glm mat conversion DONE
+
+current task:
+ - animation channels never directly name the bones, rather they name "controllers" (parent nodes).
+   1. must duplicate node hierarchy to ram.
+   2. must apply animation offsets to duplicate.
+   3. must traverse duplicate to create final bone 4x4 values.
+--
 
 creation of gfx meshes from col meshes & shapes(sphere, box, cylinder, capsule, cone), creation of col meshes from gfx meshes.
   - add methods to create collision meshes from render meshes and vice versa.

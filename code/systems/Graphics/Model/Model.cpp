@@ -49,9 +49,17 @@ static const aiScene*      testScene;
 static aiAnimation*        testAnimation;	//Kill it with fire
 static std::vector<aiBone> bones;
 
+std::vector<aiBone>* Model::getBones()
+{
+	return &bones;
+
+}
+
 void Model::draw(const GFXuint &programHandle)
 {
 	animate();
+
+	
 
 	{
 		//GLint uniformHandle = glGetUniformLocation(programHandle, "_Bones");
@@ -199,7 +207,7 @@ void updateNodeHierarchy(aiNode* currentNode, aiAnimation* animation) //MAY BE G
 		{
 			aiVector3D   position;
 			aiQuaternion rotation;
-			aiVector3D   scaling;
+			aiVector3D   scaling ;
 
 			if (animation->mChannels[i]->mNumPositionKeys > 0)
 				position = animation->mChannels[i]->mPositionKeys[0].mValue;
@@ -248,8 +256,8 @@ void updateBoneTransforms(aiNode* currentNode, std::vector<aiBone> &ioBones) //M
 
 void megaTestUpdateBones(aiNode* currentNode, aiAnimation* animation, std::vector<aiBone> &ioBones) //MAY BE GOOD, MUST TEST
 {
-	size_t key = 50;
-
+	static size_t key = 0; //hardcoded key
+	
 	for (size_t i = 0; i < animation->mNumChannels; i++)
 		if (currentNode->mName == animation->mChannels[i]->mNodeName)
 		{
@@ -257,29 +265,49 @@ void megaTestUpdateBones(aiNode* currentNode, aiAnimation* animation, std::vecto
 			aiQuaternion rotation;
 			aiVector3D   scaling;
 
-			if (animation->mChannels[i]->mNumPositionKeys > 0)
-				position = animation->mChannels[i]->mPositionKeys[key].mValue;
-						
-			if (animation->mChannels[i]->mNumRotationKeys > 0)
-				rotation = animation->mChannels[i]->mRotationKeys[key].mValue;
-
-			if (animation->mChannels[i]->mNumScalingKeys > 0)
-				scaling = animation->mChannels[i]->mScalingKeys[key].mValue;
-			
-			//currentNode->mTransformation *= aiMatrix4x4(scaling, rotation, position);
-
 			position = aiVector3D(0, 200, 0);
+			rotation = aiQuaternion(1, 0, 0, 0);
+			scaling = aiVector3D(1, 1, 1);
 
-
+	
+			//if (animation->mChannels[i]->mNumPositionKeys > 0)
+			//	position = animation->mChannels[i]->mPositionKeys[key].mValue;
+			//			
+			//if (animation->mChannels[i]->mNumRotationKeys > 0)
+			//	rotation = animation->mChannels[i]->mRotationKeys[key].mValue;
+			//
+			//if (animation->mChannels[i]->mNumScalingKeys > 0)
+			//	scaling = animation->mChannels[i]->mScalingKeys[key].mValue;
+			
 			for (size_t i = 0; i < ioBones.size(); i++)
+			{
+				Debug::alert(currentNode->mName.C_Str(), "\n");
+
+				//if (currentNode->mName.C_Str() == "Hips")
+				//	Debug::alert("DFSAASDF\n");
+
+				//Debug::alert("sdfafhgasdkjfhgajksdhgfakjshdf\n");
+
+				//Debug::alert(ioBones[i].mName.C_Str(), "\n");
+
 				if (ioBones[i].mName == currentNode->mName)
-					ioBones[i].mOffsetMatrix = aiMatrix4x4(aiVector3D(1, 1, 1), aiQuaternion(), position); //currentNode->mTransformation * aiMatrix4x4(scaling, rotation, position);
+				{
+					ioBones[i].mOffsetMatrix = aiMatrix4x4(scaling, rotation, position); //currentNode->mTransformation * aiMatrix4x4(scaling, rotation, position);
+				
+				}
 
+			}
 		}
-
+	
 	// continue traversing the nodes...
 	for (size_t i = 0; i < currentNode->mNumChildren;i++)
-		updateNodeHierarchy(currentNode->mChildren[i], animation);
+		megaTestUpdateBones(currentNode->mChildren[i], animation, ioBones);
+
+	//for (size_t i = 0; i < bones.size(); i++)
+	//{
+	//	bones[i].mOffsetMatrix = aiMatrix4x4(aiVector3D(1, 1, 1), aiQuaternion(1,0,0,0), aiVector3D(50, 200, 0));
+	//
+	//}
 
 }
 
@@ -332,7 +360,7 @@ Model::Model(const std::string &aFileName, const std::string &aMeshName) : Model
 
 Vertex::Data Model::loadMeshFromFile(const std::string &aFileName, const std::string &aMeshName)
 {
-	Debug::log("loading model ", aFileName, "\n");
+	Debug::alert("loading model ", aFileName, "\n");
 
 	//create a context on the file
 	//Assimp::Importer importer;
@@ -372,7 +400,7 @@ Vertex::Data Model::loadMeshFromFile(const std::string &aFileName, const std::st
 	//
 	// COPY THE VERTEX ATTRIBUTE DATA
 	//
-	Debug::log("Loading mesh: ", mesh->mName.C_Str(), "'s vertex data", "\n");
+	Debug::alert("Loading mesh: ", mesh->mName.C_Str(), "'s vertex data", "\n");
 	const int numFaces = mesh->mNumFaces;
 	m_VertexCount = numFaces * 3;
 	
@@ -414,20 +442,22 @@ Vertex::Data Model::loadMeshFromFile(const std::string &aFileName, const std::st
 	{
 		Debug::log("Loading mesh: ", mesh->mName.C_Str(), "'s skeleton data", "\n");
 
-		aiBone** bones = mesh->mBones;
+		aiBone** fbones = mesh->mBones;
 		aiBone* currentBone = 0;
 		for (int i = 0; i < mesh->mNumBones; i++)
 		{
-			currentBone = bones[i];
+			currentBone = fbones[i];
 			
 			currentBone->mName.C_Str();
 						
-			m_Skeleton.push_back
-			(
-				currentBone->mName.C_Str(), 
-				GFX::Bone(i,currentBone->mOffsetMatrix)
-			
-			);
+			//m_Skeleton.push_back
+			//(
+			//	currentBone->mName.C_Str(), 
+			//	GFX::Bone(i,currentBone->mOffsetMatrix)
+			//
+			//);
+
+			bones.push_back(aiBone(*currentBone));
 			
 			//get name
 			std::string name = (currentBone->mName).C_Str();
@@ -490,6 +520,8 @@ Vertex::Data Model::loadMeshFromFile(const std::string &aFileName, const std::st
 	// todo
 	if (scene->HasAnimations())
 	{
+		Debug::alert("Reading animation names in file\n");
+
 		for (size_t i = 0; i < scene->mNumAnimations; i++) //read the name of all the animations
 		{
 			Debug::log("Animation name: ", scene->mAnimations[i]->mName.C_Str(), "\n");

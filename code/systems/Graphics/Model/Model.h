@@ -23,6 +23,8 @@ namespace guar
     {
         class Model : public GraphicsObject
         {
+			
+
 			//animation data
 			GFX::Skeleton m_Skeleton;
 			std::vector<GFX::Animation> m_Animations;
@@ -34,6 +36,8 @@ namespace guar
 			void animate(void);
 
         public:
+			//animation hack
+			std::vector<aiBone>* getBones();
 
             int getVertexCount(void) { return m_VertexCount; }
             

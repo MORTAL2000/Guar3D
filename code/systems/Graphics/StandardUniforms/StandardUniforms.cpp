@@ -6,6 +6,7 @@
 #include "../Texture/Texture.h"
 #include "../RenderCamera/RenderCamera.h"
 #include "../RenderObject/RenderObject.h"
+#include "../Model/Model.h"
 #include "../RenderLight/RenderLight.h"
 #include "../RenderObserver/RenderObserver.h"
 #include "../RenderTexture/RenderTexture.h"
@@ -17,6 +18,9 @@
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/matrix_inverse.hpp>
 #include <glm/gtx/quaternion.hpp>
+//anihack
+#include <assimp/scene.h>//assimp-master/code/<assimp/code/de scene.h>           // Output data structure
+#include <Debug\Debug.h>
 
 using namespace guar;
 using namespace GFX;
@@ -192,16 +196,56 @@ void StandardUniforms::loadStandardUniforms(RenderObject &aRenderObject, RenderO
 	//
 	//void Uniforms::loadMatrix4x4(const GLuint &aShaderHandle, const char* &aUniformName, const float* aMatrix4x4)
 	{
-		GLint uniformHandle = glGetUniformLocation(aShaderProgramHandle, "_Bones");
-	
+		GLint uniformHandle = glGetUniformLocation(aShaderProgramHandle, "_TestBone");
+
 		if (uniformHandle != -1)
 		{
-			static glm::mat4x4 test[40];
-			float* arrayOfBoneMatricies = &test[0][0][0];
-	
-			glUniformMatrix4fv(uniformHandle, 40, GL_FALSE, arrayOfBoneMatricies);
-	
+			static glm::mat4x4 testBoneData;
+
+			std::vector<aiBone>* bones = aRenderObject.getModel()._Get()->getBones();
+			
+			
+			aiMatrix4x4 test;
+			//test = aiMatrix4x4();
+			//test = aiMatrix4x4(aiVector3D(1, 1, 1), aiQuaternion(1, 0, 0, 0), aiVector3D(0, 100, 0));
+			test = (*bones)[0].mOffsetMatrix;
+
+
+			//ai to glm mat conversion (opposite handedness; mat4x4 inversion)
+			testBoneData[0][0] = test[0][0];
+			testBoneData[0][1] = test[1][0];
+			testBoneData[0][2] = test[2][0];
+			testBoneData[0][3] = test[3][0];
+			
+			testBoneData[1][0] = test[0][1];
+			testBoneData[1][1] = test[1][1];
+			testBoneData[1][2] = test[2][1];
+			testBoneData[1][3] = test[3][1];
+			
+			testBoneData[2][0] = test[0][2];
+			testBoneData[2][1] = test[1][2];
+			testBoneData[2][2] = test[2][2];
+			testBoneData[2][3] = test[3][2];
+			
+			testBoneData[3][0] = test[0][3];
+			testBoneData[3][1] = test[1][3];
+			testBoneData[3][2] = test[2][3];
+			testBoneData[3][3] = test[3][3];
+
+			glUniformMatrix4fv(uniformHandle, 1, GL_FALSE, &testBoneData[0][0]);
+
 		}
+		
+		//GLint uniformHandle = glGetUniformLocation(aShaderProgramHandle, "_Bones");
+		//
+		//if (uniformHandle != -1)
+		//{
+		//	static glm::mat4x4 test[40];
+		//	float* arrayOfBoneMatricies = &test[0][0][0];
+		//
+		//	glUniformMatrix4fv(uniformHandle, 40, GL_FALSE, arrayOfBoneMatricies);
+		//
+		//}
 	
 	}
 
