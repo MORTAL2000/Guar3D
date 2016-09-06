@@ -1,16 +1,17 @@
-Next:
-:: Goal: Render a keyframe on the test model ::
-complete:
- - hacked data path from file to uniform upload DONE
- - single bone transform and weight application DONE
- - ai to glm mat conversion DONE
+## Active task
+#### Render a keyframe on the test model
+implemented:
+- hacked data path from file to uniform upload DONE
+- single bone transform and weight application DONE
+- ai to glm mat conversion DONE
 
-current task:
- - animation channels never directly name the bones, rather they name "controllers" (parent nodes).
-   1. must duplicate node hierarchy to ram.
-   2. must apply animation offsets to duplicate.
-   3. must traverse duplicate to create final bone 4x4 values.
---
+unimplemented:
+- animation channels never directly name the bones, rather they name "controllers" (parent nodes)
+  - must duplicate node hierarchy to ram.
+  - must apply animation offsets to duplicate.
+  - must traverse duplicate to create final bone 4x4 values.
+
+## Future tasks
 
 creation of gfx meshes from col meshes & shapes(sphere, box, cylinder, capsule, cone), creation of col meshes from gfx meshes.
   - add methods to create collision meshes from render meshes and vice versa.
@@ -55,7 +56,6 @@ GFX::RenderCamera
    this functionality can alternatively be implemented with scissor, but I think the FBO option is more mainstream. FBO also allows rendertextures to be attached to cameras,
    which may be a nice feature for procedural texture generation.
 
----------------------
 Later:
 
 skeletons
