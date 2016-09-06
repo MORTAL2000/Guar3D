@@ -33,7 +33,8 @@ namespace guar
             
 			void animate(void);
 
-        public:    
+        public:
+
             int getVertexCount(void) { return m_VertexCount; }
             
             void draw(const GFXuint &programHandle);

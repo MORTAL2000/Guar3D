@@ -5,6 +5,7 @@
 #include <debug\Debug.h>
 #include "../MeshVertex/MeshVertex.h"
 #include "../Skeleton/Skeleton.h"
+#include "../Bone/Bone.h"
 //std inc
 #include <stdio.h>
 #include <vector>
@@ -22,117 +23,100 @@
 #include <glm/gtc/matrix_inverse.hpp>
 #include <glm/gtx/quaternion.hpp>
 
-#include "ogldev_math_3d.h"
-
-
 using namespace guar;
 using namespace GFX;
 
-static const aiScene* testScene;
-static aiAnimation* testAnimation;	//Kill it with fire
 
-//void CalcInterpolatedScaling(aiVector3D& Out, float AnimationTime, const aiNodeAnim* pNodeAnim)
+//class Node
 //{
-//	if (pNodeAnim->mNumScalingKeys == 1) {
-//		Out = pNodeAnim->mScalingKeys[0].mValue;
-//		return;
-//	}
+//public:
+//	std::string m_Name;
+//	aiMatrix4x4 m_Transform;
 //
-//	uint ScalingIndex = FindScaling(AnimationTime, pNodeAnim);
-//	uint NextScalingIndex = (ScalingIndex + 1);
-//	assert(NextScalingIndex < pNodeAnim->mNumScalingKeys);
-//	float DeltaTime = (float)(pNodeAnim->mScalingKeys[NextScalingIndex].mTime - pNodeAnim->mScalingKeys[ScalingIndex].mTime);
-//	float Factor = (AnimationTime - (float)pNodeAnim->mScalingKeys[ScalingIndex].mTime) / DeltaTime;
-//	assert(Factor >= 0.0f && Factor <= 1.0f);
-//	const aiVector3D& Start = pNodeAnim->mScalingKeys[ScalingIndex].mValue;
-//	const aiVector3D& End = pNodeAnim->mScalingKeys[NextScalingIndex].mValue;
-//	aiVector3D Delta = End - Start;
-//	Out = Start + Factor * Delta;
-//}
+//	Node(const std::string &aName, const aiMatrix4x4 &aTransform) :
+//		m_Name(aName),
+//		m_Transform(aTransform)
+//	{}
 //
 //
-//void ReadNodeHeirarchy(float AnimationTime, const aiNode* pNode, const Matrix4f& ParentTransform)
-//{
-//	std::string NodeName(pNode->mName.data);
-//
-//	const aiAnimation* pAnimation = testScene->mAnimations[0];
-//
-//	Matrix4f NodeTransformation(pNode->mTransformation);
-//
-//	const aiNodeAnim* pNodeAnim = FindNodeAnim(pAnimation, NodeName);
-//
-//	if (pNodeAnim) {
-//		// Interpolate scaling and generate scaling transformation matrix
-//		aiVector3D Scaling;
-//		CalcInterpolatedScaling(Scaling, AnimationTime, pNodeAnim);
-//		Matrix4f ScalingM;
-//		ScalingM.InitScaleTransform(Scaling.x, Scaling.y, Scaling.z);
-//
-//		// Interpolate rotation and generate rotation transformation matrix
-//		aiQuaternion RotationQ;
-//		CalcInterpolatedRotation(RotationQ, AnimationTime, pNodeAnim);
-//		Matrix4f RotationM = Matrix4f(RotationQ.GetMatrix());
-//
-//		// Interpolate translation and generate translation transformation matrix
-//		aiVector3D Translation;
-//		CalcInterpolatedPosition(Translation, AnimationTime, pNodeAnim);
-//		Matrix4f TranslationM;
-//		TranslationM.InitTranslationTransform(Translation.x, Translation.y, Translation.z);
-//
-//		// Combine the above transformations
-//		NodeTransformation = TranslationM * RotationM * ScalingM;
-//	}
-//
-//	Matrix4f GlobalTransformation = ParentTransform * NodeTransformation;
-//
-//	if (m_BoneMapping.find(NodeName) != m_BoneMapping.end()) {
-//		uint BoneIndex = m_BoneMapping[NodeName];
-//		m_BoneInfo[BoneIndex].FinalTransformation = m_GlobalInverseTransform * GlobalTransformation *
-//			m_BoneInfo[BoneIndex].BoneOffset;
-//	}
-//
-//	for (uint i = 0; i < pNode->mNumChildren; i++) {
-//		ReadNodeHeirarchy(AnimationTime, pNode->mChildren[i], GlobalTransformation);
-//	}
-//}
+//};
+
+aiNode* rootNode;
 
 
-void Model::animate(void)
-{
-	std::vector<Matrix4f> Transforms;
-
-	//Debug::log("animating\n");
-	
-	Matrix4f Identity;
-	Identity.InitIdentity();
-	
-	
-	//TIME ARGUMENT
-	static float TimeInSeconds = 0;
-	TimeInSeconds += 0.1;
-
-	//CALCULATE TIME OFFSET
-	float TicksPerSecond = 25.;
-	if (testAnimation->mTicksPerSecond != 0)
-		TicksPerSecond = testAnimation->mTicksPerSecond;
-	float TimeInTicks = TimeInSeconds * TicksPerSecond;
-	float AnimationTime = fmod(TimeInTicks, testAnimation->mDuration);
-	
-	//ReadNodeHeirarchy(AnimationTime, testScene->mRootNode, Identity);
-	
-	Transforms.resize(m_Skeleton.size());
-	
-	for (unsigned int i = 0; i < m_Skeleton.size(); i++)
-	{
-		//Transforms[i] = m_Skeleton.getBone(i).FinalTransformation;
-	
-	}
-
-}
+static Assimp::Importer importer;
+static const aiScene*      testScene;
+static aiAnimation*        testAnimation;	//Kill it with fire
+static std::vector<aiBone> bones;
 
 void Model::draw(const GFXuint &programHandle)
 {
 	animate();
+
+	{
+		//GLint uniformHandle = glGetUniformLocation(programHandle, "_Bones");
+
+		//static glm::mat4x4 test[40];
+
+		//for (size_t i = 0; i < bones.size();i++)
+		//	test[i] = glm::mat4x4(1.0);
+
+		//if (uniformHandle != -1)
+		{
+			
+
+			//for(size_t i = 0; i < bones.size(); i++)
+			//{ 
+			//	test[i][0][0] = bones[i].mOffsetMatrix.a1;
+			//	test[i][0][1] = bones[i].mOffsetMatrix.a2;
+			//	test[i][0][2] = bones[i].mOffsetMatrix.a3;
+			//	test[i][0][3] = bones[i].mOffsetMatrix.a4;
+			//
+			//	test[i][1][0] = bones[i].mOffsetMatrix.b1;
+			//	test[i][1][1] = bones[i].mOffsetMatrix.b2;
+			//	test[i][1][2] = bones[i].mOffsetMatrix.b3;
+			//	test[i][1][3] = bones[i].mOffsetMatrix.b4;
+			//
+			//	test[i][2][0] = bones[i].mOffsetMatrix.c1;
+			//	test[i][2][1] = bones[i].mOffsetMatrix.c2;
+			//	test[i][2][2] = bones[i].mOffsetMatrix.c3;
+			//	test[i][2][3] = bones[i].mOffsetMatrix.c4;
+			//
+			//	test[i][3][0] = bones[i].mOffsetMatrix.d1;
+			//	test[i][3][1] = bones[i].mOffsetMatrix.d2;
+			//	test[i][3][2] = bones[i].mOffsetMatrix.d3;
+			//	test[i][3][3] = bones[i].mOffsetMatrix.d4;
+			//
+			//}
+
+			//for (size_t i = 0; i < 40; i++)
+			//{
+			//	test[i] = glm::mat4x4();
+			//	test[i] = glm::translate<>(test[i],glm::vec3(0, 0, 0));
+			//
+			//}
+			
+			//Debug::log("asdfasdfasdf\n");
+			
+			//float* arrayOfBoneMatricies = &test[0][0][0];
+			//glUniformMatrix4fv(uniformHandle, 40, GL_FALSE, arrayOfBoneMatricies);
+
+		}
+	
+	}
+
+	//{
+	//	GLint uniformHandle = glGetUniformLocation(programHandle, "tester");
+	//
+	//	if (uniformHandle != -1)
+	//	{
+	//		static float tester = 0;
+	//		tester += 0.1;
+	//		glUniform1f(uniformHandle, cos(tester)*100.);
+	//
+	//	}
+	//
+	//}
 
     Vertex::EnableAttributes(programHandle, m_VertexBufferHandle);
     glDrawArrays( GL_TRIANGLES, 0, m_VertexCount );
@@ -158,6 +142,191 @@ Model::Model(const std::string &aName, Vertex::Data aVertexData)
 	    
 }
 
+//
+// Node functions
+//
+void logNodeHierarchy(aiNode* currentNode) //DONE
+{
+	//Calculate depth
+	aiNode* parentPointer = currentNode;
+	int parentCounter = 0;
+	aiMatrix4x4 parentTransformProduct = parentPointer->mTransformation;
+	while (parentPointer->mParent != NULL)
+	{
+		parentCounter++;
+		parentPointer = parentPointer->mParent;
+
+	}
+
+	//report who i am
+	Debug::log("Node name:",currentNode->mName.C_Str(), " Depth: ",parentCounter, "\n");
+	
+	//Go deeper
+	for (size_t i = 0; i < currentNode->mNumChildren;i++)
+	{
+		logNodeHierarchy(currentNode->mChildren[i]);
+
+	}
+	
+}
+
+//void copyNodeHierarchy(aiNode* currentNode, aiNode* aNewParent = 0)
+//{
+//	aiNode* newCurrent = new aiNode;
+//	*newCurrent = *currentNode;
+//
+//	if (currentNode->mParent == NULL)
+//		rootNode = newCurrent;
+//	else
+//	{ 
+//		aNewParent->mChildren[0] = newCurrent;
+//	
+//	}
+//
+//	//Go deeper
+//	for (size_t i = 0; i < currentNode->mNumChildren;i++)
+//	{
+//		copyNodeHierarchy(currentNode->mChildren[i], newCurrent);
+//
+//	}
+//	
+//}
+
+void updateNodeHierarchy(aiNode* currentNode, aiAnimation* animation) //MAY BE GOOD, MUST TEST
+{
+	for (size_t i = 0; i < animation->mNumChannels; i++)
+		if (currentNode->mName == animation->mChannels[i]->mNodeName)
+		{
+			aiVector3D   position;
+			aiQuaternion rotation;
+			aiVector3D   scaling;
+
+			if (animation->mChannels[i]->mNumPositionKeys > 0)
+				position = animation->mChannels[i]->mPositionKeys[0].mValue;
+
+			if (animation->mChannels[i]->mNumRotationKeys > 0)
+				rotation = animation->mChannels[i]->mRotationKeys[0].mValue;
+
+			if (animation->mChannels[i]->mNumScalingKeys > 0)
+				scaling = animation->mChannels[i]->mScalingKeys[0].mValue;
+
+			currentNode->mTransformation *= aiMatrix4x4(scaling,rotation,position);
+
+		}
+
+	// continue traversing the nodes...
+	for (size_t i = 0; i < currentNode->mNumChildren;i++)
+		updateNodeHierarchy(currentNode->mChildren[i], animation);
+
+}
+
+void updateBoneTransforms(aiNode* currentNode, std::vector<aiBone> &ioBones) //MAY BE GOOD, MUST TEST
+{
+	// calculate final modelspace transform
+	aiMatrix4x4 myTransform;
+	aiNode* parentPointer = currentNode->mParent;
+	int parentCounter = 0;
+
+	while (parentPointer != NULL)
+	{
+		myTransform *= parentPointer->mTransformation;
+		parentCounter++;
+		parentPointer = parentPointer->mParent;
+		
+	}
+
+	// update modelspace transform data on bone
+	for (size_t i = 0; i < ioBones.size(); i++)
+		if (ioBones[i].mName == currentNode->mName)
+			ioBones[i].mOffsetMatrix = myTransform;
+
+	// continue traversing the nodes...
+	for (size_t i = 0; i < currentNode->mNumChildren;i++)
+		updateBoneTransforms(currentNode->mChildren[i], ioBones);
+
+}
+
+void megaTestUpdateBones(aiNode* currentNode, aiAnimation* animation, std::vector<aiBone> &ioBones) //MAY BE GOOD, MUST TEST
+{
+	size_t key = 50;
+
+	for (size_t i = 0; i < animation->mNumChannels; i++)
+		if (currentNode->mName == animation->mChannels[i]->mNodeName)
+		{
+			aiVector3D   position;
+			aiQuaternion rotation;
+			aiVector3D   scaling;
+
+			if (animation->mChannels[i]->mNumPositionKeys > 0)
+				position = animation->mChannels[i]->mPositionKeys[key].mValue;
+						
+			if (animation->mChannels[i]->mNumRotationKeys > 0)
+				rotation = animation->mChannels[i]->mRotationKeys[key].mValue;
+
+			if (animation->mChannels[i]->mNumScalingKeys > 0)
+				scaling = animation->mChannels[i]->mScalingKeys[key].mValue;
+			
+			//currentNode->mTransformation *= aiMatrix4x4(scaling, rotation, position);
+
+			position = aiVector3D(0, 200, 0);
+
+
+			for (size_t i = 0; i < ioBones.size(); i++)
+				if (ioBones[i].mName == currentNode->mName)
+					ioBones[i].mOffsetMatrix = aiMatrix4x4(aiVector3D(1, 1, 1), aiQuaternion(), position); //currentNode->mTransformation * aiMatrix4x4(scaling, rotation, position);
+
+		}
+
+	// continue traversing the nodes...
+	for (size_t i = 0; i < currentNode->mNumChildren;i++)
+		updateNodeHierarchy(currentNode->mChildren[i], animation);
+
+}
+
+void Model::animate(void)
+{
+	//
+	// Calculate animation offset
+	//
+	float AnimationTime;
+	{
+		//TIME ARGUMENT
+		static float TimeInSeconds = 0;
+		TimeInSeconds += 0.1;
+		//CALCULATE TIME OFFSET
+		float TicksPerSecond = 25.;
+		if (testAnimation->mTicksPerSecond != 0)
+			TicksPerSecond = testAnimation->mTicksPerSecond;
+
+		float TimeInTicks = TimeInSeconds * TicksPerSecond;
+
+		AnimationTime = fmod(TimeInTicks, testAnimation->mDuration);
+
+	}
+
+	//
+	// interpolate transforms etc.
+	//
+	//updateSkelly(AnimationTime)
+	{
+		//updateNodeHierarchy(rootNode,testAnimation);
+
+	}
+
+	//
+	// update transforms
+	//
+	{
+		megaTestUpdateBones(rootNode, testAnimation, bones);
+
+
+
+	}
+
+	
+
+}
+
 Model::Model(const std::string &aFileName, const std::string &aMeshName) : Model(aFileName, loadMeshFromFile(aFileName, aMeshName))
 {}
 
@@ -166,7 +335,7 @@ Vertex::Data Model::loadMeshFromFile(const std::string &aFileName, const std::st
 	Debug::log("loading model ", aFileName, "\n");
 
 	//create a context on the file
-	Assimp::Importer importer;
+	//Assimp::Importer importer;
 
 	const aiScene* scene = importer.ReadFile
 	(
@@ -276,6 +445,8 @@ Vertex::Data Model::loadMeshFromFile(const std::string &aFileName, const std::st
 					vertexes.get(currentBone->mWeights[j].mVertexId)->bone1I = i; //index of bone
 					vertexes.get(currentBone->mWeights[j].mVertexId)->bone1W = currentBone->mWeights[j].mWeight; //weight of bone
 
+					//Debug::log("BONEDATA IS COMING: ", i);
+
 				}
 				else if (vertexes.get(currentBone->mWeights[j].mVertexId)->bone2I == -1)
 				{
@@ -319,8 +490,31 @@ Vertex::Data Model::loadMeshFromFile(const std::string &aFileName, const std::st
 	// todo
 	if (scene->HasAnimations())
 	{
+		for (size_t i = 0; i < scene->mNumAnimations; i++) //read the name of all the animations
+		{
+			Debug::log("Animation name: ", scene->mAnimations[i]->mName.C_Str(), "\n");
+
+		}
+
 		testAnimation = scene->mAnimations[0];
 
+	}
+
+	
+	aiNode* rootNodeSource = scene->mRootNode;
+	
+	rootNode = rootNodeSource;
+	
+	logNodeHierarchy(rootNode);
+	//copyNodeHierarchy(rootNodeSource,0);
+
+
+
+	Debug::log(testAnimation->mNumChannels, "\n");
+	for (size_t i = 0; i < testAnimation->mNumChannels; i++) //read the name of all the animations
+	{
+		Debug::log("TestAnimation channel names: ",testAnimation->mChannels[i]->mNodeName.C_Str(), "\n");
+	
 	}
 	
 	return vertexes;

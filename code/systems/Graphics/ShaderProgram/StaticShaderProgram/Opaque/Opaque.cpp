@@ -168,23 +168,23 @@ uniform mat4 _Light1Matrix;
 const int MAX_BONES = 40;
 uniform mat4 _Bones[MAX_BONES]; 
 
+uniform float tester;
+
 void main()
 {
 	//calculate bone transform
-	mat4 BoneTransform;
-    BoneTransform  = _Bones[int(a_BoneWeight1[0])] * a_BoneWeight1[1];
-    BoneTransform += _Bones[int(a_BoneWeight2[0])] * a_BoneWeight2[1];
-    BoneTransform += _Bones[int(a_BoneWeight3[0])] * a_BoneWeight3[1];
-    BoneTransform += _Bones[int(a_BoneWeight4[0])] * a_BoneWeight4[1];
-	BoneTransform += _Bones[int(a_BoneWeight5[0])] * a_BoneWeight5[1];
+	mat4 BoneTransform = mat4(1.0);
+	BoneTransform += _Bones[0] * 1;
+    //BoneTransform += _Bones[int(a_BoneWeight1[0])] * a_BoneWeight1[1];
+    //BoneTransform += _Bones[int(a_BoneWeight2[0])] * a_BoneWeight2[1];
+    //BoneTransform += _Bones[int(a_BoneWeight3[0])] * a_BoneWeight3[1];
+    //BoneTransform += _Bones[int(a_BoneWeight4[0])] * a_BoneWeight4[1];
+	//BoneTransform += _Bones[int(a_BoneWeight5[0])] * a_BoneWeight5[1];
 
-	gl_Position = _MVP * BoneTransform * vec4(a_Position, 1) ;
-	
-	vec2 uv = a_UV;
-	//uv.y *= -1;//proving im loading textures flipped
+	gl_Position = _MVP * BoneTransform * vec4(a_Position + vec3(0,tester,0), 1) ;
 
 	// Pass some variables to the fragment shader
-	fragTexCoord = uv ;
+	fragTexCoord = a_UV ;
 	fragNormal   = a_Normal   ; //will have to adjust with bonetransform in future
 	fragVert     = a_Position ;
 	

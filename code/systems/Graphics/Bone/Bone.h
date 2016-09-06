@@ -20,6 +20,9 @@ namespace guar
 			aiMatrix4x4 m_OffsetMatrix; //bone transform data
 
 		public:
+			int getIndex(void) { return m_BoneIndex; }
+			aiMatrix4x4 getMat4x4(void) { return m_OffsetMatrix; }
+
 			Bone(const int& aIndex, const aiMatrix4x4 &aOffsetMatrix) :
 				m_BoneIndex(aIndex),
 				m_OffsetMatrix(aOffsetMatrix)

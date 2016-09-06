@@ -38,13 +38,26 @@ namespace guar
             extern const int NormalAttributeOffset;
             extern const int TangentAttributeOffset;
             extern const int BitangentAttributeOffset;
-            
+
+			extern const int Bone1AttributeOffset;
+			extern const int Bone2AttributeOffset;
+			extern const int Bone3AttributeOffset;
+			extern const int Bone4AttributeOffset;
+			extern const int Bone5AttributeOffset;
+
             //Attribute sizes
             extern const int PositionAttributeSize;
             extern const int UVAttributeSize;
             extern const int NormalAttributeSize;
             extern const int TangentAttributeSize;
             extern const int BitangentAttributeSize;
+
+			extern const int Bone1AttributeSize;
+			extern const int Bone2AttributeSize;
+			extern const int Bone3AttributeSize;
+			extern const int Bone4AttributeSize;
+			extern const int Bone5AttributeSize;
+
             
             void EnableAttributes(const GFXuint &aProgramHandle, const GFXuint &aVertexBufferHandle);
             

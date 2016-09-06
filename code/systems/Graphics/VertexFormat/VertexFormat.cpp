@@ -15,11 +15,26 @@ const int Vertex::NormalAttributeOffset    = offsetof(Vertex::Format, nX)/sizeof
 const int Vertex::TangentAttributeOffset   = offsetof(Vertex::Format, tX)/sizeof(GFXfloat);
 const int Vertex::BitangentAttributeOffset = offsetof(Vertex::Format, tX)/sizeof(GFXfloat);
 
+const int Vertex::Bone1AttributeOffset = offsetof(Vertex::Format, bone1I) / sizeof(GFXfloat);
+const int Vertex::Bone2AttributeOffset = offsetof(Vertex::Format, bone2I) / sizeof(GFXfloat);
+const int Vertex::Bone3AttributeOffset = offsetof(Vertex::Format, bone3I) / sizeof(GFXfloat);
+const int Vertex::Bone4AttributeOffset = offsetof(Vertex::Format, bone4I) / sizeof(GFXfloat);
+const int Vertex::Bone5AttributeOffset = offsetof(Vertex::Format, bone5I) / sizeof(GFXfloat);
+
+
 const int Vertex::PositionAttributeSize  = 3;
 const int Vertex::UVAttributeSize        = 2;
 const int Vertex::NormalAttributeSize    = 3;
 const int Vertex::TangentAttributeSize   = 3;
 const int Vertex::BitangentAttributeSize = 3;
+
+const int Vertex::Bone1AttributeSize = 2;
+const int Vertex::Bone2AttributeSize = 2;
+const int Vertex::Bone3AttributeSize = 2;
+const int Vertex::Bone4AttributeSize = 2;
+const int Vertex::Bone5AttributeSize = 2;
+
+
 
 Vertex::Format Vertex::create
 (
@@ -121,6 +136,13 @@ void Vertex::EnableAttributes(const GFXuint &aProgramHandle, const GFXuint &aVer
     enableAttribute("a_Normal"   , aProgramHandle, Vertex::NormalAttributeSize   , Vertex::NormalAttributeOffset   );
 	enableAttribute("a_Tangent"  , aProgramHandle, Vertex::TangentAttributeSize  , Vertex::TangentAttributeOffset  );
 	enableAttribute("a_Bitangent", aProgramHandle, Vertex::BitangentAttributeSize, Vertex::BitangentAttributeOffset);
+
+	enableAttribute("a_BoneWeight1", aProgramHandle, Vertex::Bone1AttributeOffset, Vertex::Bone1AttributeSize);
+    enableAttribute("a_BoneWeight2", aProgramHandle, Vertex::Bone2AttributeOffset, Vertex::Bone2AttributeSize);
+    enableAttribute("a_BoneWeight3", aProgramHandle, Vertex::Bone3AttributeOffset, Vertex::Bone3AttributeSize);
+	enableAttribute("a_BoneWeight4", aProgramHandle, Vertex::Bone4AttributeOffset, Vertex::Bone4AttributeSize);
+	enableAttribute("a_BoneWeight5", aProgramHandle, Vertex::Bone5AttributeOffset, Vertex::Bone5AttributeSize);
+
 
     //glBindBuffer( GL_ARRAY_BUFFER, 0);
     

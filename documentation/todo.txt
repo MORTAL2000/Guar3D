@@ -1,6 +1,10 @@
 Next:
 skeletons
  - rigged animation, gpu implementation. implement myself, for mobile builds. GPU will require customizable vertex formats for per vert weights.
+	-skeleton data to ram DONE
+	-bone data to vram DONE
+	-vertex shader + uniform calls DONE
+	-transform bone data with respect to time offset in animation sequence NOT DONE
 
 creation of gfx meshes from col meshes & shapes(sphere, box, cylinder, capsule, cone), creation of col meshes from gfx meshes.
   - add methods to create collision meshes from render meshes and vice versa.
