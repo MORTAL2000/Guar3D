@@ -254,13 +254,14 @@ void updateBoneTransforms(aiNode* currentNode, std::vector<aiBone> &ioBones) //M
 
 }
 
-void megaTestUpdateBones(aiNode* currentNode, aiAnimation* animation, std::vector<aiBone> &ioBones) //MAY BE GOOD, MUST TEST
+void megaTestUpdateSkeleton(aiNode* currentNode, aiAnimation* animation, std::vector<aiBone> &ioBones) //MAY BE GOOD, MUST TEST
 {
 	static size_t key = 0; //hardcoded key
 	
 	for (size_t i = 0; i < animation->mNumChannels; i++)
 		if (currentNode->mName == animation->mChannels[i]->mNodeName)
 		{
+			//get the animation deltas for this node
 			aiVector3D   position;
 			aiQuaternion rotation;
 			aiVector3D   scaling;
@@ -269,46 +270,51 @@ void megaTestUpdateBones(aiNode* currentNode, aiAnimation* animation, std::vecto
 			rotation = aiQuaternion(1, 0, 0, 0);
 			scaling = aiVector3D(1, 1, 1);
 
-	
-			//if (animation->mChannels[i]->mNumPositionKeys > 0)
-			//	position = animation->mChannels[i]->mPositionKeys[key].mValue;
-			//			
-			//if (animation->mChannels[i]->mNumRotationKeys > 0)
-			//	rotation = animation->mChannels[i]->mRotationKeys[key].mValue;
-			//
-			//if (animation->mChannels[i]->mNumScalingKeys > 0)
-			//	scaling = animation->mChannels[i]->mScalingKeys[key].mValue;
+			if (animation->mChannels[i]->mNumPositionKeys > 0)
+				position = animation->mChannels[i]->mPositionKeys[key].mValue;
+						
+			if (animation->mChannels[i]->mNumRotationKeys > 0)
+				rotation = animation->mChannels[i]->mRotationKeys[key].mValue;
 			
-			for (size_t i = 0; i < ioBones.size(); i++)
-			{
-				Debug::alert(currentNode->mName.C_Str(), "\n");
+			if (animation->mChannels[i]->mNumScalingKeys > 0)
+				scaling = animation->mChannels[i]->mScalingKeys[key].mValue;
 
-				//if (currentNode->mName.C_Str() == "Hips")
-				//	Debug::alert("DFSAASDF\n");
+			//update the node
+			currentNode->mTransformation = aiMatrix4x4(scaling, rotation, position);
 
-				//Debug::alert("sdfafhgasdkjfhgajksdhgfakjshdf\n");
-
-				//Debug::alert(ioBones[i].mName.C_Str(), "\n");
-
-				if (ioBones[i].mName == currentNode->mName)
-				{
-					ioBones[i].mOffsetMatrix = aiMatrix4x4(scaling, rotation, position); //currentNode->mTransformation * aiMatrix4x4(scaling, rotation, position);
-				
-				}
-
-			}
 		}
 	
 	// continue traversing the nodes...
 	for (size_t i = 0; i < currentNode->mNumChildren;i++)
-		megaTestUpdateBones(currentNode->mChildren[i], animation, ioBones);
+		megaTestUpdateSkeleton(currentNode->mChildren[i], animation, ioBones);
 
-	//for (size_t i = 0; i < bones.size(); i++)
-	//{
-	//	bones[i].mOffsetMatrix = aiMatrix4x4(aiVector3D(1, 1, 1), aiQuaternion(1,0,0,0), aiVector3D(50, 200, 0));
-	//
-	//}
+	
 
+}
+
+void megaTestUpdateBones(aiNode* currentNode, std::vector<aiBone> &ioBones)
+{
+	//Calculate depth
+	aiNode* parentPointer = currentNode;
+	int parentCounter = 0;
+	aiMatrix4x4 parentTransformProduct = parentPointer->mTransformation;
+	while (parentPointer->mParent != NULL)
+	{
+		parentCounter++;
+		parentPointer = parentPointer->mParent;
+
+	}
+
+	for (size_t i = 0; i < bones.size(); i++)
+		if (bones[i].mName == currentNode->mName)
+			bones[i].mOffsetMatrix = aiMatrix4x4(aiVector3D(1, 1, 1), aiQuaternion(1,0,0,0), aiVector3D(50, 200, 0));
+	
+	/////////////
+
+	// continue traversing the nodes...
+	for (size_t i = 0; i < currentNode->mNumChildren;i++)
+		megaTestUpdateBones(currentNode->mChildren[i], ioBones);
+	
 }
 
 void Model::animate(void)
@@ -345,8 +351,8 @@ void Model::animate(void)
 	// update transforms
 	//
 	{
-		megaTestUpdateBones(rootNode, testAnimation, bones);
-
+		megaTestUpdateSkeleton(rootNode, testAnimation, bones);
+		megaTestUpdateBones   (rootNode, bones);
 
 
 	}
