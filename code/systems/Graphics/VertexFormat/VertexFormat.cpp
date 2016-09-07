@@ -143,9 +143,6 @@ void Vertex::EnableAttributes(const GFXuint &aProgramHandle, const GFXuint &aVer
 	enableAttribute("a_BoneWeight4", aProgramHandle, Vertex::Bone4AttributeSize    , Vertex::Bone4AttributeOffset    );
 	enableAttribute("a_BoneWeight5", aProgramHandle, Vertex::Bone5AttributeSize    , Vertex::Bone5AttributeOffset    );
 
-
-    //glBindBuffer( GL_ARRAY_BUFFER, 0);
-    
 }
 
 GFXfloat* Vertex::Data::toArray(void)

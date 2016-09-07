@@ -59,73 +59,6 @@ void Model::draw(const GFXuint &programHandle)
 {
 	animate();
 
-	
-
-	{
-		//GLint uniformHandle = glGetUniformLocation(programHandle, "_Bones");
-
-		//static glm::mat4x4 test[40];
-
-		//for (size_t i = 0; i < bones.size();i++)
-		//	test[i] = glm::mat4x4(1.0);
-
-		//if (uniformHandle != -1)
-		{
-			
-
-			//for(size_t i = 0; i < bones.size(); i++)
-			//{ 
-			//	test[i][0][0] = bones[i].mOffsetMatrix.a1;
-			//	test[i][0][1] = bones[i].mOffsetMatrix.a2;
-			//	test[i][0][2] = bones[i].mOffsetMatrix.a3;
-			//	test[i][0][3] = bones[i].mOffsetMatrix.a4;
-			//
-			//	test[i][1][0] = bones[i].mOffsetMatrix.b1;
-			//	test[i][1][1] = bones[i].mOffsetMatrix.b2;
-			//	test[i][1][2] = bones[i].mOffsetMatrix.b3;
-			//	test[i][1][3] = bones[i].mOffsetMatrix.b4;
-			//
-			//	test[i][2][0] = bones[i].mOffsetMatrix.c1;
-			//	test[i][2][1] = bones[i].mOffsetMatrix.c2;
-			//	test[i][2][2] = bones[i].mOffsetMatrix.c3;
-			//	test[i][2][3] = bones[i].mOffsetMatrix.c4;
-			//
-			//	test[i][3][0] = bones[i].mOffsetMatrix.d1;
-			//	test[i][3][1] = bones[i].mOffsetMatrix.d2;
-			//	test[i][3][2] = bones[i].mOffsetMatrix.d3;
-			//	test[i][3][3] = bones[i].mOffsetMatrix.d4;
-			//
-			//}
-
-			//for (size_t i = 0; i < 40; i++)
-			//{
-			//	test[i] = glm::mat4x4();
-			//	test[i] = glm::translate<>(test[i],glm::vec3(0, 0, 0));
-			//
-			//}
-			
-			//Debug::log("asdfasdfasdf\n");
-			
-			//float* arrayOfBoneMatricies = &test[0][0][0];
-			//glUniformMatrix4fv(uniformHandle, 40, GL_FALSE, arrayOfBoneMatricies);
-
-		}
-	
-	}
-
-	//{
-	//	GLint uniformHandle = glGetUniformLocation(programHandle, "tester");
-	//
-	//	if (uniformHandle != -1)
-	//	{
-	//		static float tester = 0;
-	//		tester += 0.1;
-	//		glUniform1f(uniformHandle, cos(tester)*100.);
-	//
-	//	}
-	//
-	//}
-
     Vertex::EnableAttributes(programHandle, m_VertexBufferHandle);
     glDrawArrays( GL_TRIANGLES, 0, m_VertexCount );
     
@@ -251,7 +184,7 @@ void updateBoneTransforms(aiNode* currentNode, std::vector<aiBone> &ioBones) //M
 	// continue traversing the nodes...
 	for (size_t i = 0; i < currentNode->mNumChildren;i++)
 		updateBoneTransforms(currentNode->mChildren[i], ioBones);
-
+	
 }
 
 void megaTestUpdateSkeleton(aiNode* currentNode, aiAnimation* animation, std::vector<aiBone> &ioBones) //MAY BE GOOD, MUST TEST

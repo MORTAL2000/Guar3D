@@ -246,8 +246,19 @@ void StandardUniforms::loadStandardUniforms(RenderObject &aRenderObject, RenderO
 			static glm::mat4x4 glmData[40];
 			float* arrayOfBoneMatricies = &glmData[0][0][0];
 
-			std::vector<aiBone>* aiBones = aRenderObject.getModel()._Get()->getBones();
+			std::vector<aiBone> testData;
 
+			for (size_t i = 0; i < 40; i++)
+			{
+				testData.push_back(aiBone());
+				testData.back().mOffsetMatrix = aiMatrix4x4(aiVector3D(1.), aiQuaternion(1, 0, 0, 0), aiVector3D(0,200.,0));
+				
+
+			}
+
+
+			std::vector<aiBone>* aiBones = /*aRenderObject.getModel()._Get()->getBones()*/ &testData;
+			
 			for (size_t i = 0; i < 40; i++)
 			{
 				//ai to glm mat conversion (opposite handedness; mat4x4 inversion)
@@ -255,24 +266,24 @@ void StandardUniforms::loadStandardUniforms(RenderObject &aRenderObject, RenderO
 				glmData[i][0][1] = (*aiBones)[i].mOffsetMatrix[1][0];
 				glmData[i][0][2] = (*aiBones)[i].mOffsetMatrix[2][0];
 				glmData[i][0][3] = (*aiBones)[i].mOffsetMatrix[3][0];
-
+			
 				glmData[i][1][0] = (*aiBones)[i].mOffsetMatrix[0][1];
 				glmData[i][1][1] = (*aiBones)[i].mOffsetMatrix[1][1];
 				glmData[i][1][2] = (*aiBones)[i].mOffsetMatrix[2][1];
 				glmData[i][1][3] = (*aiBones)[i].mOffsetMatrix[3][1];
-
+			
 				glmData[i][2][0] = (*aiBones)[i].mOffsetMatrix[0][2];
 				glmData[i][2][1] = (*aiBones)[i].mOffsetMatrix[1][2];
 				glmData[i][2][2] = (*aiBones)[i].mOffsetMatrix[2][2];
 				glmData[i][2][3] = (*aiBones)[i].mOffsetMatrix[3][2];
-
+			
 				glmData[i][3][0] = (*aiBones)[i].mOffsetMatrix[0][3];
 				glmData[i][3][1] = (*aiBones)[i].mOffsetMatrix[1][3];
 				glmData[i][3][2] = (*aiBones)[i].mOffsetMatrix[2][3];
 				glmData[i][3][3] = (*aiBones)[i].mOffsetMatrix[3][3];
-
+			
 			}
-
+			
 			glUniformMatrix4fv(uniformHandle, 40, GL_FALSE, arrayOfBoneMatricies);
 		
 		}

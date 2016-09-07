@@ -175,9 +175,6 @@ void main()
 {
 	//calculate bone transform
 	mat4 BoneTransform = mat4(1.0);
-
-	//BoneTransform += _TestBone;
-
     BoneTransform += _Bones[int(a_BoneWeight1[0])] * a_BoneWeight1[1];
     BoneTransform += _Bones[int(a_BoneWeight2[0])] * a_BoneWeight2[1];
     BoneTransform += _Bones[int(a_BoneWeight3[0])] * a_BoneWeight3[1];
