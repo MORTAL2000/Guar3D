@@ -13,7 +13,7 @@ const int Vertex::PositionAttributeOffset  = offsetof(Vertex::Format, x )/sizeof
 const int Vertex::UVAttributeOffset        = offsetof(Vertex::Format, u )/sizeof(GFXfloat);
 const int Vertex::NormalAttributeOffset    = offsetof(Vertex::Format, nX)/sizeof(GFXfloat);
 const int Vertex::TangentAttributeOffset   = offsetof(Vertex::Format, tX)/sizeof(GFXfloat);
-const int Vertex::BitangentAttributeOffset = offsetof(Vertex::Format, tX)/sizeof(GFXfloat);
+const int Vertex::BitangentAttributeOffset = offsetof(Vertex::Format, bX)/sizeof(GFXfloat);
 
 const int Vertex::Bone1AttributeOffset = offsetof(Vertex::Format, bone1I) / sizeof(GFXfloat);
 const int Vertex::Bone2AttributeOffset = offsetof(Vertex::Format, bone2I) / sizeof(GFXfloat);
@@ -131,17 +131,17 @@ void Vertex::EnableAttributes(const GFXuint &aProgramHandle, const GFXuint &aVer
 {
     glBindBuffer( GL_ARRAY_BUFFER, aVertexBufferHandle);
     
-    enableAttribute("a_Position" , aProgramHandle, Vertex::PositionAttributeSize , Vertex::PositionAttributeOffset );
-    enableAttribute("a_UV"       , aProgramHandle, Vertex::UVAttributeSize       , Vertex::UVAttributeOffset       );
-    enableAttribute("a_Normal"   , aProgramHandle, Vertex::NormalAttributeSize   , Vertex::NormalAttributeOffset   );
-	enableAttribute("a_Tangent"  , aProgramHandle, Vertex::TangentAttributeSize  , Vertex::TangentAttributeOffset  );
-	enableAttribute("a_Bitangent", aProgramHandle, Vertex::BitangentAttributeSize, Vertex::BitangentAttributeOffset);
+    enableAttribute("a_Position"   , aProgramHandle, Vertex::PositionAttributeSize , Vertex::PositionAttributeOffset );
+    enableAttribute("a_UV"         , aProgramHandle, Vertex::UVAttributeSize       , Vertex::UVAttributeOffset       );
+    enableAttribute("a_Normal"     , aProgramHandle, Vertex::NormalAttributeSize   , Vertex::NormalAttributeOffset   );
+	enableAttribute("a_Tangent"    , aProgramHandle, Vertex::TangentAttributeSize  , Vertex::TangentAttributeOffset  );
+	enableAttribute("a_Bitangent"  , aProgramHandle, Vertex::BitangentAttributeSize, Vertex::BitangentAttributeOffset);
 
-	enableAttribute("a_BoneWeight1", aProgramHandle, Vertex::Bone1AttributeOffset, Vertex::Bone1AttributeSize);
-    enableAttribute("a_BoneWeight2", aProgramHandle, Vertex::Bone2AttributeOffset, Vertex::Bone2AttributeSize);
-    enableAttribute("a_BoneWeight3", aProgramHandle, Vertex::Bone3AttributeOffset, Vertex::Bone3AttributeSize);
-	enableAttribute("a_BoneWeight4", aProgramHandle, Vertex::Bone4AttributeOffset, Vertex::Bone4AttributeSize);
-	enableAttribute("a_BoneWeight5", aProgramHandle, Vertex::Bone5AttributeOffset, Vertex::Bone5AttributeSize);
+	enableAttribute("a_BoneWeight1", aProgramHandle, Vertex::Bone1AttributeSize    , Vertex::Bone1AttributeOffset    );
+	enableAttribute("a_BoneWeight2", aProgramHandle, Vertex::Bone2AttributeSize    , Vertex::Bone2AttributeOffset    );
+	enableAttribute("a_BoneWeight3", aProgramHandle, Vertex::Bone3AttributeSize    , Vertex::Bone3AttributeOffset    );
+	enableAttribute("a_BoneWeight4", aProgramHandle, Vertex::Bone4AttributeSize    , Vertex::Bone4AttributeOffset    );
+	enableAttribute("a_BoneWeight5", aProgramHandle, Vertex::Bone5AttributeSize    , Vertex::Bone5AttributeOffset    );
 
 
     //glBindBuffer( GL_ARRAY_BUFFER, 0);

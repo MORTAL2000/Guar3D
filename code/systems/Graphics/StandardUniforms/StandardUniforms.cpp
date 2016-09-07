@@ -203,8 +203,8 @@ void StandardUniforms::loadStandardUniforms(RenderObject &aRenderObject, RenderO
 			static glm::mat4x4 testBoneData;
 
 			std::vector<aiBone>* bones = aRenderObject.getModel()._Get()->getBones();
-			
-			
+
+
 			aiMatrix4x4 test;
 			//test = aiMatrix4x4();
 			//test = aiMatrix4x4(aiVector3D(1, 1, 1), aiQuaternion(1, 0, 0, 0), aiVector3D(0, 100, 0));
@@ -216,17 +216,17 @@ void StandardUniforms::loadStandardUniforms(RenderObject &aRenderObject, RenderO
 			testBoneData[0][1] = test[1][0];
 			testBoneData[0][2] = test[2][0];
 			testBoneData[0][3] = test[3][0];
-			
+
 			testBoneData[1][0] = test[0][1];
 			testBoneData[1][1] = test[1][1];
 			testBoneData[1][2] = test[2][1];
 			testBoneData[1][3] = test[3][1];
-			
+
 			testBoneData[2][0] = test[0][2];
 			testBoneData[2][1] = test[1][2];
 			testBoneData[2][2] = test[2][2];
 			testBoneData[2][3] = test[3][2];
-			
+
 			testBoneData[3][0] = test[0][3];
 			testBoneData[3][1] = test[1][3];
 			testBoneData[3][2] = test[2][3];
@@ -235,17 +235,47 @@ void StandardUniforms::loadStandardUniforms(RenderObject &aRenderObject, RenderO
 			glUniformMatrix4fv(uniformHandle, 1, GL_FALSE, &testBoneData[0][0]);
 
 		}
+
+	}
+
+	{	
+		GLint uniformHandle = glGetUniformLocation(aShaderProgramHandle, "_Bones");
 		
-		//GLint uniformHandle = glGetUniformLocation(aShaderProgramHandle, "_Bones");
-		//
-		//if (uniformHandle != -1)
-		//{
-		//	static glm::mat4x4 test[40];
-		//	float* arrayOfBoneMatricies = &test[0][0][0];
-		//
-		//	glUniformMatrix4fv(uniformHandle, 40, GL_FALSE, arrayOfBoneMatricies);
-		//
-		//}
+		if (uniformHandle != -1)
+		{
+			static glm::mat4x4 glmData[40];
+			float* arrayOfBoneMatricies = &glmData[0][0][0];
+
+			std::vector<aiBone>* aiBones = aRenderObject.getModel()._Get()->getBones();
+
+			for (size_t i = 0; i < 40; i++)
+			{
+				//ai to glm mat conversion (opposite handedness; mat4x4 inversion)
+				glmData[i][0][0] = (*aiBones)[i].mOffsetMatrix[0][0];
+				glmData[i][0][1] = (*aiBones)[i].mOffsetMatrix[1][0];
+				glmData[i][0][2] = (*aiBones)[i].mOffsetMatrix[2][0];
+				glmData[i][0][3] = (*aiBones)[i].mOffsetMatrix[3][0];
+
+				glmData[i][1][0] = (*aiBones)[i].mOffsetMatrix[0][1];
+				glmData[i][1][1] = (*aiBones)[i].mOffsetMatrix[1][1];
+				glmData[i][1][2] = (*aiBones)[i].mOffsetMatrix[2][1];
+				glmData[i][1][3] = (*aiBones)[i].mOffsetMatrix[3][1];
+
+				glmData[i][2][0] = (*aiBones)[i].mOffsetMatrix[0][2];
+				glmData[i][2][1] = (*aiBones)[i].mOffsetMatrix[1][2];
+				glmData[i][2][2] = (*aiBones)[i].mOffsetMatrix[2][2];
+				glmData[i][2][3] = (*aiBones)[i].mOffsetMatrix[3][2];
+
+				glmData[i][3][0] = (*aiBones)[i].mOffsetMatrix[0][3];
+				glmData[i][3][1] = (*aiBones)[i].mOffsetMatrix[1][3];
+				glmData[i][3][2] = (*aiBones)[i].mOffsetMatrix[2][3];
+				glmData[i][3][3] = (*aiBones)[i].mOffsetMatrix[3][3];
+
+			}
+
+			glUniformMatrix4fv(uniformHandle, 40, GL_FALSE, arrayOfBoneMatricies);
+		
+		}
 	
 	}
 

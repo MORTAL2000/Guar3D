@@ -144,11 +144,11 @@ std::string staticShaders::Opaque::vertexShaderGLSL(void)
 	return
 		R"V0G0N(
 
-		#version 150
+						#version 150
 
-		uniform mat4 _MVP;
+						uniform mat4 _MVP;
 
-		in vec3 a_Position;
+						in vec3 a_Position;
 in vec2 a_UV;
 in vec3 a_Normal;
 
@@ -175,12 +175,14 @@ void main()
 {
 	//calculate bone transform
 	mat4 BoneTransform = mat4(1.0);
-	BoneTransform += _TestBone;
-    //BoneTransform += _Bones[int(a_BoneWeight1[0])] * a_BoneWeight1[1];
-    //BoneTransform += _Bones[int(a_BoneWeight2[0])] * a_BoneWeight2[1];
-    //BoneTransform += _Bones[int(a_BoneWeight3[0])] * a_BoneWeight3[1];
-    //BoneTransform += _Bones[int(a_BoneWeight4[0])] * a_BoneWeight4[1];
-	//BoneTransform += _Bones[int(a_BoneWeight5[0])] * a_BoneWeight5[1];
+
+	//BoneTransform += _TestBone;
+
+    BoneTransform += _Bones[int(a_BoneWeight1[0])] * a_BoneWeight1[1];
+    BoneTransform += _Bones[int(a_BoneWeight2[0])] * a_BoneWeight2[1];
+    BoneTransform += _Bones[int(a_BoneWeight3[0])] * a_BoneWeight3[1];
+    BoneTransform += _Bones[int(a_BoneWeight4[0])] * a_BoneWeight4[1];
+	BoneTransform += _Bones[int(a_BoneWeight5[0])] * a_BoneWeight5[1];
 
 	gl_Position = _MVP * BoneTransform * vec4(a_Position + vec3(0,0,0), 1) ;
 

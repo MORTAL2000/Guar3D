@@ -292,29 +292,36 @@ void megaTestUpdateSkeleton(aiNode* currentNode, aiAnimation* animation, std::ve
 
 }
 
-void megaTestUpdateBones(aiNode* currentNode, std::vector<aiBone> &ioBones)
+void megaTestUpdateBone(aiBone &ioBone)
 {
-	//Calculate depth
-	aiNode* parentPointer = currentNode;
-	int parentCounter = 0;
-	aiMatrix4x4 parentTransformProduct = parentPointer->mTransformation;
-	while (parentPointer->mParent != NULL)
+	//find the bone in the node hierarchy
+	aiNode* myNode = rootNode->FindNode(ioBone.mName);
+
+	if (!myNode)
+		return;
+
+	//calculate modelspace transform
+	aiNode*     currentNode         = myNode;
+	aiMatrix4x4 modelSpaceTransform = currentNode->mTransformation;
+
+	while (currentNode->mParent != 0)
 	{
-		parentCounter++;
-		parentPointer = parentPointer->mParent;
+		currentNode = currentNode->mParent;
+		modelSpaceTransform *= currentNode->mTransformation;
 
 	}
 
-	for (size_t i = 0; i < bones.size(); i++)
-		if (bones[i].mName == currentNode->mName)
-			bones[i].mOffsetMatrix = aiMatrix4x4(aiVector3D(1, 1, 1), aiQuaternion(1,0,0,0), aiVector3D(50, 200, 0));
-	
-	/////////////
+	//apply transform to the bone
+	ioBone.mOffsetMatrix = modelSpaceTransform;
 
-	// continue traversing the nodes...
-	for (size_t i = 0; i < currentNode->mNumChildren;i++)
-		megaTestUpdateBones(currentNode->mChildren[i], ioBones);
-	
+
+}
+
+void megaTestUpdateBones()
+{
+	for (size_t i = 0; i < bones.size(); i++)
+		megaTestUpdateBone(bones[i]);
+
 }
 
 void Model::animate(void)
@@ -352,7 +359,7 @@ void Model::animate(void)
 	//
 	{
 		megaTestUpdateSkeleton(rootNode, testAnimation, bones);
-		megaTestUpdateBones   (rootNode, bones);
+		megaTestUpdateBones();
 
 
 	}
