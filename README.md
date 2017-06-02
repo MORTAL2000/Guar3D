@@ -5,12 +5,12 @@ Game engine using C++11, OpenGL.
 example game: [Win32 build](http://jfcameron.github.io/Github/Guar3D/Win32_build.7z) 
 
 
-### Features:
+## Features:
 * Entity Component system
 * 3D Renderer
 * 3D Physics simulation
 
-### Usage:
+## Usage:
  * Build dependent projects as static libraries (root/_VSC2015/dependencies/ for Visual Studio 2015).
  * Build Guar3D as a dynamic library (root/_VSC2015/systems/ for Visual Studio 2015)
  * include and link your game project against Guar3D.
@@ -97,32 +97,15 @@ namespace Game
 #endif
 ```
 
-### Threading diagram
-![alt tag](https://dl.dropboxusercontent.com/u/102655232/Github/Guar3D/Threading%20diagram%208_21_2016.png "Threading diagram, August 21, 2016")
-The engine uses two main threads, a dedicated graphics thread and a main thread, for everything else. Both threads make use of thread pools to accomplish certain tasks such as loading resources from file, etc.
-
-### Libraries used
-OpenGL context & extension management
-* [GLEW](http://glew.sourceforge.net/)
-* [GLFW](http://www.glfw.org/)
-
-Math
-* [GLM](http://glm.g-truc.net/0.9.7/index.html)
-
-Physics
-* [Bullet](http://bulletphysics.org/wordpress/)
-
-File io
-* [zlib](http://www.zlib.net/)
-* [assimp](http://www.assimp.org/)
-* [lodePNG](http://lodev.org/lodepng/)
-* [jsoncpp](https://github.com/open-source-parsers/jsoncpp)
-
-Scripting
-* [Lua](https://www.lua.org/)
-
-Portability headers
-* [dirent](https://github.com/tronkko/dirent)
-* [rlutil](https://github.com/tapio/rlutil)
-
-library licenses can be found in root/licenses/%LibraryName% LICENSE.txt
+## Libraries
+* [GLEW](http://glew.sourceforge.net/) & [GLFW](http://www.glfw.org/) - OpenGL context & extension management
+* [GLM](http://glm.g-truc.net/0.9.7/index.html) - 
+Linear algebra
+* [Bullet](http://bulletphysics.org/wordpress/) - 3D rigidbody physics
+* [zlib](http://www.zlib.net/) - archive compression/decompression 
+* [assimp](http://www.assimp.org/) - various model file format reader
+* [lodePNG](http://lodev.org/lodepng/) - PNG image decoder
+* [jsoncpp](https://github.com/open-source-parsers/jsoncpp) - json file processor
+* [Lua](https://www.lua.org/) - Script interpreter
+* [dirent](https://github.com/tronkko/dirent) - unix-like directory access on Windows
+* [rlutil](https://github.com/tapio/rlutil) - Terminal font decorating, cursor movement
