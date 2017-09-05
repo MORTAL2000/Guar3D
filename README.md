@@ -1,9 +1,13 @@
 # Guar3D
-Game engine using C++11, OpenGL.
-
 ![alt tag](http://jfcameron.github.io/Github/Guar3D/Build_Image.png "")
 example game: [Win32 build](http://jfcameron.github.io/Github/Guar3D/Win32_build.7z) 
 
+## Description:
+![asdf](https://img.shields.io/badge/development%20status-closed-lightgrey.svg)
+![asdf](https://img.shields.io/badge/platforms-win32-lightgrey.svg)
+![asdf](https://img.shields.io/badge/license-MIT-blue.svg)
+
+Game engine using C++11, OpenGL.
 
 ## Features:
 * Entity Component system
