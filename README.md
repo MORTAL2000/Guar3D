@@ -37,8 +37,8 @@ int main(void)
 void initExampleScene()
 {
 	std::weak_ptr<ECS::SceneGraph> mainScene = Engine::createScene("mainScene");
-    
-    //Create the ground
+
+	//Create the ground
     {
 		std::weak_ptr<ECS::GameObject> gameObject = mainScene._Get()->createNewGameObject("The Ground");
 		
