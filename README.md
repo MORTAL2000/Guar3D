@@ -29,8 +29,7 @@ int main(void)
 
 	Engine::mainLoop();
 
-    return 0;
-    
+	return 0;
 }
 ```
 ### Creating an example scene:
@@ -41,8 +40,8 @@ void initExampleScene()
     
     //Create the ground
     {
-    	std::weak_ptr<ECS::GameObject> gameObject = mainScene._Get()->createNewGameObject("The Ground");
-
+		std::weak_ptr<ECS::GameObject> gameObject = mainScene._Get()->createNewGameObject("The Ground");
+		
 		std::weak_ptr<guar::ECS::Renderer> renderer = gameObject._Get()->addComponent<guar::ECS::Renderer>();
 		renderer._Get()->setModel("Cube");
 		renderer._Get()->setShaderProgram("Opaque");
@@ -51,7 +50,6 @@ void initExampleScene()
 		std::weak_ptr<guar::ECS::Transform> transform = gameObject._Get()->addComponent<guar::ECS::Transform>();
 		transform._Get()->setScale(Math::Vector3(600.0f, 5.0f, 600.0f));
 		transform._Get()->setPosition(Math::Vector3(0, -7.5f, 0));
-        
     }
     
     //Create the player
@@ -64,9 +62,7 @@ void initExampleScene()
 
 		gameObject._Get()->addComponent<guar::ECS::Camera>(); //engine supplied component
 		gameObject._Get()->addComponent<PlayerController>(); //custom component
-
-	}	
-
+	}
 }
 ```
 
@@ -93,9 +89,7 @@ namespace Game
 
 		void init  (void) override;
 		void update(void) override;
-
 	};
-
 }
 
 #endif
@@ -103,8 +97,7 @@ namespace Game
 
 ## Libraries
 * [GLEW](http://glew.sourceforge.net/) & [GLFW](http://www.glfw.org/) - OpenGL context & extension management
-* [GLM](http://glm.g-truc.net/0.9.7/index.html) - 
-Linear algebra
+* [GLM](http://glm.g-truc.net/0.9.7/index.html) - Linear algebra
 * [Bullet](http://bulletphysics.org/wordpress/) - 3D rigidbody physics
 * [zlib](http://www.zlib.net/) - archive compression/decompression 
 * [assimp](http://www.assimp.org/) - various model file format reader
