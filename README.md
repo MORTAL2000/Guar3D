@@ -40,7 +40,7 @@ void initExampleScene()
 
 	//Create the ground
     {
-		std::weak_ptr<ECS::GameObject> gameObject = mainScene._Get()->createNewGameObject("The Ground");
+        std::weak_ptr<ECS::GameObject> gameObject = mainScene._Get()->createNewGameObject("The Ground");
 		
 		std::weak_ptr<guar::ECS::Renderer> renderer = gameObject._Get()->addComponent<guar::ECS::Renderer>();
 		renderer._Get()->setModel("Cube");
